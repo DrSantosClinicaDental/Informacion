@@ -8,14 +8,44 @@
     body {
       margin: 0;
       padding: 0;
-      background: #1e1e1e; /* Gris oscuro */
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Figuras decorativas */
+    .circle1, .circle2 {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    .circle1 {
+      width: 400px;
+      height: 400px;
+      background: #ffffff;
+      top: -100px;
+      left: -100px;
+    }
+
+    .circle2 {
+      width: 300px;
+      height: 300px;
+      background: #25D366;
+      bottom: -150px;
+      right: -150px;
+    }
+
+    .container {
+      z-index: 1;
+      text-align: center;
     }
 
     .logo {
@@ -26,31 +56,47 @@
       max-height: 80px;
     }
 
+    h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
     .whatsapp-button {
       background-color: #25D366;
       color: white;
       border: none;
-      padding: 15px 30px;
+      padding: 15px 35px;
       font-size: 18px;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
     .whatsapp-button:hover {
       background-color: #1ebe5d;
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
   </style>
 </head>
 <body>
 
+  <!-- Figuras de fondo -->
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+
   <!-- Logo -->
   <img src="logo.png" alt="Logo" class="logo" />
 
-  <!-- Botón de WhatsApp -->
-  <a class="whatsapp-button" href="https://wa.me/521XXXXXXXXXX" target="_blank">
-    Contáctame por WhatsApp
-  </a>
+  <!-- Contenido principal -->
+  <div class="container">
+    <h1>¡Agenda ahora!</h1>
+    <a class="whatsapp-button" href="https://wa.me/526147804673" target="_blank">
+      Contáctame por WhatsApp
+    </a>
+  </div>
 
 </body>
 </html>
