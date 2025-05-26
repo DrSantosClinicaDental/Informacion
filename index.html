@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Accede a nuestro WhatsApp fácilmente">
-    <title>Contáctanos en WhatsApp</title>
-    <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Poppins', sans-serif; background-color: #f4f4f9; position: relative; }
-        .container { text-align: center; background: white; padding: 30px 40px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        header { position: absolute; top: 15px; right: 15px; }
-        header img { height: 50px; max-width: 100%; }
-        h1 { font-size: 28px; margin-bottom: 20px; color: #333; }
-        a { display: inline-block; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; transition: background 0.3s; }
-        a:hover { background-color: #20b858; }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto WhatsApp</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e; /* Gris oscuro */
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      opacity: 0.4;
+      max-height: 80px;
+    }
+
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/DrSantosClinicaDental/pagina-whatsapp/ChatGPT Image May 15, 2025, 03_06_28 PM (1).png" alt="Dr Santos Dental Clinic">
-    </header>
-    <div class="container">
-        <h1>Contáctanos en WhatsApp</h1>
-        <a href="https://wa.me/526147804673?text=Hola,%20estoy%20interesado%20en%20agendar%20una%20consulta." target="_blank">Ir a WhatsApp</a>
-    </div>
+
+  <!-- Logo -->
+  <img src="logo.png" alt="Logo" class="logo" />
+
+  <!-- Botón de WhatsApp -->
+  <a class="whatsapp-button" href="https://wa.me/521XXXXXXXXXX" target="_blank">
+    Contáctame por WhatsApp
+  </a>
+
 </body>
 </html>
