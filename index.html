@@ -18,6 +18,7 @@
       align-items: center;
       position: relative;
       text-align: center;
+      flex-direction: column;
     }
 
     /* Figuras decorativas */
@@ -32,8 +33,8 @@
       width: 500px;
       height: 500px;
       background: #ffffff;
-      top: -120px;
-      left: -120px;
+      top: -150px;
+      left: -150px;
     }
 
     .circle2 {
@@ -41,32 +42,32 @@
       height: 400px;
       background: #25D366;
       bottom: -150px;
-      right: -100px;
+      right: -120px;
     }
 
     .circle3 {
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       background: #ffffff;
-      bottom: 50px;
+      bottom: 100px;
       left: 50px;
     }
 
     .container {
       z-index: 1;
       max-width: 600px;
+      padding: 20px;
     }
 
     .logo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      opacity: 0.4;
-      max-height: 80px;
+      max-height: 120px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      opacity: 0.5;
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       font-size: 30px;
       font-weight: 600;
     }
@@ -78,7 +79,7 @@
       background-color: #25D366;
       color: white;
       border: none;
-      padding: 15px 40px;
+      padding: 16px 45px;
       font-size: 18px;
       border-radius: 10px;
       text-decoration: none;
@@ -97,13 +98,23 @@
       height: 24px;
     }
 
+    .highlight {
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #25D366;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
     .footer {
       position: absolute;
-      bottom: 25px;
+      bottom: 20px;
       width: 100%;
       font-size: 14px;
       color: #ccc;
-      line-height: 1.6;
     }
   </style>
 </head>
@@ -114,22 +125,26 @@
   <div class="circle2"></div>
   <div class="circle3"></div>
 
-  <!-- Logo -->
+  <!-- Logo centrado -->
   <img src="logo.png" alt="Logo" class="logo" />
 
   <!-- Contenido principal -->
   <div class="container">
     <h1>¡Agenda ahora!</h1>
-    <a class="whatsapp-button" href="https://wa.me/526147804673" target="_blank">
+    <a class="whatsapp-button" href="https://wa.me/521XXXXXXXXXX" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
       Contáctame por WhatsApp
     </a>
+
+    <!-- Promoción destacada -->
+    <div class="highlight">
+      🎁 Pregunta por nuestras promociones exclusivas
+    </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Dirección -->
   <div class="footer">
-    Plutarco Elías Calles, Ciudad Juárez, Chihuahua. <br>
-    <em>Pregunta por nuestras promociones</em>
+    Plutarco Elías Calles, Ciudad Juárez, Chihuahua.
   </div>
 
 </body>
