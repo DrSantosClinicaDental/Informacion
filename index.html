@@ -118,6 +118,15 @@
       color: #aaa;
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3TRSR7Y18D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3TRSR7Y18D');
+</script>
+
 </head>
 <body>
 
@@ -132,10 +141,16 @@
   <!-- Contenido principal -->
   <div class="container">
     <h1>¡Agenda ahora!</h1>
-    <a class="whatsapp-button" href="https://wa.me/526147804673" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
-      Contáctame por WhatsApp
-    </a>
+   <a href="https://wa.me/526147804673"
+   class="whatsapp-button"
+   target="_blank"
+   onclick="gtag('event', 'whatsapp_click', {
+     'event_category': 'engagement',
+     'event_label': 'Botón WhatsApp principal'
+   });">
+   Contáctanos por WhatsApp
+</a>
+
 
     <!-- Línea de tratamientos -->
     <div class="treatments">
