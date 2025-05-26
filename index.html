@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto WhatsApp</title>
+  <title>Agenda por WhatsApp</title>
   <style>
     body {
       margin: 0;
@@ -17,35 +17,44 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      text-align: center;
     }
 
     /* Figuras decorativas */
-    .circle1, .circle2 {
+    .circle1, .circle2, .circle3 {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.08;
+      opacity: 0.06;
       z-index: 0;
     }
 
     .circle1 {
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
       background: #ffffff;
-      top: -100px;
-      left: -100px;
+      top: -120px;
+      left: -120px;
     }
 
     .circle2 {
-      width: 300px;
-      height: 300px;
+      width: 400px;
+      height: 400px;
       background: #25D366;
       bottom: -150px;
-      right: -150px;
+      right: -100px;
+    }
+
+    .circle3 {
+      width: 250px;
+      height: 250px;
+      background: #ffffff;
+      bottom: 50px;
+      left: 50px;
     }
 
     .container {
       z-index: 1;
-      text-align: center;
+      max-width: 600px;
     }
 
     .logo {
@@ -57,16 +66,19 @@
     }
 
     h1 {
-      margin-bottom: 10px;
-      font-size: 28px;
-      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-weight: 600;
     }
 
     .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background-color: #25D366;
       color: white;
       border: none;
-      padding: 15px 35px;
+      padding: 15px 40px;
       font-size: 18px;
       border-radius: 10px;
       text-decoration: none;
@@ -76,16 +88,31 @@
 
     .whatsapp-button:hover {
       background-color: #1ebe5d;
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transform: scale(1.04);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .whatsapp-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 25px;
+      width: 100%;
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-  <!-- Figuras de fondo -->
+  <!-- Figuras decorativas -->
   <div class="circle1"></div>
   <div class="circle2"></div>
+  <div class="circle3"></div>
 
   <!-- Logo -->
   <img src="logo.png" alt="Logo" class="logo" />
@@ -94,8 +121,15 @@
   <div class="container">
     <h1>¡Agenda ahora!</h1>
     <a class="whatsapp-button" href="https://wa.me/526147804673" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
       Contáctame por WhatsApp
     </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Plutarco Elías Calles, Ciudad Juárez, Chihuahua. <br>
+    <em>Pregunta por nuestras promociones</em>
   </div>
 
 </body>
