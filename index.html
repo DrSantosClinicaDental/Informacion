@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Santos Clínica Dental | Odontología Digital en Juárez</title>
+  <title>Dr. Santos Clínica Dental | Sonrisas Perfectas en Juárez</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -58,11 +58,7 @@
       text-align: right;
     }
 
-    /* Secciones */
-    section {
-      padding: 80px 5%;
-    }
-
+    /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
       color: var(--blanco);
@@ -80,6 +76,74 @@
     .hero h1 {
       color: var(--blanco);
       font-size: 2.2rem;
+    }
+
+    /* Botones de Contacto */
+    .btn-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 400px;
+      margin: 30px auto 0;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background-color: var(--blanco);
+      color: var(--color-primario);
+      box-shadow: var(--sombra);
+    }
+
+    .btn-llamar {
+      background-color: transparent;
+      color: var(--blanco);
+      border: 2px solid var(--blanco);
+    }
+
+    .btn-llamar-internacional {
+      background-color: var(--acento);
+      color: var(--blanco);
+      border: 2px solid var(--acento);
+    }
+
+    .btn-contacto {
+      background-color: var(--blanco);
+      color: var(--color-primario);
+      padding: 12px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 20px 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: var(--sombra);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .icon {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Secciones */
+    section {
+      padding: 80px 5%;
     }
 
     /* Servicios */
@@ -109,20 +173,65 @@
       color: var(--acento);
     }
 
-    /* Instalaciones */
-    .galeria {
+    /* Galería Google Ads */
+    .galeria-ads {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
       margin-top: 30px;
     }
 
-    .galeria img {
+    .galeria-ads img {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
+      height: auto;
       border-radius: 8px;
       box-shadow: var(--sombra);
+    }
+
+    /* Testimonios */
+    .testimonios {
+      background-color: var(--gris-claro);
+    }
+
+    .testimonios-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .testimonio {
+      min-width: 300px;
+      background: var(--blanco);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: var(--sombra);
+      scroll-snap-align: start;
+    }
+
+    .testimonio-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .testimonio-header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .testimonio h4 {
+      margin: 0;
+      color: var(--color-primario);
+    }
+
+    .rating {
+      color: #FFD700;
+      margin: 5px 0;
     }
 
     /* FAQ */
@@ -135,32 +244,51 @@
     .faq-item h3 {
       color: var(--color-primario);
       margin-bottom: 10px;
+      font-size: 1.1rem;
     }
 
-    /* Odontología Digital */
-    .digital-badge {
-      background-color: var(--acento);
+    /* Mapa */
+    .mapa-container {
+      margin-top: 30px;
+    }
+
+    .mapa {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: var(--sombra);
+      border: none;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--color-secundario);
       color: var(--blanco);
-      padding: 10px 20px;
-      border-radius: 30px;
-      display: inline-block;
-      margin: 20px 0;
-      font-weight: 600;
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
     }
 
     /* Responsive */
     @media (min-width: 768px) {
-      .servicios-grid, .galeria {
+      .servicios-grid, .galeria-ads {
         grid-template-columns: repeat(2, 1fr);
       }
       
-      .hero h1 {
-        font-size: 2.5rem;
+      .btn-container {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
       .servicios-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .galeria-ads {
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -175,10 +303,26 @@
   </header>
 
   <section class="hero">
-    <h1>Odontología Digital de Vanguardia</h1>
-    <p>Tecnología avanzada para tratamientos más precisos y cómodos</p>
-    <div class="digital-badge">
-      <i class="fas fa-digital-tachograph"></i> Especialistas en Odontología Digital
+    <h1>Sonrisas saludables, tratamientos confiables</h1>
+    <p>Expertos en odontología con enfoque en tu comodidad y satisfacción</p>
+    
+    <a href="#contacto" class="btn-contacto">
+      <i class="fas fa-comment-dots"></i> Comunícate con nosotros
+    </a>
+    
+    <div class="btn-container">
+      <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:6147804673" class="btn btn-llamar">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Llamar
+      </a>
+      <a href="tel:+5216147804673" class="btn btn-llamar-internacional">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Desde EE.UU.
+      </a>
     </div>
   </section>
 
@@ -187,36 +331,84 @@
     <div class="servicios-grid">
       <div class="servicio-item">
         <h3><i class="fas fa-tooth"></i> Blanqueamiento Dental</h3>
-        <p>Tratamiento sin dolor con tecnología LED para resultados inmediatos.</p>
+        <p>Recupera el brillo natural de tu sonrisa con nuestro tratamiento seguro y efectivo.</p>
       </div>
       <div class="servicio-item">
-        <h3><i class="fas fa-crown"></i> Coronas libres de metal</h3>
-        <p>Restauraciones estéticas de alta durabilidad sin estructuras metálicas.</p>
+        <h3><i class="fas fa-crown"></i> Coronas Dentales</h3>
+        <p>Restauraciones que se ven y se sienten como dientes naturales.</p>
       </div>
       <div class="servicio-item">
-        <h3><i class="fas fa-teeth"></i> Puentes dentales</h3>
-        <p>Soluciones fijas con diseño digital para máxima comodidad.</p>
+        <h3><i class="fas fa-teeth"></i> Puentes Dentales</h3>
+        <p>Soluciones fijas para reemplazar dientes faltantes con comodidad.</p>
       </div>
       <div class="servicio-item">
-        <h3><i class="fas fa-toothbrush"></i> Limpieza profesional</h3>
-        <p>Eliminación de placa y sarro con tecnología ultrasónica.</p>
+        <h3><i class="fas fa-toothbrush"></i> Limpieza Profesional</h3>
+        <p>Eliminamos placa y sarro para mantener tus encías saludables.</p>
       </div>
       <div class="servicio-item">
-        <h3><i class="fas fa-x-ray"></i> Radiografía digital</h3>
-        <p>Diagnóstico preciso con 90% menos radiación que métodos tradicionales.</p>
+        <h3><i class="fas fa-teeth-open"></i> Carillas Dentales</h3>
+        <p>Transforma tu sonrisa con nuestras carillas personalizadas.</p>
       </div>
       <div class="servicio-item">
-        <h3><i class="fas fa-teeth-open"></i> Diseño digital de sonrisa</h3>
-        <p>Simulación 3D para planificar tu tratamiento antes de comenzar.</p>
+        <h3><i class="fas fa-teeth"></i> Tratamiento de Canal</h3>
+        <p>Aliviamos tu dolor y salvamos tu diente natural.</p>
       </div>
     </div>
   </section>
 
-  <section id="instalaciones">
-    <h2>Nuestras Instalaciones</h2>
-    <div class="galeria">
-      <img src="recepcion.jpg" alt="Recepción moderna y acogedora">
-      <img src="unidad-dental.jpg" alt="Unidad dental equipada con tecnología digital">
+  <!-- Galería de Google Ads -->
+  <section id="galeria">
+    <h2>Nuestro Trabajo</h2>
+    <div class="galeria-ads">
+      <!-- Reemplaza estas URLs con las imágenes reales de tu Google Ads -->
+      <img src="https://via.placeholder.com/600x400?text=Antes+y+Después+1" alt="Resultados de tratamiento dental">
+      <img src="https://via.placeholder.com/600x400?text=Antes+y+Después+2" alt="Sonrisas transformadas">
+      <img src="https://via.placeholder.com/600x400?text=Consulta+personalizada" alt="Atención personalizada">
+      <img src="https://via.placeholder.com/600x400?text=Instalaciones" alt="Clínica moderna">
+      <img src="https://via.placeholder.com/600x400?text=Tecnología+avanzada" alt="Equipo dental">
+      <img src="https://via.placeholder.com/600x400?text=Sonrisas+felices" alt="Pacientes satisfechos">
+    </div>
+  </section>
+
+  <section class="testimonios" id="testimonios">
+    <h2>Lo que dicen nuestros pacientes</h2>
+    <div class="testimonios-container">
+      <div class="testimonio">
+        <div class="testimonio-header">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="María G.">
+          <div>
+            <h4>María G.</h4>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"El blanqueamiento fue rápido y sin dolor. ¡Mi sonrisa nunca se había visto tan bien!"</p>
+      </div>
+      <div class="testimonio">
+        <div class="testimonio-header">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos M.">
+          <div>
+            <h4>Carlos M.</h4>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Las coronas que me colocaron son idénticas a mis dientes naturales. Nadie nota la diferencia."</p>
+      </div>
+      <div class="testimonio">
+        <div class="testimonio-header">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Laura T.">
+          <div>
+            <h4>Laura T.</h4>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Vengo desde El Paso porque aquí encontré la mejor combinación de calidad y precio."</p>
+      </div>
     </div>
   </section>
 
@@ -224,37 +416,47 @@
     <h2>Preguntas Frecuentes</h2>
     
     <div class="faq-item">
-      <h3>¿El blanqueamiento dental duele?</h3>
-      <p>Nuestro blanqueamiento es completamente indoloro. Utilizamos tecnología LED de última generación con geles desensibilizantes que protegen tus dientes durante el proceso. La mayoría de pacientes experimentan cero molestias.</p>
+      <h3>¿Duele el blanqueamiento dental?</h3>
+      <p>¡Para nada! Nuestro blanqueamiento químico está diseñado para ser completamente cómodo. Usamos geles especiales que protegen tus encías y dientes durante el proceso. La mayoría de nuestros pacientes se sorprenden de lo fácil y relajante que es el tratamiento.</p>
     </div>
     
     <div class="faq-item">
-      <h3>¿Qué materiales utilizan en coronas y puentes?</h3>
-      <p>Trabajamos exclusivamente con materiales libres de metal:</p>
-      <ul>
-        <li><strong>Zirconio:</strong> Máxima estética y biocompatibilidad</li>
-        <li><strong>Disilicato de litio:</strong> Resistencia y naturalidad</li>
-        <li><strong>Cerámica pura:</strong> Para restauraciones invisibles</li>
-      </ul>
-      <p>Estos materiales ofrecen mejor ajuste, mayor durabilidad y resultados más naturales que los tradicionales con metal.</p>
+      <h3>¿Cuánto dura un blanqueamiento dental?</h3>
+      <p>Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos personalizados para mantener tu sonrisa brillante por más tiempo, como evitar el café, vino tinto o tabaco en exceso.</p>
     </div>
     
     <div class="faq-item">
-      <h3>¿Qué ventajas tiene la odontología digital?</h3>
-      <p>Nuestro flujo digital permite:</p>
-      <ul>
-        <li>Diseños precisos con escáneres intraorales (sin moldes incómodos)</li>
-        <li>Fabricación de prótesis en menor tiempo</li>
-        <li>Mayor comodidad durante los procedimientos</li>
-        <li>Resultados predecibles y personalizados</li>
-      </ul>
+      <h3>¿Qué diferencia sus coronas dentales?</h3>
+      <p>Usamos materiales de alta calidad que imitan perfectamente el color y translucidez de los dientes naturales. Son más resistentes que las coronas tradicionales y no tienen ese antiestético borde oscuro que se ve con las que llevan metal.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>¿Cuánto tiempo toma hacer una corona?</h3>
+      <p>¡Solo dos visitas! En la primera preparamos el diente y tomamos medidas precisas. En la segunda colocamos tu corona permanente. Mientras tanto, te daremos una provisional para que no te quedes sin diente.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>¿Aceptan seguros dentales?</h3>
+      <p>Sí, trabajamos con la mayoría de los seguros dentales. Nuestro equipo te ayudará a verificar tu cobertura y maximizar tus beneficios. También ofrecemos opciones de financiamiento para tu comodidad.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>¿Qué debo hacer en una emergencia dental?</h3>
+      <p>Llámanos inmediatamente al (614) 780-4673. Atendemos emergencias con prioridad, incluso fuera de horario. Si es un golpe fuerte que hizo saltar un diente, guárdalo en leche o suero fisiológico y ven directamente.</p>
     </div>
   </section>
 
-  <footer style="background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5%; text-align: center;">
+  <section id="ubicacion">
+    <h2>Ubicación</h2>
+    <div class="mapa-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy" title="Ubicación de la clínica"></iframe>
+    </div>
+  </section>
+
+  <footer class="footer" id="contacto">
     <p><strong>Dr. Santos Clínica Dental</strong></p>
-    <p>Odontología Digital Avanzada</p>
     <p>Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
+    <p>Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
     <p>Tel: (614) 780-4673 | WhatsApp: +52 1 614-780-4673</p>
   </footer>
 </body>
