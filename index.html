@@ -1,164 +1,431 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clínica Dental Dr. Santos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Santos Clínica Dental | Odontología Estética en Juárez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-principal: #00b4d8;
-      --color-secundario: #0077b6;
-      --color-fondo: #f1faff;
-      --color-texto: #1e1e1e;
+      --color-primario: #2a7f7f; /* Verde azulado profesional */
+      --color-secundario: #3a506b; /* Azul oscuro */
+      --acento: #5fb49c; /* Verde menta */
       --blanco: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      --gris-claro: #f5f7fa;
+      --gris-texto: #4a4a4a;
+      --sombra: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--gris-texto);
+      background-color: var(--blanco);
+      line-height: 1.6;
     }
 
-    header {
+    /* Formas decorativas de fondo modernas */
+    .bg-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .shape-1 {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      background: radial-gradient(circle, rgba(90,180,156,0.08) 0%, rgba(255,255,255,0) 70%);
     }
 
-    header img {
-      height: 60px;
-    }
-
-    .decoraciones {
+    .shape-2 {
       position: absolute;
-      top: -80px;
-      left: -80px;
-      width: 250px;
-      height: 250px;
-      background: var(--color-principal);
-      border-radius: 50%;
-      z-index: 0;
-      opacity: 0.15;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      background: radial-gradient(circle, rgba(42,127,127,0.05) 0%, rgba(255,255,255,0) 70%);
     }
 
-    .decoraciones::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      right: -60px;
-      width: 180px;
-      height: 180px;
-      background: var(--color-secundario);
-      border-radius: 50%;
-      opacity: 0.1;
-    }
-
-    main {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
+    .header {
+      background-color: rgba(255,255,255,0.95);
+      backdrop-filter: blur(5px);
+      box-shadow: var(--sombra);
+      padding: 15px 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
     }
 
-    .contenido {
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 24px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      text-align: center;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .contenido h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-secundario);
+    .logo {
+      height: 60px; /* Reducido para mejor proporción */
+      width: auto; /* Mantiene relación de aspecto */
+      max-width: 200px; /* Ancho máximo controlado */
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
 
-    .contenido p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .bandera-header {
+      width: 25px;
+      height: 16px;
+      border-radius: 3px;
+      margin-left: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
-    .boton-wsp {
-      display: inline-block;
-      background: var(--color-principal);
+    .hero {
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
       color: var(--blanco);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.2rem;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 180, 216, 0.3);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .boton-wsp:hover {
-      background: var(--color-secundario);
-      transform: scale(1.05);
-    }
-
-    footer {
+      padding: 150px 5% 80px;
+      margin-top: 80px;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      color: #777;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     }
 
-    @media (max-width: 768px) {
-      .contenido {
-        padding: 2rem;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: var(--blanco);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      transform: rotate(180deg);
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 350px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background-color: var(--blanco);
+      color: var(--color-primario);
+      box-shadow: var(--sombra);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .btn-llamar {
+      background-color: transparent;
+      color: var(--blanco);
+      border: 2px solid var(--blanco);
+    }
+
+    .btn-llamar:hover {
+      background-color: var(--blanco);
+      color: var(--color-primario);
+    }
+
+    .btn-llamar-internacional {
+      background-color: var(--acento);
+      color: var(--blanco);
+      border: 2px solid var(--acento);
+    }
+
+    .btn-llamar-internacional:hover {
+      background-color: var(--blanco);
+      color: var(--acento);
+    }
+
+    .icon {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .conocenos {
+      padding: 80px 5%;
+      background-color: var(--gris-claro);
+      text-align: center;
+      position: relative;
+    }
+
+    .conocenos h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-secundario);
+      margin-bottom: 40px;
+      font-size: 1.8rem;
+    }
+
+    .conocenos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .conocenos-item {
+      background-color: var(--blanco);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--sombra);
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .conocenos-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .conocenos-item h3 {
+      color: var(--color-primario);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .conocenos-item h3::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--acento);
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .ubicacion {
+      padding: 80px 5%;
+      text-align: center;
+      background-color: var(--blanco);
+      position: relative;
+    }
+
+    .ubicacion h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-secundario);
+      margin-bottom: 40px;
+      font-size: 1.8rem;
+    }
+
+    .direccion {
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+      color: var(--blanco);
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      box-shadow: var(--sombra);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .direccion::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .direccion h3 {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .mapa {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      box-shadow: var(--sombra);
+      margin-top: 20px;
+      border: none;
+    }
+
+    .footer {
+      background-color: var(--color-secundario);
+      color: var(--blanco);
+      padding: 40px 5%;
+      text-align: center;
+      position: relative;
+      clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: var(--blanco);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      transform: rotate(180deg);
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .conocenos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
       }
 
-      .contenido h1 {
-        font-size: 2rem;
+      .btn-container {
+        flex-direction: row;
+        max-width: 600px;
       }
 
-      .boton-wsp {
-        font-size: 1rem;
-        padding: 0.8rem 1.6rem;
+      .btn {
+        flex: 1;
       }
 
-      header img {
-        height: 45px;
+      .logo {
+        height: 70px;
+        max-width: 220px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        padding: 180px 5% 100px;
+      }
+      
+      .conocenos-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>
 </head>
 <body>
+  <div class="bg-shapes">
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+  </div>
 
-  <!-- Logotipo -->
-  <header>
-    <img src="tu-logo.png" alt="Logo Clínica Dental Dr. Santos">
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+      <img src="https://flagcdn.com/us.svg" alt="Servicio bilingüe" class="bandera-header" title="Servicio en inglés y español">
+    </div>
   </header>
 
-  <!-- Formas decorativas -->
-  <div class="decoraciones"></div>
-
-  <!-- Contenido principal -->
-  <main>
-    <div class="contenido">
-      <h1>Clínica Dental Dr. Santos</h1>
-      <p>Recupera tu sonrisa. Agenda hoy mismo tu cita con nosotros.</p>
-      <a href="https://wa.me/5210000000000" target="_blank" class="boton-wsp">Agendar por WhatsApp</a>
+  <section class="hero">
+    <h1>Odontología estética y restaurativa</h1>
+    <p>Soluciones dentales personalizadas para una sonrisa saludable y natural</p>
+    
+    <div class="btn-container">
+      <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:6147804673" class="btn btn-llamar">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Llamar
+      </a>
+      <a href="tel:+5216147804673" class="btn btn-llamar-internacional">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Desde EE.UU.
+      </a>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    &copy; 2025 Clínica Dental Dr. Santos. Todos los derechos reservados.
+  <section class="conocenos">
+    <h2>Conócenos</h2>
+    <div class="conocenos-grid">
+      <div class="conocenos-item">
+        <h3>Ubicación conveniente</h3>
+        <p>A solo 10 minutos del puente internacional, con fácil acceso para pacientes locales y visitantes.</p>
+      </div>
+      <div class="conocenos-item">
+        <h3>Odontología estética</h3>
+        <p>Tratamientos para mejorar la apariencia de tu sonrisa manteniendo resultados naturales.</p>
+      </div>
+      <div class="conocenos-item">
+        <h3>Enfoque personalizado</h3>
+        <p>Cada tratamiento se adapta a tus necesidades específicas y situación dental.</p>
+      </div>
+      <div class="conocenos-item">
+        <h3>Atención bilingüe</h3>
+        <p>Comunicación clara en inglés y español para todos nuestros pacientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ubicacion">
+    <h2>Nuestra clínica</h2>
+    <div class="direccion">
+      <h3>Dr. Santos Clínica Dental</h3>
+      <p>Avenida Plutarco Elías Calles 315<br>Ciudad Juárez, Chihuahua</p>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Dr. Santos Clínica Dental</strong></p>
+    <p>Avenida Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
+    <p>Horario: Lunes a Viernes 9:00 - 18:00 | Sábados 9:00 - 14:00</p>
+    <p>Teléfono: (614) 780-4673 | WhatsApp: +52 1 614-780-4673</p>
   </footer>
-
 </body>
 </html>
-
