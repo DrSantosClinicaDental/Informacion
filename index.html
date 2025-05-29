@@ -1,353 +1,295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DentalCare | Excelencia Odontológica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Santos Clínica Dental | Cuidado Profesional para tu Sonrisa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --azul-profundo: #1a3e72;
+      --azul-profesional: #1a5f7a;
       --blanco-puro: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-medio: #e1e5eb;
-      --gris-oscuro: #4a5568;
-      --verde-profesional: #2c7d7b;
-      --dorado-subtle: #d4af37;
+      --gris-claro: #f8f9fa;
+      --gris-texto: #555555;
+      --verde-consulta: #28a745;
+      --dorado-accento: #d4b05f;
       --sombra-suave: 0 4px 12px rgba(0,0,0,0.08);
-      --transicion-rapida: all 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--gris-texto);
       background-color: var(--blanco-puro);
-      color: var(--gris-oscuro);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
     }
 
-    .contenedor-principal {
-      max-width: 100%;
-      padding: 0 20px;
-      margin: 0 auto;
-    }
-
-    /* Header y Logo */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 15px 20px;
+    .header {
       background-color: var(--blanco-puro);
       box-shadow: var(--sombra-suave);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-container {
-      width: 120px;
-      height: auto;
-    }
-
-    .logo-container img {
+      padding: 15px 20px;
+      position: fixed;
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      top: 0;
+      z-index: 1000;
     }
 
-    /* Hero Section */
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+
     .hero {
-      background: linear-gradient(135deg, var(--azul-profundo), var(--verde-profesional));
+      background: linear-gradient(135deg, var(--azul-profesional), #2286a7);
       color: var(--blanco-puro);
-      padding: 100px 20px 60px;
-      margin-top: 60px;
+      padding: 120px 20px 60px;
+      margin-top: 80px;
       text-align: center;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -50px;
-      left: -10%;
-      right: -10%;
-      height: 100px;
-      background: var(--blanco-puro);
-      transform: rotate(-2deg);
-      z-index: 1;
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 15px;
-      line-height: 1.2;
-      position: relative;
-      z-index: 2;
     }
 
     .hero p {
       font-size: 1.1rem;
       max-width: 600px;
       margin: 0 auto 30px;
-      opacity: 0.9;
-      position: relative;
-      z-index: 2;
     }
 
-    /* Botones */
-    .botones-contenedor {
+    .btn-container {
       display: flex;
       flex-direction: column;
       gap: 15px;
       max-width: 350px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
     }
 
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 24px;
-      border-radius: 50px;
+      padding: 14px 20px;
+      border-radius: 30px;
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      transition: var(--transicion-rapida);
+      transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background-color: var(--verde-consulta);
+      color: var(--blanco-puro);
       box-shadow: var(--sombra-suave);
-      width: 100%;
-      border: none;
-      cursor: pointer;
     }
 
-    .btn:hover {
+    .btn-whatsapp:hover {
+      background-color: #218838;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-
-    .btn-wsp {
-      background-color: var(--blanco-puro);
-      color: var(--verde-profesional);
-    }
-
-    .btn-wsp.pulse {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
-      70% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
     }
 
     .btn-llamar {
-      background-color: var(--dorado-subtle);
-      color: var(--azul-profundo);
+      background-color: var(--blanco-puro);
+      color: var(--azul-profesional);
+      border: 2px solid var(--azul-profesional);
     }
 
-    .btn-icon {
+    .btn-llamar:hover {
+      background-color: var(--azul-profesional);
+      color: var(--blanco-puro);
+    }
+
+    .icon {
       margin-right: 10px;
       width: 20px;
       height: 20px;
     }
 
-    /* Sección de Transporte */
-    .seccion-transporte {
+    .beneficios {
+      padding: 60px 20px;
+      background-color: var(--gris-claro);
+      text-align: center;
+    }
+
+    .beneficios h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--azul-profesional);
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .beneficio-item {
       background-color: var(--blanco-puro);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: var(--sombra-suave);
+    }
+
+    .beneficio-item h3 {
+      color: var(--azul-profesional);
+      margin-bottom: 10px;
+    }
+
+    .transporte {
       padding: 60px 20px;
       text-align: center;
     }
 
-    .seccion-transporte h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--azul-profundo);
+    .transporte h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--azul-profesional);
       margin-bottom: 20px;
     }
 
-    .seccion-transporte p {
-      font-size: 1rem;
-      color: var(--gris-oscuro);
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .imagen-transporte {
+    .transporte-img {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      margin: 25px auto;
+      border-radius: 10px;
+      margin: 25px 0;
       box-shadow: var(--sombra-suave);
-      display: block;
     }
 
-    /* Footer */
-    footer {
-      background-color: var(--azul-profundo);
+    .footer {
+      background-color: var(--azul-profesional);
       color: var(--blanco-puro);
       padding: 30px 20px;
       text-align: center;
-      font-size: 0.9rem;
     }
 
-    footer p {
-      opacity: 0.8;
+    .footer p {
       margin-bottom: 10px;
     }
 
-    /* Responsive */
-    @media (min-width: 768px) {
-      .hero {
-        padding: 120px 20px 80px;
-      }
-
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-      }
-
-      .botones-contenedor {
-        flex-direction: row;
-        max-width: 600px;
-      }
-
-      .btn {
-        width: auto;
-        flex: 1;
-      }
+    .banderas {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
     }
 
-    @media (max-width: 480px) {
-      .logo-container {
-        width: 100px;
-      }
+    .bandera {
+      width: 30px;
+      height: 20px;
+      border-radius: 3px;
+    }
 
+    @media (min-width: 768px) {
+      .beneficios-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
       .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn {
-        padding: 14px 20px;
-        font-size: 0.9rem;
+        font-size: 2.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <!-- ESPACIO PARA TU LOGO -->
-      <img src="logo-dentalcare.png" alt="DentalCare - Logo Profesional" />
-    </div>
+  <header class="header">
+    <img src="logo-dr-santos.png" alt="Dr. Santos Clínica Dental" class="logo">
   </header>
 
   <section class="hero">
-    <div class="contenedor-principal">
-      <h1>Cuidado Dental de Excelencia</h1>
-      <p>Soluciones personalizadas con tecnología de vanguardia y atención experta</p>
-      
-      <div class="botones-contenedor">
-        <a class="btn btn-wsp pulse" href="https://wa.me/5216147804673?text=Hola,%20me%20interesaría%20agendar%20una%20consulta%20con%20ustedes.">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--verde-profesional)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-        
-        <a class="btn btn-llamar" href="tel:6147804673">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--azul-profundo)"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-          Llamar Ahora
-        </a>
+    <h1>Tu sonrisa en las mejores manos</h1>
+    <p>Más de 15 años transformando sonrisas con tratamientos personalizados y tecnología de última generación.</p>
+    
+    <div class="btn-container">
+      <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20saber%20más%20sobre%20sus%20servicios%20dentales" class="btn btn-whatsapp">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <a href="tel:6147804673" class="btn btn-llamar">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Llamar ahora
+      </a>
+    </div>
+  </section>
+
+  <section class="beneficios">
+    <h2>¿Por qué elegirnos?</h2>
+    <div class="beneficios-grid">
+      <div class="beneficio-item">
+        <h3>Experiencia comprobada</h3>
+        <p>Miles de pacientes satisfechos respaldan nuestra trayectoria profesional en el cuidado dental.</p>
+      </div>
+      <div class="beneficio-item">
+        <h3>Tecnología avanzada</h3>
+        <p>Utilizamos equipos de última generación para diagnósticos precisos y tratamientos efectivos.</p>
+      </div>
+      <div class="beneficio-item">
+        <h3>Resultados naturales</h3>
+        <p>Logramos sonrisas armónicas que conservan la esencia natural de cada paciente.</p>
       </div>
     </div>
   </section>
 
-  <section class="seccion-transporte">
-    <div class="contenedor-principal">
-      <h2>Transporte Asistido</h2>
-      <p>Para su comodidad, ofrecemos un servicio de transporte exclusivo desde los cruces fronterizos hasta nuestra clínica.</p>
-      
-      <!-- ESPACIO PARA IMAGEN DE CAMIONETA PNG -->
-      <img class="imagen-transporte" src="transporte-dentalcare.png" alt="Servicio de transporte profesional" />
-      
-      <div class="botones-contenedor">
-        <a class="btn btn-llamar" href="https://wa.me/5216147804673?text=Hola,%20quisiera%20coordinar%20el%20servicio%20de%20transporte%20para%20mi%20visita.">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--azul-profundo)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V3H9v2H6.5c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
-          Coordinar Transporte
-        </a>
-      </div>
+  <section class="transporte">
+    <h2>Nos preocupamos por tu comodidad</h2>
+    <p>Si vienes de fuera de la ciudad, podemos ayudarte con opciones de transporte.</p>
+    <img src="transporte-dental.png" alt="Servicio de transporte" class="transporte-img">
+    <div class="btn-container">
+      <a href="https://wa.me/5216147804673?text=Hola,%20necesito%20información%20sobre%20el%20servicio%20de%20transporte" class="btn btn-whatsapp">
+        Preguntar por transporte
+      </a>
     </div>
   </section>
 
-  <footer>
-    <div class="contenedor-principal">
-      <p>© 2023 DentalCare. Todos los derechos reservados.</p>
-      <p>Profesionales certificados con los más altos estándares de calidad</p>
+  <footer class="footer">
+    <p><strong>Dr. Santos Clínica Dental</strong></p>
+    <p>Horario: Lunes a Viernes 9:00 - 18:00 | Sábados 9:00 - 14:00</p>
+    <div class="banderas">
+      <img src="https://flagcdn.com/mx.svg" alt="México" class="bandera">
+      <img src="https://flagcdn.com/us.svg" alt="Estados Unidos" class="bandera">
     </div>
+    <p style="margin-top: 15px;">Atendemos pacientes nacionales e internacionales</p>
   </footer>
 
   <script>
-    // Optimización para móviles - evitar zoom no deseado
-    document.addEventListener('dblclick', function(e) {
-      e.preventDefault();
-    }, { passive: false });
-
-    // Popup discreto para transporte
-    document.addEventListener('DOMContentLoaded', function() {
+    // Popup para pacientes internacionales
+    setTimeout(function() {
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.bottom = '20px';
+      popup.style.right = '20px';
+      popup.style.left = '20px';
+      popup.style.backgroundColor = 'var(--blanco-puro)';
+      popup.style.padding = '20px';
+      popup.style.borderRadius = '10px';
+      popup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+      popup.style.zIndex = '1000';
+      popup.style.transform = 'translateY(20px)';
+      popup.style.opacity = '0';
+      popup.style.transition = 'all 0.3s ease';
+      popup.innerHTML = `
+        <h3 style="color: var(--azul-profesional); margin-bottom: 10px; font-family: 'Poppins', sans-serif;">¿Vienes desde Estados Unidos?</h3>
+        <p style="margin-bottom: 15px;">Te ayudamos con información para tu visita:</p>
+        <a href="tel:+5216147804673" style="display: inline-block; background: var(--azul-profesional); color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: 500; margin-right: 10px;">
+          Llamar desde EE.UU.
+        </a>
+        <button onclick="this.parentElement.style.display='none'" style="background: none; border: none; color: var(--azul-profesional); text-decoration: underline; cursor: pointer;">
+          Cerrar
+        </button>
+      `;
+      document.body.appendChild(popup);
+      
       setTimeout(function() {
-        const popup = document.createElement('div');
-        popup.style.position = 'fixed';
-        popup.style.bottom = '20px';
-        popup.style.right = '20px';
-        popup.style.left = '20px';
-        popup.style.backgroundColor = 'var(--blanco-puro)';
-        popup.style.padding = '20px';
-        popup.style.borderRadius = '12px';
-        popup.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
-        popup.style.zIndex = '1000';
-        popup.style.transform = 'translateY(20px)';
-        popup.style.opacity = '0';
-        popup.style.transition = 'all 0.3s ease-out';
-        popup.innerHTML = `
-          <h3 style="font-family: 'Playfair Display', serif; color: var(--azul-profundo); margin-bottom: 10px; font-size: 1.2rem;">¿Necesita transporte?</h3>
-          <p style="color: var(--gris-oscuro); margin-bottom: 15px; font-size: 0.9rem;">Podemos ayudarle con el traslado desde la frontera</p>
-          <a href="https://wa.me/5216147804673?text=Hola,%20necesito%20ayuda%20con%20el%20transporte%20para%20mi%20cita." 
-             style="display: inline-block; background: var(--dorado-subtle); color: var(--azul-profundo); padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-            Solicitar Transporte
-          </a>
-          <button onclick="this.parentElement.style.display='none'" 
-                  style="display: block; margin: 10px auto 0; background: none; border: none; color: var(--gris-oscuro); font-size: 0.8rem; cursor: pointer;">
-            Cerrar
-          </button>
-        `;
-        document.body.appendChild(popup);
-        
-        setTimeout(function() {
-          popup.style.transform = 'translateY(0)';
-          popup.style.opacity = '1';
-        }, 100);
-      }, 5000);
-    });
+        popup.style.transform = 'translateY(0)';
+        popup.style.opacity = '1';
+      }, 100);
+    }, 5000);
   </script>
 </body>
 </html>
