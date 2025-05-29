@@ -4,22 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clínica Dental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --verde-wsp: #25D366;
       --azul-llamada: #007BFF;
-      --fondo-suave: #f9fbfc;
+      --fondo-suave: #f4f8f9;
+      --gris-texto: #555;
+      --sombra: 0 8px 20px rgba(0,0,0,0.08);
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
       background-color: var(--fondo-suave);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
@@ -41,7 +44,7 @@
       left: 0;
       width: 100%;
       height: 250px;
-      background: linear-gradient(135deg, #25D366, #75e7a0);
+      background: linear-gradient(135deg, #25D366, #00c47c);
       border-bottom-left-radius: 100% 30%;
       border-bottom-right-radius: 100% 30%;
       z-index: 0;
@@ -50,27 +53,34 @@
     .contenido {
       z-index: 2;
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 120px 20px 40px;
     }
 
     h1 {
-      font-size: 24px;
-      color: #333;
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: var(--gris-texto);
+      margin-bottom: 30px;
     }
 
     .btn-wsp, .btn-call {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 12px auto;
-      padding: 15px 30px;
-      border-radius: 30px;
+      margin: 10px auto;
+      padding: 14px 26px;
+      border-radius: 40px;
       font-size: 16px;
       text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
+      font-weight: 600;
       transition: transform 0.2s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--sombra);
       width: fit-content;
     }
 
@@ -85,7 +95,7 @@
 
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
@@ -106,16 +116,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.9);
-      background: white;
+      background: #fff;
       border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      max-width: 90%;
+      padding: 20px;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.25);
+      max-width: 95%;
+      width: 320px;
       z-index: 1000;
       text-align: center;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .popup.show {
@@ -125,62 +136,90 @@
     }
 
     .popup h2 {
-      margin-top: 0;
-      font-size: 22px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      font-size: 15px;
+      color: #444;
+    }
+
+    .popup a {
+      margin-top: 15px;
+      display: inline-block;
     }
 
     .popup button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #25D366;
+      margin-top: 10px;
+      padding: 8px 20px;
+      background: #ccc;
       border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
+      border-radius: 8px;
+      color: #333;
+      font-weight: 600;
       cursor: pointer;
     }
 
     .transport-section {
-      margin-top: 40px;
+      margin-top: 60px;
       text-align: center;
       max-width: 600px;
       padding: 20px;
+    }
+
+    .transport-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .transport-section p {
+      font-size: 16px;
+      color: #555;
     }
 
     .transport-section img {
       max-width: 100%;
       border-radius: 12px;
       margin-top: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: var(--sombra);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      .popup {
+        width: 90%;
+      }
+      .popup h2 {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="forma-decorativa"></div>
-
   <header>
     <img src="tu-logo.png" alt="Logo de la clínica" />
   </header>
-
   <div class="contenido">
     <h1>¡Transforma tu sonrisa hoy mismo!</h1>
     <p>Agenda tu cita en menos de 30 segundos por WhatsApp.</p>
     <a class="btn-wsp pulse" href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita.">💬 Agendar por WhatsApp</a>
-
     <a class="btn-call" href="tel:6147804673">
       <img src="https://flagcdn.com/mx.svg" alt="México" /> Llamar desde México
     </a>
-
     <a class="btn-call" href="tel:+5216147804673">
       <img src="https://flagcdn.com/us.svg" alt="EE.UU." /> Llamar desde EE.UU.
     </a>
   </div>
 
   <div class="popup" id="popup">
-    <h2>🚐 Nuevo servicio de transporte</h2>
+    <h2>🚐 Servicio de transporte</h2>
     <p>¡Te llevamos desde el puente internacional hasta nuestra clínica!</p>
-    <a href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita%20y%20usar%20el%20servicio%20de%20transporte." class="btn-wsp">Solicitar vía WhatsApp</a>
-    <br><br>
+    <a href="https://wa.me/5216147804673?text=Hola,%20quiero%20usar%20el%20transporte%20y%20agendar%20una%20cita." class="btn-wsp">Usar el transporte</a>
+    <br>
     <button onclick="document.getElementById('popup').classList.remove('show')">Cerrar</button>
   </div>
 
