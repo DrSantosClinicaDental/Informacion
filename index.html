@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Santos Clínica Dental | Cuidado Profesional para tu Sonrisa</title>
+  <title>Dr. Santos Clínica Dental | Odontología Estética y Restaurativa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -33,11 +33,20 @@
       width: 100%;
       top: 0;
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
       height: 50px;
       width: auto;
+    }
+
+    .bandera-header {
+      width: 30px;
+      height: 20px;
+      border-radius: 3px;
     }
 
     .hero {
@@ -104,6 +113,17 @@
       color: var(--blanco-puro);
     }
 
+    .btn-llamar-internacional {
+      background-color: var(--dorado-accento);
+      color: var(--azul-profesional);
+      border: 2px solid var(--dorado-accento);
+    }
+
+    .btn-llamar-internacional:hover {
+      background-color: var(--azul-profesional);
+      color: var(--blanco-puro);
+    }
+
     .icon {
       margin-right: 10px;
       width: 20px;
@@ -143,23 +163,34 @@
       margin-bottom: 10px;
     }
 
-    .transporte {
+    .ubicacion {
       padding: 60px 20px;
       text-align: center;
     }
 
-    .transporte h2 {
+    .ubicacion h2 {
       font-family: 'Poppins', sans-serif;
       color: var(--azul-profesional);
       margin-bottom: 20px;
     }
 
-    .transporte-img {
-      max-width: 100%;
-      height: auto;
+    .direccion {
+      background-color: var(--azul-profesional);
+      color: var(--blanco-puro);
+      padding: 20px;
       border-radius: 10px;
-      margin: 25px 0;
+      max-width: 500px;
+      margin: 0 auto 30px;
       box-shadow: var(--sombra-suave);
+    }
+
+    .mapa {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: var(--sombra-suave);
+      margin-top: 20px;
+      border: none;
     }
 
     .footer {
@@ -173,26 +204,22 @@
       margin-bottom: 10px;
     }
 
-    .banderas {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .bandera {
-      width: 30px;
-      height: 20px;
-      border-radius: 3px;
-    }
-
     @media (min-width: 768px) {
       .beneficios-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
       
       .hero h1 {
         font-size: 2.5rem;
+      }
+
+      .btn-container {
+        flex-direction: row;
+        max-width: 600px;
+      }
+
+      .btn {
+        flex: 1;
       }
     }
   </style>
@@ -200,11 +227,12 @@
 <body>
   <header class="header">
     <img src="logo-dr-santos.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <img src="https://flagcdn.com/us.svg" alt="Servicio bilingüe" class="bandera-header" title="Servicio bilingüe inglés/español">
   </header>
 
   <section class="hero">
-    <h1>Tu sonrisa en las mejores manos</h1>
-    <p>Más de 15 años transformando sonrisas con tratamientos personalizados y tecnología de última generación.</p>
+    <h1>Odontología estética y restaurativa</h1>
+    <p>Recupera la salud y belleza de tu sonrisa </p>
     
     <div class="btn-container">
       <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20saber%20más%20sobre%20sus%20servicios%20dentales" class="btn btn-whatsapp">
@@ -215,81 +243,49 @@
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
         Llamar ahora
       </a>
-    </div>
-  </section>
-
-  <section class="beneficios">
-    <h2>¿Por qué elegirnos?</h2>
-    <div class="beneficios-grid">
-      <div class="beneficio-item">
-        <h3>Experiencia comprobada</h3>
-        <p>Miles de pacientes satisfechos respaldan nuestra trayectoria profesional en el cuidado dental.</p>
-      </div>
-      <div class="beneficio-item">
-        <h3>Tecnología avanzada</h3>
-        <p>Utilizamos equipos de última generación para diagnósticos precisos y tratamientos efectivos.</p>
-      </div>
-      <div class="beneficio-item">
-        <h3>Resultados naturales</h3>
-        <p>Logramos sonrisas armónicas que conservan la esencia natural de cada paciente.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="transporte">
-    <h2>Nos preocupamos por tu comodidad</h2>
-    <p>Si vienes de fuera de la ciudad, podemos ayudarte con opciones de transporte.</p>
-    <img src="transporte-dental.png" alt="Servicio de transporte" class="transporte-img">
-    <div class="btn-container">
-      <a href="https://wa.me/5216147804673?text=Hola,%20necesito%20información%20sobre%20el%20servicio%20de%20transporte" class="btn btn-whatsapp">
-        Preguntar por transporte
+      <a href="tel:+5216147804673" class="btn btn-llamar-internacional">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        Llamar desde EE.UU.
       </a>
     </div>
   </section>
 
+  <section class="beneficios">
+    <h2>Conócenos</h2>
+    <div class="beneficios-grid">
+      <div class="beneficio-item">
+        <h3>Ubicación privilegiada</h3>
+        <p>A solo 10 minutos del puente internacional, con fácil acceso.</p>
+      </div>
+      <div class="beneficio-item">
+        <h3>Odontología estética</h3>
+        <p>Diseñamos sonrisas naturales y armoniosas que mejoran tu apariencia y autoestima.</p>
+      </div>
+      <div class="beneficio-item">
+        <h3>Tratamientos personalizados</h3>
+        <p>Nos esforzamos por ofrecer soluciones adaptadas a las necesidades específicas de cada paciente.</p>
+      </div>
+      <div class="beneficio-item">
+        <h3>Atención bilingüe</h3>
+        <p>Servicio en inglés y español para garantizar una comunicación clara con todos nuestros pacientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ubicacion">
+    <h2>Nuestra ubicación</h2>
+    <div class="direccion">
+      <h3>Plutarco Elías Calles 315</h3>
+      <p>Consultorio dental con fácil acceso</p>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d-106.12345678901234!3d29.98765432101234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjYiTiAxMDbCsDA3JzI0LjEiVw!5e0!3m2!1sen!2smx!4v1234567890123!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
   <footer class="footer">
     <p><strong>Dr. Santos Clínica Dental</strong></p>
+    <p>Plutarco Elías Calles 315</p>
     <p>Horario: Lunes a Viernes 9:00 - 18:00 | Sábados 9:00 - 14:00</p>
-    <div class="banderas">
-      <img src="https://flagcdn.com/mx.svg" alt="México" class="bandera">
-      <img src="https://flagcdn.com/us.svg" alt="Estados Unidos" class="bandera">
-    </div>
-    <p style="margin-top: 15px;">Atendemos pacientes nacionales e internacionales</p>
+    <p>Servicio bilingüe inglés/español</p>
   </footer>
-
-  <script>
-    // Popup para pacientes internacionales
-    setTimeout(function() {
-      const popup = document.createElement('div');
-      popup.style.position = 'fixed';
-      popup.style.bottom = '20px';
-      popup.style.right = '20px';
-      popup.style.left = '20px';
-      popup.style.backgroundColor = 'var(--blanco-puro)';
-      popup.style.padding = '20px';
-      popup.style.borderRadius = '10px';
-      popup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-      popup.style.zIndex = '1000';
-      popup.style.transform = 'translateY(20px)';
-      popup.style.opacity = '0';
-      popup.style.transition = 'all 0.3s ease';
-      popup.innerHTML = `
-        <h3 style="color: var(--azul-profesional); margin-bottom: 10px; font-family: 'Poppins', sans-serif;">¿Vienes desde Estados Unidos?</h3>
-        <p style="margin-bottom: 15px;">Te ayudamos con información para tu visita:</p>
-        <a href="tel:+5216147804673" style="display: inline-block; background: var(--azul-profesional); color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: 500; margin-right: 10px;">
-          Llamar desde EE.UU.
-        </a>
-        <button onclick="this.parentElement.style.display='none'" style="background: none; border: none; color: var(--azul-profesional); text-decoration: underline; cursor: pointer;">
-          Cerrar
-        </button>
-      `;
-      document.body.appendChild(popup);
-      
-      setTimeout(function() {
-        popup.style.transform = 'translateY(0)';
-        popup.style.opacity = '1';
-      }, 100);
-    }, 5000);
-  </script>
 </body>
 </html>
