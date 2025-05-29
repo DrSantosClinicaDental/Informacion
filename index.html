@@ -7,10 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fondo: #f0f4f8;
-      --primario: #0077b6;
-      --acento: #00b4d8;
-      --texto: #2b2b2b;
+      --color-principal: #00b4d8;
+      --color-secundario: #0077b6;
+      --color-fondo: #f1faff;
+      --color-texto: #1e1e1e;
       --blanco: #ffffff;
     }
 
@@ -22,124 +22,143 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: var(--fondo);
-      color: var(--texto);
-      line-height: 1.6;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
     }
 
-    .header {
-      display: flex;
-      justify-content: flex-end;
-      padding: 1rem;
-      background-color: transparent;
+    header {
       position: absolute;
-      width: 100%;
+      top: 1rem;
+      right: 1rem;
       z-index: 10;
     }
 
-    .logo {
+    header img {
       height: 60px;
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 6px 10px;
-      border-radius: 10px;
     }
 
-    .hero {
+    .decoraciones {
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background: var(--color-principal);
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    .decoraciones::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: var(--color-secundario);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #caf0f8 0%, #90e0ef 100%);
-      text-align: center;
       padding: 2rem;
     }
 
     .contenido {
       max-width: 600px;
-      padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
     }
 
-    h1 {
+    .contenido h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: var(--primario);
+      color: var(--color-secundario);
     }
 
-    p {
+    .contenido p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
 
-    .btn-whatsapp {
+    .boton-wsp {
       display: inline-block;
-      padding: 0.9rem 1.8rem;
-      background-color: var(--acento);
+      background: var(--color-principal);
       color: var(--blanco);
-      text-decoration: none;
-      border-radius: 12px;
+      padding: 1rem 2rem;
+      border-radius: 50px;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 180, 216, 0.3);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .btn-whatsapp:hover {
-      background-color: var(--primario);
+    .boton-wsp:hover {
+      background: var(--color-secundario);
       transform: scale(1.05);
     }
 
-    .footer {
+    footer {
       text-align: center;
       padding: 1rem;
-      background-color: #e0f7fa;
-      font-size: 0.9rem;
-      color: #555;
+      font-size: 0.85rem;
+      color: #777;
     }
 
     @media (max-width: 768px) {
-      .logo {
-        height: 45px;
+      .contenido {
+        padding: 2rem;
       }
 
-      h1 {
+      .contenido h1 {
         font-size: 2rem;
       }
 
-      p {
+      .boton-wsp {
         font-size: 1rem;
+        padding: 0.8rem 1.6rem;
       }
 
-      .btn-whatsapp {
-        width: 100%;
-        padding: 1rem;
-      }
-
-      .contenido {
-        padding: 1.5rem;
+      header img {
+        height: 45px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <img src="tu-logo.png" alt="Logo Dr. Santos" class="logo" />
+
+  <!-- Logotipo -->
+  <header>
+    <img src="tu-logo.png" alt="Logo Clínica Dental Dr. Santos">
   </header>
 
-  <main class="hero">
+  <!-- Formas decorativas -->
+  <div class="decoraciones"></div>
+
+  <!-- Contenido principal -->
+  <main>
     <div class="contenido">
       <h1>Clínica Dental Dr. Santos</h1>
-      <p>Agenda tu cita hoy mismo</p>
-      <a href="https://wa.me/5210000000000" target="_blank" class="btn-whatsapp">
-        Enviar mensaje por WhatsApp
-      </a>
+      <p>Recupera tu sonrisa. Agenda hoy mismo tu cita con nosotros.</p>
+      <a href="https://wa.me/5210000000000" target="_blank" class="boton-wsp">Agendar por WhatsApp</a>
     </div>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 Clínica Dental Dr. Santos</p>
+  <footer>
+    &copy; 2025 Clínica Dental Dr. Santos. Todos los derechos reservados.
   </footer>
+
 </body>
 </html>
+
