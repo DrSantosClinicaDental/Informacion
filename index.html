@@ -2,20 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clínica Dental</title>
   <style>
+    :root {
+      --verde-wsp: #25D366;
+      --azul-llamada: #007BFF;
+      --fondo-suave: #f9fbfc;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f6f6f6;
-      color: #333;
+      background-color: var(--fondo-suave);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     header {
@@ -28,60 +35,102 @@
       height: 60px;
     }
 
+    .forma-decorativa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #25D366, #75e7a0);
+      border-bottom-left-radius: 100% 30%;
+      border-bottom-right-radius: 100% 30%;
+      z-index: 0;
+    }
+
+    .contenido {
+      z-index: 2;
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+    }
+
     .btn-wsp, .btn-call {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
+      margin: 12px auto;
+      padding: 15px 30px;
+      border-radius: 30px;
       font-size: 16px;
       text-decoration: none;
-      color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      width: fit-content;
     }
 
     .btn-wsp {
-      background-color: #25D366;
+      background-color: var(--verde-wsp);
+      color: white;
+    }
+
+    .btn-wsp.pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
     .btn-call {
-      background-color: #007BFF;
+      background-color: var(--azul-llamada);
+      color: white;
     }
 
     .btn-call img {
       width: 24px;
       height: 16px;
       margin-right: 10px;
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
     .popup {
       position: fixed;
-      top: 30%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) scale(0.9);
       background: white;
-      border: 2px solid #25D366;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
       max-width: 90%;
       z-index: 1000;
       text-align: center;
-      display: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
     }
 
     .popup h2 {
       margin-top: 0;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .popup button {
-      margin-top: 15px;
+      margin-top: 20px;
       padding: 10px 20px;
       background: #25D366;
       border: none;
@@ -95,6 +144,7 @@
       margin-top: 40px;
       text-align: center;
       max-width: 600px;
+      padding: 20px;
     }
 
     .transport-section img {
@@ -103,56 +153,50 @@
       margin-top: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
-    @media (max-width: 480px) {
-      .btn-wsp, .btn-call {
-        font-size: 14px;
-        padding: 12px 20px;
-      }
-    }
   </style>
 </head>
 <body>
+  <div class="forma-decorativa"></div>
 
-  <!-- Logotipo -->
   <header>
     <img src="tu-logo.png" alt="Logo de la clínica" />
   </header>
 
-  <!-- Botón de WhatsApp -->
-  <a class="btn-wsp" href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita.">💬 Agendar por WhatsApp</a>
+  <div class="contenido">
+    <h1>¡Transforma tu sonrisa hoy mismo!</h1>
+    <p>Agenda tu cita en menos de 30 segundos por WhatsApp.</p>
+    <a class="btn-wsp pulse" href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita.">💬 Agendar por WhatsApp</a>
 
-  <!-- Botones de llamada -->
-  <a class="btn-call" href="tel:6147804673">
-    <img src="https://flagcdn.com/mx.svg" alt="México" /> Llamar desde México
-  </a>
+    <a class="btn-call" href="tel:6147804673">
+      <img src="https://flagcdn.com/mx.svg" alt="México" /> Llamar desde México
+    </a>
 
-  <a class="btn-call" href="tel:+5216147804673">
-    <img src="https://flagcdn.com/us.svg" alt="EE.UU." /> Llamar desde EE.UU.
-  </a>
-
-  <!-- Pop-up de transporte -->
-  <div class="popup" id="popup">
-    <h2>🚐 Nuevo servicio de transporte</h2>
-    <p>¡Ahora te llevamos desde el puente internacional hasta nuestra clínica!</p>
-    <a href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita%20y%20usar%20el%20servicio%20de%20transporte." class="btn-wsp">Solicitar vía WhatsApp</a>
-    <br><br>
-    <button onclick="document.getElementById('popup').style.display='none'">Cerrar</button>
+    <a class="btn-call" href="tel:+5216147804673">
+      <img src="https://flagcdn.com/us.svg" alt="EE.UU." /> Llamar desde EE.UU.
+    </a>
   </div>
 
-  <!-- Sección de transporte -->
+  <div class="popup" id="popup">
+    <h2>🚐 Nuevo servicio de transporte</h2>
+    <p>¡Te llevamos desde el puente internacional hasta nuestra clínica!</p>
+    <a href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita%20y%20usar%20el%20servicio%20de%20transporte." class="btn-wsp">Solicitar vía WhatsApp</a>
+    <br><br>
+    <button onclick="document.getElementById('popup').classList.remove('show')">Cerrar</button>
+  </div>
+
   <section class="transport-section">
     <h2>¿Vienes desde EE.UU.? 🛂</h2>
     <p>Contamos con transporte gratuito desde los puentes internacionales hasta nuestra clínica.</p>
     <img src="https://cdn.pixabay.com/photo/2016/11/29/03/35/auto-1868726_1280.jpg" alt="Transporte a la clínica" />
+    <br><br>
+    <a class="btn-wsp" href="https://wa.me/5216147804673?text=Hola,%20me%20interesa%20agendar%20una%20cita%20y%20usar%20el%20transporte.">Reservar transporte</a>
   </section>
 
-  <!-- Script para mostrar popup -->
   <script>
     window.onload = function() {
       setTimeout(function() {
-        document.getElementById('popup').style.display = 'block';
-      }, 1200); // Mostrar después de 1.2 segundos
+        document.getElementById('popup').classList.add('show');
+      }, 1200);
     };
   </script>
 </body>
