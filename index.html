@@ -2,166 +2,158 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agenda por WhatsApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clínica Dental</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #1e1e1e;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      height: 100vh;
-      overflow: hidden;
+      background-color: #f6f6f6;
+      color: #333;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      text-align: center;
       flex-direction: column;
-    }
-
-    /* Figuras decorativas */
-    .circle1, .circle2, .circle3 {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.06;
-      z-index: 0;
-    }
-
-    .circle1 {
-      width: 500px;
-      height: 500px;
-      background: #ffffff;
-      top: -150px;
-      left: -150px;
-    }
-
-    .circle2 {
-      width: 400px;
-      height: 400px;
-      background: #25D366;
-      bottom: -150px;
-      right: -120px;
-    }
-
-    .circle3 {
-      width: 300px;
-      height: 300px;
-      background: #ffffff;
-      bottom: 100px;
-      left: 50px;
-    }
-
-    .container {
-      z-index: 1;
-      max-width: 700px;
-      padding: 20px;
-    }
-
-    .logo {
-      max-height: 240px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      opacity: 0.6;
-    }
-
-    h1 {
-      margin-bottom: 25px;
-      font-size: 32px;
-      font-weight: 600;
-    }
-
-    .whatsapp-button {
-      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 16px 45px;
-      font-size: 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    .whatsapp-button:hover {
-      background-color: #1ebe5d;
-      transform: scale(1.04);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-    }
-
-    .whatsapp-icon {
-      width: 24px;
-      height: 24px;
-    }
-
-    .treatments {
-      margin-top: 40px;
-      font-size: 16px;
-      color: #ccc;
-      letter-spacing: 1px;
-      font-weight: 400;
-    }
-
-    .treatments span {
-      margin: 0 8px;
-    }
-
-    .footer {
+    header {
       position: absolute;
-      bottom: 20px;
-      width: 100%;
-      font-size: 14px;
-      color: #aaa;
+      top: 20px;
+      right: 20px;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .btn-wsp, .btn-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-wsp {
+      background-color: #25D366;
+    }
+
+    .btn-call {
+      background-color: #007BFF;
+    }
+
+    .btn-call img {
+      width: 24px;
+      height: 16px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 2px solid #25D366;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 90%;
+      z-index: 1000;
+      text-align: center;
+      display: none;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .popup button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #25D366;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .transport-section {
+      margin-top: 40px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .transport-section img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 480px) {
+      .btn-wsp, .btn-call {
+        font-size: 14px;
+        padding: 12px 20px;
+      }
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3TRSR7Y18D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3TRSR7Y18D');
-</script>
-
 </head>
 <body>
 
-  <!-- Figuras decorativas -->
-  <div class="circle1"></div>
-  <div class="circle2"></div>
-  <div class="circle3"></div>
+  <!-- Logotipo -->
+  <header>
+    <img src="tu-logo.png" alt="Logo de la clínica" />
+  </header>
 
-  <!-- Logo centrado y más grande -->
-  <img src="logo.png" alt="Logo" class="logo" />
+  <!-- Botón de WhatsApp -->
+  <a class="btn-wsp" href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita.">💬 Agendar por WhatsApp</a>
 
-  <!-- Contenido principal -->
-  <div class="container">
-    <h1>¡Agenda ahora!</h1>
-   <a href="https://wa.me/526147804673"
-   class="whatsapp-button"
-   target="_blank"
-   onclick="gtag('event', 'whatsapp_click', {
-     'event_category': 'engagement',
-     'event_label': 'Botón WhatsApp principal'
-   });">
-   Contáctanos por WhatsApp
-</a>
+  <!-- Botones de llamada -->
+  <a class="btn-call" href="tel:6147804673">
+    <img src="https://flagcdn.com/mx.svg" alt="México" /> Llamar desde México
+  </a>
 
+  <a class="btn-call" href="tel:+5216147804673">
+    <img src="https://flagcdn.com/us.svg" alt="EE.UU." /> Llamar desde EE.UU.
+  </a>
 
-    <!-- Línea de tratamientos -->
-    <div class="treatments">
-      Blanqueamientos <span>·</span> Carillas <span>·</span> Coronas <span>·</span> Puentes <span>·</span> Implantes
-    </div>
+  <!-- Pop-up de transporte -->
+  <div class="popup" id="popup">
+    <h2>🚐 Nuevo servicio de transporte</h2>
+    <p>¡Ahora te llevamos desde el puente internacional hasta nuestra clínica!</p>
+    <a href="https://wa.me/5216147804673?text=Hola,%20quiero%20agendar%20una%20cita%20y%20usar%20el%20servicio%20de%20transporte." class="btn-wsp">Solicitar vía WhatsApp</a>
+    <br><br>
+    <button onclick="document.getElementById('popup').style.display='none'">Cerrar</button>
   </div>
 
-  <!-- Dirección -->
-  <div class="footer">
-    Plutarco Elías Calles, Ciudad Juárez, Chihuahua.
-  </div>
+  <!-- Sección de transporte -->
+  <section class="transport-section">
+    <h2>¿Vienes desde EE.UU.? 🛂</h2>
+    <p>Contamos con transporte gratuito desde los puentes internacionales hasta nuestra clínica.</p>
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/35/auto-1868726_1280.jpg" alt="Transporte a la clínica" />
+  </section>
 
+  <!-- Script para mostrar popup -->
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('popup').style.display = 'block';
+      }, 1200); // Mostrar después de 1.2 segundos
+    };
+  </script>
 </body>
 </html>
