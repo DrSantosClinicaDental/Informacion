@@ -30,6 +30,73 @@
       line-height: 1.6;
     }
 
+    /* Popup Hot Sale */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-container {
+      background-color: var(--blanco);
+      border-radius: 15px;
+      overflow: hidden;
+      max-width: 90%;
+      width: 800px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .popup-overlay.active .popup-container {
+      transform: scale(1);
+    }
+
+    .popup-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--color-primario);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .close-popup:hover {
+      background-color: var(--color-secundario);
+      transform: rotate(90deg);
+    }
+
     /* Header */
     .header {
       background-color: var(--color-secundario);
@@ -241,10 +308,9 @@
       .servicios-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-    }v
+    }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -254,6 +320,14 @@
 </script>
 </head>
 <body>
+  <!-- Popup Hot Sale -->
+  <div class="popup-overlay" id="hotSalePopup">
+    <div class="popup-container">
+      <button class="close-popup" id="closePopup">&times;</button>
+      <img src="El5.jpg" alt="Promoción Hot Sale - Blanqueamiento Dental 50% OFF" class="popup-img">
+    </div>
+  </div>
+
   <header class="header">
     <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
     <div class="direccion-header">
@@ -319,8 +393,8 @@
   <section id="galeria">
     <h2>Conócenos</h2>
     <div class="galeria-ads">
-      <img src="El4.jpg" alt="Resultados de tratamiento dental">
-      <img src="El2.jpg" alt="Nuestras instalaciones modernas">
+      <img src="El2.jpg" alt="Resultados de tratamiento dental">
+      <img src="El4.jpg" alt="Nuestras instalaciones modernas">
     </div>
   </section>
 
@@ -348,8 +422,8 @@
     </div>
     
     <div class="faq-item">
-      <h3>¿Que otros tratamientos ofertan?</h3>
-      <p>Ofertamos tratamientos adecuados a las necesidades del paciente y contamos con especialistas en caso de requerir tratamientos especificos.</p>
+      <h3>¿Cuentan con especialistas?</h3>
+      <p>Sí, trabajamos con especialistas en dado caso de ocupar tratamientos específicos.</p>
     </div>
     
     <div class="faq-item">
@@ -371,5 +445,32 @@
     <p>Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
     <p>Tel: (614) 780-4673 | WhatsApp: +52 1 614-780-4673</p>
   </footer>
+
+  <script>
+    // Mostrar popup después de 3 segundos
+    setTimeout(function() {
+      document.getElementById('hotSalePopup').classList.add('active');
+    }, 3000);
+
+    // Cerrar popup al hacer clic en la X
+    document.getElementById('closePopup').addEventListener('click', function() {
+      document.getElementById('hotSalePopup').classList.remove('active');
+    });
+
+    // Cerrar popup al hacer clic fuera de la imagen
+    document.getElementById('hotSalePopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+      }
+    });
+
+    // Opcional: Guardar en localStorage que ya se mostró para no mostrar de nuevo
+    if (!localStorage.getItem('popupShown')) {
+      setTimeout(function() {
+        document.getElementById('hotSalePopup').classList.add('active');
+        localStorage.setItem('popupShown', 'true');
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
