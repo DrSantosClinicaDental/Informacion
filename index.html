@@ -188,52 +188,6 @@
       box-shadow: var(--sombra);
     }
 
-    /* Testimonios */
-    .testimonios {
-      background-color: var(--gris-claro);
-    }
-
-    .testimonios-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 20px 0;
-      scroll-snap-type: x mandatory;
-    }
-
-    .testimonio {
-      min-width: 300px;
-      background: var(--blanco);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: var(--sombra);
-      scroll-snap-align: start;
-    }
-
-    .testimonio-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .testimonio-header img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-    }
-
-    .testimonio h4 {
-      margin: 0;
-      color: var(--color-primario);
-    }
-
-    .rating {
-      color: #FFD700;
-      margin: 5px 0;
-    }
-
     /* FAQ */
     .faq-item {
       margin-bottom: 20px;
@@ -287,16 +241,12 @@
       .servicios-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-      
-      .galeria-ads {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+    }v
   </style>
 </head>
 <body>
   <header class="header">
-    <img src="logo-dr-santos.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
     <div class="direccion-header">
       <i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Cd. Juárez
     </div>
@@ -360,55 +310,8 @@
   <section id="galeria">
     <h2>Nuestro Trabajo</h2>
     <div class="galeria-ads">
-      <!-- Reemplaza estas URLs con las imágenes reales de tu Google Ads -->
-      <img src="https://via.placeholder.com/600x400?text=Antes+y+Después+1" alt="Resultados de tratamiento dental">
-      <img src="https://via.placeholder.com/600x400?text=Antes+y+Después+2" alt="Sonrisas transformadas">
-      <img src="https://via.placeholder.com/600x400?text=Consulta+personalizada" alt="Atención personalizada">
-      <img src="https://via.placeholder.com/600x400?text=Instalaciones" alt="Clínica moderna">
-      <img src="https://via.placeholder.com/600x400?text=Tecnología+avanzada" alt="Equipo dental">
-      <img src="https://via.placeholder.com/600x400?text=Sonrisas+felices" alt="Pacientes satisfechos">
-    </div>
-  </section>
-
-  <section class="testimonios" id="testimonios">
-    <h2>Lo que dicen nuestros pacientes</h2>
-    <div class="testimonios-container">
-      <div class="testimonio">
-        <div class="testimonio-header">
-          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="María G.">
-          <div>
-            <h4>María G.</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p>"El blanqueamiento fue rápido y sin dolor. ¡Mi sonrisa nunca se había visto tan bien!"</p>
-      </div>
-      <div class="testimonio">
-        <div class="testimonio-header">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos M.">
-          <div>
-            <h4>Carlos M.</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p>"Las coronas que me colocaron son idénticas a mis dientes naturales. Nadie nota la diferencia."</p>
-      </div>
-      <div class="testimonio">
-        <div class="testimonio-header">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Laura T.">
-          <div>
-            <h4>Laura T.</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p>"Vengo desde El Paso porque aquí encontré la mejor combinación de calidad y precio."</p>
-      </div>
+      <img src="antes-despues-1.jpg" alt="Resultados de tratamiento dental">
+      <img src="instalaciones-clinica.jpg" alt="Nuestras instalaciones modernas">
     </div>
   </section>
 
