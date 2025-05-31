@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias por tu solicitud! | Dr. Santos Clínica Dental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --color-primario: #2a7f7f;
+      --color-secundario: #3a506b;
+      --acento: #5fb49c;
+      --blanco: #ffffff;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    
+    .confirmation-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 90%;
+      margin: 20px;
+    }
+    
+    .confirmation-icon {
+      color: var(--acento);
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      color: var(--color-primario);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      color: #4a4a4a;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--color-primario);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--color-secundario);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      height: 90px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-container">
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <div class="confirmation-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h1>¡Solicitud Recibida!</h1>
+    <p>Hemos recibido tu información correctamente. Nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para confirmar tu cita.</p>
+    <p>Si tienes alguna emergencia dental, por favor llámanos directamente al <strong>(614) 780-4673</strong>.</p>
+    <a href="index.html" class="btn">Volver al inicio</a>
+  </div>
+</body>
+</html>
