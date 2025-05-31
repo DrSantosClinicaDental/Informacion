@@ -125,6 +125,32 @@
       text-align: right;
     }
 
+    /* Botón de traducción */
+    .translate-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--color-primario);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+
+    .translate-btn:hover {
+      background-color: var(--color-secundario);
+      transform: translateY(-3px);
+    }
+
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
@@ -281,6 +307,139 @@
       border: none;
     }
 
+    /* Formulario de contacto */
+    .form-section {
+      background-color: var(--gris-claro);
+      border-radius: 10px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: var(--sombra);
+    }
+
+    .form-title {
+      text-align: center;
+      color: var(--color-primario);
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--color-secundario);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(95, 180, 156, 0.2);
+      outline: none;
+    }
+
+    .submit-btn {
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--color-secundario);
+      transform: translateY(-2px);
+    }
+
+    /* Popup de confirmación */
+    .confirmation-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .confirmation-popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .confirmation-content {
+      background-color: var(--blanco);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    .confirmation-popup.active .confirmation-content {
+      transform: scale(1);
+    }
+
+    .confirmation-icon {
+      font-size: 60px;
+      color: var(--acento);
+      margin-bottom: 20px;
+    }
+
+    .confirmation-title {
+      color: var(--color-primario);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .confirmation-text {
+      margin-bottom: 25px;
+      color: var(--gris-texto);
+    }
+
+    .close-confirmation {
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-confirmation:hover {
+      background-color: var(--color-secundario);
+    }
+
     /* Footer */
     .footer {
       background-color: var(--color-secundario);
@@ -328,6 +487,23 @@
     </div>
   </div>
 
+  <!-- Popup de Confirmación -->
+  <div class="confirmation-popup" id="confirmationPopup">
+    <div class="confirmation-content">
+      <div class="confirmation-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3 class="confirmation-title">¡Gracias por contactarnos!</h3>
+      <p class="confirmation-text">Hemos recibido tu información y nos pondremos en contacto contigo a la brevedad para confirmar tu cita.</p>
+      <button class="close-confirmation" id="closeConfirmation">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- Botón de traducción -->
+  <button class="translate-btn" id="translateBtn" title="Traducir a inglés">
+    <i class="fas fa-language"></i>
+  </button>
+
   <header class="header">
     <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
     <div class="direccion-header">
@@ -345,7 +521,7 @@
     
     <div class="btn-container">
       <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
       <a href="tel:6147804673" class="btn btn-llamar">
@@ -398,6 +574,65 @@
     </div>
   </section>
 
+  <!-- Formulario de Contacto -->
+  <section id="contacto">
+    <div class="form-section">
+      <h2 class="form-title">Solicita tu cita</h2>
+      <form id="appointmentForm">
+        <div class="form-group">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input type="text" id="nombre" class="form-control" required placeholder="Ingresa tu nombre completo">
+        </div>
+        
+        <div class="form-group">
+          <label for="motivo" class="form-label">Motivo de consulta</label>
+          <select id="motivo" class="form-control" required>
+            <option value="" disabled selected>Selecciona un motivo</option>
+            <option value="Blanqueamiento">Blanqueamiento Dental</option>
+            <option value="Limpieza">Limpieza Profesional</option>
+            <option value="Canal">Tratamiento de Canal</option>
+            <option value="Corona">Corona Dental</option>
+            <option value="Puente">Puente Dental</option>
+            <option value="Carilla">Carillas Dentales</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="dia" class="form-label">Día que se le facilita la consulta</label>
+          <select id="dia" class="form-control" required>
+            <option value="" disabled selected>Selecciona un día</option>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="horario" class="form-label">Horario preferible para consulta</label>
+          <select id="horario" class="form-control" required>
+            <option value="" disabled selected>Selecciona un horario</option>
+            <option value="Mañana (9am-12pm)">Mañana (9am-12pm)</option>
+            <option value="Tarde (3pm-6pm)">Tarde (3pm-6pm)</option>
+            <option value="Sábado (9am-2pm)">Sábado (9am-2pm)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefono" class="form-label">Número de teléfono</label>
+          <input type="tel" id="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono">
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Enviar solicitud
+        </button>
+      </form>
+    </div>
+  </section>
+
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
     
@@ -439,7 +674,7 @@
     </div>
   </section>
 
-  <footer class="footer" id="contacto">
+  <footer class="footer">
     <p><strong>Dr. Santos Clínica Dental</strong></p>
     <p>Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
     <p>Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
@@ -471,6 +706,44 @@
         localStorage.setItem('popupShown', 'true');
       }, 3000);
     }
+
+    // Manejar el formulario
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Aquí podrías agregar código para enviar los datos a un servidor
+      // Por ahora solo mostraremos el popup de confirmación
+      
+      document.getElementById('confirmationPopup').classList.add('active');
+      
+      // Limpiar el formulario
+      this.reset();
+    });
+
+    // Cerrar popup de confirmación
+    document.getElementById('closeConfirmation').addEventListener('click', function() {
+      document.getElementById('confirmationPopup').classList.remove('active');
+    });
+
+    // Botón de traducción (funcionalidad básica)
+    document.getElementById('translateBtn').addEventListener('click', function() {
+      alert('La funcionalidad completa de traducción requeriría implementar una API de traducción o tener versiones en ambos idiomas del contenido.');
+      // Para una implementación real, podrías usar:
+      // 1. Google Translate API
+      // 2. Crear versiones en ambos idiomas y alternar entre ellas
+      // 3. Usar un servicio como i18next
+    });
+
+    // Suavizar el desplazamiento a las secciones
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 </body>
 </html>
