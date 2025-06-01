@@ -113,50 +113,25 @@
     }
 
     .logo {
-      height: 70px;
+      height: 100px; /* Tamaño aumentado */
       width: auto;
-      max-width: 250px;
+      max-width: 350px; /* Ancho aumentado */
       filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+      transition: all 0.3s ease;
     }
 
     .direccion-header {
       color: var(--blanco);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       text-align: right;
-    }
-
-    /* Botón de traducción */
-    .translate-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: var(--color-primario);
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 20px;
-      transition: all 0.3s ease;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 100;
-    }
-
-    .translate-btn:hover {
-      background-color: var(--color-secundario);
-      transform: translateY(-3px);
     }
 
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
       color: var(--blanco);
-      padding: 150px 5% 80px;
-      margin-top: 80px;
+      padding: 180px 5% 80px; /* Aumenté padding-top por el logo más grande */
+      margin-top: 100px; /* Ajusté por el logo más grande */
       text-align: center;
     }
 
@@ -370,76 +345,6 @@
       transform: translateY(-2px);
     }
 
-    /* Popup de confirmación */
-    .confirmation-popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .confirmation-popup.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .confirmation-content {
-      background-color: var(--blanco);
-      border-radius: 15px;
-      padding: 40px;
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transform: scale(0.8);
-      transition: transform 0.3s ease;
-    }
-
-    .confirmation-popup.active .confirmation-content {
-      transform: scale(1);
-    }
-
-    .confirmation-icon {
-      font-size: 60px;
-      color: var(--acento);
-      margin-bottom: 20px;
-    }
-
-    .confirmation-title {
-      color: var(--color-primario);
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-    }
-
-    .confirmation-text {
-      margin-bottom: 25px;
-      color: var(--gris-texto);
-    }
-
-    .close-confirmation {
-      background-color: var(--color-primario);
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .close-confirmation:hover {
-      background-color: var(--color-secundario);
-    }
-
     /* Footer */
     .footer {
       background-color: var(--color-secundario);
@@ -468,15 +373,17 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
-  </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-17076577011');
-</script>
+    @media (max-width: 768px) {
+      .logo {
+        height: 80px;
+        max-width: 280px;
+      }
+      .hero {
+        padding-top: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Popup Hot Sale -->
@@ -486,23 +393,6 @@
       <img src="El5.jpg" alt="Promoción Hot Sale - Blanqueamiento Dental 50% OFF" class="popup-img">
     </div>
   </div>
-
-  <!-- Popup de Confirmación -->
-  <div class="confirmation-popup" id="confirmationPopup">
-    <div class="confirmation-content">
-      <div class="confirmation-icon">
-        <i class="fas fa-check-circle"></i>
-      </div>
-      <h3 class="confirmation-title">¡Gracias por contactarnos!</h3>
-      <p class="confirmation-text">Hemos recibido tu información y nos pondremos en contacto contigo a la brevedad para confirmar tu cita.</p>
-      <button class="close-confirmation" id="closeConfirmation">Aceptar</button>
-    </div>
-  </div>
-
-  <!-- Botón de traducción -->
-  <button class="translate-btn" id="translateBtn" title="Traducir a inglés">
-    <i class="fas fa-language"></i>
-  </button>
 
   <header class="header">
     <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
@@ -578,15 +468,21 @@
   <section id="contacto">
     <div class="form-section">
       <h2 class="form-title">Solicita tu cita</h2>
-      <form id="appointmentForm">
+      <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
+        <!-- Campos ocultos para FormSubmit -->
+        <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos">
+        <input type="hidden" name="_next" value="https://tudominio.com/confirmacion.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        
         <div class="form-group">
           <label for="nombre" class="form-label">Nombre completo</label>
-          <input type="text" id="nombre" class="form-control" required placeholder="Ingresa tu nombre completo">
+          <input type="text" id="nombre" name="nombre" class="form-control" required placeholder="Ingresa tu nombre completo">
         </div>
         
         <div class="form-group">
           <label for="motivo" class="form-label">Motivo de consulta</label>
-          <select id="motivo" class="form-control" required>
+          <select id="motivo" name="motivo" class="form-control" required>
             <option value="" disabled selected>Selecciona un motivo</option>
             <option value="Blanqueamiento">Blanqueamiento Dental</option>
             <option value="Limpieza">Limpieza Profesional</option>
@@ -600,7 +496,7 @@
         
         <div class="form-group">
           <label for="dia" class="form-label">Día que se le facilita la consulta</label>
-          <select id="dia" class="form-control" required>
+          <select id="dia" name="dia" class="form-control" required>
             <option value="" disabled selected>Selecciona un día</option>
             <option value="Lunes">Lunes</option>
             <option value="Martes">Martes</option>
@@ -613,7 +509,7 @@
         
         <div class="form-group">
           <label for="horario" class="form-label">Horario preferible para consulta</label>
-          <select id="horario" class="form-control" required>
+          <select id="horario" name="horario" class="form-control" required>
             <option value="" disabled selected>Selecciona un horario</option>
             <option value="Mañana (9am-12pm)">Mañana (9am-12pm)</option>
             <option value="Tarde (3pm-6pm)">Tarde (3pm-6pm)</option>
@@ -623,7 +519,7 @@
         
         <div class="form-group">
           <label for="telefono" class="form-label">Número de teléfono</label>
-          <input type="tel" id="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono">
+          <input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono">
         </div>
         
         <button type="submit" class="submit-btn">
@@ -706,33 +602,6 @@
         localStorage.setItem('popupShown', 'true');
       }, 3000);
     }
-
-    // Manejar el formulario
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Aquí podrías agregar código para enviar los datos a un servidor
-      // Por ahora solo mostraremos el popup de confirmación
-      
-      document.getElementById('confirmationPopup').classList.add('active');
-      
-      // Limpiar el formulario
-      this.reset();
-    });
-
-    // Cerrar popup de confirmación
-    document.getElementById('closeConfirmation').addEventListener('click', function() {
-      document.getElementById('confirmationPopup').classList.remove('active');
-    });
-
-    // Botón de traducción (funcionalidad básica)
-    document.getElementById('translateBtn').addEventListener('click', function() {
-      alert('La funcionalidad completa de traducción requeriría implementar una API de traducción o tener versiones en ambos idiomas del contenido.');
-      // Para una implementación real, podrías usar:
-      // 1. Google Translate API
-      // 2. Crear versiones en ambos idiomas y alternar entre ellas
-      // 3. Usar un servicio como i18next
-    });
 
     // Suavizar el desplazamiento a las secciones
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
