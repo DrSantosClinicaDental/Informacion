@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="faqTitle">Preguntas Frecuentes | Dr. Santos Clínica Dental</title>
+  <title data-i18n="appointmentTitle">Agendar Cita | Dr. Santos Clínica Dental</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -46,4 +46,226 @@
     }
 
     .logo {
-     
+      height: 60px;
+      width: auto;
+    }
+
+    .home-btn {
+      background-color: var(--color-primario);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .home-btn:hover {
+      background-color: var(--acento);
+      transform: translateY(-2px);
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      color: var(--color-secundario);
+      margin-bottom: 30px;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    .form-section {
+      background-color: var(--blanco);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--sombra);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--color-secundario);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .submit-btn {
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--color-secundario);
+    }
+
+    .footer {
+      background-color: var(--color-secundario);
+      color: var(--blanco);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .translate-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    </div>
+    <a href="https://drsantosclinicadental.github.io/Informacion/" class="home-btn">
+      <i class="fas fa-home"></i>
+      <span data-i18n="homeBtn">Inicio</span>
+    </a>
+  </header>
+
+  <div class="content-container">
+    <h1 data-i18n="appointmentHeading">Agenda tu cita dental</h1>
+    
+    <div class="form-section">
+      <form id="appointmentForm">
+        <div class="form-group">
+          <label for="nombre" class="form-label" data-i18n="nameLabel">Nombre completo</label>
+          <input type="text" id="nombre" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefono" class="form-label" data-i18n="phoneLabel">Teléfono</label>
+          <input type="tel" id="telefono" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="fecha" class="form-label" data-i18n="dateLabel">Fecha preferida</label>
+          <input type="date" id="fecha" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="servicio" class="form-label" data-i18n="serviceLabel">Servicio requerido</label>
+          <select id="servicio" class="form-control" required>
+            <option value="" data-i18n="selectService">Seleccione un servicio</option>
+            <option value="blanqueamiento" data-i18n="service1">Blanqueamiento Dental</option>
+            <option value="limpieza" data-i18n="service2">Limpieza Profesional</option>
+            <option value="implante" data-i18n="service3">Implante Dental</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="submit-btn" data-i18n="submitBtn">
+          <i class="fas fa-calendar-check"></i> Agendar cita
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Dr. Santos Clínica Dental &copy; <span id="year"></span></p>
+  </footer>
+
+  <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
+    <i class="fas fa-language"></i>
+    <span>ES/EN</span>
+  </button>
+
+  <script>
+    // Traducciones
+    const translations = {
+      es: {
+        "appointmentTitle": "Agendar Cita | Dr. Santos Clínica Dental",
+        "appointmentHeading": "Agenda tu cita dental",
+        "homeBtn": "Inicio",
+        "nameLabel": "Nombre completo",
+        "phoneLabel": "Teléfono",
+        "dateLabel": "Fecha preferida",
+        "serviceLabel": "Servicio requerido",
+        "selectService": "Seleccione un servicio",
+        "service1": "Blanqueamiento Dental",
+        "service2": "Limpieza Profesional",
+        "service3": "Implante Dental",
+        "submitBtn": "Agendar cita"
+      },
+      en: {
+        "appointmentTitle": "Book Appointment | Dr. Santos Dental Clinic",
+        "appointmentHeading": "Book your dental appointment",
+        "homeBtn": "Home",
+        "nameLabel": "Full name",
+        "phoneLabel": "Phone",
+        "dateLabel": "Preferred date",
+        "serviceLabel": "Required service",
+        "selectService": "Select a service",
+        "service1": "Teeth Whitening",
+        "service2": "Professional Cleaning",
+        "service3": "Dental Implant",
+        "submitBtn": "Book appointment"
+      }
+    };
+
+    // Función para cambiar idioma
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      document.title = translations[lang]['appointmentTitle'];
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Configurar botón de traducción
+    document.getElementById('translateBtn').addEventListener('click', function() {
+      const currentLang = localStorage.getItem('preferredLang') || 'es';
+      const newLang = currentLang === 'es' ? 'en' : 'es';
+      changeLanguage(newLang);
+      this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
+    });
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const savedLang = localStorage.getItem('preferredLang') || 'es';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
