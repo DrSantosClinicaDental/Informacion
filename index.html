@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Santos Clínica Dental | Sonrisas Perfectas en Juárez</title>
+  <title>Dr. Santos Clínica Dental | Tu Sonrisa en Juárez</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -106,32 +106,31 @@
       top: 0;
       z-index: 1000;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column; /* Cambiado a columna para móviles */
+      align-items: center; /* Centrado */
       box-shadow: var(--sombra);
     }
 
     .logo {
-      height: 100px; /* Tamaño aumentado */
+      height: 80px;
       width: auto;
-      max-width: 350px; /* Ancho aumentado */
+      max-width: 280px;
       filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
-      transition: all 0.3s ease;
+      margin-bottom: 10px; /* Espacio entre logo y dirección */
     }
 
     .direccion-header {
       color: var(--blanco);
       font-size: 0.9rem;
-      text-align: right;
+      text-align: center; /* Centrado */
     }
 
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
       color: var(--blanco);
-      padding: 180px 5% 80px; /* Aumenté padding-top por el logo más grande */
-      margin-top: 100px; /* Ajusté por el logo más grande */
+      padding: 180px 5% 80px;
+      margin-top: 140px; /* Ajustado por el header más alto */
       text-align: center;
     }
 
@@ -143,7 +142,8 @@
 
     .hero h1 {
       color: var(--blanco);
-      font-size: 2.2rem;
+      font-size: 2rem; /* Tamaño ajustado para móviles */
+      line-height: 1.3;
     }
 
     /* Botones de Contacto */
@@ -211,7 +211,7 @@
 
     /* Secciones */
     section {
-      padding: 80px 5%;
+      padding: 60px 5%; /* Padding reducido para móviles */
     }
 
     /* Servicios */
@@ -224,7 +224,7 @@
 
     .servicio-item {
       background: var(--blanco);
-      padding: 25px;
+      padding: 20px;
       border-radius: 8px;
       box-shadow: var(--sombra);
     }
@@ -241,7 +241,7 @@
       color: var(--acento);
     }
 
-    /* Galería Google Ads */
+    /* Galería */
     .galeria-ads {
       display: grid;
       grid-template-columns: 1fr;
@@ -276,7 +276,7 @@
 
     .mapa {
       width: 100%;
-      height: 300px;
+      height: 250px; /* Altura reducida para móviles */
       border-radius: 8px;
       box-shadow: var(--sombra);
       border: none;
@@ -286,7 +286,7 @@
     .form-section {
       background-color: var(--gris-claro);
       border-radius: 10px;
-      padding: 40px;
+      padding: 30px 20px; /* Padding ajustado */
       max-width: 800px;
       margin: 0 auto;
       box-shadow: var(--sombra);
@@ -295,12 +295,12 @@
     .form-title {
       text-align: center;
       color: var(--color-primario);
-      margin-bottom: 30px;
-      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-size: 1.6rem; /* Tamaño ajustado */
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .form-label {
@@ -308,6 +308,7 @@
       margin-bottom: 8px;
       font-weight: 600;
       color: var(--color-secundario);
+      font-size: 0.95rem;
     }
 
     .form-control {
@@ -349,16 +350,63 @@
     .footer {
       background-color: var(--color-secundario);
       color: var(--blanco);
-      padding: 40px 5%;
+      padding: 30px 5%;
       text-align: center;
     }
 
     .footer p {
       margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    /* Botón de traducción */
+    .translate-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+
+    .translate-btn:hover {
+      background-color: var(--color-secundario);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .translate-btn i {
+      font-size: 20px;
+      margin-bottom: 2px;
     }
 
     /* Responsive */
     @media (min-width: 768px) {
+      .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        margin-bottom: 0;
+      }
+      
+      .direccion-header {
+        text-align: right;
+      }
+      
       .servicios-grid, .galeria-ads {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -366,21 +414,20 @@
       .btn-container {
         grid-template-columns: repeat(3, 1fr);
       }
+      
+      .hero {
+        margin-top: 100px;
+        padding-top: 150px;
+      }
     }
 
     @media (min-width: 1024px) {
       .servicios-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-    }
-
-    @media (max-width: 768px) {
-      .logo {
-        height: 80px;
-        max-width: 280px;
-      }
-      .hero {
-        padding-top: 150px;
+      
+      .hero h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
@@ -402,11 +449,11 @@
   </header>
 
   <section class="hero">
-    <h1>Sonrisas saludables, tratamientos confiables</h1>
-    <p>Expertos en odontología con enfoque en tu comodidad y satisfacción</p>
+    <h1>Tu sonrisa perfecta en Juárez</h1>
+    <p>Cuidado dental personalizado con calidez y profesionalismo</p>
     
     <a href="#contacto" class="btn-contacto">
-      <i class="fas fa-comment-dots"></i> Comunícate con nosotros
+      <i class="fas fa-comment-dots"></i> Agenda tu cita
     </a>
     
     <div class="btn-container">
@@ -452,10 +499,14 @@
         <h3><i class="fas fa-teeth"></i> Tratamiento de Canal</h3>
         <p>Aliviamos tu dolor y salvamos tu diente natural.</p>
       </div>
+      <div class="servicio-item">
+        <h3><i class="fas fa-implant"></i> Implantes Dentales</h3>
+        <p>Soluciones permanentes para reemplazar dientes perdidos.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Galería de Google Ads -->
+  <!-- Galería -->
   <section id="galeria">
     <h2>Conócenos</h2>
     <div class="galeria-ads">
@@ -471,7 +522,7 @@
       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
         <!-- Campos ocultos para FormSubmit -->
         <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos">
-        <input type="hidden" name="_next" value="https://https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+        <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         
@@ -486,6 +537,7 @@
             <option value="" disabled selected>Selecciona un motivo</option>
             <option value="Blanqueamiento">Blanqueamiento Dental</option>
             <option value="Limpieza">Limpieza Profesional</option>
+            <option value="Implante">Implante Dental</option>
             <option value="Canal">Tratamiento de Canal</option>
             <option value="Corona">Corona Dental</option>
             <option value="Puente">Puente Dental</option>
@@ -534,32 +586,32 @@
     
     <div class="faq-item">
       <h3>¿Duele el blanqueamiento dental?</h3>
-      <p>¡Para nada! Nuestro blanqueamiento químico está diseñado para ser completamente cómodo. Usamos geles especiales que protegen tus encías y dientes durante el proceso. La mayoría de nuestros pacientes se sorprenden de lo fácil y relajante que es el tratamiento.</p>
+      <p>Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso.</p>
     </div>
     
     <div class="faq-item">
       <h3>¿Cuánto dura un blanqueamiento dental?</h3>
-      <p>Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos personalizados para mantener tu sonrisa brillante por más tiempo, como evitar el café, vino tinto o tabaco en exceso.</p>
+      <p>Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos para mantener tu sonrisa brillante.</p>
     </div>
     
     <div class="faq-item">
       <h3>¿Qué diferencia sus coronas dentales?</h3>
-      <p>Usamos materiales de alta calidad que imitan perfectamente el color y translucidez de los dientes naturales. Son más resistentes que las coronas tradicionales y no tienen ese antiestético borde oscuro que se ve con las que llevan metal.</p>
+      <p>Usamos materiales de alta calidad que imitan perfectamente el color y translucidez de los dientes naturales.</p>
     </div>
     
     <div class="faq-item">
       <h3>¿Cuánto tiempo toma hacer una corona?</h3>
-      <p>¡Solo dos visitas! En la primera preparamos el diente y tomamos medidas precisas. En la segunda colocamos tu corona permanente. Mientras tanto, te daremos una provisional para que no te quedes sin diente.</p>
+      <p>¡Solo dos visitas! En la primera preparamos el diente y en la segunda colocamos tu corona permanente.</p>
     </div>
     
     <div class="faq-item">
-      <h3>¿Cuentan con especialistas?</h3>
-      <p>Sí, trabajamos con especialistas en dado caso de ocupar tratamientos específicos.</p>
+      <h3>¿Los implantes dentales son permanentes?</h3>
+      <p>Sí, con los cuidados adecuados, los implantes pueden durar toda la vida.</p>
     </div>
     
     <div class="faq-item">
       <h3>¿Qué debo hacer en una emergencia dental?</h3>
-      <p>Llámanos inmediatamente al (614) 780-4673. Atendemos emergencias con prioridad, incluso fuera de horario. Si es un golpe fuerte que hizo saltar un diente, guárdalo en leche o suero fisiológico y ven directamente.</p>
+      <p>Llámanos inmediatamente al (614) 780-4673. Atendemos emergencias con prioridad.</p>
     </div>
   </section>
 
@@ -576,6 +628,12 @@
     <p>Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
     <p>Tel: (614) 780-4673 | WhatsApp: +52 1 614-780-4673</p>
   </footer>
+
+  <!-- Botón de traducción flotante -->
+  <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
+    <i class="fas fa-language"></i>
+    <span>ES/EN</span>
+  </button>
 
   <script>
     // Mostrar popup después de 3 segundos
@@ -595,21 +653,86 @@
       }
     });
 
-    // Opcional: Guardar en localStorage que ya se mostró para no mostrar de nuevo
-    if (!localStorage.getItem('popupShown')) {
-      setTimeout(function() {
-        document.getElementById('hotSalePopup').classList.add('active');
-        localStorage.setItem('popupShown', 'true');
-      }, 3000);
+    // Traducciones
+    const translations = {
+      es: {
+        "title": "Dr. Santos Clínica Dental | Tu Sonrisa en Juárez",
+        "heroTitle": "Tu sonrisa perfecta en Juárez",
+        "heroText": "Cuidado dental personalizado con calidez y profesionalismo",
+        "contactBtn": "Agenda tu cita",
+        "callBtn": "Llamar",
+        "callIntlBtn": "Desde EE.UU.",
+        "formTitle": "Solicita tu cita",
+        "nameLabel": "Nombre completo",
+        "namePlaceholder": "Ingresa tu nombre completo",
+        "reasonLabel": "Motivo de consulta",
+        "dayLabel": "Día preferido",
+        "timeLabel": "Horario preferido",
+        "phoneLabel": "Teléfono",
+        "submitBtn": "Enviar solicitud"
+      },
+      en: {
+        "title": "Dr. Santos Dental Clinic | Your Smile in Juarez",
+        "heroTitle": "Your perfect smile in Juarez",
+        "heroText": "Personalized dental care with warmth and professionalism",
+        "contactBtn": "Book your appointment",
+        "callBtn": "Call",
+        "callIntlBtn": "From U.S.",
+        "formTitle": "Request your appointment",
+        "nameLabel": "Full name",
+        "namePlaceholder": "Enter your full name",
+        "reasonLabel": "Consultation reason",
+        "dayLabel": "Preferred day",
+        "timeLabel": "Preferred time",
+        "phoneLabel": "Phone number",
+        "submitBtn": "Submit request"
+      }
+    };
+
+    // Función para cambiar idioma
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      // Actualizar título de la página
+      document.title = translations[lang]['title'];
+      
+      // Guardar preferencia
+      localStorage.setItem('preferredLang', lang);
     }
 
-    // Suavizar el desplazamiento a las secciones
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    // Configurar botón de traducción
+    document.getElementById('translateBtn').addEventListener('click', function() {
+      const currentLang = localStorage.getItem('preferredLang') || 'es';
+      const newLang = currentLang === 'es' ? 'en' : 'es';
+      changeLanguage(newLang);
+    });
+
+    // Inicializar con idioma guardado o español por defecto
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferredLang') || 'es';
+      changeLanguage(savedLang);
+      
+      // Opcional: Guardar en localStorage que ya se mostró el popup
+      if (!localStorage.getItem('popupShown')) {
+        setTimeout(function() {
+          document.getElementById('hotSalePopup').classList.add('active');
+          localStorage.setItem('popupShown', 'true');
+        }, 3000);
+      }
+
+      // Suavizar el desplazamiento a las secciones
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
     });
