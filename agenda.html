@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="titleSchedule">Agenda tu Cita - Dr. Santos Clínica Dental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> </head>
+<body>
+  <header class="header" id="mainHeader">
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <div class="direccion-header">
+      <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
+    </div>
+  </header>
+
+  <nav class="main-nav" id="mainNav">
+    <ul>
+      <li><a href="index.html" data-i18n="navHome">Inicio</a></li>
+      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
+      <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
+      <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
+      <li><a href="agenda.html" class="active-tab" data-i18n="navScheduleEasy">Agenda</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header-spacer"></div> <main class="page-content">
+    <div class="container">
+      <h1 data-i18n="schedulePageTitle">Agenda Fácilmente tu Próxima Visita</h1>
+
+      <section class="content-section">
+        <h2 data-i18n="scheduleHowTo">¿Cómo Agendar tu Cita?</h2>
+        <p data-i18n="scheduleDesc1">Agendar tu cita en Dr. Santos Clínica Dental es muy sencillo. Queremos facilitarte el proceso para que puedas recibir la atención que mereces sin complicaciones. Elige la opción que te sea más cómoda:</p>
+        <div class="image-placeholder-container">
+            <div class="image-placeholder large" data-i18n="scheduleImagePlaceholder1" style="background-image: url('El4.jpg'); background-size: cover; background-position: center;">
+                </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2 data-i18n="scheduleOptionsTitle">Tus Opciones para Agendar:</h2>
+        <div class="btn-container" style="max-width: 600px; grid-template-columns: 1fr; margin-bottom:30px;">
+            <a href="tel:6147804673" class="btn btn-llamar" style="background-color: var(--color-primario); color: var(--blanco); border-color: var(--color-primario);">
+              <i class="fas fa-phone-alt"></i> <span data-i18n="scheduleCallBtn">Llámanos Directamente al (614) 780-4673</span>
+            </a>
+            <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20Dr.%20Santos%20Clínica%20Dental." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" style="background-color: var(--whatsapp); color: var(--blanco); border-color:var(--whatsapp);">
+              <i class="fab fa-whatsapp"></i> <span data-i18n="scheduleWhatsappBtn">Envíanos un Mensaje por WhatsApp</span>
+            </a>
+        </div>
+        <p data-i18n="scheduleFormIntro" style="text-align: center;">O si lo prefieres, completa el siguiente formulario y nuestro equipo se pondrá en contacto contigo a la brevedad para confirmar los detalles de tu cita.</p>
+      </section>
+
+      <section class="content-section" id="contacto-interno">
+        <div class="form-section" style="box-shadow: var(--sombra-ligera); padding:clamp(20px, 4vw, 30px); margin-top:0;">
+          <h2 class="form-title" data-i18n="formTitle" style="font-size: 1.6rem; margin-bottom:25px;">Formulario de Solicitud de Cita</h2>
+          <form id="appointmentFormPage" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Solicitud de Cita (Página Agenda) - Dr. Santos Clínica Dental">
+            <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-group">
+              <label for="nombre-page" class="form-label" data-i18n="nameLabel">Nombre completo:</label>
+              <input type="text" id="nombre-page" name="Nombre del Paciente" class="form-control" required data-i18n-placeholder="namePlaceholder" placeholder="Escribe tu nombre completo">
+            </div>
+
+            <div class="form-group">
+              <label for="telefono-page" class="form-label" data-i18n="phoneLabel">Número de teléfono:</label>
+              <input type="tel" id="telefono-page" name="Teléfono" class="form-control" required placeholder="Tu número para contactarte" data-i18n-placeholder="phonePlaceholderPage">
+            </div>
+            
+            <div class="form-group">
+              <label for="motivo-page" class="form-label" data-i18n="reasonLabel">Motivo de consulta o Tratamiento de Interés:</label>
+              <select id="motivo-page" name="Motivo de Consulta" class="form-control" required>
+                <option value="" disabled selected data-i18n="selectReason">-- Selecciona una opción --</option>
+                <option value="Consulta de Valoracion" data-i18n="optionConsult">Consulta de Valoración / Diagnóstico</option>
+                <option value="Limpieza Dental Profesional" data-i18n="optionCleaning">Limpieza Dental Profesional</option>
+                <option value="Blanqueamiento Dental" data-i18n="optionWhitening">Blanqueamiento Dental</option>
+                <option value="Implantes Dentales" data-i18n="optionImplants">Implantes Dentales</option>
+                <option value="Carillas Dentales" data-i18n="optionVeneers">Carillas Dentales</option>
+                <option value="Coronas Dentales" data-i18n="optionCrowns">Coronas Dentales</option>
+                <option value="Puentes Dentales" data-i18n="optionBridges">Puentes Dentales</option>
+                <option value="Tratamiento de Canal (Endodoncia)" data-i18n="optionEndo">Tratamiento de Canal (Endodoncia)</option>
+                <option value="Dentaduras (Prótesis Removibles)" data-i18n="optionDentures">Dentaduras (Prótesis Removibles)</option>
+                <option value="Ortodoncia (Brackets / Alineadores)" data-i18n="optionOrtho">Ortodoncia (Brackets / Alineadores)</option>
+                <option value="Extracciones Dentales" data-i18n="optionExtractions">Extracciones Dentales (Incl. Muelas del Juicio)</option>
+                <option value="Odontopediatría (Niños)" data-i18n="optionPediatric">Odontopediatría (Atención a Niños)</option>
+                <option value="Periodoncia (Encías)" data-i18n="optionPerio">Periodoncia (Tratamiento de Encías)</option>
+                <option value="Cirugía Oral Menor" data-i18n="optionOralSurgery">Cirugía Oral Menor</option>
+                <option value="Urgencia Dental" data-i18n="optionUrgency">Urgencia Dental</option>
+                <option value="Otro" data-i18n="optionOther">Otro motivo (especificar abajo)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="dia-page" class="form-label" data-i18n="dayLabel">Día preferido para la consulta:</label>
+              <select id="dia-page" name="Día Preferido" class="form-control" required>
+                <option value="" disabled selected data-i18n="selectDay">Selecciona un día de la semana</option>
+                <option value="Lunes" data-i18n="day1">Lunes</option>
+                <option value="Martes" data-i18n="day2">Martes</option>
+                <option value="Miércoles" data-i18n="day3">Miércoles</option>
+                <option value="Jueves" data-i18n="day4">Jueves</option>
+                <option value="Viernes" data-i18n="day5">Viernes</option>
+                <option value="Sábado" data-i18n="day6">Sábado</option>
+                <option value="Lo antes posible" data-i18n="dayASAP">Lo antes posible</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="horario-page" class="form-label" data-i18n="timeLabel">Horario de preferencia:</label>
+              <select id="horario-page" name="Horario Preferido" class="form-control" required>
+                <option value="" disabled selected data-i18n="selectTime">Selecciona un bloque horario</option>
+                <option value="Mañana (9am-1pm)" data-i18n="timeMorning">Mañana (9:00 AM - 1:00 PM)</option>
+                <option value="Tarde (3pm-7pm)" data-i18n="timeAfternoon">Tarde (3:00 PM - 7:00 PM)</option>
+                <option value="Sábado (9am-2pm)" data-i18n="timeSaturday">Sábado (9:00 AM - 2:00 PM)</option>
+                <option value="Indiferente" data-i18n="timeAny">Indiferente / Flexible</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje-page" class="form-label" data-i18n="messageLabel">Mensaje adicional (opcional):</label>
+                <textarea id="mensaje-page" name="Mensaje Adicional" class="form-control" rows="3" data-i18n-placeholder="messagePlaceholder" placeholder="Si tienes alguna pregunta o detalle adicional, escríbelo aquí."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud de Cita</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2 data-i18n="scheduleVisitPrepTitle">Preparándote para tu Visita</h2>
+        <p data-i18n="scheduleVisitPrepDesc">Para que tu visita sea lo más fluida y eficiente posible, te hacemos algunas recomendaciones:</p>
+        <ul>
+            <li data-i18n="schedulePrep1">Si es tu primera visita, llega unos 10-15 minutos antes para completar tu historial clínico.</li>
+            <li data-i18n="schedulePrep2">Trae contigo una identificación oficial.</li>
+            <li data-i18n="schedulePrep3">Si estás tomando algún medicamento actualmente, por favor infórmanos.</li>
+            <li data-i18n="schedulePrep4">Si tienes estudios dentales previos (radiografías, etc.) que consideres relevantes, puedes traerlos.</li>
+            <li data-i18n="schedulePrep5">¡Prepara tus preguntas! Estamos aquí para resolver todas tus dudas sobre tu salud y tratamiento dental.</li>
+        </ul>
+         <div class="image-placeholder-container">
+            <div class="image-placeholder" data-i18n="scheduleImagePlaceholder2">Espacio para Imagen: Interior de la Clínica / Ambiente Acogedor</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
+    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 1:00 PM | 3:00 PM - 7:00 PM. Sábados 9:00 AM - 2:00 PM</span></p>
+    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
+    <p class="copyright" data-i18n="footerCopyright">© <span id="currentYear">2024</span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+  </footer>
+
+  <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
+    <i class="fas fa-language"></i>
+    <span>ES/EN</span>
+  </button>
+  <script>
+    // Traducciones específicas para agenda.html
+    const translations = {
+      es: {
+        "titleSchedule": "Agenda tu Cita - Dr. Santos Clínica Dental",
+        "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "schedulePageTitle": "Agenda Fácilmente tu Próxima Visita",
+        "scheduleHowTo": "¿Cómo Agendar tu Cita?",
+        "scheduleDesc1": "Agendar tu cita en Dr. Santos Clínica Dental es muy sencillo. Queremos facilitarte el proceso para que puedas recibir la atención que mereces sin complicaciones. Elige la opción que te sea más cómoda:",
+        "scheduleImagePlaceholder1": "Espacio para Imagen: Sonrisa Amable / Recepcionista",
+        "scheduleOptionsTitle": "Tus Opciones para Agendar:",
+        "scheduleCallBtn": "Llámanos Directamente al (614) 780-4673",
+        "scheduleWhatsappBtn": "Envíanos un Mensaje por WhatsApp",
+        "scheduleFormIntro": "O si lo prefieres, completa el siguiente formulario y nuestro equipo se pondrá en contacto contigo a la brevedad para confirmar los detalles de tu cita.",
+        "formTitle": "Formulario de Solicitud de Cita",
+        "nameLabel": "Nombre completo:", "namePlaceholder": "Escribe tu nombre completo",
+        "phoneLabel": "Número de teléfono:", "phonePlaceholderPage": "Tu número para contactarte",
+        "reasonLabel": "Motivo de consulta o Tratamiento de Interés:", "selectReason": "-- Selecciona una opción --",
+        "optionConsult": "Consulta de Valoración / Diagnóstico",
+        "optionCleaning": "Limpieza Dental Profesional",
+        "optionWhitening": "Blanqueamiento Dental",
+        "optionImplants": "Implantes Dentales",
+        "optionVeneers": "Carillas Dentales",
+        "optionCrowns": "Coronas Dentales",
+        "optionBridges": "Puentes Dentales",
+        "optionEndo": "Tratamiento de Canal (Endodoncia)",
+        "optionDentures": "Dentaduras (Prótesis Removibles)",
+        "optionOrtho": "Ortodoncia (Brackets / Alineadores)",
+        "optionExtractions": "Extracciones Dentales (Incl. Muelas del Juicio)",
+        "optionPediatric": "Odontopediatría (Atención a Niños)",
+        "optionPerio": "Periodoncia (Tratamiento de Encías)",
+        "optionOralSurgery": "Cirugía Oral Menor",
+        "optionUrgency": "Urgencia Dental",
+        "optionOther": "Otro motivo (especificar abajo)",
+        "dayLabel": "Día preferido para la consulta:", "selectDay": "Selecciona un día de la semana",
+        "day1": "Lunes", "day2": "Martes", "day3": "Miércoles", "day4": "Jueves", "day5": "Viernes", "day6": "Sábado", "dayASAP": "Lo antes posible",
+        "timeLabel": "Horario de preferencia:", "selectTime": "Selecciona un bloque horario",
+        "timeMorning": "Mañana (9:00 AM - 1:00 PM)", "timeAfternoon": "Tarde (3:00 PM - 7:00 PM)", "timeSaturday": "Sábado (9:00 AM - 2:00 PM)", "timeAny": "Indiferente / Flexible",
+        "messageLabel": "Mensaje adicional (opcional):", "messagePlaceholder": "Si tienes alguna pregunta o detalle adicional, escríbelo aquí.",
+        "submitBtn": "Enviar Solicitud de Cita",
+        "scheduleVisitPrepTitle": "Preparándote para tu Visita",
+        "scheduleVisitPrepDesc": "Para que tu visita sea lo más fluida y eficiente posible, te hacemos algunas recomendaciones:",
+        "schedulePrep1": "Si es tu primera visita, llega unos 10-15 minutos antes para completar tu historial clínico.",
+        "schedulePrep2": "Trae contigo una identificación oficial.",
+        "schedulePrep3": "Si estás tomando algún medicamento actualmente, por favor infórmanos.",
+        "schedulePrep4": "Si tienes estudios dentales previos (radiografías, etc.) que consideres relevantes, puedes traerlos.",
+        "schedulePrep5": "¡Prepara tus preguntas! Estamos aquí para resolver todas tus dudas sobre tu salud y tratamiento dental.",
+        "scheduleImagePlaceholder2": "Espacio para Imagen: Interior de la Clínica / Ambiente Acogedor",
+        "clinicNameFooter": "Dr. Santos Clínica Dental", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua", "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 1:00 PM | 3:00 PM - 7:00 PM. Sábados 9:00 AM - 2:00 PM", "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673", "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.`
+      },
+      en: {
+        "titleSchedule": "Schedule Appointment - Dr. Santos Dental Clinic",
+        "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "schedulePageTitle": "Easily Schedule Your Next Visit",
+        "scheduleHowTo": "How to Schedule Your Appointment?",
+        "scheduleDesc1": "Scheduling your appointment at Dr. Santos Dental Clinic is very simple. We want to make the process easy for you so you can receive the care you deserve without complications. Choose the option that is most comfortable for you:",
+        "scheduleImagePlaceholder1": "Image Placeholder: Friendly Smile / Receptionist",
+        "scheduleOptionsTitle": "Your Scheduling Options:",
+        "scheduleCallBtn": "Call Us Directly at (614) 780-4673",
+        "scheduleWhatsappBtn": "Send us a WhatsApp Message",
+        "scheduleFormIntro": "Or if you prefer, complete the following form and our team will contact you shortly to confirm your appointment details.",
+        "formTitle": "Appointment Request Form",
+        "nameLabel": "Full name:", "namePlaceholder": "Enter your full name",
+        "phoneLabel": "Phone number:", "phonePlaceholderPage": "Your contact phone number",
+        "reasonLabel": "Reason for consultation or Treatment of Interest:", "selectReason": "-- Select an option --",
+        "optionConsult": "Assessment Consultation / Diagnosis",
+        "optionCleaning": "Professional Dental Cleaning",
+        "optionWhitening": "Teeth Whitening",
+        "optionImplants": "Dental Implants",
+        "optionVeneers": "Dental Veneers",
+        "optionCrowns": "Dental Crowns",
+        "optionBridges": "Dental Bridges",
+        "optionEndo": "Root Canal Treatment (Endodontics)",
+        "optionDentures": "Dentures (Removable Prosthetics)",
+        "optionOrtho": "Orthodontics (Braces / Aligners)",
+        "optionExtractions": "Dental Extractions (Incl. Wisdom Teeth)",
+        "optionPediatric": "Pediatric Dentistry (Children's Care)",
+        "optionPerio": "Periodontics (Gum Treatment)",
+        "optionOralSurgery": "Minor Oral Surgery",
+        "optionUrgency": "Dental Emergency",
+        "optionOther": "Other reason (specify below)",
+        "dayLabel": "Preferred day for consultation:", "selectDay": "Select a day of the week",
+        "day1": "Monday", "day2": "Tuesday", "day3": "Wednesday", "day4": "Thursday", "day5": "Friday", "day6": "Saturday", "dayASAP": "As soon as possible",
+        "timeLabel": "Preferred time:", "selectTime": "Select a time slot",
+        "timeMorning": "Morning (9:00 AM - 1:00 PM)", "timeAfternoon": "Afternoon (3:00 PM - 7:00 PM)", "timeSaturday": "Saturday (9:00 AM - 2:00 PM)", "timeAny": "Anytime / Flexible",
+        "messageLabel": "Additional message (optional):", "messagePlaceholder": "If you have any questions or additional details, write them here.",
+        "submitBtn": "Send Appointment Request",
+        "scheduleVisitPrepTitle": "Preparing for Your Visit",
+        "scheduleVisitPrepDesc": "To make your visit as smooth and efficient as possible, we recommend the following:",
+        "schedulePrep1": "If it's your first visit, please arrive 10-15 minutes early to complete your medical history.",
+        "schedulePrep2": "Bring an official ID with you.",
+        "schedulePrep3": "If you are currently taking any medication, please inform us.",
+        "schedulePrep4": "If you have previous dental records (X-rays, etc.) that you consider relevant, you can bring them.",
+        "schedulePrep5": "Prepare your questions! We are here to answer all your doubts about your dental health and treatment.",
+        "scheduleImagePlaceholder2": "Image Placeholder: Clinic Interior / Welcoming Atmosphere",
+        "clinicNameFooter": "Dr. Santos Dental Clinic", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua", "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 1:00 PM | 3:00 PM - 7:00 PM. Saturdays 9:00 AM - 2:00 PM", "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673", "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Dental Clinic. All rights reserved.`
+      }
+    };
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script> </body>
+</html>
