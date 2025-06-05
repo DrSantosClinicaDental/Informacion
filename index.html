@@ -3,25 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="title">Dr. Santos Clínica Dental | Tu Sonrisa en Juárez</title>
+  <title data-i18n="title">Dr. Santos Clínica Dental | Tu Sonrisa Perfecta en Juárez</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Contenido de style.css integrado aquí */
+    /* Contenido de style.css COMPLETO E INTEGRADO CON MODIFICACIONES */
     :root {
-      --color-primario: #2a7f7f;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
+      --color-primario: #2a7f7f; /* Verde azulado principal */
+      --color-primario-rgb: 42, 127, 127;
+      --color-secundario: #3a506b; /* Azul oscuro secundario */
+      --color-secundario-rgb: 58, 80, 107;
+      --acento: #5fb49c; /* Verde menta acento */
+      --acento-hover: #4e9a85; /* Un poco más oscuro para hover */
+      --acento-rgb: 95, 180, 156;
       --blanco: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-medio: #e9edf0;
-      --gris-texto: #4a4a4a;
+      --gris-claro: #f5f7fa; /* Fondos de sección alternos */
+      --gris-medio: #e9edf0; /* Bordes, divisores */
+      --gris-texto: #4a4a4a; /* Texto secundario */
       --texto-oscuro-principal: #333333;
       --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
       --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
+      --sombra-fuerte-boton: 0 8px 15px rgba(95, 180, 156, 0.3); /* Sombra para botón CTA */
       --whatsapp: #25D366;
       --radio-borde-general: 10px;
-      --acento-rgb: 95, 180, 156; /* Para el box-shadow del focus en forms */
+      --radio-borde-sm: 6px; 
+      /* Variables adicionales de tu CSS original que podrían ser necesarias */
+      --color-text-subtle: #5a677d;
+      --color-border: #d1d9e0;
+      --color-background-light-section: #f8f9fa;
+      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12);
     }
 
     * {
@@ -93,8 +103,7 @@
       padding: 0.5rem 0;
       box-shadow: var(--sombra-ligera);
       border-bottom: 1px solid var(--gris-medio);
-      position: sticky;
-      top: 0; /* Se ajustará con JS */
+      position: sticky; /* 'top' se ajusta con JS */
       z-index: 999;
       width: 100%;
     }
@@ -102,31 +111,29 @@
     .main-nav ul {
       list-style: none;
       display: flex;
-      justify-content: center; /* Centrar en móvil si hay espacio */
+      justify-content: center; 
       align-items: center;
-      flex-wrap: nowrap; /* Evitar que se rompa en varias líneas fácilmente */
-      overflow-x: auto; /* Permitir scroll horizontal en móvil si no caben */
-      -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-      padding: 0 10px; /* Padding lateral para que no pegue a los bordes */
-      gap: 5px; /* Espacio mínimo entre pestañas */
+      flex-wrap: nowrap; 
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch; 
+      padding: 0 10px; 
+      gap: 5px; 
     }
-    /* Ocultar scrollbar por defecto, visible solo al hacer scroll si es necesario */
     .main-nav ul::-webkit-scrollbar { display: none; }
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
-
 
     .main-nav li a {
       color: var(--color-primario);
       text-decoration: none;
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
-      font-size: 0.85rem; /* Tamaño ajustado para móvil */
-      padding: 0.6em 0.9em; /* Padding ajustado */
+      font-size: 0.85rem; 
+      padding: 0.6em 0.9em; 
       border-radius: var(--radio-borde-sm);
       transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease;
       display: block;
       text-align: center;
-      white-space: nowrap; /* Para que el texto de la pestaña no se parta */
+      white-space: nowrap; 
       border-bottom: 3px solid transparent;
     }
 
@@ -150,7 +157,7 @@
     .popup-container {
       background-color: var(--blanco);
       border-radius: var(--radio-borde-general);
-      overflow: hidden; max-width: 90%; width: 600px; /* Ajustado para móvil */
+      overflow: hidden; max-width: 90%; width: 600px; 
       box-shadow: 0 10px 35px rgba(0,0,0,0.25);
       transform: scale(0.85);
       transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
@@ -159,9 +166,9 @@
     .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
     .popup-img { width: 100%; height: auto; display: block; }
     .close-popup {
-      position: absolute; top: 10px; right: 10px; /* Más ajustado para móvil */
+      position: absolute; top: 10px; right: 10px; 
       background-color: var(--color-primario); color: white;
-      width: 32px; height: 32px; /* Más pequeño */
+      width: 32px; height: 32px; 
       border-radius: 50%; display: flex; justify-content: center; align-items: center;
       cursor: pointer; font-size: 16px;
       transition: background-color 0.3s ease, transform 0.3s ease;
@@ -172,45 +179,104 @@
       transform: rotate(180deg) scale(1.1);
     }
 
-    /* Hero */
+    /* --- Hero Section (Fondo Modernizado) --- */
     .hero {
-      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario) 90%);
+      background-image: 
+        linear-gradient(135deg, rgba(var(--color-primario-rgb), 0.85) 0%, rgba(var(--color-secundario-rgb), 0.92) 100%),
+        url('https://images.unsplash.com/photo-1580281657603-35 لائحة-example'); /* Reemplaza con tu imagen real o usa solo el degradado */
+      background-size: cover;
+      background-position: center center;
       color: var(--blanco);
-      padding: 40px 5% 60px; /* Padding reducido para móvil */
-      /* margin-top será ajustado por JS */
-      text-align: center; position: relative; overflow: hidden;
+      padding: 60px 5% 80px; 
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      /* El margin-top es ajustado por JS */
     }
-    .hero::before {
+    /* Alternativa si no usas imagen de fondo en Hero: */
+    /* .hero::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       z-index: 1;
-    }
+    } */
     .hero-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
-      color: var(--color-secundario);
-      margin-bottom: 15px; /* Margen base reducido */
+      /* color: var(--color-secundario); Ya definido en .hero h1, section h2, etc. */
+      margin-bottom: 15px; 
     }
     .hero h1 {
-      color: var(--blanco); font-size: clamp(1.8rem, 6vw, 2.5rem); /* Ajustado para móvil */
-      line-height: 1.25; text-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      color: var(--blanco); 
+      font-size: clamp(2rem, 7vw, 3.2rem); 
+      line-height: 1.2; 
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
       animation: fadeInDown 0.8s ease-out both;
+      margin-bottom: 20px;
     }
     .hero p {
-      color: rgba(255,255,255,0.95); margin-bottom: 25px; font-size: 1rem; /* Ajustado */
+      color: rgba(255,255,255,0.95); 
+      margin-bottom: 30px; 
+      font-size: clamp(1rem, 2.5vw, 1.2rem); 
       animation: fadeIn 0.8s ease-out 0.3s both;
+      max-width: 600px; 
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Botones de Contacto */
+    /* --- Botón de Agendar Cita (Más Llamativo) --- */
+    .btn-contacto {
+      background-color: var(--acento);
+      color: var(--blanco);
+      padding: 15px 35px; 
+      border-radius: var(--radio-borde-general);
+      display: inline-flex; 
+      align-items: center;
+      justify-content: center;
+      margin: 25px 0; 
+      font-weight: 700; 
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem); 
+      text-decoration: none; 
+      box-shadow: var(--sombra-fuerte-boton);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+      animation: fadeIn 1s ease 0.9s both; /* fadeIn estaba definido, lo uso */
+      border: none; 
+      position: relative;
+      overflow: hidden; 
+    }
+    .btn-contacto .fas {
+      margin-right: 12px; 
+      font-size: 1.1em; 
+    }
+    .btn-contacto:hover, .btn-contacto:focus {
+      transform: translateY(-5px) scale(1.03); 
+      box-shadow: 0 12px 25px rgba(var(--acento-rgb), 0.45);
+      background-color: var(--acento-hover); 
+      color: var(--blanco);
+    }
+    .btn-contacto::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: all 0.6s ease;
+    }
+    .btn-contacto:hover::before {
+      left: 100%;
+    }
+
+    /* Botones de Contacto (generales) */
     .btn-container {
-      display: grid; grid-template-columns: 1fr; gap: 12px; /* Gap reducido */
-      max-width: 320px; /* Ancho máximo para móvil */
+      display: grid; grid-template-columns: 1fr; gap: 12px; 
+      max-width: 320px; 
       margin: 25px auto 0;
       animation: fadeInUp 0.8s ease-out 0.6s both;
     }
     .btn {
       display: flex; align-items: center; justify-content: center;
-      padding: 12px 20px; /* Padding ajustado */
+      padding: 12px 20px; 
       border-radius: var(--radio-borde-general);
       font-size: 0.95rem; font-weight: 600; text-decoration: none;
       transition: all 0.25s ease-out; position: relative; overflow: hidden;
@@ -238,23 +304,6 @@
       border-color: var(--blanco);
       transform: translateY(-2px);
     }
-    .btn-contacto {
-      background-color: var(--acento);
-      color: var(--blanco);
-      padding: 12px 25px; /* Padding ajustado */
-      border-radius: var(--radio-borde-general);
-      display: inline-block; margin: 20px 0; font-weight: 700; font-size: 1.05rem; /* Ajustado */
-      text-decoration: none; box-shadow: var(--sombra-media);
-      transition: all 0.25s ease-out; animation: fadeIn 1s ease 0.9s both;
-      border: 2px solid var(--acento);
-    }
-    .btn-contacto:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(var(--acento-rgb), 0.4);
-      background-color: var(--acento);
-      border-color: var(--acento);
-      color: var(--blanco);
-    }
     .btn-whatsapp::after {
       content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px;
       border-radius: calc(var(--radio-borde-general) + 8px);
@@ -266,23 +315,23 @@
       70% { transform: scale(1.12); opacity: 0; }
       100% { transform: scale(0.98); opacity: 0; }
     }
-    .icon { margin-right: 8px; width: 18px; height: 18px; transition: transform 0.3s ease; } /* Icono más pequeño */
+    .icon { margin-right: 8px; width: 18px; height: 18px; transition: transform 0.3s ease; } 
     .btn:hover .icon { transform: scale(1.15) rotate(-5deg); }
 
     /* Secciones */
-    section { padding: clamp(40px, 7vh, 60px) 5%; position: relative; } /* Padding reducido para móvil */
+    section { padding: clamp(40px, 7vh, 60px) 5%; position: relative; } 
     section:nth-child(even) { background-color: var(--gris-claro); }
     section h2 {
         text-align: center;
-        font-size: clamp(1.6rem, 5vw, 2.2rem); /* Ajustado para móvil */
+        font-size: clamp(1.6rem, 5vw, 2.2rem); 
         color: var(--color-primario);
         margin-bottom: clamp(25px, 4vh, 40px);
         position: relative;
-        padding-bottom: 12px; /* Reducido */
+        padding-bottom: 12px; 
     }
     section h2::after {
         content: ''; position: absolute; bottom: 0; left: 50%;
-        transform: translateX(-50%); width: 60px; height: 3px; /* Más pequeño */
+        transform: translateX(-50%); width: 60px; height: 3px; 
         background-color: var(--acento); border-radius: 2px;
     }
 
@@ -297,7 +346,7 @@
       border-left: 4px solid var(--acento);
     }
     .servicio-item:hover {
-      transform: translateY(-6px); box-shadow: var(--sombra-media); /* Menos elevación */
+      transform: translateY(-6px); box-shadow: var(--sombra-media); 
     }
     .servicio-item h3 {
       color: var(--color-primario); margin-bottom: 12px; display: flex; align-items: center;
@@ -325,14 +374,13 @@
 
     /* Galería */
     .galeria-ads {
-      display: grid; grid-template-columns: 1fr; gap: 15px; /* Gap reducido */
+      display: grid; grid-template-columns: 1fr; gap: 15px; 
       margin-top: 25px;
     }
     .galeria-ads img {
       width: 100%;
-      height: auto; /* Conservar proporción */
-      /* max-height: 350px; */ /* Opcional: limitar altura máxima si es necesario */
-      object-fit: contain; /* Mostrar imagen completa */
+      height: auto; 
+      object-fit: contain; 
       border-radius: var(--radio-borde-general); box-shadow: var(--sombra-media);
       transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer;
     }
@@ -398,13 +446,13 @@
       transition: box-shadow 0.3s ease;
     }
     .mapa-container:hover { box-shadow: var(--sombra-dark); }
-    .mapa { width: 100%; height: 250px; border: none; display: block; } /* Altura reducida para móvil */
+    .mapa { width: 100%; height: 250px; border: none; display: block; } 
 
     /* Formulario de contacto */
     .form-section {
       background-color: var(--blanco); border-radius: var(--radio-borde-general);
       padding: clamp(25px, 4vw, 35px);
-      max-width: 100%; /* Ocupar ancho en móvil */
+      max-width: 100%; 
       margin: 0 auto; box-shadow: var(--sombra-media);
       opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease-out 0.2s forwards;
     }
@@ -517,7 +565,7 @@
       }
       .logo {
         margin-bottom: 0;
-        max-height: 70px; /* Tamaño para tablet */
+        max-height: 70px; 
       }
       .header.scrolled .logo {
         max-height: 60px;
@@ -527,18 +575,20 @@
         font-size: 0.9rem;
       }
       .main-nav ul {
-        gap: 15px; /* Espacio entre pestañas en tablet */
-        flex-wrap: wrap; /* Permitir que se envuelvan si es necesario */
+        gap: 15px; 
+        flex-wrap: wrap; 
         justify-content: center;
-        overflow-x: visible; /* No necesita scroll horizontal */
+        overflow-x: visible; 
       }
        .main-nav li a {
-        font-size: 0.9rem; /* Ajustar tamaño en tablet */
+        font-size: 0.9rem; 
         padding: 0.7em 1em;
       }
-      .hero { /* margin-top se ajusta con JS */ padding-top: 60px; }
-      .hero h1 { font-size: 2.5rem; }
-      .btn-container { grid-template-columns: repeat(3, 1fr); max-width: 500px; }
+      .hero { padding-top: 60px; } /* margin-top del hero se ajusta con JS */
+      .hero h1 { font-size: 2.8rem; } /* Ajustado para el nuevo tamaño */
+      .hero p { font-size: 1.1rem; } /* Ajustado */
+      .btn-contacto { padding: 16px 40px; font-size: 1.25rem; } /* Botón más grande en tablet+ */
+      .btn-container { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-width: 550px; } /* Ajustado para 3 botones */
       .servicios-grid, .galeria-ads, .testimonios-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
       .mapa { height: 350px; }
       .form-section { max-width: 700px; }
@@ -546,54 +596,62 @@
 
     @media (min-width: 1024px) {
       .logo {
-        max-height: 80px; /* Tamaño para desktop */
+        max-height: 80px; 
       }
       .header.scrolled .logo {
         max-height: 70px;
       }
       .main-nav ul {
-        gap: 20px; /* Espacio mayor en desktop */
+        gap: 20px; 
       }
       .main-nav li a {
         font-size: 1rem;
       }
-      .hero h1 { font-size: 3rem; }
+      .hero h1 { font-size: 3.2rem; } /* Ajustado */
+      .hero p { font-size: 1.2rem; } /* Ajustado */
+      .btn-contacto { font-size: 1.3rem; }
       .servicios-grid { grid-template-columns: repeat(3, 1fr); }
       .mapa { height: 400px; }
-      .testimonios-grid { grid-template-columns: repeat(2, 1fr); } /* Puede ser 3 si hay muchos */
+      .testimonios-grid { grid-template-columns: repeat(2, 1fr); } 
     }
 
-    /* Estilos para las páginas individuales (contenedores generales) */
+    /* Estilos para las páginas individuales (contenedores generales) - Estos son más para las otras páginas, pero se incluyen por si se usan clases similares en index */
     .page-header-spacer { height: 150px; /* Valor inicial, ajustar con JS */ }
-    .page-content { padding: clamp(30px, 5vh, 50px) 0; } /* Ajustado para móvil */
+    .page-content { padding: clamp(30px, 5vh, 50px) 5%; } 
     .page-content h1 {
         text-align: center; color: var(--color-primario); margin-bottom: 30px;
-        font-size: clamp(1.8rem, 5vw, 2.5rem); /* Ajustado para móvil */
+        font-size: clamp(1.8rem, 5vw, 2.5rem); 
     }
     .content-section {
-        margin-bottom: 30px; padding: 20px; background-color: var(--blanco);
+        margin-bottom: 30px; padding: 25px; background-color: var(--blanco);
         border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera);
     }
     .content-section h2 {
-        color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); /* Ajustado */
-        margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid var(--acento);
+        color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); 
+        margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--acento);
         display: inline-block;
     }
-    .content-section p, .content-section ul {
-        color: var(--color-text-subtle); line-height: 1.7; /* Un poco menos */
-        margin-bottom: 12px; font-size: 0.95rem;
+    .content-section p, .content-section ul, .content-section ol { /* Añadido ol */
+        color: var(--color-text-subtle); line-height: 1.75; 
+        margin-bottom: 15px; font-size: 0.95rem;
     }
     .content-section ul { list-style: none; padding-left: 0; }
     .content-section ul li {
-        position: relative; padding-left: 22px; margin-bottom: 8px;
+        position: relative; padding-left: 25px; margin-bottom: 10px;
     }
     .content-section ul li::before {
         content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-        position: absolute; left: 0; top: 1px; font-size: 0.9em;
+        position: absolute; left: 0; top: 2px; font-size: 0.9em;
         color: var(--acento);
     }
+    .content-section ol { /* Estilo para listas ordenadas */
+        padding-left: 20px; 
+    }
+    .content-section ol li {
+        margin-bottom: 10px;
+    }
     .image-placeholder-container {
-        display: grid; grid-template-columns: 1fr; /* Una columna en móvil */
+        display: grid; grid-template-columns: 1fr; 
         gap: 15px; margin-top: 20px; margin-bottom: 20px;
     }
     .image-placeholder {
@@ -611,47 +669,67 @@
     }
     .cta-section h2 {
         color: var(--color-primario); border-bottom: none; padding-bottom: 0; display: block;
-        font-size: clamp(1.5rem, 4.5vw, 2rem); /* Ajustado */
+        font-size: clamp(1.5rem, 4.5vw, 2rem); 
     }
     .cta-section p {
-        color: var(--color-text-subtle); max-width: 100%; /* Full width en móvil */
+        color: var(--color-text-subtle); max-width: 100%; 
         margin-left: auto; margin-right: auto; margin-bottom: 20px; font-size: 0.95rem;
     }
-     /* Ajustes para desktop en placeholder de imagenes */
     @media (min-width: 768px) {
+        .page-content { padding: clamp(40px, 7vh, 60px) 10%; } /* Ajuste de padding para páginas internas en tablet+ */
         .image-placeholder-container {
-             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
          .cta-section p {
             max-width: 600px;
         }
     }
-
+    /* Estilos específicos para la página de FAQ detallada */
+    .faq-detailed-section .faq-item { background-color: var(--blanco); padding: 18px 22px; border-radius: var(--radio-borde-sm); box-shadow: var(--sombra-ligera); margin-bottom: 18px; border-left: 4px solid var(--acento); opacity:0; transform: translateY(20px); animation: fadeInUp .5s ease-out forwards; }
+    .faq-detailed-section .faq-item h3 { font-size: 1.1rem; color: var(--color-primario); margin-bottom: 0; display: flex; align-items: center; cursor: pointer; transition: color 0.3s ease; padding: 10px 0; }
+    .faq-detailed-section .faq-item h3:hover { color: var(--color-secundario); }
+    .faq-detailed-section .faq-item h3::before { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px; color: var(--acento); transition: transform 0.3s ease; font-size: 0.8em; }
+    .faq-detailed-section .faq-item.active h3::before { content: '\f077'; }
+    .faq-detailed-section .faq-item p { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, margin-top 0.4s ease-out, padding-bottom 0.4s ease-out; padding-left: 30px; color: var(--color-text-subtle); font-size: 0.95rem; line-height: 1.75; }
+    .faq-detailed-section .faq-item.active p { max-height: 600px; margin-top: 10px; padding-bottom: 10px; }
+    /* Estilos para la página de Agenda */
+    .schedule-info { text-align: center; margin-bottom: 30px; padding: 20px; background-color: var(--gris-claro); border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); }
+    .schedule-info p { color: var(--color-text-subtle); font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6; }
+    .schedule-info strong { color: var(--color-secundario); }
+    .schedule-info a { color: var(--color-primario); text-decoration: underline; }
+    .schedule-info a:hover { color: var(--acento); }
   </style>
 </head>
-<body>
-  <div class="popup-overlay" id="hotSalePopup">
+<body class="home-page"> <div class="popup-overlay" id="hotSalePopup">
     <div class="popup-container">
       <button class="close-popup" id="closePopup" aria-label="Cerrar">×</button>
-      <img src="El5.png" alt="Promoción Hot Sale - Blanqueamiento Dental" class="popup-img"> </div>
+      <img src="El5.png" alt="Promoción Hot Sale - Blanqueamiento Dental" class="popup-img">
+    </div>
   </div>
 
   <header class="header" id="mainHeader">
-    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo"> <div class="direccion-header">
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <div class="direccion-header">
       <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
     </div>
   </header>
 
-  <nav class="main-nav" id="mainNav"> <ul>
+  <nav class="main-nav" id="mainNav">
+    <ul>
       <li><a href="index.html" class="active-tab" data-i18n="navHome">Inicio</a></li>
-      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li> <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li> <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li> <li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li> </ul>
+      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
+      <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
+      <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
+      <li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li>
+    </ul>
   </nav>
 
-  <section class="hero" id="hero"> <div class="hero-content">
-      <h1 data-i18n="heroTitle">Tu sonrisa perfecta en Juárez</h1>
-      <p data-i18n="heroText">Cuidado dental personalizado con calidez y profesionalismo</p>
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 data-i18n="heroTitle">Transforma Tu Sonrisa, Transforma Tu Vida</h1>
+      <p data-i18n="heroText">En Dr. Santos Clínica Dental, combinamos experiencia, tecnología de vanguardia y un trato cálido para ofrecerte el mejor cuidado dental en Ciudad Juárez.</p>
       <a href="agenda.html" class="btn-contacto">
-        <i class="fas fa-calendar-check"></i> <span data-i18n="contactBtn">Agenda tu cita</span>
+        <i class="fas fa-calendar-alt"></i> <span data-i18n="contactBtnHero">¡Agenda tu Cita Hoy!</span>
       </a>
       <div class="btn-container">
         <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios%20en%20Dr.%20Santos%20Clínica%20Dental" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
@@ -662,7 +740,8 @@
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
           <span data-i18n="callBtn">Llamar</span>
         </a>
-        <a href="tel:+19151234567" class="btn btn-llamar-internacional"> <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        <a href="tel:+19151234567" class="btn btn-llamar-internacional"> 
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
           <span data-i18n="callIntlBtn">Desde EE.UU.</span>
         </a>
       </div>
@@ -670,11 +749,11 @@
   </section>
 
   <section id="servicios">
-    <h2 data-i18n="servicesTitle">Nuestros Servicios</h2>
+    <h2 data-i18n="servicesTitle">Nuestros Servicios Estrella</h2>
     <div class="servicios-grid">
       <div class="servicio-item reveal fade-bottom">
-        <h3><i class="fas fa-tooth"></i> <span data-i18n="service1">Blanqueamiento Dental</span></h3>
-        <p data-i18n="service1Desc">Recupera el brillo natural de tu sonrisa con nuestro tratamiento seguro y efectivo.</p>
+        <h3><i class="fas fa-tooth"></i> <span data-i18n="service1">Blanqueamiento Dental Avanzado</span></h3>
+        <p data-i18n="service1Desc">Recupera el brillo y la confianza con nuestro tratamiento seguro y efectivo.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
         <h3><i class="fas fa-crown"></i> <span data-i18n="service2">Coronas Dentales</span></h3>
@@ -689,16 +768,16 @@
         <p data-i18n="service4Desc">Eliminamos placa y sarro para mantener tus encías saludables.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
-        <h3><i class="fas fa-teeth-open"></i> <span data-i18n="service5">Carillas Dentales</span></h3>
-        <p data-i18n="service5Desc">Transforma tu sonrisa con nuestras carillas personalizadas.</p>
+        <h3><i class="fas fa-teeth-open"></i> <span data-i18n="service5">Diseño de Sonrisa con Carillas</span></h3>
+        <p data-i18n="service5Desc">Transforma tu sonrisa y tu imagen con nuestras carillas personalizadas.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
         <h3><i class="fas fa-first-aid"></i> <span data-i18n="service6">Tratamiento de Canal</span></h3>
         <p data-i18n="service6Desc">Aliviamos tu dolor y salvamos tu diente natural.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
-        <h3><i class="fas fa-tooth"></i> <span data-i18n="service7">Implantes Dentales</span></h3>
-        <p data-i18n="service7Desc">Soluciones permanentes para reemplazar dientes perdidos.</p>
+        <h3><i class="fas fa-tooth"></i> <span data-i18n="service7">Implantes Dentales de Titanio</span></h3>
+        <p data-i18n="service7Desc">Soluciones permanentes y naturales para reemplazar dientes perdidos.</p>
       </div>
     </div>
   </section>
@@ -706,19 +785,21 @@
   <section id="galeria" class="section--bg-alt">
     <h2 data-i18n="galleryTitle">Conócenos un Poco Más</h2>
     <div class="galeria-ads">
-      <img src="El2.jpg" alt="Resultados de tratamiento dental en Clínica Dental Dr. Santos" class="reveal fade-left"> <img src="El3.png" alt="Instalaciones modernas de la Clínica Dental Dr. Santos" class="reveal fade-right"> </div>
+      <img src="El2.jpg" alt="Resultados de tratamiento dental en Clínica Dental Dr. Santos" class="reveal fade-left">
+      <img src="El3.png" alt="Instalaciones modernas de la Clínica Dental Dr. Santos" class="reveal fade-right">
+    </div>
   </section>
 
   <section id="testimonios">
-    <h2 data-i18n="testimonialsTitle">Lo Que Nuestros Pacientes Opinan</h2>
+    <h2 data-i18n="testimonialsTitle">Pacientes Felices, Sonrisas que Inspiran</h2>
     <div class="testimonios-grid">
         <div class="testimonio-card reveal fade-bottom">
             <p class="testimonio-texto" data-i18n="testimonial1Text">"Doctor muy accesible"</p>
-            <p class="testimonio-autor" data-i18n="testimonial1Author">- Liza Gonzalez (Paciente Satisfecho)</p>
+            <p class="testimonio-autor" data-i18n="testimonial1Author">- Liza Gonzalez</p>
         </div>
         <div class="testimonio-card reveal fade-bottom" style="animation-delay: 0.2s;">
             <p class="testimonio-texto" data-i18n="testimonial2Text">"Muy buen dentista, buena atención al cliente y muy atento, una atención muy personalizada, si vale la pena"</p>
-            <p class="testimonio-autor" data-i18n="testimonial2Author">- Ana L. </p>
+            <p class="testimonio-autor" data-i18n="testimonial2Author">- Ana L.</p>
         </div>
     </div>
      <p style="text-align:center; margin-top: 30px; font-style: italic;" data-i18n="testimonialNote"></p>
@@ -726,7 +807,7 @@
 
   <section id="contacto" class="section--bg-alt">
     <div class="form-section">
-      <h2 class="form-title" data-i18n="formTitle">Solicita tu Cita o Consulta</h2>
+      <h2 class="form-title" data-i18n="formTitle">Agenda tu Valoración Profesional</h2>
       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos Clínica Dental">
         <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
@@ -783,7 +864,7 @@
   </section>
 
   <section id="faq">
-    <h2 data-i18n="faqTitle">Preguntas Frecuentes (Resumen)</h2>
+    <h2 data-i18n="faqTitle">Resolvemos Tus Dudas</h2>
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq1">¿Duele el blanqueamiento dental?</h3>
       <p data-i18n="faq1Answer">Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso y minimizan la sensibilidad.</p>
@@ -801,12 +882,12 @@
       <p data-i18n="faqCarillasAnswer">Las carillas no requieren un cuidado especial más allá de una buena higiene oral (cepillado, hilo dental) y visitas regulares al dentista. Es importante evitar morder objetos muy duros.</p>
     </div>
      <div style="text-align:center; margin-top:30px;">
-        <a href="faq-detallada.html" class="btn-contacto" data-i18n="faqViewMore"><i class="fas fa-question-circle"></i> Ver Más Preguntas</a>
+        <a href="faq-detallada.html" class="btn-contacto" style="background-color: var(--color-secundario); border-color: var(--color-secundario); padding: 12px 25px; font-size: 1rem;" data-i18n="faqViewMore"><i class="fas fa-question-circle"></i> Ver Todas las Preguntas</a>
     </div>
   </section>
 
   <section id="ubicacion" class="section--bg-alt">
-    <h2 data-i18n="locationTitle">Nuestra Ubicación</h2>
+    <h2 data-i18n="locationTitle">Encuéntranos Fácilmente</h2>
     <div class="mapa-container reveal fade-bottom">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy" title="Ubicación de Dr. Santos Clínica Dental en Ciudad Juárez"></iframe>
     </div>
@@ -821,7 +902,7 @@
     <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
     <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
     <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
-    <p class="copyright" data-i18n="footerCopyright">© <span id="currentYear">2024</span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+    <p class="copyright" data-i18n="footerCopyright">© <span id="currentYear">2025</span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
   </footer>
 
   <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
@@ -830,238 +911,271 @@
   </button>
 
   <script>
-    // Objeto de traducciones para index.html
+    // Objeto de traducciones para index.html (con los cambios de marketing)
     const translations = {
       es: {
-        "title": "Dr. Santos Clínica Dental | Tu Sonrisa en Juárez",
+        "title": "Dr. Santos Clínica Dental | Tu Sonrisa Perfecta en Juárez",
         "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        "heroTitle": "Tu sonrisa perfecta en Juárez",
-        "heroText": "Cuidado dental personalizado con calidez y profesionalismo",
-        "contactBtn": "Agenda tu cita", "callBtn": "Llamar", "callIntlBtn": "Desde EE.UU.",
-        "servicesTitle": "Nuestros Servicios",
-        "service1": "Blanqueamiento Dental", "service1Desc": "Recupera el brillo natural de tu sonrisa con nuestro tratamiento seguro y efectivo.",
+        "heroTitle": "Transforma Tu Sonrisa, Transforma Tu Vida",
+        "heroText": "En Dr. Santos Clínica Dental, combinamos experiencia, tecnología de vanguardia y un trato cálido para ofrecerte el mejor cuidado dental en Ciudad Juárez.",
+        "contactBtnHero": "¡Agenda tu Cita Hoy!",
+        "callBtn": "Llamar", "callIntlBtn": "Desde EE.UU.",
+        "servicesTitle": "Nuestros Servicios Estrella",
+        "service1": "Blanqueamiento Dental Avanzado", "service1Desc": "Recupera el brillo y la confianza con nuestro tratamiento seguro y efectivo.",
         "service2": "Coronas Dentales", "service2Desc": "Restauraciones que se ven y se sienten como dientes naturales.",
         "service3": "Puentes Dentales", "service3Desc": "Soluciones fijas para reemplazar dientes faltantes con comodidad.",
         "service4": "Limpieza Profesional", "service4Desc": "Eliminamos placa y sarro para mantener tus encías saludables.",
-        "service5": "Carillas Dentales", "service5Desc": "Transforma tu sonrisa con nuestras carillas personalizadas.",
+        "service5": "Diseño de Sonrisa con Carillas", "service5Desc": "Transforma tu sonrisa y tu imagen con nuestras carillas personalizadas.",
         "service6": "Tratamiento de Canal", "service6Desc": "Aliviamos tu dolor y salvamos tu diente natural.",
-        "service7": "Implantes Dentales", "service7Desc": "Soluciones permanentes para reemplazar dientes perdidos.",
+        "service7": "Implantes Dentales de Titanio", "service7Desc": "Soluciones permanentes y naturales para reemplazar dientes perdidos.",
         "galleryTitle": "Conócenos un Poco Más",
-        "testimonialsTitle": "Lo Que Nuestros Pacientes Opinan",
+        "testimonialsTitle": "Pacientes Felices, Sonrisas que Inspiran",
         "testimonial1Text": "\"Doctor muy accesible.\"",
         "testimonial1Author": "- Liza Gonzalez",
         "testimonial2Text": "\"Muy buen dentista, buena atención al cliente y muy atento, una atención muy personalizada, si vale la pena.\"",
         "testimonial2Author": "- Ana Leyva",
-        
-        "formTitle": "Solicita tu Cita o Consulta",
+        "testimonialNote": "", // Si no hay nota, dejar vacío o quitar.
+        "formTitle": "Agenda tu Valoración Profesional",
         "nameLabel": "Nombre completo", "namePlaceholder": "Ingresa tu nombre completo",
         "reasonLabel": "Motivo de consulta", "selectReason": "Selecciona un motivo",
         "option1": "Blanqueamiento Dental", "option2": "Limpieza Profesional", "option3": "Implante Dental", "option4": "Tratamiento de Canal", "option5": "Corona Dental", "option6": "Puente Dental", "option7": "Carillas Dentales", "option8": "Otro",
         "dayLabel": "Día que se le facilita la consulta", "selectDay": "Selecciona un día", "day1": "Lunes", "day2": "Martes", "day3": "Miércoles", "day4": "Jueves", "day5": "Viernes", "day6": "Sábado",
         "timeLabel": "Horario preferible para consulta", "selectTime": "Selecciona un horario", "time1": "Mañana (9am-12pm)", "time2": "Tarde (3pm-6pm)", "time3": "Sábado (9am-2pm)",
         "phoneLabel": "Número de teléfono", "phonePlaceholder": "Ingresa tu número de teléfono", "submitBtn": "Enviar solicitud",
-        "faqTitle": "Preguntas Frecuentes (Resumen)",
+        "faqTitle": "Resolvemos Tus Dudas",
         "faq1": "¿Duele el blanqueamiento dental?", "faq1Answer": "Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso y minimizan la sensibilidad.",
         "faq2": "¿Cuánto dura un blanqueamiento dental?", "faq2Answer": "Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos para mantener tu sonrisa brillante por más tiempo.",
         "faq5": "¿Los implantes dentales son permanentes?", "faq5Answer": "Sí, con los cuidados adecuados y revisiones periódicas, los implantes dentales están diseñados para ser una solución a largo plazo, pudiendo durar toda la vida.",
         "faqCarillas": "¿Las carillas dentales requieren un cuidado especial?", "faqCarillasAnswer": "Las carillas no requieren un cuidado especial más allá de una buena higiene oral (cepillado, hilo dental) y visitas regulares al dentista. Es importante evitar morder objetos muy duros.",
-        "faqViewMore": "Ver Más Preguntas",
-        "locationTitle": "Nuestra Ubicación",
+        "faqViewMore": "Ver Todas las Preguntas",
+        "locationTitle": "Encuéntranos Fácilmente",
         "addressTitle": "Dirección:", "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, C.P. 32370, Ciudad Juárez, Chihuahua.",
         "phoneTitle": "Teléfono:", "phoneNumber": "(614) 780-4673",
-        "clinicNameFooter": "Dr. Santos Clínica Dental", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
+        "clinicNameFooter": "Dr. Santos Clínica Dental", 
+        "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
         "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
         "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.`
+        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.` // Actualizado dinámicamente
       },
       en: {
-        "title": "Dr. Santos Dental Clinic | Your Smile in Juarez",
+        "title": "Dr. Santos Dental Clinic | Your Perfect Smile in Juarez",
         "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-        "heroTitle": "Your perfect smile in Juarez",
-        "heroText": "Personalized dental care with warmth and professionalism",
-        "contactBtn": "Book your appointment", "callBtn": "Call", "callIntlBtn": "From U.S.",
-        "servicesTitle": "Our Services",
-        "service1": "Teeth Whitening", "service1Desc": "Restore the natural brightness of your smile with our safe and effective treatment.",
+        "heroTitle": "Transform Your Smile, Transform Your Life",
+        "heroText": "At Dr. Santos Dental Clinic, we combine experience, cutting-edge technology, and warm care to offer you the best dental care in Ciudad Juarez.",
+        "contactBtnHero": "Schedule Your Appointment Today!",
+        "callBtn": "Call", "callIntlBtn": "From U.S.",
+        "servicesTitle": "Our Star Services",
+        "service1": "Advanced Teeth Whitening", "service1Desc": "Regain brightness and confidence with our safe and effective treatment.",
+        // ... (resto de traducciones en inglés)
         "service2": "Dental Crowns", "service2Desc": "Restorations that look and feel like natural teeth.",
         "service3": "Dental Bridges", "service3Desc": "Fixed solutions to replace missing teeth comfortably.",
         "service4": "Professional Cleaning", "service4Desc": "We remove plaque and tartar to keep your gums healthy.",
-        "service5": "Dental Veneers", "service5Desc": "Transform your smile with our customized veneers.",
+        "service5": "Smile Design with Veneers", "service5Desc": "Transform your smile and image with our custom veneers.",
         "service6": "Root Canal Treatment", "service6Desc": "We relieve your pain and save your natural tooth.",
-        "service7": "Dental Implants", "service7Desc": "Permanent solutions to replace missing teeth.",
+        "service7": "Titanium Dental Implants", "service7Desc": "Permanent and natural solutions to replace missing teeth.",
         "galleryTitle": "Get to Know Us A Little More",
-        "testimonialsTitle": "What Our Patients Say",
-        "testimonial1Text": "\"Excellent care and professionalism! Dr. Santos and his team made me feel very comfortable throughout the treatment. The results were fantastic. Totally recommended.\"",
-        "testimonial1Author": "- Carlos S. (Satisfied Patient)",
-        "testimonial2Text": "\"I had been looking for a good clinic in Juarez for a long time and finally found it. Clean facilities, modern technology, and most importantly, warm and humane treatment. Thank you Dr. Santos.\"",
-        "testimonial2Author": "- Laura V. (Patient from El Paso)",
-        "testimonialNote": "These are example testimonials. Please replace them with actual reviews from your patients.",
-        "formTitle": "Request Your Appointment or Consultation",
+        "testimonialsTitle": "Happy Patients, Inspiring Smiles",
+        "testimonial1Text": "\"Very accessible doctor.\"", // Example, replace with real ones
+        "testimonial1Author": "- Liza Gonzalez",
+        "testimonial2Text": "\"Very good dentist, good customer service and very attentive, very personalized attention, it's worth it.\"",
+        "testimonial2Author": "- Ana L.",
+        "testimonialNote": "",
+        "formTitle": "Schedule Your Professional Assessment",
         "nameLabel": "Full name", "namePlaceholder": "Enter your full name",
         "reasonLabel": "Reason for consultation", "selectReason": "Select a reason",
         "option1": "Teeth Whitening", "option2": "Professional Cleaning", "option3": "Dental Implant", "option4": "Root Canal Treatment", "option5": "Dental Crown", "option6": "Dental Bridge", "option7": "Dental Veneers", "option8": "Other",
         "dayLabel": "Preferred day for consultation", "selectDay": "Select a day", "day1": "Monday", "day2": "Tuesday", "day3": "Wednesday", "day4": "Thursday", "day5": "Friday", "day6": "Saturday",
         "timeLabel": "Preferred time for consultation", "selectTime": "Select a time", "time1": "Morning (9am-12pm)", "time2": "Afternoon (3pm-6pm)", "time3": "Saturday (9am-2pm)",
         "phoneLabel": "Phone number", "phonePlaceholder": "Enter your phone number", "submitBtn": "Submit request",
-        "faqTitle": "Frequently Asked Questions (Summary)",
+        "faqTitle": "We Answer Your Questions",
         "faq1": "Does teeth whitening hurt?", "faq1Answer": "Our whitening is designed to be comfortable. We use special gels that protect your gums during the process and minimize sensitivity.",
         "faq2": "How long does teeth whitening last?", "faq2Answer": "Results can last from 1 to 3 years depending on your habits. We'll give you tips to keep your smile bright for longer.",
         "faq5": "Are dental implants permanent?", "faq5Answer": "Yes, with proper care and regular check-ups, dental implants are designed for a long-term solution and can last a lifetime.",
         "faqCarillas": "Do dental veneers require special care?", "faqCarillasAnswer": "Veneers do not require special care beyond good oral hygiene (brushing, flossing) and regular dental visits. It is important to avoid biting very hard objects.",
-        "faqViewMore": "View More Questions",
-        "locationTitle": "Our Location",
+        "faqViewMore": "View All Questions",
+        "locationTitle": "Find Us Easily",
         "addressTitle": "Address:", "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, C.P. 32370, Ciudad Juarez, Chihuahua.",
         "phoneTitle": "Phone:", "phoneNumber": "(614) 780-4673",
-        "clinicNameFooter": "Dr. Santos Dental Clinic", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
+        "clinicNameFooter": "Dr. Santos Dental Clinic", 
+        "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
         "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
         "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
         "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Dental Clinic. All rights reserved.`
       }
     };
 
+    // --- INICIO SCRIPT GLOBAL (CON CORRECCIÓN PARA STICKY NAV) ---
     document.addEventListener('DOMContentLoaded', function() {
-        const mainHeader = document.getElementById('mainHeader');
-        const mainNav = document.getElementById('mainNav'); // Asegúrate de que tu nav tenga este ID
-        const heroSection = document.getElementById('hero'); // Asegúrate de que tu hero tenga este ID
-        const hotSalePopup = document.getElementById('hotSalePopup');
-        const closePopupBtn = document.getElementById('closePopup');
-        const translateBtn = document.getElementById('translateBtn');
-        const currentYearSpan = document.getElementById('currentYear');
+      const mainHeader = document.getElementById('mainHeader');
+      const mainNav = document.getElementById('mainNav'); 
+      const heroSection = document.getElementById('hero'); 
+      const hotSalePopup = document.getElementById('hotSalePopup');
+      const closePopupBtn = document.getElementById('closePopup');
+      const translateBtn = document.getElementById('translateBtn');
+      const currentYearSpan = document.getElementById('currentYear');
 
-        if(currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
-        
-        function adjustLayout() {
-            if (mainHeader && mainNav) {
-                const headerHeight = mainHeader.offsetHeight;
-                mainNav.style.top = `${headerHeight}px`;
-                if (heroSection) { // Solo ajustar margin-top del hero en index.html
-                    if (document.body.classList.contains('home-page')) { // Asigna esta clase al body de index.html
-                         heroSection.style.marginTop = `${headerHeight + mainNav.offsetHeight}px`;
-                    }
-                }
-            }
-            // Para páginas internas con .page-header-spacer
-            const pageHeaderSpacer = document.querySelector('.page-header-spacer');
-            if (mainHeader && mainNav && pageHeaderSpacer) {
-                pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`;
-            }
-        }
+      if(currentYearSpan) {
+          const year = new Date().getFullYear();
+          currentYearSpan.textContent = year;
+           if (translations.es.footerCopyright && translations.es.footerCopyright.includes('${new Date().getFullYear()}')) {
+             translations.es.footerCopyright = `© ${year} Dr. Santos Clínica Dental. Todos los derechos reservados.`;
+          } else if (translations.es.footerCopyright && !translations.es.footerCopyright.includes(year.toString())) {
+             translations.es.footerCopyright = `© ${year} Dr. Santos Clínica Dental. Todos los derechos reservados.`;
+          }
 
-        if (hotSalePopup) {
-            if (!localStorage.getItem('popupShownDrSantosV2')) {
-                setTimeout(function() {
-                    hotSalePopup.classList.add('active');
-                    localStorage.setItem('popupShownDrSantosV2', 'true');
-                }, 3500);
-            }
-            if (closePopupBtn) {
-                closePopupBtn.addEventListener('click', function() { hotSalePopup.classList.remove('active'); });
-            }
-            hotSalePopup.addEventListener('click', function(e) {
-                if (e.target === this) { hotSalePopup.classList.remove('active'); }
-            });
-        }
+          if (translations.en.footerCopyright && translations.en.footerCopyright.includes('${new Date().getFullYear()}')) {
+             translations.en.footerCopyright = `© ${year} Dr. Santos Dental Clinic. All rights reserved.`;
+          } else if (translations.en.footerCopyright && !translations.en.footerCopyright.includes(year.toString())) {
+            translations.en.footerCopyright = `© ${year} Dr. Santos Dental Clinic. All rights reserved.`;
+          }
+      }
+      
+      function adjustLayout() {
+          if (mainHeader && mainNav) {
+              const headerHeight = mainHeader.offsetHeight;
+              mainNav.style.top = `${headerHeight}px`;
+              
+              const totalFixedHeaderHeight = headerHeight + mainNav.offsetHeight;
+              if (document.body.classList.contains('home-page') && heroSection) { 
+                  heroSection.style.marginTop = `${totalFixedHeaderHeight}px`;
+              }
+              // Para páginas internas (que no tienen la clase 'home-page' en el body)
+              const pageHeaderSpacer = document.querySelector('.page-header-spacer');
+              if (pageHeaderSpacer && !document.body.classList.contains('home-page')) {
+                  pageHeaderSpacer.style.height = `${totalFixedHeaderHeight}px`;
+              }
+          }
+      }
 
-        window.addEventListener('scroll', function() {
-            if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } // Umbral más pequeño
-        });
-        
-        adjustLayout();
-        window.addEventListener('resize', adjustLayout);
-        // Una llamada extra por si las fuentes cargan y cambian la altura del header
-        setTimeout(adjustLayout, 300);
-
-
-        document.querySelectorAll('.faq-item h3').forEach(item => {
-          item.addEventListener('click', function() {
-            this.parentElement.classList.toggle('active');
+      if (hotSalePopup) {
+          if (!localStorage.getItem('popupShownDrSantosV2')) {
+              setTimeout(function() {
+                  hotSalePopup.classList.add('active');
+                  localStorage.setItem('popupShownDrSantosV2', 'true');
+              }, 3500);
+          }
+          if (closePopupBtn) {
+              closePopupBtn.addEventListener('click', function() { hotSalePopup.classList.remove('active'); });
+          }
+          hotSalePopup.addEventListener('click', function(e) {
+              if (e.target === this) { hotSalePopup.classList.remove('active'); }
           });
+      }
+
+      let lastHeaderHeight = 0;
+      if(mainHeader) lastHeaderHeight = mainHeader.offsetHeight;
+
+      window.addEventListener('scroll', function() {
+          const isScrolled = window.scrollY > 30;
+          if (mainHeader) {
+              mainHeader.classList.toggle('scrolled', isScrolled);
+              const currentHeaderHeight = mainHeader.offsetHeight;
+              if (currentHeaderHeight !== lastHeaderHeight) {
+                  adjustLayout();
+                  lastHeaderHeight = currentHeaderHeight;
+              }
+          }
+      });
+      
+      adjustLayout();
+      window.addEventListener('resize', adjustLayout);
+      document.fonts.ready.then(function () {
+        setTimeout(adjustLayout, 100); 
+        setTimeout(adjustLayout, 500);
+      });
+
+      document.querySelectorAll('.faq-item h3').forEach(item => { // Esto afectará a los FAQ en el index también
+        item.addEventListener('click', function() {
+          this.parentElement.classList.toggle('active');
         });
+      });
+      
+      function reveal() {
+          const reveals = document.querySelectorAll('.reveal');
+          for (let i = 0; i < reveals.length; i++) {
+              const windowHeight = window.innerHeight;
+              const elementTop = reveals[i].getBoundingClientRect().top;
+              const elementVisible = 80; 
+              if (elementTop < windowHeight - elementVisible) {
+                  reveals[i].classList.add('active');
+              }
+          }
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
 
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 80; // Umbral más pequeño para que se active antes
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        window.addEventListener('scroll', reveal);
-        reveal();
+      if (typeof translations !== 'undefined' && translateBtn) {
+          function changeLanguage(lang) {
+              document.documentElement.lang = lang;
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  let content = translations[lang] && translations[lang][key] ? translations[lang][key] : (translations['es'] && translations['es'][key] ? translations['es'][key] : el.innerHTML);
+                  if ((el.tagName === 'P' && key === 'footerCopyright') || (el.tagName === 'P' && key === 'scheduleInfoText2')) {
+                      el.innerHTML = content; 
+                  } else {
+                      el.textContent = content.replace(/<[^>]*>/g, ""); 
+                  }
+              });
+              document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                  const key = el.getAttribute('data-i18n-placeholder');
+                  if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
+              });
+              const pageTitleKey = document.querySelector('title').dataset.i18n;
+              if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
+                  document.title = translations[lang][pageTitleKey];
+              }
+              document.querySelectorAll('option[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
+              });
+              localStorage.setItem('preferredLangDrSantos', lang);
+          }
+          translateBtn.addEventListener('click', function() {
+              const currentLangStored = localStorage.getItem('preferredLangDrSantos') || 'es';
+              const newLang = currentLangStored === 'es' ? 'en' : 'es';
+              changeLanguage(newLang);
+              this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
+          });
+          const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
+          changeLanguage(savedLang); 
+          if (translateBtn.querySelector('span')) { 
+              translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
+          }
+      }
 
-        if (typeof translations !== 'undefined' && translateBtn) {
-            function changeLanguage(lang) {
-                document.documentElement.lang = lang;
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
-                });
-                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                    const key = el.getAttribute('data-i18n-placeholder');
-                    if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
-                });
-                if (translations[lang] && translations[lang]['title']) { document.title = translations[lang]['title']; }
-                document.querySelectorAll('option[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
-                });
-                localStorage.setItem('preferredLangDrSantos', lang);
-            }
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href');
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                  let offset = 0;
+                  if (mainHeader) offset += mainHeader.offsetHeight;
+                  if (mainNav && getComputedStyle(mainNav).position === 'sticky') offset += mainNav.offsetHeight;
+                  const elementPosition = targetElement.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset - 10; 
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              }
+          });
+      });
 
-            translateBtn.addEventListener('click', function() {
-                const currentLangStored = localStorage.getItem('preferredLangDrSantos') || 'es';
-                const newLang = currentLangStored === 'es' ? 'en' : 'es';
-                changeLanguage(newLang);
-                this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
-            });
-
-            const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
-            changeLanguage(savedLang);
-            if (translateBtn.querySelector('span')) { // Chequeo para evitar error si no existe
-                 translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
-            }
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    let offset = 0;
-                    if (mainHeader) offset += mainHeader.offsetHeight;
-                    if (mainNav && getComputedStyle(mainNav).position === 'sticky') offset += mainNav.offsetHeight;
-                    
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset - 10; // 10px de espacio extra
-                    
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        const currentPage = window.location.pathname.split("/").pop() || "index.html"; // Default to index.html if path is empty
-        if (mainNav) {
-            const navLinks = mainNav.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.classList.remove('active-tab'); // Limpiar activas
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active-tab');
-                }
-            });
-        }
-        // Añade la clase 'home-page' al body de index.html para el ajuste del hero
-        if (currentPage === "index.html") {
-            document.body.classList.add('home-page');
-            adjustLayout(); // Re-ajustar layout si es la home page
-        }
+      const currentPage = window.location.pathname.split("/").pop() || "index.html"; 
+      if (mainNav) {
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+              link.classList.remove('active-tab'); 
+              let linkHref = link.getAttribute('href').split("/").pop();
+              if (linkHref === "" && currentPage === "index.html") { 
+                link.classList.add('active-tab');
+              } else if (linkHref === currentPage) {
+                  link.classList.add('active-tab');
+              }
+          });
+      }
     });
+    // ---- FIN SCRIPT GLOBAL ----
   </script>
 </body>
 </html>
