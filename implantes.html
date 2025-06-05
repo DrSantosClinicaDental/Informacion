@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Contenido de style.css integrado aquí (exactamente el mismo que en index.html) */
+    /* El bloque de estilos CSS completo e idéntico al que ya tienes va aquí */
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
@@ -21,614 +21,82 @@
       --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
       --whatsapp: #25D366;
       --radio-borde-general: 10px;
-      --radio-borde-sm: 6px; /* Añadido para consistencia si se usa */
-      --acento-rgb: 95, 180, 156; /* Para el box-shadow del focus en forms */
-      --color-text-subtle: #5a677d; /* Para textos secundarios o menos importantes */
-      --color-border: #d1d9e0; /* Para bordes sutiles */
-      --color-background-light-section: #f8f9fa; /* Para secciones con fondo muy claro */
-      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+      --radio-borde-sm: 6px;
+      --acento-rgb: 95, 180, 156;
+      --color-text-subtle: #5a677d;
+      --color-border: #d1d9e0;
+      --color-background-light-section: #f8f9fa;
+      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--texto-oscuro-principal);
-      background-color: var(--blanco);
-      line-height: 1.7;
-      overflow-x: hidden;
-      font-smooth: antialiased;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Header Modificado */
-    .header {
-      background-color: var(--blanco);
-      padding: 10px 5%; /* Padding ajustado para mobile */
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: var(--sombra-ligera);
-      transition: padding 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .header.scrolled {
-      padding: 8px 5%;
-      box-shadow: var(--sombra-media);
-    }
-
-    .logo {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-height: 65px; /* Altura base para logo en móvil */
-      width: auto;
-      max-width: 280px; /* Ajustar si es necesario */
-      margin-bottom: 8px;
-      transition: max-height 0.3s ease;
-    }
-
-    .header.scrolled .logo {
-      max-height: 55px;
-    }
-
-    .direccion-header {
-      color: var(--color-secundario);
-      font-size: 0.8rem; /* Ligeramente más pequeño para móvil */
-      text-align: center;
-      transition: font-size 0.3s ease;
-    }
-    .direccion-header i {
-        color: var(--color-primario);
-        margin-right: 5px;
-    }
-
-    /* Navegación por Pestañas */
-    .main-nav {
-      background-color: var(--blanco);
-      padding: 0.5rem 0;
-      box-shadow: var(--sombra-ligera);
-      border-bottom: 1px solid var(--gris-medio);
-      position: sticky;
-      top: 0; /* Se ajustará con JS */
-      z-index: 999;
-      width: 100%;
-    }
-
-    .main-nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center; /* Centrar en móvil si hay espacio */
-      align-items: center;
-      flex-wrap: nowrap; /* Evitar que se rompa en varias líneas fácilmente */
-      overflow-x: auto; /* Permitir scroll horizontal en móvil si no caben */
-      -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-      padding: 0 10px; /* Padding lateral para que no pegue a los bordes */
-      gap: 5px; /* Espacio mínimo entre pestañas */
-    }
-    /* Ocultar scrollbar por defecto, visible solo al hacer scroll si es necesario */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--texto-oscuro-principal); background-color: var(--blanco); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .header { background-color: var(--blanco); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; box-shadow: var(--sombra-ligera); transition: padding 0.3s ease, box-shadow 0.3s ease; }
+    .header.scrolled { padding: 8px 5%; box-shadow: var(--sombra-media); }
+    .logo { display: block; margin-left: auto; margin-right: auto; max-height: 65px; width: auto; max-width: 280px; margin-bottom: 8px; transition: max-height 0.3s ease; }
+    .header.scrolled .logo { max-height: 55px; }
+    .direccion-header { color: var(--color-secundario); font-size: 0.8rem; text-align: center; transition: font-size 0.3s ease; }
+    .direccion-header i { color: var(--color-primario); margin-right: 5px; }
+    .main-nav { background-color: var(--blanco); padding: 0.5rem 0; box-shadow: var(--sombra-ligera); border-bottom: 1px solid var(--gris-medio); position: sticky; top: 0; z-index: 999; width: 100%; }
+    .main-nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 10px; gap: 5px; }
     .main-nav ul::-webkit-scrollbar { display: none; }
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
-
-
-    .main-nav li a {
-      color: var(--color-primario);
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.85rem; /* Tamaño ajustado para móvil */
-      padding: 0.6em 0.9em; /* Padding ajustado */
-      border-radius: var(--radio-borde-sm);
-      transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease;
-      display: block;
-      text-align: center;
-      white-space: nowrap; /* Para que el texto de la pestaña no se parta */
-      border-bottom: 3px solid transparent;
-    }
-
-    .main-nav li a:hover,
-    .main-nav li a.active-tab {
-      color: var(--acento);
-      background-color: transparent;
-      border-bottom-color: var(--acento);
-      box-shadow: none;
-    }
-
-    /* Popup Hot Sale (copiado de index.html) */
-    .popup-overlay {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.75);
-      display: flex; justify-content: center; align-items: center;
-      z-index: 2000; opacity: 0; visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
+    .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
+    .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); background-color: transparent; border-bottom-color: var(--acento); box-shadow: none; }
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
     .popup-overlay.active { opacity: 1; visibility: visible; }
-    .popup-container {
-      background-color: var(--blanco);
-      border-radius: var(--radio-borde-general);
-      overflow: hidden; max-width: 90%; width: 600px; /* Ajustado para móvil */
-      box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-      transform: scale(0.85);
-      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-      position: relative; opacity: 0;
-    }
+    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; position: relative; opacity: 0; }
     .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
     .popup-img { width: 100%; height: auto; display: block; }
-    .close-popup {
-      position: absolute; top: 10px; right: 10px; /* Más ajustado para móvil */
-      background-color: var(--color-primario); color: white;
-      width: 32px; height: 32px; /* Más pequeño */
-      border-radius: 50%; display: flex; justify-content: center; align-items: center;
-      cursor: pointer; font-size: 16px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      border: none; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .close-popup:hover {
-      background-color: var(--color-secundario);
-      transform: rotate(180deg) scale(1.1);
-    }
-    
-    /* Hero (copiado de index.html, puede no ser usado o diferente en otras páginas) */
-    .hero {
-      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario) 90%);
-      color: var(--blanco);
-      padding: 40px 5% 60px; /* Padding reducido para móvil */
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      z-index: 1;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-      color: var(--color-secundario);
-      margin-bottom: 15px; /* Margen base reducido */
-    }
-    .hero h1 {
-      color: var(--blanco); font-size: clamp(1.8rem, 6vw, 2.5rem); /* Ajustado para móvil */
-      line-height: 1.25; text-shadow: 0 2px 5px rgba(0,0,0,0.25);
-      animation: fadeInDown 0.8s ease-out both;
-    }
-    .hero p {
-      color: rgba(255,255,255,0.95); margin-bottom: 25px; font-size: 1rem; /* Ajustado */
-      animation: fadeIn 0.8s ease-out 0.3s both;
-    }
-
-    /* Botones de Contacto (copiado de index.html) */
-    .btn-container {
-      display: grid; grid-template-columns: 1fr; gap: 12px; /* Gap reducido */
-      max-width: 320px; /* Ancho máximo para móvil */
-      margin: 25px auto 0;
-      animation: fadeInUp 0.8s ease-out 0.6s both;
-    }
-    .btn {
-      display: flex; align-items: center; justify-content: center;
-      padding: 12px 20px; /* Padding ajustado */
-      border-radius: var(--radio-borde-general);
-      font-size: 0.95rem; font-weight: 600; text-decoration: none;
-      transition: all 0.25s ease-out; position: relative; overflow: hidden;
-      border: 2px solid transparent;
-    }
-    .btn-whatsapp {
-      background-color: var(--blanco); color: var(--color-primario);
-      box-shadow: var(--sombra-ligera);
-    }
-    .btn-whatsapp:hover {
-      background-color: var(--whatsapp); color: var(--blanco);
-      border-color: var(--whatsapp); transform: translateY(-2px);
-    }
-    .btn-llamar {
-      background-color: transparent; color: var(--blanco);
-      border: 2px solid var(--blanco);
-    }
-    .btn-llamar:hover { background-color: var(--blanco); color: var(--color-primario); transform: translateY(-2px); }
-    .btn-llamar-internacional {
-      background-color: var(--acento); color: var(--blanco);
-      border-color: var(--acento);
-    }
-    .btn-llamar-internacional:hover {
-      background-color: var(--blanco); color: var(--acento);
-      border-color: var(--blanco);
-      transform: translateY(-2px);
-    }
-    .btn-contacto {
-      background-color: var(--acento);
-      color: var(--blanco);
-      padding: 12px 25px; /* Padding ajustado */
-      border-radius: var(--radio-borde-general);
-      display: inline-block; margin: 20px 0; font-weight: 700; font-size: 1.05rem; /* Ajustado */
-      text-decoration: none; box-shadow: var(--sombra-media);
-      transition: all 0.25s ease-out; animation: fadeIn 1s ease 0.9s both;
-      border: 2px solid var(--acento);
-    }
-    .btn-contacto:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(var(--acento-rgb), 0.4);
-      background-color: var(--acento);
-      border-color: var(--acento);
-      color: var(--blanco);
-    }
-    .btn-whatsapp::after {
-      content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px;
-      border-radius: calc(var(--radio-borde-general) + 8px);
-      border: 2px solid var(--whatsapp); opacity: 0; animation: pulse 2s infinite ease-out;
-    }
-    .btn-whatsapp:hover::after { opacity: 0.6; }
-    @keyframes pulse {
-      0% { transform: scale(0.98); opacity: 0.6; }
-      70% { transform: scale(1.12); opacity: 0; }
-      100% { transform: scale(0.98); opacity: 0; }
-    }
-    .icon { margin-right: 8px; width: 18px; height: 18px; transition: transform 0.3s ease; } /* Icono más pequeño */
-    .btn:hover .icon { transform: scale(1.15) rotate(-5deg); }
-
-    /* Secciones (copiado de index.html) */
-    section { padding: clamp(40px, 7vh, 60px) 5%; position: relative; } /* Padding reducido para móvil */
-    section:nth-child(even) { background-color: var(--gris-claro); }
-    section h2 {
-        text-align: center;
-        font-size: clamp(1.6rem, 5vw, 2.2rem); /* Ajustado para móvil */
-        color: var(--color-primario);
-        margin-bottom: clamp(25px, 4vh, 40px);
-        position: relative;
-        padding-bottom: 12px; /* Reducido */
-    }
-    section h2::after {
-        content: ''; position: absolute; bottom: 0; left: 50%;
-        transform: translateX(-50%); width: 60px; height: 3px; /* Más pequeño */
-        background-color: var(--acento); border-radius: 2px;
-    }
-    /* ... (Resto de estilos de secciones como Servicios, Galeria, Testimonios, FAQ, Mapa, Formulario de index.html) */
-    /* Servicios */
-    .servicios-grid {
-      display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 25px;
-    }
-    .servicio-item {
-      background: var(--blanco); padding: 25px; border-radius: var(--radio-borde-general);
-      box-shadow: var(--sombra-ligera); transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative; overflow: hidden; z-index: 1;
-      border-left: 4px solid var(--acento);
-    }
-    .servicio-item:hover {
-      transform: translateY(-6px); box-shadow: var(--sombra-media); /* Menos elevación */
-    }
-    .servicio-item h3 {
-      color: var(--color-primario); margin-bottom: 12px; display: flex; align-items: center;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
-    .servicio-item:hover h3 { color: var(--color-secundario); }
-    .servicio-item h3 i {
-      margin-right: 10px; color: var(--acento); font-size: 1.4rem;
-      transition: transform 0.3s ease;
-    }
-    .servicio-item:hover h3 i { transform: scale(1.1); }
-    .servicio-item p { color: var(--color-text-subtle); transition: color 0.3s ease; font-size: 0.9rem; }
-
-    .servicios-grid .servicio-item {
-      opacity: 0; transform: translateY(25px); animation: fadeInUp 0.5s ease-out forwards;
-    }
-    .servicios-grid .servicio-item:nth-child(1) { animation-delay: 0.1s; }
-    .servicios-grid .servicio-item:nth-child(2) { animation-delay: 0.18s; }
-    .servicios-grid .servicio-item:nth-child(3) { animation-delay: 0.26s; }
-    .servicios-grid .servicio-item:nth-child(4) { animation-delay: 0.34s; }
-    .servicios-grid .servicio-item:nth-child(5) { animation-delay: 0.42s; }
-    .servicios-grid .servicio-item:nth-child(6) { animation-delay: 0.5s; }
-    .servicios-grid .servicio-item:nth-child(7) { animation-delay: 0.58s; }
-
-    /* Galería */
-    .galeria-ads {
-      display: grid; grid-template-columns: 1fr; gap: 15px; /* Gap reducido */
-      margin-top: 25px;
-    }
-    .galeria-ads img {
-      width: 100%;
-      height: auto; /* Conservar proporción */
-      object-fit: contain; /* Mostrar imagen completa */
-      border-radius: var(--radio-borde-general); box-shadow: var(--sombra-media);
-      transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer;
-    }
-    .galeria-ads img:hover {
-      transform: scale(1.03); box-shadow: var(--sombra-dark);
-    }
-
-    /* Testimonios */
-    .testimonios-grid {
-        display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 25px;
-    }
-    .testimonio-card {
-        background: var(--blanco); padding: 20px; border-radius: var(--radio-borde-general);
-        box-shadow: var(--sombra-ligera); border-top: 4px solid var(--acento);
-    }
-    .testimonio-card p.testimonio-texto {
-        font-style: italic; color: var(--color-text-subtle); margin-bottom: 12px;
-        position: relative; padding-left: 30px; font-size: 0.9rem;
-    }
-    .testimonio-card p.testimonio-texto::before {
-        content: '\f10d'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-        position: absolute; left: 0; top: -3px; font-size: 1.3rem;
-        color: var(--acento); opacity: 0.8;
-    }
-    .testimonio-card p.testimonio-autor {
-        text-align: right; font-weight: 600; color: var(--color-primario); font-size: 0.9rem;
-    }
-
-    /* FAQ */
-    .faq-item {
-      margin-bottom: 12px; border-bottom: 1px solid var(--gris-medio);
-      padding-bottom: 12px; opacity: 0; transform: translateY(20px);
-      animation: fadeInUp 0.5s ease-out forwards;
-    }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-item:nth-child(1) { animation-delay: 0.1s; } .faq-item:nth-child(2) { animation-delay: 0.15s; }
-    .faq-item:nth-child(3) { animation-delay: 0.2s; } .faq-item:nth-child(4) { animation-delay: 0.25s; }
-    .faq-item:nth-child(5) { animation-delay: 0.3s; } .faq-item:nth-child(6) { animation-delay: 0.35s; }
-
-    .faq-item h3 {
-      color: var(--color-primario); margin-bottom: 0;
-      font-size: 1.05rem; display: flex; align-items: center; cursor: pointer;
-      transition: color 0.3s ease; padding: 8px 0;
-    }
-    .faq-item h3:hover { color: var(--color-secundario); }
-    .faq-item h3::before {
-      content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-      margin-right: 12px; color: var(--acento);
-      transition: transform 0.3s ease; font-size: 0.8em;
-    }
-    .faq-item.active h3::before { content: '\f077'; }
-    .faq-item p {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease-out, margin-top 0.35s ease-out, padding-bottom 0.35s ease-out;
-      padding-left: 25px; color: var(--color-text-subtle); font-size: 0.9rem;
-    }
-    .faq-item.active p { max-height: 250px; margin-top: 8px; padding-bottom: 8px; }
-
-    /* Mapa */
-    .mapa-container {
-      margin-top: 25px; border-radius: var(--radio-borde-general);
-      overflow: hidden; box-shadow: var(--sombra-media);
-      transition: box-shadow 0.3s ease;
-    }
-    .mapa-container:hover { box-shadow: var(--sombra-dark); }
-    .mapa { width: 100%; height: 250px; border: none; display: block; } /* Altura reducida para móvil */
-
-    /* Formulario de contacto */
-    .form-section {
-      background-color: var(--blanco); border-radius: var(--radio-borde-general);
-      padding: clamp(25px, 4vw, 35px);
-      max-width: 100%; /* Ocupar ancho en móvil */
-      margin: 0 auto; box-shadow: var(--sombra-media);
-      opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease-out 0.2s forwards;
-    }
-    .form-title {
-      text-align: center; color: var(--color-primario);
-      margin-bottom: 25px; font-size: 1.5rem;
-    }
-    .form-group { margin-bottom: 18px; position: relative; }
-    .form-label {
-      display: block; margin-bottom: 6px; font-weight: 600;
-      color: var(--color-secundario); font-size: 0.85rem;
-    }
-    .form-control {
-      width: 100%; padding: 12px 15px;
-      border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-general);
-      font-family: 'Open Sans', sans-serif; font-size: 0.95rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .form-control:focus {
-      border-color: var(--acento);
-      box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.15);
-      outline: none;
-    }
-    .submit-btn {
-      background-color: var(--color-primario); color: white; border: none;
-      padding: 12px 25px; border-radius: var(--radio-borde-general);
-      font-size: 1rem; font-weight: 600; cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      width: 100%; margin-top: 12px; position: relative; overflow: hidden;
-    }
-    .submit-btn .fas { margin-right: 8px; }
-    .submit-btn:hover {
-      background-color: var(--color-secundario); transform: translateY(-3px);
-    }
-    .submit-btn::after {
-      content: ''; position: absolute; top: 50%; left: 50%; width: 5px; height: 5px;
-      background: rgba(255, 255, 255, 0.4); opacity: 0; border-radius: 100%;
-      transform: scale(1, 1) translate(-50%); transform-origin: 50% 50%;
-    }
-    .submit-btn:focus:not(:active)::after { animation: ripple 0.8s ease-out; }
-    @keyframes ripple {
-      0% { transform: scale(0, 0) translate(-50%); opacity: 1; }
-      20% { transform: scale(30, 30) translate(-50%); opacity: 1; }
-      100% { opacity: 0; transform: scale(50, 50) translate(-50%); }
-    }
-
-    /* Footer */
-    .footer {
-      background-color: var(--color-secundario); color: var(--blanco);
-      padding: 30px 5% 20px; text-align: center; position: relative;
-    }
-    .footer::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--color-primario), var(--acento));
-    }
+    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.3s ease; border: none; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg) scale(1.1); }
+    .btn-contacto { background-color: var(--acento); color: var(--blanco); padding: 12px 25px; border-radius: var(--radio-borde-general); display: inline-block; margin: 20px 0; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: var(--sombra-media); transition: all 0.25s ease-out; animation: fadeIn 1s ease 0.9s both; border: 2px solid var(--acento); }
+    .btn-contacto:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(var(--acento-rgb), 0.4); }
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
     .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
     .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
     .footer p i { color: var(--acento); margin-right: 6px; }
     .footer a { color: var(--blanco); }
     .footer a:hover { color: var(--acento); text-decoration: underline; }
-
-    /* Botón de traducción */
-    .translate-btn {
-      position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario);
-      color: white; border: none; width: 50px; height: 50px; border-radius: 50%;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      cursor: pointer; font-size: 10px; transition: all 0.3s ease;
-      box-shadow: var(--sombra-media); z-index: 100;
-      opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease 1s forwards;
-    }
-    .translate-btn:hover {
-      background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08);
-    }
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease 1s forwards; }
+    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
     .translate-btn i { font-size: 20px; margin-bottom: 2px; }
-
-    /* Animaciones */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-25px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(25px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .reveal { position: relative; opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .reveal.active { opacity: 1; }
-    .reveal.active.fade-bottom { transform: translateY(0); animation-name: fadeInUp; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.active.fade-left { transform: translateX(0); animation-name: fadeInLeft; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.active.fade-right { transform: translateX(0); animation-name: fadeInRight; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.fade-bottom { transform: translateY(30px); }
-    .reveal.fade-left { transform: translateX(-30px); }
-    .reveal.fade-right { transform: translateX(30px); }
-
-    /* Responsive Media Queries */
-    @media (min-width: 768px) {
-      .header {
-        padding: 15px 5%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        margin-bottom: 0;
-        max-height: 70px; /* Tamaño para tablet */
-      }
-      .header.scrolled .logo {
-        max-height: 60px;
-      }
-      .direccion-header {
-        text-align: right;
-        font-size: 0.9rem;
-      }
-      .main-nav ul {
-        gap: 15px; /* Espacio entre pestañas en tablet */
-        flex-wrap: wrap; /* Permitir que se envuelvan si es necesario */
-        justify-content: center;
-        overflow-x: visible; /* No necesita scroll horizontal */
-      }
-       .main-nav li a {
-        font-size: 0.9rem; /* Ajustar tamaño en tablet */
-        padding: 0.7em 1em;
-      }
-      .hero { /* margin-top se ajusta con JS */ padding-top: 60px; }
-      .hero h1 { font-size: 2.5rem; }
-      .btn-container { grid-template-columns: repeat(3, 1fr); max-width: 500px; }
-      .servicios-grid, .galeria-ads, .testimonios-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-      .mapa { height: 350px; }
-      .form-section { max-width: 700px; }
-    }
-
-    @media (min-width: 1024px) {
-      .logo {
-        max-height: 80px; /* Tamaño para desktop */
-      }
-      .header.scrolled .logo {
-        max-height: 70px;
-      }
-      .main-nav ul {
-        gap: 20px; /* Espacio mayor en desktop */
-      }
-      .main-nav li a {
-        font-size: 1rem;
-      }
-      .hero h1 { font-size: 3rem; }
-      .servicios-grid { grid-template-columns: repeat(3, 1fr); }
-      .mapa { height: 400px; }
-      .testimonios-grid { grid-template-columns: repeat(2, 1fr); } /* Puede ser 3 si hay muchos */
-    }
-
-    /* Estilos para las páginas individuales (contenedores generales) */
-    .page-header-spacer { height: 150px; /* Valor inicial, ajustar con JS */ }
-    .page-content { padding: clamp(30px, 5vh, 50px) 5%; } /* Padding para el contenedor principal de la página */
-    .page-content h1 {
-        text-align: center; color: var(--color-primario); margin-bottom: 30px;
-        font-size: clamp(1.8rem, 5vw, 2.5rem); /* Ajustado para móvil */
-    }
-    .content-section {
-        margin-bottom: 30px; padding: 20px; background-color: var(--blanco);
-        border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera);
-    }
-    .content-section h2 {
-        color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); /* Ajustado */
-        margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid var(--acento);
-        display: inline-block;
-    }
-    .content-section p, .content-section ul {
-        color: var(--color-text-subtle); line-height: 1.7; 
-        margin-bottom: 12px; font-size: 0.95rem;
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header-spacer { height: 150px; }
+    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
+    .page-content h1 { text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); font-family: 'Poppins', sans-serif;}
+    .content-section { margin-bottom: 30px; padding: 25px; background-color: var(--blanco); border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); }
+    .content-section h2 { color: var(--color-secundario); font-family: 'Poppins', sans-serif; font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--acento); display: inline-block; }
+    .content-section p, .content-section ul, .content-section ol { color: var(--color-text-subtle); line-height: 1.75; margin-bottom: 15px; font-size: 0.95rem; }
     .content-section ul { list-style: none; padding-left: 0; }
-    .content-section ul li {
-        position: relative; padding-left: 22px; margin-bottom: 8px;
-    }
-    .content-section ul li::before {
-        content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-        position: absolute; left: 0; top: 1px; font-size: 0.9em;
-        color: var(--acento);
-    }
-    .image-placeholder-container {
-        display: grid; grid-template-columns: 1fr; /* Una columna en móvil */
-        gap: 15px; margin-top: 20px; margin-bottom: 20px;
-    }
-    .image-placeholder {
-        width: 100%; height: 180px; background-color: var(--gris-medio);
-        border-radius: var(--radio-borde-general); display: flex;
-        justify-content: center; align-items: center; color: var(--color-text-subtle);
-        font-style: italic; text-align: center; border: 2px dashed var(--color-border);
-        padding: 10px; font-size: 0.9rem;
-    }
-    .image-placeholder.large { height: 250px; }
-    .cta-section {
-        text-align: center; padding: 25px;
-        background-color: var(--color-background-light-section);
-        border-radius: var(--radio-borde-general); margin-top: 30px;
-    }
-    .cta-section h2 {
-        color: var(--color-primario); border-bottom: none; padding-bottom: 0; display: block;
-        font-size: clamp(1.5rem, 4.5vw, 2rem); /* Ajustado */
-    }
-    .cta-section p {
-        color: var(--color-text-subtle); max-width: 100%; /* Full width en móvil */
-        margin-left: auto; margin-right: auto; margin-bottom: 20px; font-size: 0.95rem;
-    }
-      /* Ajustes para desktop en placeholder de imagenes */
+    .content-section ul li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+    .content-section ul li::before { content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; font-size: 0.9em; color: var(--acento); }
+    .content-section ol { padding-left: 20px; }
+    .content-section ol li { margin-bottom: 10px; }
+    .image-gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; margin-bottom: 20px; }
+    .image-gallery-item { text-align: center; width: 100%; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-ligera); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .image-gallery-item:hover { transform: translateY(-5px); box-shadow: var(--sombra-media); }
+    .image-gallery-item img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .image-gallery-item .disclaimer { padding: 10px; font-size: 0.75rem; color: #888; font-style: italic; background-color: var(--gris-claro); }
+    .cta-section { text-align: center; padding: 30px 20px; background-color: var(--color-background-light-section); border-radius: var(--radio-borde-general); margin-top: 40px; box-shadow: var(--sombra-ligera); }
+    .cta-section h2 { color: var(--color-primario); border-bottom: none; padding-bottom: 0; display: block; font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom:15px; }
+    .cta-section p { color: var(--color-text-subtle); max-width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 25px; font-size: 1rem; }
     @media (min-width: 768px) {
-        .image-placeholder-container {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-         .cta-section p {
-            max-width: 600px;
-        }
-        .page-content { padding: clamp(30px, 5vh, 50px) 10%; } /* Más padding lateral en desktop */
+      .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; align-items: center; }
+      .logo { margin-bottom: 0; max-height: 70px; }
+      .header.scrolled .logo { max-height: 60px; }
+      .direccion-header { text-align: right; font-size: 0.9rem; }
+      .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; overflow-x: visible; }
+      .main-nav li a { font-size: 0.9rem; padding: 0.7em 1em; }
+      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
+      .cta-section p { max-width: 600px; }
+    }
+    @media (min-width: 1024px) {
+      .logo { max-height: 80px; }
+      .header.scrolled .logo { max-height: 70px; }
+      .main-nav ul { gap: 20px; }
+      .main-nav li a { font-size: 1rem; }
     }
   </style>
 </head>
@@ -636,7 +104,7 @@
   <div class="popup-overlay" id="hotSalePopup">
     <div class="popup-container">
       <button class="close-popup" id="closePopup" aria-label="Cerrar">×</button>
-      <img src="El5.png" alt="Promoción Hot Sale - Blanqueamiento Dental" class="popup-img">
+      <img src="El5.png" alt="Promoción Hot Sale" class="popup-img">
     </div>
   </div>
 
@@ -660,41 +128,57 @@
   <div class="page-header-spacer"></div>
 
   <main class="page-content">
-    <h1 data-i18n="implantsPageTitle">Implantes Dentales</h1>
+    <h1 data-i18n="implantsPageTitle">Implantes Dentales: La Solución Definitiva</h1>
+    
     <div class="content-section">
-      <h2 data-i18n="implantsSection1Title">¿Qué son los Implantes Dentales?</h2>
-      <p data-i18n="implantsSection1Para1">
-        Aquí puedes explicar en detalle qué son los implantes dentales, cómo funcionan,
-        los materiales utilizados, y para quiénes son recomendados.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <h2 data-i18n="implantsWhatAreTitle">¿Qué son los Implantes Dentales?</h2>
+      <p data-i18n="implantsWhatAreP1">
+        Un implante dental es un poste de titanio (un material biocompatible) que se coloca quirúrgicamente en el hueso maxilar, justo debajo de la encía. Funciona como una raíz artificial sobre la cual se pueden montar dientes de reemplazo (coronas) o puentes fijos.
       </p>
-      <p data-i18n="implantsSection1Para2">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      <p data-i18n="implantsWhatAreP2">
+        A diferencia de las dentaduras postizas, los implantes son una solución fija que no se desliza ni se mueve, proporcionando una estabilidad y comodidad comparables a las de los dientes naturales.
       </p>
-      <ul data-i18n="implantsBenefitsListTitle">
-        <strong data-i18n="implantsBenefitsTitle">Beneficios de los Implantes:</strong>
-        <li data-i18n="implantsBenefit1">Aspecto y sensación natural.</li>
-        <li data-i18n="implantsBenefit2">Durabilidad a largo plazo.</li>
-        <li data-i18n="implantsBenefit3">Mejora de la masticación y el habla.</li>
-        <li data-i18n="implantsBenefit4">No afectan a los dientes adyacentes.</li>
-      </ul>
     </div>
 
     <div class="content-section">
-      <h2 data-i18n="implantsSection2Title">El Proceso del Tratamiento</h2>
-      <p data-i18n="implantsSection2Para1">
-        Describe las fases del tratamiento de implantes, desde la consulta inicial
-        hasta la colocación de la corona final.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-
+      <h2 data-i18n="implantsGalleryTitle">Visualizando el Proceso y Resultado</h2>
+      <div class="image-gallery-container">
+        <div class="image-gallery-item">
+          <img src="El11.png" alt="Diagrama de un implante dental colocado en el hueso maxilar">
+          <p class="disclaimer" data-i18n="implantsImageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
+        </div>
+        <div class="image-gallery-item">
+          <img src="El12.png" alt="Comparativa de una sonrisa antes y después de un implante dental">
+          <p class="disclaimer" data-i18n="implantsImageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
+        </div>
       </div>
+    </div>
+
+    <div class="content-section">
+      <h2 data-i18n="implantsBenefitsTitle">Ventajas Clave de los Implantes</h2>
+      <ul>
+        <li data-i18n="implantsBenefit1"><strong>Solución Permanente:</strong> Son la opción más duradera para reemplazar dientes perdidos.</li>
+        <li data-i18n="implantsBenefit2"><strong>Preservación Ósea:</strong> Al integrarse con el hueso (osteointegración), evitan la pérdida ósea que ocurre cuando falta un diente.</li>
+        <li data-i18n="implantsBenefit3"><strong>Funcionalidad Completa:</strong> Permiten masticar, hablar y sonreír con total normalidad y confianza.</li>
+        <li data-i18n="implantsBenefit4"><strong>No Afectan a Otros Dientes:</strong> A diferencia de los puentes, no requieren tallar los dientes adyacentes sanos.</li>
+        <li data-i18n="implantsBenefit5"><strong>Tasa de Éxito Elevada:</strong> Es uno de los procedimientos dentales con mayor tasa de éxito a largo plazo.</li>
+      </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2 data-i18n="implantsProcessTitle">Fases del Tratamiento de Implantes</h2>
+      <ol>
+        <li data-i18n="implantsProcessStep1"><strong>Estudio y Diagnóstico:</strong> Se realiza un examen completo con radiografías y/o tomografía (CBCT) para evaluar la cantidad y calidad del hueso.</li>
+        <li data-i18n="implantsProcessStep2"><strong>Fase Quirúrgica:</strong> Se coloca el implante de titanio en el hueso maxilar mediante una intervención sencilla y con anestesia local.</li>
+        <li data-i18n="implantsProcessStep3"><strong>Osteointegración:</strong> Se espera un período de 3 a 6 meses para que el hueso crezca alrededor del implante, fijándolo de manera permanente.</li>
+        <li data-i18n="implantsProcessStep4"><strong>Fase Protésica:</strong> Se toma una impresión para diseñar la corona a medida, que luego se atornilla o cementa sobre el implante.</li>
+        <li data-i18n="implantsProcessStep5"><strong>Mantenimiento:</strong> Se requiere la misma higiene que un diente natural y visitas periódicas para asegurar su longevidad.</li>
+      </ol>
     </div>
     
     <section class="cta-section">
-        <h2 data-i18n="implantsCtaTitle">¿Interesado en Implantes Dentales?</h2>
-        <p data-i18n="implantsCtaText">Agenda una consulta para evaluar tu caso y ofrecerte la mejor solución para recuperar tu sonrisa.</p>
+        <h2 data-i18n="implantsCtaTitle">¿Eres Candidato para un Implante Dental?</h2>
+        <p data-i18n="implantsCtaText">Recupera la pieza dental que te falta con la mejor tecnología. Agenda una consulta para una valoración completa y sin compromiso.</p>
         <a href="agenda.html" class="btn-contacto">
             <i class="fas fa-calendar-check"></i> <span data-i18n="contactBtn">Agenda tu cita</span>
         </a>
@@ -706,7 +190,7 @@
     <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
     <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
     <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
-    <p class="copyright" data-i18n="footerCopyright">© <span id="currentYear">2024</span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+    <p class="copyright">© <span id="currentYear">2025</span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
   </footer>
 
   <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
@@ -715,128 +199,97 @@
   </button>
 
   <script>
-    // Objeto de traducciones (COPIADO DE INDEX.HTML)
-    // NOTA: Deberás agregar/modificar claves aquí para el contenido específico de ESTA PÁGINA (Implantes).
     const translations = {
       es: {
-        "title": "Dr. Santos Clínica Dental | Tu Sonrisa en Juárez", // Genérico, puede quedarse
         "titleImplantsPage": "Implantes Dentales | Dr. Santos Clínica Dental",
-
         "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        
-        // Claves de index.html (pueden no usarse todas aquí, pero no causan error)
-        "heroTitle": "Tu sonrisa perfecta en Juárez",
-        "heroText": "Cuidado dental personalizado con calidez y profesionalismo",
-        "contactBtn": "Agenda tu cita", "callBtn": "Llamar", "callIntlBtn": "Desde EE.UU.",
-        "servicesTitle": "Nuestros Servicios",
-        "service1": "Blanqueamiento Dental", "service1Desc": "Recupera el brillo natural de tu sonrisa con nuestro tratamiento seguro y efectivo.",
-        "service2": "Coronas Dentales", "service2Desc": "Restauraciones que se ven y se sienten como dientes naturales.",
-        // ... más servicios de index ...
-        "galleryTitle": "Conócenos un Poco Más",
-        "testimonialsTitle": "Lo Que Nuestros Pacientes Opinan",
-        // ... testimonios ...
-        "formTitle": "Solicita tu Cita o Consulta", /* ... etc ... */
-
-        // Claves específicas para implantes.html
-        "implantsPageTitle": "Implantes Dentales",
-        "implantsSection1Title": "¿Qué son los Implantes Dentales?",
-        "implantsSection1Para1": "Los implantes dentales son postes de titanio que se colocan quirúrgicamente en el hueso maxilar debajo de las encías. Una vez en su sitio, permiten al dentista montar dientes de reemplazo sobre ellos.",
-        "implantsSection1Para2": "Actúan como raíces artificiales y proporcionan una base sólida para dientes fijos (permanentes) o removibles que se fabrican para que coincidan con sus dientes naturales.",
-        "implantsBenefitsTitle": "Beneficios de los Implantes:",
-        "implantsBenefit1": "Mejoran la apariencia y la confianza.",
-        "implantsBenefit2": "Solución duradera y fiable.",
-        "implantsBenefit3": "Permiten comer y hablar con naturalidad.",
-        "implantsBenefit4": "Preservan la estructura ósea facial.",
-        "implantsSection2Title": "El Proceso del Tratamiento de Implantes",
-        "implantsSection2Para1": "El proceso incluye una evaluación detallada, la colocación del implante, un período de cicatrización (osteointegración) y finalmente la colocación de la corona o prótesis dental.",
-
-        "implantsCtaText": "Descubre si los implantes dentales son la opción correcta para ti. Agenda una consulta hoy mismo.",
-
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.`,
-        // ... (resto de claves genéricas de index.html como footer, etc.)
-        "clinicNameFooter": "Dr. Santos Clínica Dental", 
+        "contactBtn": "Agenda tu cita",
+        "implantsPageTitle": "Implantes Dentales: La Solución Definitiva",
+        "implantsWhatAreTitle": "¿Qué son los Implantes Dentales?",
+        "implantsWhatAreP1": "Un implante dental es un poste de titanio (un material biocompatible) que se coloca quirúrgicamente en el hueso maxilar, justo debajo de la encía. Funciona como una raíz artificial sobre la cual se pueden montar dientes de reemplazo (coronas) o puentes fijos.",
+        "implantsWhatAreP2": "A diferencia de las dentaduras postizas, los implantes son una solución fija que no se desliza ni se mueve, proporcionando una estabilidad y comodidad comparables a las de los dientes naturales.",
+        "implantsGalleryTitle": "Visualizando el Proceso y Resultado",
+        "implantsImageDisclaimer": "Imagen solo para fines ilustrativos. No es un caso real.",
+        "implantsBenefitsTitle": "Ventajas Clave de los Implantes",
+        "implantsBenefit1": "<strong>Solución Permanente:</strong> Son la opción más duradera para reemplazar dientes perdidos.",
+        "implantsBenefit2": "<strong>Preservación Ósea:</strong> Al integrarse con el hueso (osteointegración), evitan la pérdida ósea que ocurre cuando falta un diente.",
+        "implantsBenefit3": "<strong>Funcionalidad Completa:</strong> Permiten masticar, hablar y sonreír con total normalidad y confianza.",
+        "implantsBenefit4": "<strong>No Afectan a Otros Dientes:</strong> A diferencia de los puentes, no requieren tallar los dientes adyacentes sanos.",
+        "implantsBenefit5": "<strong>Tasa de Éxito Elevada:</strong> Es uno de los procedimientos dentales con mayor tasa de éxito a largo plazo.",
+        "implantsProcessTitle": "Fases del Tratamiento de Implantes",
+        "implantsProcessStep1": "<strong>Estudio y Diagnóstico:</strong> Se realiza un examen completo con radiografías y/o tomografía (CBCT) para evaluar la cantidad y calidad del hueso.",
+        "implantsProcessStep2": "<strong>Fase Quirúrgica:</strong> Se coloca el implante de titanio en el hueso maxilar mediante una intervención sencilla y con anestesia local.",
+        "implantsProcessStep3": "<strong>Osteointegración:</strong> Se espera un período de 3 a 6 meses para que el hueso crezca alrededor del implante, fijándolo de manera permanente.",
+        "implantsProcessStep4": "<strong>Fase Protésica:</strong> Se toma una impresión para diseñar la corona a medida, que luego se atornilla o cementa sobre el implante.",
+        "implantsProcessStep5": "<strong>Mantenimiento:</strong> Se requiere la misma higiene que un diente natural y visitas periódicas para asegurar su longevidad.",
+        "implantsCtaTitle": "¿Eres Candidato para un Implante Dental?",
+        "implantsCtaText": "Recupera la pieza dental que te falta con la mejor tecnología. Agenda una consulta para una valoración completa y sin compromiso.",
+        "clinicNameFooter": "Dr. Santos Clínica Dental",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
         "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Clínica Dental",
+        "footerRights":"Todos los derechos reservados."
       },
       en: {
-        "title": "Dr. Santos Dental Clinic | Your Smile in Juarez",
         "titleImplantsPage": "Dental Implants | Dr. Santos Dental Clinic",
-
         "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-
-        "heroTitle": "Your perfect smile in Juarez",
-        "heroText": "Personalized dental care with warmth and professionalism",
-        "contactBtn": "Book your appointment", "callBtn": "Call", "callIntlBtn": "From U.S.",
-        "servicesTitle": "Our Services",
-        "service1": "Teeth Whitening", "service1Desc": "Restore the natural brightness of your smile with our safe and effective treatment.",
-        "service2": "Dental Crowns", "service2Desc": "Restorations that look and feel like natural teeth.",
-        // ...
-        "galleryTitle": "Get to Know Us A Little More",
-        "testimonialsTitle": "What Our Patients Say",
-        // ...
-        "formTitle": "Request Your Appointment or Consultation", /* ... etc ... */
-
-        // English translations for implants.html
-        "implantsPageTitle": "Dental Implants",
-        "implantsSection1Title": "What Are Dental Implants?",
-        "implantsSection1Para1": "Dental implants are titanium posts that are surgically placed into the jawbone beneath your gums. Once in place, they allow your dentist to mount replacement teeth onto them.",
-        "implantsSection1Para2": "They act as artificial roots and provide a strong foundation for fixed (permanent) or removable replacement teeth that are made to match your natural teeth.",
-        "implantsBenefitsTitle": "Benefits of Implants:",
-        "implantsBenefit1": "Improved appearance and confidence.",
-        "implantsBenefit2": "Durable and reliable solution.",
-        "implantsBenefit3": "Allow natural eating and speech.",
-        "implantsBenefit4": "Preserve facial bone structure.",
-        "implantsSection2Title": "The Implant Treatment Process",
-        "implantsSection2Para1": "The process includes a detailed evaluation, implant placement, a healing period (osseointegration), and finally the placement of the crown or dental prosthesis.",
-
-        "implantsCtaTitle": "Considering Dental Implants?",
-        "implantsCtaText": "Find out if dental implants are the right choice for you. Schedule a consultation today.",
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Dental Clinic. All rights reserved.`,
-        // ...
-        "clinicNameFooter": "Dr. Santos Dental Clinic", 
+        "contactBtn": "Book your appointment",
+        "implantsPageTitle": "Dental Implants: The Definitive Solution",
+        "implantsWhatAreTitle": "What Are Dental Implants?",
+        "implantsWhatAreP1": "A dental implant is a titanium post (a biocompatible material) that is surgically placed into the jawbone, just below the gum line. It functions as an artificial root upon which replacement teeth (crowns) or fixed bridges can be mounted.",
+        "implantsWhatAreP2": "Unlike dentures, implants are a fixed solution that does not slip or move, providing stability and comfort comparable to natural teeth.",
+        "implantsGalleryTitle": "Visualizing the Process and Result",
+        "implantsImageDisclaimer": "For illustrative purposes only. Not a real case.",
+        "implantsBenefitsTitle": "Key Advantages of Implants",
+        "implantsBenefit1": "<strong>Permanent Solution:</strong> They are the most durable option for replacing missing teeth.",
+        "implantsBenefit2": "<strong>Bone Preservation:</strong> By integrating with the bone (osseointegration), they prevent the bone loss that occurs when a tooth is missing.",
+        "implantsBenefit3": "<strong>Full Functionality:</strong> They allow you to chew, speak, and smile with complete normalcy and confidence.",
+        "implantsBenefit4": "<strong>Do Not Affect Other Teeth:</strong> Unlike bridges, they do not require grinding down adjacent healthy teeth.",
+        "implantsBenefit5": "<strong>High Success Rate:</strong> It is one of the dental procedures with the highest long-term success rate.",
+        "implantsProcessTitle": "Phases of Implant Treatment",
+        "implantsProcessStep1": "<strong>Study and Diagnosis:</strong> A complete examination with X-rays and/or a CT scan (CBCT) is performed to assess the quantity and quality of the bone.",
+        "implantsProcessStep2": "<strong>Surgical Phase:</strong> The titanium implant is placed in the jawbone through a simple procedure with local anesthesia.",
+        "implantsProcessStep3": "<strong>Osseointegration:</strong> A period of 3 to 6 months is awaited for the bone to grow around the implant, permanently securing it.",
+        "implantsProcessStep4": "<strong>Prosthetic Phase:</strong> An impression is taken to design the custom crown, which is then screwed or cemented onto the implant.",
+        "implantsProcessStep5": "<strong>Maintenance:</strong> The same hygiene as a natural tooth is required, along with regular visits to ensure its longevity.",
+        "implantsCtaTitle": "Are You a Candidate for a Dental Implant?",
+        "implantsCtaText": "Restore the tooth you're missing with the best technology. Schedule a consultation for a complete, no-obligation assessment.",
+        "clinicNameFooter": "Dr. Santos Dental Clinic",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
         "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Dental Clinic",
+        "footerRights":"All rights reserved."
       }
     };
-
-    // ---- INICIO SCRIPT GLOBAL (COPIADO DE INDEX.HTML) ----
+    
+    // ---- INICIO SCRIPT GLOBAL (IDÉNTICO EN AMBAS PÁGINAS) ----
     document.addEventListener('DOMContentLoaded', function() {
       const mainHeader = document.getElementById('mainHeader');
-      const mainNav = document.getElementById('mainNav'); 
-      const heroSection = document.getElementById('hero'); // Puede ser null en páginas que no son index.html
+      const mainNav = document.getElementById('mainNav');
       const hotSalePopup = document.getElementById('hotSalePopup');
       const closePopupBtn = document.getElementById('closePopup');
       const translateBtn = document.getElementById('translateBtn');
       const currentYearSpan = document.getElementById('currentYear');
 
       if(currentYearSpan) {
-          currentYearSpan.textContent = new Date().getFullYear();
+          const year = new Date().getFullYear();
+          currentYearSpan.textContent = year;
       }
       
       function adjustLayout() {
-          if (mainHeader && mainNav) {
-              const headerHeight = mainHeader.offsetHeight;
-              mainNav.style.top = `${headerHeight}px`;
-              
-              // Este ajuste de margin-top es para el hero de index.html
-              if (heroSection && document.body.classList.contains('home-page')) { 
-                  heroSection.style.marginTop = `${headerHeight + mainNav.offsetHeight}px`;
-              }
-          }
-          // Para páginas internas con .page-header-spacer
           const pageHeaderSpacer = document.querySelector('.page-header-spacer');
           if (mainHeader && mainNav && pageHeaderSpacer) {
-              pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`;
+              const headerHeight = mainHeader.offsetHeight;
+              mainNav.style.top = `${headerHeight}px`;
+              pageHeaderSpacer.style.height = `${headerHeight + mainNav.offsetHeight}px`;
           }
       }
 
-      if (hotSalePopup) { // El popup puede o no estar en todas las páginas
+      if (hotSalePopup) {
           if (!localStorage.getItem('popupShownDrSantosV2')) {
               setTimeout(function() {
                   hotSalePopup.classList.add('active');
@@ -857,57 +310,28 @@
       
       adjustLayout();
       window.addEventListener('resize', adjustLayout);
-      setTimeout(adjustLayout, 300); // Por si las fuentes cambian altura
+      setTimeout(adjustLayout, 300);
 
-      // Funcionalidad FAQ (si se usa en esta página, copiar estructura HTML de FAQ)
-      document.querySelectorAll('.faq-item h3').forEach(item => {
-        item.addEventListener('click', function() {
-          this.parentElement.classList.toggle('active');
-        });
-      });
-
-      // Animaciones Reveal
-      function reveal() {
-          const reveals = document.querySelectorAll('.reveal');
-          for (let i = 0; i < reveals.length; i++) {
-              const windowHeight = window.innerHeight;
-              const elementTop = reveals[i].getBoundingClientRect().top;
-              const elementVisible = 80; 
-              if (elementTop < windowHeight - elementVisible) {
-                  reveals[i].classList.add('active');
-              }
-          }
-      }
-      window.addEventListener('scroll', reveal);
-      reveal(); // Llama una vez al cargar por si hay elementos visibles
-
-      // Traducción
       if (typeof translations !== 'undefined' && translateBtn) {
           function changeLanguage(lang) {
               document.documentElement.lang = lang;
               document.querySelectorAll('[data-i18n]').forEach(el => {
                   const key = el.getAttribute('data-i18n');
-                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
+                  const content = (translations[lang] && translations[lang][key]) || (translations['es'] && translations['es'][key]) || el.innerHTML;
+                  
+                  const allowHtmlKeys = ['implantsBenefit1', 'implantsBenefit2', 'implantsBenefit3', 'implantsBenefit4', 'implantsBenefit5', 'implantsProcessStep1'];
+                  if (allowHtmlKeys.includes(key)) {
+                      el.innerHTML = content;
+                  } else {
+                      el.textContent = content.replace(/<[^>]*>/g, "");
+                  }
               });
-              document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                  const key = el.getAttribute('data-i18n-placeholder');
-                  if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
-              });
-              // Titulo de la pagina
-              const pageTitleKey = document.title.getAttribute('data-i18n') || (document.querySelector('title[data-i18n]') ? document.querySelector('title[data-i18n]').dataset.i18n : null);
+              
+              const pageTitleKey = document.querySelector('title').dataset.i18n;
               if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
                   document.title = translations[lang][pageTitleKey];
-              } else if (translations[lang] && translations[lang]['title' + currentPage.charAt(0).toUpperCase() + currentPage.slice(1, -5) + 'Page']) { // Intenta deducir title
-                  document.title = translations[lang]['title' + currentPage.charAt(0).toUpperCase() + currentPage.slice(1, -5) + 'Page'];
-              } else if (translations[lang] && translations[lang]['title']) { // Fallback al title genérico
-                  document.title = translations[lang]['title'];
               }
 
-
-              document.querySelectorAll('option[data-i18n]').forEach(el => {
-                  const key = el.getAttribute('data-i18n');
-                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
-              });
               localStorage.setItem('preferredLangDrSantos', lang);
           }
 
@@ -919,62 +343,24 @@
           });
 
           const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
-          // Para el título inicial de la página:
-          const initialPageTitleKey = document.querySelector('title').dataset.i18n;
-          if (initialPageTitleKey && translations[savedLang] && translations[savedLang][initialPageTitleKey]) {
-              document.title = translations[savedLang][initialPageTitleKey];
-          }
-          changeLanguage(savedLang); // Aplicar idioma guardado
+          changeLanguage(savedLang); 
           if (translateBtn.querySelector('span')) { 
               translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
           }
       }
-
-      // Smooth scroll para anclas (si se usan en esta página)
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-              const targetId = this.getAttribute('href');
-              const targetElement = document.querySelector(targetId);
-              if (targetElement) {
-                  let offset = 0;
-                  if (mainHeader) offset += mainHeader.offsetHeight;
-                  if (mainNav && getComputedStyle(mainNav).position === 'sticky') offset += mainNav.offsetHeight;
-                  
-                  const elementPosition = targetElement.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset - 10; 
-                  
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-          });
-      });
-
-      // Activar pestaña actual en la navegación
+      
       const currentPage = window.location.pathname.split("/").pop() || "index.html"; 
       if (mainNav) {
           const navLinks = mainNav.querySelectorAll('a');
           navLinks.forEach(link => {
               link.classList.remove('active-tab'); 
-              // Compara el atributo href con el nombre de la página actual
               let linkPage = link.getAttribute('href').split("/").pop();
               if (linkPage === currentPage) {
                   link.classList.add('active-tab');
               }
           });
       }
-      
-      // Si esta NO es la página de inicio, no necesita la clase 'home-page'
-      // La clase 'home-page' se usa en index.html para un ajuste específico del 'hero'
-      if (currentPage !== "index.html" && heroSection) {
-        // Si hay un heroSection en una página que no es home, 
-        // asegurar que el page-header-spacer ya ha hecho su trabajo.
-        // O podrías querer un estilo de hero diferente para páginas internas.
-      } else if (currentPage === "index.html") {
-          document.body.classList.add('home-page');
-          // adjustLayout(); // Ya se llama arriba, pero una llamada específica no hace daño
-      }
     });
-    // ---- FIN SCRIPT GLOBAL ----
   </script>
 </body>
 </html>
