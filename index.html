@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Santos Clínica Dental | Tu Sonrisa en Juárez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     :root {
-      --color-primario: #2a7f7f;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
+      /* MODIFICATION: Refined color palette for a fresher, more modern feel */
+      --color-primario: #309C9C; /* Was #2a7f7f - Made slightly brighter/vibrant */
+      --color-primario-hover: #288A8A; /* New: For primary button hovers */
+      --color-secundario: #3A5B76; /* Was #3a506b - Slightly adjusted for harmony */
+      --acento: #66C7B1;          /* Was #5fb49c - Made a bit softer and fresher */
       --blanco: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-texto: #4a4a4a;
-      --sombra: 0 2px 8px rgba(0,0,0,0.1);
+      --gris-claro: #f8f9fa;    /* Was #f5f7fa - Standard light gray */
+      --gris-texto: #4F4F4F;    /* Was #4a4a4a - Slightly refined */
+      --gris-medio: #adb5bd;
+      --sombra-suave: 0 4px 15px rgba(0,0,0,0.08); /* MODIFICATION: Softer, more modern shadow */
+      --sombra-profunda: 0 8px 25px rgba(0,0,0,0.1);/* MODIFICATION: For elements needing more emphasis */
       --whatsapp: #25D366;
+      --radio-borde: 10px; /* MODIFICATION: Standardized border radius */
+      --transicion-rapida: all 0.3s ease-in-out; /* MODIFICATION: Smoother default transition */
     }
 
     * {
@@ -29,8 +35,11 @@
       font-family: 'Open Sans', sans-serif;
       color: var(--gris-texto);
       background-color: var(--blanco);
-      line-height: 1.6;
+      line-height: 1.7; /* MODIFICATION: Increased for readability */
       overflow-x: hidden;
+      font-smooth: antialiased; /* MODIFICATION: Smoother font rendering */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Popup Hot Sale */
@@ -40,14 +49,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.75); /* MODIFICATION: Slightly darker overlay */
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 2000;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* MODIFICATION */
     }
 
     .popup-overlay.active {
@@ -57,13 +66,13 @@
 
     .popup-container {
       background-color: var(--blanco);
-      border-radius: 15px;
+      border-radius: var(--radio-borde); /* MODIFICATION */
       overflow: hidden;
       max-width: 90%;
-      width: 800px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transform: scale(0.8);
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      width: 700px; /* MODIFICATION: Slightly smaller for better balance */
+      box-shadow: var(--sombra-profunda); /* MODIFICATION */
+      transform: scale(0.9); /* MODIFICATION: Start slightly smaller */
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* MODIFICATION */
       position: relative;
       opacity: 0;
     }
@@ -77,31 +86,31 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 15px;
+      /* border-radius: var(--radio-borde); Removed as container handles rounding */
     }
 
     .close-popup {
       position: absolute;
       top: 15px;
       right: 15px;
-      background-color: var(--color-primario);
+      background-color: rgba(0,0,0,0.5); /* MODIFICATION: Semi-transparent background */
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 35px; /* MODIFICATION: Slightly smaller */
+      height: 35px; /* MODIFICATION */
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      font-size: 20px;
-      transition: all 0.3s ease;
+      font-size: 18px; /* MODIFICATION */
+      transition: var(--transicion-rapida);
       border: none;
       z-index: 10;
     }
 
     .close-popup:hover {
-      background-color: var(--color-secundario);
-      transform: rotate(90deg);
+      background-color: var(--color-primario); /* MODIFICATION */
+      transform: rotate(90deg) scale(1.1); /* MODIFICATION: Added scale */
     }
 
     /* Header */
@@ -115,87 +124,91 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
+      box-shadow: var(--sombra-suave); /* MODIFICATION */
+      transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out; /* MODIFICATION */
     }
 
     .header.scrolled {
-      padding: 10px 5%;
-      background-color: rgba(58, 80, 107, 0.95);
-      backdrop-filter: blur(5px);
+      padding: 8px 5%; /* MODIFICATION: Slimmer when scrolled */
+      background-color: rgba(58, 91, 118, 0.97); /* MODIFICATION: Slightly adjusted alpha */
+      backdrop-filter: blur(8px); /* MODIFICATION: Enhanced blur */
     }
 
     .logo {
-      height: 80px;
+      height: 70px; /* MODIFICATION: Adjusted size */
       width: auto;
-      max-width: 280px;
-      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
+      max-width: 250px; /* MODIFICATION */
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2)); /* MODIFICATION */
+      margin-bottom: 8px; /* MODIFICATION */
+      transition: height 0.3s ease-in-out; /* MODIFICATION */
     }
 
     .header.scrolled .logo {
-      height: 60px;
-      margin-bottom: 5px;
+      height: 55px; /* MODIFICATION */
+      margin-bottom: 0;
     }
 
     .direccion-header {
       color: var(--blanco);
-      font-size: 0.9rem;
+      font-size: 0.85rem; /* MODIFICATION */
       text-align: center;
-      transition: all 0.3s ease;
+      opacity: 0.9; /* MODIFICATION: Slightly transparent */
+      transition: var(--transicion-rapida);
     }
+    .direccion-header i { margin-right: 5px; }
 
     .header.scrolled .direccion-header {
-      font-size: 0.8rem;
+      font-size: 0.75rem; /* MODIFICATION */
+      opacity: 0.8;
     }
 
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
       color: var(--blanco);
-      padding: 180px 5% 80px;
-      margin-top: 140px;
+      padding: 200px 5% 100px; /* MODIFICATION: Adjusted padding */
+      margin-top: 120px; /* MODIFICATION: Adjusted based on initial header height */
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: 1;
-    }
+     /* MODIFICATION: Removed ::before pseudo-element for a cleaner look, can be added back if a subtle pattern is desired */
 
     .hero-content {
       position: relative;
       z-index: 2;
+      max-width: 700px; /* MODIFICATION: Constrain width for better readability */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
-      color: var(--color-secundario);
-      margin-bottom: 30px;
+      font-weight: 600; /* MODIFICATION: Consistent weight for headings */
+      color: var(--color-secundario); /* Default heading color */
+      margin-bottom: 25px; /* MODIFICATION: Adjusted margin */
+    }
+
+    section h2 { /* MODIFICATION: Center section titles */
+        text-align: center;
+        font-size: 2.2rem; /* MODIFICATION */
+        margin-bottom: 40px; /* MODIFICATION */
     }
 
     .hero h1 {
       color: var(--blanco);
-      font-size: 2rem;
-      line-height: 1.3;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      animation: fadeInDown 1s ease both;
+      font-size: 2.8rem; /* MODIFICATION */
+      line-height: 1.2; /* MODIFICATION */
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.25); /* MODIFICATION */
+      animation: fadeInDown 1s ease-in-out both;
     }
 
     .hero p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 30px;
-      animation: fadeIn 1s ease 0.3s both;
+      color: rgba(255,255,255,0.95); /* MODIFICATION: Brighter text */
+      margin-bottom: 40px; /* MODIFICATION */
+      font-size: 1.1rem; /* MODIFICATION */
+      animation: fadeIn 1s ease-in-out 0.3s both;
     }
 
     /* Botones de Contacto */
@@ -203,36 +216,37 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 15px;
-      max-width: 400px;
-      margin: 30px auto 0;
-      animation: fadeInUp 1s ease 0.6s both;
+      max-width: 450px; /* MODIFICATION: Wider for better spacing on mobile */
+      margin: 40px auto 0; /* MODIFICATION */
+      animation: fadeInUp 1s ease-in-out 0.6s both;
     }
 
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 20px;
-      border-radius: 30px;
+      padding: 15px 25px; /* MODIFICATION: Increased padding */
+      border-radius: var(--radio-borde); /* MODIFICATION: Standardized */
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: var(--transicion-rapida);
       position: relative;
       overflow: hidden;
+      border: 2px solid transparent; /* MODIFICATION: Base for borders */
     }
 
     .btn-whatsapp {
-      background-color: var(--blanco);
-      color: var(--color-primario);
-      box-shadow: var(--sombra);
-      border: 2px solid var(--blanco);
-    }
-
-    .btn-whatsapp:hover {
       background-color: var(--whatsapp);
       color: var(--blanco);
       border-color: var(--whatsapp);
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1EBD5A; /* Darker WhatsApp green */
+      border-color: #1EBD5A;
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-suave);
     }
 
     .btn-llamar {
@@ -244,137 +258,108 @@
     .btn-llamar:hover {
       background-color: var(--blanco);
       color: var(--color-primario);
+      transform: translateY(-2px);
     }
 
     .btn-llamar-internacional {
       background-color: var(--acento);
       color: var(--blanco);
-      border: 2px solid var(--acento);
+      border-color: var(--acento);
     }
 
     .btn-llamar-internacional:hover {
       background-color: var(--blanco);
       color: var(--acento);
+      border-color: var(--blanco); /* MODIFICATION: Ensure border changes with background */
+      transform: translateY(-2px);
     }
 
+    /* MODIFICATION: Primary CTA button - Agenda tu cita */
     .btn-contacto {
       background-color: var(--blanco);
       color: var(--color-primario);
-      padding: 12px 25px;
-      border-radius: 30px;
+      padding: 16px 30px; /* MODIFICATION: Larger padding */
+      border-radius: var(--radio-borde); /* MODIFICATION */
       display: inline-block;
-      margin: 20px 0;
-      font-weight: 600;
-      font-size: 1.1rem;
+      margin: 0 auto 30px auto; /* MODIFICATION: Centered and spaced */
+      font-weight: 700; /* MODIFICATION: Bolder */
+      font-size: 1.15rem; /* MODIFICATION: Larger font */
       text-decoration: none;
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
-      animation: fadeIn 1s ease 0.9s both;
-      position: relative;
-      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicion-rapida);
+      animation: fadeIn 1s ease-in-out 0.9s both;
       border: 2px solid var(--blanco);
     }
 
     .btn-contacto:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      background-color: var(--color-primario);
+      transform: translateY(-3px) scale(1.03); /* MODIFICATION: More noticeable hover */
+      box-shadow: var(--sombra-profunda); /* MODIFICATION */
+      background-color: var(--color-primario-hover); /* MODIFICATION */
       color: var(--blanco);
+      border-color: var(--color-primario-hover);
     }
 
-    /* Efecto de aura para WhatsApp */
+    .btn-contacto .icon { /* MODIFICATION: Specific styling for icon in this button */
+        margin-right: 12px;
+    }
+
+
+    /* Efecto de aura para WhatsApp - Kept as is, it's a nice touch */
     .btn-whatsapp::after {
       content: '';
       position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border-radius: 40px;
+      top: -10px; left: -10px; right: -10px; bottom: -10px;
+      border-radius: calc(var(--radio-borde) + 10px); /* MODIFICATION: Dynamic radius */
       border: 2px solid var(--whatsapp);
       opacity: 0;
       animation: pulse 2s infinite;
     }
 
-    .btn-whatsapp:hover::after {
-      opacity: 0.7;
-    }
+    .btn-whatsapp:hover::after { opacity: 0.7; }
 
     @keyframes pulse {
-      0% {
-        transform: scale(0.95);
-        opacity: 0.7;
-      }
-      70% {
-        transform: scale(1.1);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(0.95);
-        opacity: 0;
-      }
+      0% { transform: scale(0.95); opacity: 0.7; }
+      70% { transform: scale(1.15); opacity: 0; } /* MODIFICATION: Slightly larger pulse */
+      100% { transform: scale(0.95); opacity: 0; }
     }
 
     .icon {
       margin-right: 10px;
-      width: 20px;
-      height: 20px;
-      transition: all 0.3s ease;
+      width: 20px; height: 20px;
+      transition: transform 0.3s ease-in-out; /* MODIFICATION */
     }
-
-    .btn:hover .icon {
-      transform: scale(1.1);
-    }
+    .btn:hover .icon { transform: scale(1.1); }
 
     /* Secciones */
     section {
-      padding: 60px 5%;
+      padding: 80px 5%; /* MODIFICATION: Increased padding */
       position: relative;
     }
-
-    section:nth-child(even) {
-      background-color: var(--gris-claro);
-    }
+    section:nth-child(even) { background-color: var(--gris-claro); }
 
     /* Servicios */
     .servicios-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 30px; /* MODIFICATION: Increased gap */
+      margin-top: 40px; /* MODIFICATION */
     }
 
     .servicio-item {
       background: var(--blanco);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
+      padding: 30px; /* MODIFICATION: Increased padding */
+      border-radius: var(--radio-borde); /* MODIFICATION */
+      box-shadow: var(--sombra-suave); /* MODIFICATION */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* MODIFICATION */
       position: relative;
       overflow: hidden;
       z-index: 1;
     }
-
-    .servicio-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
-      opacity: 0;
-      z-index: -1;
-      transition: all 0.3s ease;
-    }
+    /* MODIFICATION: Removed ::before gradient overlay for cleaner card, focus on shadow and content */
 
     .servicio-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .servicio-item:hover::before {
-      opacity: 0.05;
+      transform: translateY(-8px); /* MODIFICATION: More lift */
+      box-shadow: var(--sombra-profunda); /* MODIFICATION */
     }
 
     .servicio-item h3 {
@@ -382,38 +367,30 @@
       margin-bottom: 15px;
       display: flex;
       align-items: center;
-      transition: all 0.3s ease;
+      font-size: 1.3rem; /* MODIFICATION */
+      transition: color 0.3s ease-in-out; /* MODIFICATION */
     }
 
-    .servicio-item:hover h3 {
-      color: var(--color-secundario);
-    }
+    .servicio-item:hover h3 { color: var(--color-secundario); }
 
     .servicio-item h3 i {
-      margin-right: 10px;
+      margin-right: 12px; /* MODIFICATION */
       color: var(--acento);
-      transition: all 0.3s ease;
+      font-size: 1.5rem; /* MODIFICATION: Larger icon */
+      transition: transform 0.3s ease-in-out; /* MODIFICATION */
     }
 
-    .servicio-item:hover h3 i {
-      transform: rotate(15deg) scale(1.1);
-    }
+    .servicio-item:hover h3 i { transform: rotate(10deg) scale(1.15); } /* MODIFICATION */
+    .servicio-item p { transition: color 0.3s ease-in-out; } /* MODIFICATION */
+    /* .servicio-item:hover p { color: var(--gris-texto); } No change needed here */
 
-    .servicio-item p {
-      transition: all 0.3s ease;
-    }
-
-    .servicio-item:hover p {
-      color: var(--gris-texto);
-    }
-
-    /* Animaciones para los servicios */
+    /* Animaciones para los servicios - Kept delays, using fadeInUp */
     .servicios-grid .servicio-item {
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s ease forwards;
+      transform: translateY(30px); /* MODIFICATION: Slightly more travel */
+      animation: fadeInUp 0.6s ease-in-out forwards; /* MODIFICATION: Smoother, slightly longer */
     }
-
+    /* Staggered delays are good, kept them */
     .servicios-grid .servicio-item:nth-child(1) { animation-delay: 0.1s; }
     .servicios-grid .servicio-item:nth-child(2) { animation-delay: 0.2s; }
     .servicios-grid .servicio-item:nth-child(3) { animation-delay: 0.3s; }
@@ -426,34 +403,34 @@
     .galeria-ads {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 30px; /* MODIFICATION */
+      margin-top: 40px; /* MODIFICATION */
     }
 
     .galeria-ads img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: var(--sombra);
-      transition: all 0.5s ease;
+      border-radius: var(--radio-borde); /* MODIFICATION */
+      box-shadow: var(--sombra-suave); /* MODIFICATION */
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* MODIFICATION: Smoother, more elastic transition */
       cursor: pointer;
     }
 
     .galeria-ads img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      transform: scale(1.05); /* MODIFICATION: Slightly more zoom */
+      box-shadow: var(--sombra-profunda); /* MODIFICATION */
     }
 
     /* FAQ */
     .faq-item {
       margin-bottom: 20px;
-      border-bottom: 1px solid var(--gris-claro);
+      border-bottom: 1px solid #e0e0e0; /* MODIFICATION: Lighter border */
       padding-bottom: 20px;
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s ease forwards;
+      transform: translateY(30px); /* MODIFICATION */
+      animation: fadeInUp 0.5s ease-in-out forwards; /* MODIFICATION */
     }
-
+    /* Staggered delays are good */
     .faq-item:nth-child(1) { animation-delay: 0.1s; }
     .faq-item:nth-child(2) { animation-delay: 0.2s; }
     .faq-item:nth-child(3) { animation-delay: 0.3s; }
@@ -461,60 +438,62 @@
     .faq-item:nth-child(5) { animation-delay: 0.5s; }
     .faq-item:nth-child(6) { animation-delay: 0.6s; }
 
+
     .faq-item h3 {
       color: var(--color-primario);
       margin-bottom: 10px;
-      font-size: 1.1rem;
+      font-size: 1.2rem; /* MODIFICATION */
+      font-weight: 500; /* MODIFICATION: Slightly less bold for balance */
       display: flex;
       align-items: center;
+      justify-content: space-between; /* MODIFICATION: Pushes icon to the right */
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease-in-out; /* MODIFICATION */
     }
 
-    .faq-item h3:hover {
-      color: var(--color-secundario);
-    }
+    .faq-item h3:hover { color: var(--color-secundario); }
 
-    .faq-item h3::before {
-      content: '+';
-      margin-right: 10px;
-      font-weight: bold;
+    .faq-item h3::after { /* MODIFICATION: Changed to ::after for positioning */
+      content: '\f067'; /* FontAwesome Plus Icon */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
       color: var(--acento);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease-in-out; /* MODIFICATION */
+      font-size: 0.9em; /* MODIFICATION */
     }
 
-    .faq-item.active h3::before {
-      content: '-';
+    .faq-item.active h3::after {
+      content: '\f068'; /* FontAwesome Minus Icon */
+      transform: rotate(180deg); /* MODIFICATION: Added rotate for smoother transition */
     }
 
     .faq-item p {
       max-height: 0;
       overflow: hidden;
-      transition: all 0.3s ease;
-      padding-left: 25px;
+      transition: max-height 0.4s ease-in-out, margin-top 0.4s ease-in-out; /* MODIFICATION: Smoother */
+      padding-left: 0; /* MODIFICATION: Answer aligns with question */
+      color: var(--gris-texto);
+      font-size: 0.95rem;
     }
 
     .faq-item.active p {
-      max-height: 200px;
-      margin-top: 10px;
+      max-height: 250px; /* MODIFICATION: Increased max-height for longer answers */
+      margin-top: 15px; /* MODIFICATION */
     }
 
     /* Mapa */
     .mapa-container {
-      margin-top: 30px;
-      border-radius: 8px;
+      margin-top: 40px; /* MODIFICATION */
+      border-radius: var(--radio-borde); /* MODIFICATION */
       overflow: hidden;
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
+      box-shadow: var(--sombra-suave); /* MODIFICATION */
+      transition: var(--transicion-rapida);
     }
-
-    .mapa-container:hover {
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
+    .mapa-container:hover { box-shadow: var(--sombra-profunda); } /* MODIFICATION */
 
     .mapa {
       width: 100%;
-      height: 250px;
+      height: 300px; /* MODIFICATION: Slightly taller on mobile */
       border: none;
       display: block;
     }
@@ -522,246 +501,203 @@
     /* Formulario de contacto */
     .form-section {
       background-color: var(--blanco);
-      border-radius: 10px;
-      padding: 30px 20px;
-      max-width: 800px;
+      border-radius: var(--radio-borde); /* MODIFICATION */
+      padding: 40px 30px; /* MODIFICATION: More padding */
+      max-width: 700px; /* MODIFICATION */
       margin: 0 auto;
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
+      box-shadow: var(--sombra-profunda); /* MODIFICATION: Start with deeper shadow */
+      transition: var(--transicion-rapida);
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s ease 0.2s forwards;
+      transform: translateY(30px); /* MODIFICATION */
+      animation: fadeInUp 0.6s ease-in-out 0.2s forwards; /* MODIFICATION */
     }
-
-    .form-section:hover {
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
+    /* .form-section:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.15); } No need to change on hover if starting deeper */
 
     .form-title {
       text-align: center;
       color: var(--color-primario);
-      margin-bottom: 25px;
-      font-size: 1.6rem;
+      margin-bottom: 30px; /* MODIFICATION */
+      font-size: 1.8rem; /* MODIFICATION */
     }
 
-    .form-group {
-      margin-bottom: 18px;
-      position: relative;
-    }
+    .form-group { margin-bottom: 20px; position: relative; } /* MODIFICATION */
 
     .form-label {
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
       color: var(--color-secundario);
-      font-size: 0.95rem;
+      font-size: 0.9rem; /* MODIFICATION */
     }
 
     .form-control {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      padding: 14px 18px; /* MODIFICATION: More padding */
+      border: 1px solid #ced4da; /* MODIFICATION: Standard bootstrap-like border */
+      border-radius: var(--radio-borde); /* MODIFICATION */
       font-family: 'Open Sans', sans-serif;
       font-size: 1rem;
-      transition: all 0.3s ease;
+      transition: var(--transicion-rapida);
+      background-color: #fdfdfd; /* MODIFICATION: Slightly off-white input */
     }
 
     .form-control:focus {
       border-color: var(--acento);
-      box-shadow: 0 0 0 3px rgba(95, 180, 156, 0.2);
+      box-shadow: 0 0 0 0.2rem rgba(var(--acentoRGB, 95,180,156), 0.25); /* MODIFICATION: Use accent color for focus, ensure --acentoRGB is defined if using this exact format or use direct rgba */
+      /* Fallback for box-shadow color if CSS var in rgba not supported by all tools */
+      /* box-shadow: 0 0 0 0.2rem rgba(95, 180, 156, 0.25); */
       outline: none;
+      background-color: var(--blanco);
     }
+     /* MODIFICATION: Add this for the focus shadow if you want to use the CSS variable approach */
+    :root {
+        /* ... other variables ... */
+        --acentoRGB: 102, 199, 177; /* Corresponds to #66C7B1 */
+    }
+
 
     .submit-btn {
       background-color: var(--color-primario);
       color: white;
       border: none;
-      padding: 14px 25px;
-      border-radius: 6px;
-      font-size: 1.1rem;
+      padding: 16px 30px; /* MODIFICATION: Consistent with primary CTA */
+      border-radius: var(--radio-borde); /* MODIFICATION */
+      font-size: 1.1rem; /* MODIFICATION */
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: var(--transicion-rapida);
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px; /* MODIFICATION */
       position: relative;
       overflow: hidden;
     }
+    .submit-btn .icon { margin-right: 10px;} /* MODIFICATION: Ensure icon spacing */
 
+    /* Ripple effect kept, it's nice */
     .submit-btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      opacity: 0;
-      border-radius: 100%;
-      transform: scale(1, 1) translate(-50%);
-      transform-origin: 50% 50%;
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 5px; height: 5px; background: rgba(255, 255, 255, 0.5);
+      opacity: 0; border-radius: 100%;
+      transform: scale(1, 1) translate(-50%); transform-origin: 50% 50%;
     }
-
-    .submit-btn:focus:not(:active)::after {
-      animation: ripple 1s ease-out;
-    }
+    .submit-btn:focus:not(:active)::after { animation: ripple 1s ease-out; }
 
     .submit-btn:hover {
-      background-color: var(--color-secundario);
-      transform: translateY(-2px);
+      background-color: var(--color-primario-hover); /* MODIFICATION: Use defined hover color */
+      transform: translateY(-3px); /* MODIFICATION */
+      box-shadow: var(--sombra-suave); /* MODIFICATION: Add subtle shadow on hover */
     }
 
-    @keyframes ripple {
-      0% {
-        transform: scale(0, 0);
-        opacity: 1;
-      }
-      20% {
-        transform: scale(25, 25);
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: scale(40, 40);
-      }
+    @keyframes ripple { /* Kept as is */
+      0% { transform: scale(0, 0); opacity: 1; }
+      20% { transform: scale(25, 25); opacity: 1; }
+      100% { opacity: 0; transform: scale(40, 40); }
     }
 
     /* Footer */
     .footer {
       background-color: var(--color-secundario);
-      color: var(--blanco);
-      padding: 30px 5%;
+      color: rgba(255,255,255,0.85); /* MODIFICATION: Slightly softer white */
+      padding: 40px 5% 30px; /* MODIFICATION: Adjusted padding */
       text-align: center;
       position: relative;
     }
 
-    .footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
+    .footer::before { /* Kept as is, nice touch */
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; /* MODIFICATION: Slightly thicker */
       background: linear-gradient(90deg, var(--color-primario), var(--acento));
     }
 
     .footer p {
-      margin-bottom: 10px;
+      margin-bottom: 12px; /* MODIFICATION */
       font-size: 0.9rem;
     }
+    .footer p:last-child { margin-bottom: 0; }
 
-    .footer p:first-child {
-      font-weight: 600;
-      font-size: 1.1rem;
+    .footer p strong { /* MODIFICATION: Style clinic name */
+        color: var(--blanco);
+        font-size: 1.2rem; /* MODIFICATION */
+        display: block;
+        margin-bottom: 15px;
+    }
+    .footer p i {
+        color: var(--acento); /* MODIFICATION: Accent color for icons */
+        margin-right: 8px;
     }
 
     /* Botón de traducción */
     .translate-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px; /* MODIFICATION */
+      right: 25px; /* MODIFICATION */
       background-color: var(--color-primario);
       color: white;
       border: none;
-      width: 50px;
-      height: 50px;
+      width: 55px; /* MODIFICATION */
+      height: 55px; /* MODIFICATION */
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      font-size: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 11px; /* MODIFICATION: Adjusted for new size */
+      transition: var(--transicion-rapida);
+      box-shadow: var(--sombra-profunda); /* MODIFICATION: More prominent shadow */
       z-index: 100;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 0.5s ease 1s forwards;
+      animation: fadeInUp 0.5s ease-in-out 1s forwards; /* MODIFICATION */
     }
 
     .translate-btn:hover {
-      background-color: var(--color-secundario);
-      transform: translateY(-3px) scale(1.05);
+      background-color: var(--color-primario-hover); /* MODIFICATION */
+      transform: translateY(-3px) scale(1.08); /* MODIFICATION */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25); /* MODIFICATION */
     }
 
     .translate-btn i {
-      font-size: 20px;
-      margin-bottom: 2px;
+      font-size: 22px; /* MODIFICATION */
+      margin-bottom: 3px; /* MODIFICATION */
     }
 
-    /* Animaciones personalizadas */
+    /* Animaciones personalizadas - MODIFICATION: Using more ease-in-out */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); } /* MODIFICATION: Consistent travel */
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-30px); } /* MODIFICATION */
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Efecto de scroll reveal */
+    /* Efecto de scroll reveal - MODIFICATION: Ensured consistent animation type */
     .reveal {
       position: relative;
       opacity: 0;
-      transition: all 1s ease;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* MODIFICATION */
     }
+    .reveal.active { opacity: 1; }
 
-    .reveal.active {
-      opacity: 1;
-    }
-
-    .reveal.active.fade-bottom {
-      animation: fadeInUp 1s ease;
-    }
-
-    .reveal.active.fade-left {
-      animation: fadeInLeft 1s ease;
-    }
-
-    .reveal.active.fade-right {
-      animation: fadeInRight 1s ease;
-    }
+    .reveal.active.fade-bottom { animation: fadeInUp 1s ease-in-out; } /* MODIFICATION: Use consistent fadeInUp */
+    .reveal.active.fade-left { animation: fadeInLeft 1s ease-in-out; }
+    .reveal.active.fade-right { animation: fadeInRight 1s ease-in-out; }
 
     @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(-30px); } /* MODIFICATION */
+      to { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(30px); } /* MODIFICATION */
+      to { opacity: 1; transform: translateX(0); }
     }
 
     /* Responsive */
@@ -770,59 +706,61 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 15px 5%; /* MODIFICATION: Readjust padding for tablet */
       }
-      
-      .logo {
-        margin-bottom: 0;
+      .header.scrolled {
+          padding: 10px 5%;
       }
-      
-      .direccion-header {
-        text-align: right;
-      }
-      
-      .servicios-grid, .galeria-ads {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .btn-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
+      .logo { margin-bottom: 0; height: 75px; } /* MODIFICATION: Base size for tablet+ */
+      .header.scrolled .logo { height: 60px; }
+
+      .direccion-header { text-align: right; font-size: 0.9rem; }
+      .header.scrolled .direccion-header { font-size: 0.85rem; }
+
       .hero {
-        margin-top: 100px;
-        padding-top: 150px;
+        margin-top: 110px; /* MODIFICATION: Adjust based on new tablet header height */
+        padding-top: 160px; /* MODIFICATION */
+        padding-bottom: 120px;
+      }
+      .hero h1 { font-size: 3.2rem; } /* MODIFICATION */
+      .hero p { font-size: 1.2rem; } /* MODIFICATION */
+
+      .btn-container {
+        grid-template-columns: repeat(3, 1fr); /* Kept, good for tablet */
+        max-width: 600px; /* MODIFICATION */
+      }
+      .btn-contacto { /* MODIFICATION: Ensure it's distinct if other buttons are in hero */
+          margin-bottom: 40px;
       }
 
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .mapa {
-        height: 350px;
-      }
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .galeria-ads { grid-template-columns: repeat(2, 1fr); }
+      
+      section h2 { font-size: 2.5rem; margin-bottom: 50px; } /* MODIFICATION */
+      .mapa { height: 400px; } /* MODIFICATION */
+      .form-section { padding: 50px 40px; } /* MODIFICATION */
     }
 
     @media (min-width: 1024px) {
-      .servicios-grid {
-        grid-template-columns: repeat(3, 1fr);
+      section { padding: 100px 8%; } /* MODIFICATION: More padding on larger screens */
+      .hero {
+          padding-top: 180px; padding-bottom: 140px;
+          margin-top: 115px; /* Adjusted based on potential logo height */
       }
-      
-      .hero h1 {
-        font-size: 3rem;
-      }
+      .hero h1 { font-size: 3.8rem; } /* MODIFICATION */
+      .hero p { font-size: 1.25rem; }
 
-      .galeria-ads {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .servicios-grid { grid-template-columns: repeat(3, 1fr); }
+      /* .galeria-ads { grid-template-columns: repeat(2, 1fr); } Already 2, can stay or go to 3 if more images */
+      
+      .mapa { height: 450px; } /* MODIFICATION */
     }
   </style>
 </head>
 <body>
-  <!-- Popup Hot Sale -->
   <div class="popup-overlay" id="hotSalePopup">
     <div class="popup-container">
-      <button class="close-popup" id="closePopup">&times;</button>
-      <img src="El5.jpg" alt="Promoción Hot Sale - Blanqueamiento Dental 50% OFF" class="popup-img">
+      <button class="close-popup" id="closePopup" aria-label="Cerrar promoción">×</button> <img src="El5.jpg" alt="Promoción Hot Sale - Blanqueamiento Dental 50% OFF" class="popup-img">
     </div>
   </div>
 
@@ -836,15 +774,12 @@
   <section class="hero">
     <div class="hero-content">
       <h1 data-i18n="heroTitle">Tu sonrisa perfecta en Juárez</h1>
-      <p data-i18n="heroText">Cuidado dental personalizado con calidez y profesionalismo</p>
+      <p data-i18n="heroText">Cuidado dental personalizado con calidez y profesionalismo.</p>
       
-      <a href="#contacto" class="btn-contacto">
-        <i class="fas fa-comment-dots"></i> <span data-i18n="contactBtn">Agenda tu cita</span>
-      </a>
+      <a href="#contacto" class="btn btn-contacto"> <i class="fas fa-calendar-check icon"></i> <span data-i18n="contactBtn">Agenda tu cita</span> </a>
       
       <div class="btn-container">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp">
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"> <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
         <a href="tel:6147804673" class="btn btn-llamar">
@@ -883,33 +818,26 @@
         <p data-i18n="service5Desc">Transforma tu sonrisa con nuestras carillas personalizadas.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
-        <h3><i class="fas fa-teeth"></i> <span data-i18n="service6">Tratamiento de Canal</span></h3>
+        <h3><i class="fas fa-syringe"></i> <span data-i18n="service6">Tratamiento de Canal</span></h3>
         <p data-i18n="service6Desc">Aliviamos tu dolor y salvamos tu diente natural.</p>
       </div>
       <div class="servicio-item reveal fade-bottom">
-        <h3><i class="fas fa-implant"></i> <span data-i18n="service7">Implantes Dentales</span></h3>
-        <p data-i18n="service7Desc">Soluciones permanentes para reemplazar dientes perdidos.</p>
+        <h3><i class="fas fa-tooth"></i> <span data-i18n="service7">Implantes Dentales</span></h3> <p data-i18n="service7Desc">Soluciones permanentes para reemplazar dientes perdidos.</p>
       </div>
     </div>
   </section>
 
-  <!-- Galería -->
   <section id="galeria">
     <h2 class="reveal fade-bottom" data-i18n="galleryTitle">Conócenos</h2>
     <div class="galeria-ads">
-      <img src="El2.jpg" alt="Resultados de tratamiento dental" class="reveal fade-left">
-      <img src="El4.jpg" alt="Nuestras instalaciones modernas" class="reveal fade-right">
-    </div>
+      <img src="El2.jpg" alt="Resultados de tratamiento dental en Clínica Dental Dr. Santos" class="reveal fade-left"> <img src="El4.jpg" alt="Instalaciones modernas de la Clínica Dental Dr. Santos" class="reveal fade-right"> </div>
   </section>
 
-  <!-- Formulario de Contacto -->
   <section id="contacto">
     <div class="form-section">
       <h2 class="form-title" data-i18n="formTitle">Solicita tu cita</h2>
       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
-        <!-- Campos ocultos para FormSubmit -->
-        <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos">
-        <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+        <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos Clínica Dental"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         
@@ -958,11 +886,10 @@
         
         <div class="form-group">
           <label for="telefono" class="form-label" data-i18n="phoneLabel">Número de teléfono</label>
-          <input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono">
-        </div>
+          <input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono (ej. 6561234567)" data-i18n-placeholder="phonePlaceholder"> </div>
         
         <button type="submit" class="submit-btn">
-          <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar solicitud</span>
+          <i class="fas fa-paper-plane icon"></i> <span data-i18n="submitBtn">Enviar solicitud</span>
         </button>
       </form>
     </div>
@@ -973,113 +900,61 @@
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq1">¿Duele el blanqueamiento dental?</h3>
-      <p data-i18n="faq1Answer">Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso.</p>
-    </div>
+      <p data-i18n="faq1Answer">Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que minimizan la sensibilidad y protegen tus encías durante el proceso.</p> </div>
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq2">¿Cuánto dura un blanqueamiento dental?</h3>
-      <p data-i18n="faq2Answer">Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos para mantener tu sonrisa brillante.</p>
-    </div>
+      <p data-i18n="faq2Answer">Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos alimenticios y de higiene oral. Te daremos consejos personalizados para mantener tu sonrisa brillante por más tiempo.</p> </div>
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq3">¿Qué diferencia sus coronas dentales?</h3>
-      <p data-i18n="faq3Answer">Usamos materiales de alta calidad que imitan perfectamente el color y translucidez de los dientes naturales.</p>
-    </div>
+      <p data-i18n="faq3Answer">Utilizamos materiales de la más alta calidad, como porcelana o zirconio, que imitan perfectamente el color, la forma y la translucidez de los dientes naturales, asegurando un resultado estético y duradero.</p> </div>
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq4">¿Cuánto tiempo toma hacer una corona?</h3>
-      <p data-i18n="faq4Answer">¡Solo dos visitas! En la primera preparamos el diente y en la segunda colocamos tu corona permanente.</p>
-    </div>
+      <p data-i18n="faq4Answer">Generalmente, el proceso completo para una corona dental requiere dos visitas. En la primera, preparamos el diente y tomamos impresiones; en la segunda, cementamos tu corona definitiva hecha a medida.</p> </div>
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq5">¿Los implantes dentales son permanentes?</h3>
-      <p data-i18n="faq5Answer">Sí, con los cuidados adecuados, los implantes pueden durar toda la vida.</p>
+      <p data-i18n="faq5Answer">Sí, los implantes dentales están diseñados para ser una solución a largo plazo. Con los cuidados adecuados y revisiones periódicas, pueden durar toda la vida.</p>
     </div>
     
     <div class="faq-item reveal fade-bottom">
       <h3 data-i18n="faq6">¿Qué debo hacer en una emergencia dental?</h3>
-      <p data-i18n="faq6Answer">Llámanos inmediatamente al (614) 780-4673. Atendemos emergencias con prioridad.</p>
-    </div>
+      <p data-i18n="faq6Answer">Llámanos inmediatamente a nuestro número de emergencias <a href="tel:6147804673" style="color: var(--color-primario); text-decoration: underline;">(614) 780-4673</a>. Atendemos emergencias con la mayor prioridad posible para aliviar tu dolor.</p> </div>
   </section>
 
   <section id="ubicacion">
     <h2 class="reveal fade-bottom" data-i18n="locationTitle">Ubicación</h2>
     <div class="mapa-container reveal fade-bottom">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy" title="Ubicación de la clínica"></iframe>
-    </div>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.0000000000000!2d-106.43200000000000!3d31.710000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQyJzM2LjAiTiAxMDbCsDI1JzU1LjIiVw!5e0!3m2!1ses!2smx!4v1622600000000!5m2!1ses!2smx!s" 
+        class="mapa" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade" 
+        title="Ubicación de Dr. Santos Clínica Dental">
+      </iframe>
+      </div>
   </section>
 
   <footer class="footer">
     <p><strong>Dr. Santos Clínica Dental</strong></p>
     <p><i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
     <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
-    <p><i class="fas fa-phone"></i> Tel: (614) 780-4673 | WhatsApp: +52 1 614-780-4673</p>
-  </footer>
+    <p><i class="fas fa-phone"></i> Tel: <a href="tel:6147804673" style="color: inherit;">(614) 780-4673</a> | <i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20más%20información" target="_blank" rel="noopener noreferrer" style="color: inherit;">+52 1 614-780-4673</a></p> </footer>
 
-  <!-- Botón de traducción flotante -->
-  <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
-    <i class="fas fa-language"></i>
+  <button id="translateBtn" class="translate-btn" title="Switch language / Cambiar idioma"> <i class="fas fa-language"></i>
     <span>ES/EN</span>
   </button>
 
   <script>
-    // Mostrar popup después de 3 segundos
-    setTimeout(function() {
-      document.getElementById('hotSalePopup').classList.add('active');
-    }, 3000);
-
-    // Cerrar popup al hacer clic en la X
-    document.getElementById('closePopup').addEventListener('click', function() {
-      document.getElementById('hotSalePopup').classList.remove('active');
-    });
-
-    // Cerrar popup al hacer clic fuera de la imagen
-    document.getElementById('hotSalePopup').addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.classList.remove('active');
-      }
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        document.getElementById('mainHeader').classList.add('scrolled');
-      } else {
-        document.getElementById('mainHeader').classList.remove('scrolled');
-      }
-    });
-
-    // FAQ toggle
-    document.querySelectorAll('.faq-item h3').forEach(item => {
-      item.addEventListener('click', function() {
-        this.parentElement.classList.toggle('active');
-      });
-    });
-
-    // Scroll reveal
-    function reveal() {
-      const reveals = document.querySelectorAll('.reveal');
-      
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        }
-      }
-    }
-    
-    window.addEventListener('scroll', reveal);
-    reveal(); // Para mostrar elementos que ya están visibles al cargar la página
-
-    // Traducciones completas
+    // MODIFICATION: Moved translations object outside DOMContentLoaded for clarity
     const translations = {
       es: {
         "title": "Dr. Santos Clínica Dental | Tu Sonrisa en Juárez",
         "heroTitle": "Tu sonrisa perfecta en Juárez",
-        "heroText": "Cuidado dental personalizado con calidez y profesionalismo",
+        "heroText": "Cuidado dental personalizado con calidez y profesionalismo.",
         "contactBtn": "Agenda tu cita",
         "callBtn": "Llamar",
         "callIntlBtn": "Desde EE.UU.",
@@ -1102,6 +977,7 @@
         "formTitle": "Solicita tu cita",
         "nameLabel": "Nombre completo",
         "namePlaceholder": "Ingresa tu nombre completo",
+        "phonePlaceholder": "Ingresa tu número de teléfono (ej. 6561234567)",
         "reasonLabel": "Motivo de consulta",
         "selectReason": "Selecciona un motivo",
         "option1": "Blanqueamiento Dental",
@@ -1129,24 +1005,24 @@
         "submitBtn": "Enviar solicitud",
         "faqTitle": "Preguntas Frecuentes",
         "faq1": "¿Duele el blanqueamiento dental?",
-        "faq1Answer": "Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso.",
+        "faq1Answer": "Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que minimizan la sensibilidad y protegen tus encías durante el proceso.",
         "faq2": "¿Cuánto dura un blanqueamiento dental?",
-        "faq2Answer": "Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos. Te daremos consejos para mantener tu sonrisa brillante.",
+        "faq2Answer": "Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos alimenticios y de higiene oral. Te daremos consejos personalizados para mantener tu sonrisa brillante por más tiempo.",
         "faq3": "¿Qué diferencia sus coronas dentales?",
-        "faq3Answer": "Usamos materiales de alta calidad que imitan perfectamente el color y translucidez de los dientes naturales.",
+        "faq3Answer": "Utilizamos materiales de la más alta calidad, como porcelana o zirconio, que imitan perfectamente el color, la forma y la translucidez de los dientes naturales, asegurando un resultado estético y duradero.",
         "faq4": "¿Cuánto tiempo toma hacer una corona?",
-        "faq4Answer": "¡Solo dos visitas! En la primera preparamos el diente y en la segunda colocamos tu corona permanente.",
+        "faq4Answer": "Generalmente, el proceso completo para una corona dental requiere dos visitas. En la primera, preparamos el diente y tomamos impresiones; en la segunda, cementamos tu corona definitiva hecha a medida.",
         "faq5": "¿Los implantes dentales son permanentes?",
-        "faq5Answer": "Sí, con los cuidados adecuados, los implantes pueden durar toda la vida.",
+        "faq5Answer": "Sí, los implantes dentales están diseñados para ser una solución a largo plazo. Con los cuidados adecuados y revisiones periódicas, pueden durar toda la vida.",
         "faq6": "¿Qué debo hacer en una emergencia dental?",
-        "faq6Answer": "Llámanos inmediatamente al (614) 780-4673. Atendemos emergencias con prioridad.",
+        "faq6Answer": "Llámanos inmediatamente a nuestro número de emergencias (614) 780-4673. Atendemos emergencias con la mayor prioridad posible para aliviar tu dolor.",
         "locationTitle": "Ubicación",
         "hours": "Horario"
       },
       en: {
         "title": "Dr. Santos Dental Clinic | Your Smile in Juarez",
         "heroTitle": "Your perfect smile in Juarez",
-        "heroText": "Personalized dental care with warmth and professionalism",
+        "heroText": "Personalized dental care with warmth and professionalism.",
         "contactBtn": "Book your appointment",
         "callBtn": "Call",
         "callIntlBtn": "From U.S.",
@@ -1165,11 +1041,12 @@
         "service6Desc": "We relieve your pain and save your natural tooth.",
         "service7": "Dental Implants",
         "service7Desc": "Permanent solutions to replace missing teeth.",
-        "galleryTitle": "About Us",
-        "formTitle": "Request your appointment",
+        "galleryTitle": "Get to Know Us", /* MODIFICATION: More inviting */
+        "formTitle": "Request Your Appointment",
         "nameLabel": "Full name",
         "namePlaceholder": "Enter your full name",
-        "reasonLabel": "Consultation reason",
+        "phonePlaceholder": "Enter your phone number (e.g., 9151234567)",
+        "reasonLabel": "Reason for consultation",
         "selectReason": "Select a reason",
         "option1": "Teeth Whitening",
         "option2": "Professional Cleaning",
@@ -1193,95 +1070,141 @@
         "time2": "Afternoon (3pm-6pm)",
         "time3": "Saturday (9am-2pm)",
         "phoneLabel": "Phone number",
-        "submitBtn": "Submit request",
+        "submitBtn": "Send Request",
         "faqTitle": "Frequently Asked Questions",
         "faq1": "Does teeth whitening hurt?",
-        "faq1Answer": "Our whitening is designed to be comfortable. We use special gels that protect your gums during the process.",
+        "faq1Answer": "Our whitening is designed to be comfortable. We use special gels that minimize sensitivity and protect your gums during the process.",
         "faq2": "How long does teeth whitening last?",
-        "faq2Answer": "Results can last from 1 to 3 years depending on your habits. We'll give you tips to keep your smile bright.",
+        "faq2Answer": "Results can last from 1 to 3 years depending on your dietary and oral hygiene habits. We'll give you personalized tips to keep your smile bright for longer.",
         "faq3": "What makes your dental crowns different?",
-        "faq3Answer": "We use high-quality materials that perfectly mimic the color and translucency of natural teeth.",
+        "faq3Answer": "We use the highest quality materials, such as porcelain or zirconia, which perfectly mimic the color, shape, and translucency of natural teeth, ensuring an aesthetic and durable result.",
         "faq4": "How long does it take to make a crown?",
-        "faq4Answer": "Just two visits! In the first we prepare the tooth and in the second we place your permanent crown.",
+        "faq4Answer": "Generally, the complete process for a dental crown requires two visits. In the first, we prepare the tooth and take impressions; in the second, we cement your custom-made permanent crown.",
         "faq5": "Are dental implants permanent?",
-        "faq5Answer": "Yes, with proper care, implants can last a lifetime.",
+        "faq5Answer": "Yes, dental implants are designed to be a long-term solution. With proper care and regular check-ups, they can last a lifetime.",
         "faq6": "What should I do in a dental emergency?",
-        "faq6Answer": "Call us immediately at (614) 780-4673. We prioritize emergencies.",
+        "faq6Answer": "Call us immediately at our emergency number (614) 780-4673. We address emergencies with the highest possible priority to relieve your pain.",
         "locationTitle": "Location",
         "hours": "Hours"
       }
     };
 
-    // Función para cambiar idioma
-    function changeLanguage(lang) {
-      // Actualizar todos los elementos con data-i18n
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-      
-      // Actualizar placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (translations[lang][key]) {
-          el.setAttribute('placeholder', translations[lang][key]);
-        }
-      });
-      
-      // Actualizar título de la página
-      document.title = translations[lang]['title'];
-      
-      // Actualizar opciones de select
-      document.querySelectorAll('option[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-      
-      // Guardar preferencia
-      localStorage.setItem('preferredLang', lang);
-    }
-
-    // Configurar botón de traducción
-    document.getElementById('translateBtn').addEventListener('click', function() {
-      const currentLang = localStorage.getItem('preferredLang') || 'es';
-      const newLang = currentLang === 'es' ? 'en' : 'es';
-      changeLanguage(newLang);
-      
-      // Actualizar texto del botón
-      this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
-    });
-
-    // Inicializar con idioma guardado o español por defecto
     document.addEventListener('DOMContentLoaded', function() {
-      const savedLang = localStorage.getItem('preferredLang') || 'es';
-      changeLanguage(savedLang);
-      
-      // Configurar texto del botón según el idioma actual
-      document.getElementById('translateBtn').querySelector('span').textContent = 
-        savedLang === 'es' ? 'ES/EN' : 'EN/ES';
-      
-      // Mostrar popup solo si no se ha mostrado antes
-      if (!localStorage.getItem('popupShown')) {
-        setTimeout(function() {
-          document.getElementById('hotSalePopup').classList.add('active');
-          localStorage.setItem('popupShown', 'true');
+      const hotSalePopup = document.getElementById('hotSalePopup');
+      const closePopupBtn = document.getElementById('closePopup');
+      const mainHeader = document.getElementById('mainHeader');
+      const translateBtn = document.getElementById('translateBtn');
+      const faqItems = document.querySelectorAll('.faq-item h3');
+      const smoothScrollAnchors = document.querySelectorAll('a[href^="#"]');
+
+      // Popup logic
+      // MODIFICATION: Show popup only once per session using sessionStorage, or use localStorage for longer persistence
+      if (!sessionStorage.getItem('popupShownThisSession')) {
+        setTimeout(() => {
+          hotSalePopup.classList.add('active');
+          sessionStorage.setItem('popupShownThisSession', 'true');
         }, 3000);
       }
 
-      // Suavizar el desplazamiento a las secciones
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+      closePopupBtn.addEventListener('click', () => hotSalePopup.classList.remove('active'));
+      hotSalePopup.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+        }
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        mainHeader.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // FAQ toggle
+      faqItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // Optional: Close other open FAQ items
+          // faqItems.forEach(otherItem => {
+          //   if (otherItem !== this && otherItem.parentElement.classList.contains('active')) {
+          //     otherItem.parentElement.classList.remove('active');
+          //   }
+          // });
+          this.parentElement.classList.toggle('active');
         });
       });
+
+      // Scroll reveal
+      const revealElements = document.querySelectorAll('.reveal');
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        const elementVisibleThreshold = 50; // MODIFICATION: Reveal a bit earlier
+
+        revealElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisibleThreshold) {
+            el.classList.add('active');
+            // MODIFICATION: Add specific fade classes if they are not directly tied to animation names
+            if (el.classList.contains('fade-bottom') && !el.style.animationName) el.style.animationName = 'fadeInUp';
+            if (el.classList.contains('fade-left') && !el.style.animationName) el.style.animationName = 'fadeInLeft';
+            if (el.classList.contains('fade-right') && !el.style.animationName) el.style.animationName = 'fadeInRight';
+          }
+        });
+      }
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll(); // Initial check
+
+      // Smooth scroll for internal links
+      smoothScrollAnchors.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start' // MODIFICATION: Ensure top of section is visible
+            });
+          }
+        });
+      });
+      
+      // Language toggle function
+      function changeLanguage(lang) {
+        document.documentElement.lang = lang; // Set lang attribute on HTML element
+        document.title = translations[lang]['title'];
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+        
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+          }
+        });
+        
+        document.querySelectorAll('option[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+        
+        localStorage.setItem('preferredLang', lang);
+        translateBtn.querySelector('span').textContent = lang === 'es' ? 'ES/EN' : 'EN/ES';
+      }
+
+      translateBtn.addEventListener('click', function() {
+        const currentLang = localStorage.getItem('preferredLang') || 'es';
+        const newLang = currentLang === 'es' ? 'en' : 'es';
+        changeLanguage(newLang);
+      });
+
+      // Initialize with saved language or default
+      const savedLang = localStorage.getItem('preferredLang') || 'es';
+      changeLanguage(savedLang);
     });
   </script>
 </body>
