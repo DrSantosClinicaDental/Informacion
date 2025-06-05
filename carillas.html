@@ -11,76 +11,191 @@
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
-      /* ... (resto de variables CSS) ... */
-      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+      --acento: #5fb49c;
+      --blanco: #ffffff;
+      --gris-claro: #f5f7fa;
+      --gris-medio: #e9edf0;
+      --gris-texto: #4a4a4a;
+      --texto-oscuro-principal: #333333;
+      --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
+      --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
+      --whatsapp: #25D366;
+      --radio-borde-general: 10px;
+      --radio-borde-sm: 6px;
+      --acento-rgb: 95, 180, 156;
+      --color-text-subtle: #5a677d;
+      --color-border: #d1d9e0;
+      --color-background-light-section: #f8f9fa;
+      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12);
     }
-    /* ... (todo el CSS idéntico) ... */
-     .page-header-spacer { height: 150px; } 
-    .page-content { padding: clamp(30px, 5vh, 50px) 5%; } 
-    .page-content h1 {
-        text-align: center; color: var(--color-primario); margin-bottom: 30px;
-        font-size: clamp(1.8rem, 5vw, 2.5rem); 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--texto-oscuro-principal); background-color: var(--blanco); line-height: 1.7; overflow-x: hidden; font-smooth: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .header { background-color: var(--blanco); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; box-shadow: var(--sombra-ligera); transition: padding 0.3s ease, box-shadow 0.3s ease; }
+    .header.scrolled { padding: 8px 5%; box-shadow: var(--sombra-media); }
+    .logo { display: block; margin-left: auto; margin-right: auto; max-height: 65px; width: auto; max-width: 280px; margin-bottom: 8px; transition: max-height 0.3s ease; }
+    .header.scrolled .logo { max-height: 55px; }
+    .direccion-header { color: var(--color-secundario); font-size: 0.8rem; text-align: center; transition: font-size 0.3s ease; }
+    .direccion-header i { color: var(--color-primario); margin-right: 5px; }
+    .main-nav { background-color: var(--blanco); padding: 0.5rem 0; box-shadow: var(--sombra-ligera); border-bottom: 1px solid var(--gris-medio); position: sticky; top: 0; z-index: 999; width: 100%; }
+    .main-nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 10px; gap: 5px; }
+    .main-nav ul::-webkit-scrollbar { display: none; }
+    .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
+    .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
+    .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); background-color: transparent; border-bottom-color: var(--acento); box-shadow: none; }
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+    .popup-overlay.active { opacity: 1; visibility: visible; }
+    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; position: relative; opacity: 0; }
+    .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
+    .popup-img { width: 100%; height: auto; display: block; }
+    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.3s ease; border: none; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg) scale(1.1); }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); margin-bottom: 15px; }
+    .btn-contacto { background-color: var(--acento); color: var(--blanco); padding: 12px 25px; border-radius: var(--radio-borde-general); display: inline-block; margin: 20px 0; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: var(--sombra-media); transition: all 0.25s ease-out; border: 2px solid var(--acento); }
+    .btn-contacto:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(var(--acento-rgb), 0.4); background-color: var(--acento); border-color: var(--acento); color: var(--blanco); }
+    .icon { margin-right: 8px; width: 18px; height: 18px; transition: transform 0.3s ease; }
+    .btn:hover .icon { transform: scale(1.15) rotate(-5deg); }
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
+    .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+    .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
+    .footer p i { color: var(--acento); margin-right: 6px; }
+    .footer a { color: var(--blanco); } .footer a:hover { color: var(--acento); text-decoration: underline; }
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease 1s forwards; }
+    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
+    .translate-btn i { font-size: 20px; margin-bottom: 2px; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header-spacer { height: 150px; }
+    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
+    .page-content h1 { text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    .content-section { margin-bottom: 30px; padding: 25px; background-color: var(--blanco); border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); }
+    .content-section h2 { color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--acento); display: inline-block; }
+    .content-section p, .content-section ul { color: var(--color-text-subtle); line-height: 1.75; margin-bottom: 15px; font-size: 0.95rem; }
+    .content-section ul { list-style: none; padding-left: 0; }
+    .content-section ul li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+    .content-section ul li::before { content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; font-size: 0.9em; color: var(--acento); }
+    .image-placeholder-container { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; margin-bottom: 20px; }
+    .image-placeholder { width: 100%; height: 220px; background-color: var(--gris-medio); border-radius: var(--radio-borde-general); display: flex; justify-content: center; align-items: center; color: var(--color-text-subtle); font-style: italic; text-align: center; border: 2px dashed var(--color-border); padding: 10px; font-size: 0.9rem; }
+    .cta-section { text-align: center; padding: 30px 20px; background-color: var(--color-background-light-section); border-radius: var(--radio-borde-general); margin-top: 40px; box-shadow: var(--sombra-ligera); }
+    .cta-section h2 { color: var(--color-primario); border-bottom: none; padding-bottom: 0; display: block; font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom:15px;}
+    .cta-section p { color: var(--color-text-subtle); max-width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 25px; font-size: 1rem; }
+    @media (min-width: 768px) {
+      .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; align-items: center; }
+      .logo { margin-bottom: 0; max-height: 70px; }
+      .header.scrolled .logo { max-height: 60px; }
+      .direccion-header { text-align: right; font-size: 0.9rem; }
+      .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; overflow-x: visible; }
+      .main-nav li a { font-size: 0.9rem; padding: 0.7em 1em; }
+      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
+      .image-placeholder-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+      .cta-section p { max-width: 600px; }
     }
-    .content-section {
-        margin-bottom: 30px; padding: 20px; background-color: var(--blanco);
-        border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera);
+    @media (min-width: 1024px) {
+      .logo { max-height: 80px; }
+      .header.scrolled .logo { max-height: 70px; }
+      .main-nav ul { gap: 20px; }
+      .main-nav li a { font-size: 1rem; }
     }
-    .content-section h2 {
-        color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); 
-        margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid var(--acento);
-        display: inline-block;
-    }
-    .content-section p, .content-section ul {
-        color: var(--color-text-subtle); line-height: 1.7; 
-        margin-bottom: 12px; font-size: 0.95rem;
-    }
-    /* ... (resto de estilos CSS idénticos) ... */
-     @media (min-width: 768px) {
-        /* ... */
-        .page-content { padding: clamp(30px, 5vh, 50px) 10%; } 
-    }
+    /* Demás estilos CSS de index.html/implantes.html */
   </style>
 </head>
 <body>
   <div class="popup-overlay" id="hotSalePopup">
+    <div class="popup-container">
+      <button class="close-popup" id="closePopup" aria-label="Cerrar">×</button>
+      <img src="El5.png" alt="Promoción Hot Sale" class="popup-img">
     </div>
+  </div>
 
   <header class="header" id="mainHeader">
-    </header>
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <div class="direccion-header">
+      <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
+    </div>
+  </header>
 
   <nav class="main-nav" id="mainNav">
-    </nav>
+    <ul>
+      <li><a href="index.html" data-i18n="navHome">Inicio</a></li>
+      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
+      <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
+      <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
+      <li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li>
+    </ul>
+  </nav>
 
   <div class="page-header-spacer"></div>
 
   <main class="page-content">
-    <h1 data-i18n="veneersPageTitle">Carillas Dentales</h1>
+    <h1 data-i18n="veneersPageTitle">Carillas Dentales: Transforma Tu Sonrisa</h1>
+    
     <div class="content-section">
-      <h2 data-i18n="veneersSection1Title">Transforma Tu Sonrisa con Carillas</h2>
-      <p data-i18n="veneersSection1Para1">
-        Las carillas dentales son láminas delgadas hechas a medida que se adhieren a la parte frontal de los dientes para mejorar su apariencia.
-        Son una excelente opción para corregir dientes manchados, desalineados, desgastados o con espacios.
+      <h2 data-i18n="veneersWhatAreTitle">¿Qué son las Carillas Dentales?</h2>
+      <p data-i18n="veneersWhatAreP1">
+        Las carillas dentales son unas finas láminas, generalmente de porcelana o composite, que se adhieren a la superficie frontal de los dientes. Están diseñadas a medida para cada paciente, buscando mejorar la estética de la sonrisa al corregir problemas de color, forma, tamaño, o alineación dental.
       </p>
-      <ul data-i18n="veneersBenefitsListTitle">
-        <strong data-i18n="veneersBenefitsTitle">Ventajas de las Carillas:</strong>
-        <li data-i18n="veneersBenefit1">Resultados estéticos inmediatos y notables.</li>
-        <li data-i18n="veneersBenefit2">Mínimamente invasivas en comparación con las coronas.</li>
-        <li data-i18n="veneersBenefit3">Materiales resistentes a las manchas.</li>
-        <li data-i18n="veneersBenefit4">Personalizadas para un ajuste y color perfectos.</li>
+      <p data-i18n="veneersWhatAreP2">
+        Son una solución popular y efectiva para quienes desean una transformación significativa de su sonrisa de manera conservadora.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2 data-i18n="veneersBenefitsTitle">Beneficios Principales de las Carillas</h2>
+      <ul>
+        <li data-i18n="veneersBenefit1"><strong>Mejora Estética Impactante:</strong> Corrigen decoloraciones, manchas, fracturas leves, espacios entre dientes (diastemas) y dientes ligeramente desalineados o desgastados.</li>
+        <li data-i18n="veneersBenefit2"><strong>Aspecto Natural:</strong> Las carillas de porcelana, en particular, imitan la translucidez y el brillo de los dientes naturales, ofreciendo un resultado muy realista.</li>
+        <li data-i18n="veneersBenefit3"><strong>Durabilidad:</strong> Con el cuidado adecuado, las carillas pueden durar muchos años. La porcelana es un material muy resistente a las manchas.</li>
+        <li data-i18n="veneersBenefit4"><strong>Tratamiento Conservador:</strong> En comparación con las coronas, la preparación del diente para las carillas suele ser mínima, preservando más la estructura dental natural.</li>
+        <li data-i18n="veneersBenefit5"><strong>Resultados Rápidos:</strong> El proceso de colocación de carillas puede completarse en pocas visitas, ofreciendo una nueva sonrisa en poco tiempo.</li>
       </ul>
     </div>
-    <div class="content-section">
-      <h2 data-i18n="veneersSection2Title">Tipos de Carillas y Proceso</h2>
-      <p data-i18n="veneersSection2Para1">
-        Explicación sobre los diferentes tipos de carillas (porcelana, composite) y los pasos involucrados en el tratamiento.
-      </p>
-       <div class="image-placeholder-container">
-          <div class="image-placeholder" data-i18n="veneersImagePlaceholder1">Antes y Después con Carillas</div>
-      </div>
+
+    <div class="image-placeholder-container">
+        <div class="image-placeholder" data-i18n="veneersImageBefore">Imagen: Antes de Carillas</div>
+        <div class="image-placeholder" data-i18n="veneersImageAfter">Imagen: Después de Carillas</div>
     </div>
-     <section class="cta-section">
-        <h2 data-i18n="veneersCtaTitle">¿Listo para una Sonrisa Deslumbrante?</h2>
-        <p data-i18n="veneersCtaText">Consulta con nosotros sobre las carillas dentales y cómo pueden ayudarte a lograr la sonrisa de tus sueños.</p>
+
+    <div class="content-section">
+      <h2 data-i18n="veneersTypesTitle">Tipos de Carillas</h2>
+      <h3 style="color: var(--color-primario); font-size: 1.2rem;" data-i18n="veneersTypePorcelain">Carillas de Porcelana</h3>
+      <p data-i18n="veneersTypePorcelainP1">
+        Son las más populares por su excelente estética y durabilidad. Se fabrican a medida en un laboratorio dental a partir de impresiones de tus dientes. Son altamente resistentes a las manchas y reflejan la luz de manera similar al esmalte dental.
+      </p>
+      <h3 style="color: var(--color-primario); font-size: 1.2rem; margin-top:15px;" data-i18n="veneersTypeComposite">Carillas de Composite (Resina)</h3>
+      <p data-i18n="veneersTypeCompositeP1">
+        Estas carillas se aplican directamente sobre el diente y se modelan en la clínica en una sola visita. Son una opción más económica y la preparación dental suele ser menor. Aunque estéticamente son buenas, pueden ser menos duraderas y más susceptibles a mancharse que las de porcelana.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2 data-i18n="veneersProcessTitle">El Proceso de Colocación</h2>
+      <ol style="list-style-type: decimal; padding-left: 20px; color: var(--color-text-subtle);">
+        <li data-i18n="veneersProcessStep1" style="margin-bottom:10px;"><strong>Diagnóstico y Planificación:</strong> Se evalúa tu caso, se discuten tus expectativas y se planifica el tratamiento. Se pueden tomar radiografías e impresiones.</li>
+        <li data-i18n="veneersProcessStep2" style="margin-bottom:10px;"><strong>Preparación Dental:</strong> Se retira una finísima capa de esmalte de la superficie frontal del diente (generalmente menos de medio milímetro) para hacer espacio a la carilla. En algunos casos (carillas "sin preparación"), este paso puede no ser necesario.</li>
+        <li data-i18n="veneersProcessStep3" style="margin-bottom:10px;"><strong>Toma de Impresiones:</strong> Se toman nuevas impresiones de los dientes preparados, que se envían al laboratorio para fabricar las carillas de porcelana. Se pueden colocar carillas provisionales.</li>
+        <li data-i18n="veneersProcessStep4" style="margin-bottom:10px;"><strong>Cementación:</strong> Una vez listas las carillas definitivas, se verifica su ajuste y color. Luego, se limpian los dientes y se adhieren las carillas con un cemento dental especial, que se endurece con una luz específica.</li>
+        <li data-i18n="veneersProcessStep5" style="margin-bottom:10px;"><strong>Ajustes Finales y Seguimiento:</strong> Se realizan los ajustes necesarios y se programan visitas de seguimiento.</li>
+      </ol>
+    </div>
+
+    <div class="content-section">
+        <h2 data-i18n="veneersCareTitle">Cuidado de tus Carillas</h2>
+        <p data-i18n="veneersCareP1">
+            El cuidado de las carillas es similar al de tus dientes naturales:
+        </p>
+        <ul>
+            <li data-i18n="veneersCareItem1">Mantén una excelente higiene oral: cepillado al menos dos veces al día y uso de hilo dental diario.</li>
+            <li data-i18n="veneersCareItem2">Visita regularmente al dentista para revisiones y limpiezas profesionales.</li>
+            <li data-i18n="veneersCareItem3">Evita morder objetos duros (hielo, uñas, bolígrafos) o usar tus dientes como herramientas.</li>
+            <li data-i18n="veneersCareItem4">Si practicas deportes de contacto, considera usar un protector bucal.</li>
+            <li data-i18n="veneersCareItem5">Si rechinas los dientes (bruxismo), coméntalo con tu dentista, ya que podría recomendarte una férula de descarga.</li>
+        </ul>
+    </div>
+    
+    <section class="cta-section">
+        <h2 data-i18n="veneersCtaTitle">¿Interesado en Carillas Dentales?</h2>
+        <p data-i18n="veneersCtaText">Las carillas pueden ser la solución perfecta para obtener la sonrisa que siempre has deseado. ¡Agenda una consulta para valorar tu caso!</p>
         <a href="agenda.html" class="btn-contacto">
             <i class="fas fa-calendar-check"></i> <span data-i18n="contactBtn">Agenda tu cita</span>
         </a>
@@ -88,74 +203,266 @@
   </main>
 
   <footer class="footer">
-    </footer>
+    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
+    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
+    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
+    <p class="copyright">© <span id="currentYear">2025</span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+  </footer>
 
   <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
-    </button>
+    <i class="fas fa-language"></i>
+    <span>ES/EN</span>
+  </button>
 
   <script>
-    // Objeto de traducciones (COPIADO DE INDEX.HTML)
-    // NOTA: Deberás agregar/modificar claves aquí para el contenido específico de ESTA PÁGINA (Carillas).
     const translations = {
       es: {
         "titleVeneersPage": "Carillas Dentales | Dr. Santos Clínica Dental",
-        // ... (claves genéricas y de index.html como en implantes.html) ...
         "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
         "contactBtn": "Agenda tu cita",
-
-        // Claves específicas para carillas.html
-        "veneersPageTitle": "Carillas Dentales",
-        "veneersSection1Title": "Transforma Tu Sonrisa con Carillas",
-        "veneersSection1Para1": "Las carillas dentales son láminas delgadas hechas a medida que se adhieren a la parte frontal de los dientes para mejorar su apariencia. Son una excelente opción para corregir dientes manchados, desalineados, desgastados o con espacios.",
-        "veneersBenefitsTitle": "Ventajas de las Carillas:",
-        "veneersBenefit1": "Resultados estéticos inmediatos y notables.",
-        "veneersBenefit2": "Mínimamente invasivas en comparación con las coronas.",
-        "veneersBenefit3": "Materiales resistentes a las manchas.",
-        "veneersBenefit4": "Personalizadas para un ajuste y color perfectos.",
-        "veneersSection2Title": "Tipos de Carillas y Proceso",
-        "veneersSection2Para1": "Existen principalmente carillas de porcelana y de composite. El proceso generalmente implica una consulta, preparación del diente (si es necesario), toma de impresiones y la cementación final de las carillas.",
-        "veneersImagePlaceholder1": "Ejemplo de sonrisa con carillas",
-        "veneersCtaTitle": "¿Listo para una Sonrisa Deslumbrante?",
-        "veneersCtaText": "Consulta con nosotros sobre las carillas dentales y cómo pueden ayudarte a lograr la sonrisa de tus sueños.",
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.`,
-        "clinicNameFooter": "Dr. Santos Clínica Dental", 
+        "veneersPageTitle": "Carillas Dentales: Transforma Tu Sonrisa",
+        "veneersWhatAreTitle": "¿Qué son las Carillas Dentales?",
+        "veneersWhatAreP1": "Las carillas dentales son unas finas láminas, generalmente de porcelana o composite, que se adhieren a la superficie frontal de los dientes. Están diseñadas a medida para cada paciente, buscando mejorar la estética de la sonrisa al corregir problemas de color, forma, tamaño, o alineación dental.",
+        "veneersWhatAreP2": "Son una solución popular y efectiva para quienes desean una transformación significativa de su sonrisa de manera conservadora.",
+        "veneersBenefitsTitle": "Beneficios Principales de las Carillas",
+        "veneersBenefit1": "<strong>Mejora Estética Impactante:</strong> Corrigen decoloraciones, manchas, fracturas leves, espacios entre dientes (diastemas) y dientes ligeramente desalineados o desgastados.",
+        "veneersBenefit2": "<strong>Aspecto Natural:</strong> Las carillas de porcelana, en particular, imitan la translucidez y el brillo de los dientes naturales, ofreciendo un resultado muy realista.",
+        "veneersBenefit3": "<strong>Durabilidad:</strong> Con el cuidado adecuado, las carillas pueden durar muchos años. La porcelana es un material muy resistente a las manchas.",
+        "veneersBenefit4": "<strong>Tratamiento Conservador:</strong> En comparación con las coronas, la preparación del diente para las carillas suele ser mínima, preservando más la estructura dental natural.",
+        "veneersBenefit5": "<strong>Resultados Rápidos:</strong> El proceso de colocación de carillas puede completarse en pocas visitas, ofreciendo una nueva sonrisa en poco tiempo.",
+        "veneersImageBefore": "Imagen: Antes de Carillas",
+        "veneersImageAfter": "Imagen: Después de Carillas",
+        "veneersTypesTitle": "Tipos de Carillas",
+        "veneersTypePorcelain": "Carillas de Porcelana",
+        "veneersTypePorcelainP1": "Son las más populares por su excelente estética y durabilidad. Se fabrican a medida en un laboratorio dental a partir de impresiones de tus dientes. Son altamente resistentes a las manchas y reflejan la luz de manera similar al esmalte dental.",
+        "veneersTypeComposite": "Carillas de Composite (Resina)",
+        "veneersTypeCompositeP1": "Estas carillas se aplican directamente sobre el diente y se modelan en la clínica en una sola visita. Son una opción más económica y la preparación dental suele ser menor. Aunque estéticamente son buenas, pueden ser menos duraderas y más susceptibles a mancharse que las de porcelana.",
+        "veneersProcessTitle": "El Proceso de Colocación",
+        "veneersProcessStep1": "<strong>Diagnóstico y Planificación:</strong> Se evalúa tu caso, se discuten tus expectativas y se planifica el tratamiento. Se pueden tomar radiografías e impresiones.",
+        "veneersProcessStep2": "<strong>Preparación Dental:</strong> Se retira una finísima capa de esmalte de la superficie frontal del diente (generalmente menos de medio milímetro) para hacer espacio a la carilla. En algunos casos (carillas \"sin preparación\"), este paso puede no ser necesario.",
+        "veneersProcessStep3": "<strong>Toma de Impresiones:</strong> Se toman nuevas impresiones de los dientes preparados, que se envían al laboratorio para fabricar las carillas de porcelana. Se pueden colocar carillas provisionales.",
+        "veneersProcessStep4": "<strong>Cementación:</strong> Una vez listas las carillas definitivas, se verifica su ajuste y color. Luego, se limpian los dientes y se adhieren las carillas con un cemento dental especial, que se endurece con una luz específica.",
+        "veneersProcessStep5": "<strong>Ajustes Finales y Seguimiento:</strong> Se realizan los ajustes necesarios y se programan visitas de seguimiento.",
+        "veneersCareTitle": "Cuidado de tus Carillas",
+        "veneersCareP1":"El cuidado de las carillas es similar al de tus dientes naturales:",
+        "veneersCareItem1": "Mantén una excelente higiene oral: cepillado al menos dos veces al día y uso de hilo dental diario.",
+        "veneersCareItem2": "Visita regularmente al dentista para revisiones y limpiezas profesionales.",
+        "veneersCareItem3": "Evita morder objetos duros (hielo, uñas, bolígrafos) o usar tus dientes como herramientas.",
+        "veneersCareItem4": "Si practicas deportes de contacto, considera usar un protector bucal.",
+        "veneersCareItem5": "Si rechinas los dientes (bruxismo), coméntalo con tu dentista, ya que podría recomendarte una férula de descarga.",
+        "veneersCtaTitle": "¿Interesado en Carillas Dentales?",
+        "veneersCtaText": "Las carillas pueden ser la solución perfecta para obtener la sonrisa que siempre has deseado. ¡Agenda una consulta para valorar tu caso!",
+        "clinicNameFooter": "Dr. Santos Clínica Dental",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
         "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Clínica Dental",
+        "footerRights":"Todos los derechos reservados."
       },
       en: {
         "titleVeneersPage": "Dental Veneers | Dr. Santos Dental Clinic",
-        // ... (generic and index.html keys) ...
         "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
         "contactBtn": "Book your appointment",
-
-        // English translations for veneers.html
-        "veneersPageTitle": "Dental Veneers",
-        "veneersSection1Title": "Transform Your Smile with Veneers",
-        "veneersSection1Para1": "Dental veneers are thin, custom-made shells that are bonded to the front surface of teeth to improve their appearance. They are an excellent option for correcting stained, misaligned, worn, or gapped teeth.",
-        "veneersBenefitsTitle": "Advantages of Veneers:",
-        "veneersBenefit1": "Immediate and noticeable aesthetic results.",
-        "veneersBenefit2": "Minimally invasive compared to crowns.",
-        "veneersBenefit3": "Stain-resistant materials.",
-        "veneersBenefit4": "Customized for a perfect fit and color.",
-        "veneersSection2Title": "Types of Veneers and Process",
-        "veneersSection2Para1": "There are mainly porcelain and composite veneers. The process generally involves a consultation, tooth preparation (if necessary), taking impressions, and the final cementation of the veneers.",
-        "veneersImagePlaceholder1": "Example of a smile with veneers",
-        "veneersCtaTitle": "Ready for a Dazzling Smile?",
-        "veneersCtaText": "Consult with us about dental veneers and how they can help you achieve the smile of your dreams.",
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Dental Clinic. All rights reserved.`,
-        "clinicNameFooter": "Dr. Santos Dental Clinic", 
+        "veneersPageTitle": "Dental Veneers: Transform Your Smile",
+        "veneersWhatAreTitle": "What Are Dental Veneers?",
+        "veneersWhatAreP1": "Dental veneers are thin shells, usually made of porcelain or composite resin, that are bonded to the front surface of teeth. They are custom-designed for each patient, aiming to improve the smile's aesthetics by correcting issues with color, shape, size, or dental alignment.",
+        "veneersWhatAreP2": "They are a popular and effective solution for those who desire a significant, yet conservative, transformation of their smile.",
+        "veneersBenefitsTitle": "Main Benefits of Veneers",
+        "veneersBenefit1": "<strong>Striking Aesthetic Improvement:</strong> They correct discolorations, stains, minor fractures, gaps between teeth (diastemas), and slightly misaligned or worn teeth.",
+        "veneersBenefit2": "<strong>Natural Appearance:</strong> Porcelain veneers, in particular, mimic the translucency and shine of natural teeth, offering a very realistic result.",
+        "veneersBenefit3": "<strong>Durability:</strong> With proper care, veneers can last for many years. Porcelain is a material highly resistant to stains.",
+        "veneersBenefit4": "<strong>Conservative Treatment:</strong> Compared to crowns, tooth preparation for veneers is usually minimal, preserving more of the natural tooth structure.",
+        "veneersBenefit5": "<strong>Quick Results:</strong> The veneer placement process can be completed in just a few visits, offering a new smile in a short amount of time.",
+        "veneersImageBefore": "Image: Before Veneers",
+        "veneersImageAfter": "Image: After Veneers",
+        "veneersTypesTitle": "Types of Veneers",
+        "veneersTypePorcelain": "Porcelain Veneers",
+        "veneersTypePorcelainP1": "These are the most popular due to their excellent aesthetics and durability. They are custom-made in a dental laboratory from impressions of your teeth. They are highly stain-resistant and reflect light similarly to natural tooth enamel.",
+        "veneersTypeComposite": "Composite Resin Veneers",
+        "veneersTypeCompositeP1": "These veneers are applied directly to the tooth and sculpted in the clinic in a single visit. They are a more economical option, and tooth preparation is usually less. Although aesthetically good, they may be less durable and more susceptible to staining than porcelain veneers.",
+        "veneersProcessTitle": "The Placement Process",
+        "veneersProcessStep1": "<strong>Diagnosis and Planning:</strong> Your case is evaluated, your expectations are discussed, and the treatment is planned. X-rays and impressions may be taken.",
+        "veneersProcessStep2": "<strong>Tooth Preparation:</strong> A very thin layer of enamel is removed from the front surface of the tooth (usually less than half a millimeter) to make space for the veneer. In some cases (no-prep veneers), this step may not be necessary.",
+        "veneersProcessStep3": "<strong>Impression Taking:</strong> New impressions of the prepared teeth are taken and sent to the laboratory to fabricate the porcelain veneers. Provisional veneers may be placed.",
+        "veneersProcessStep4": "<strong>Bonding:</strong> Once the final veneers are ready, their fit and color are verified. Then, the teeth are cleaned, and the veneers are bonded with a special dental cement, which is hardened with a specific light.",
+        "veneersProcessStep5": "<strong>Final Adjustments and Follow-up:</strong> Necessary adjustments are made, and follow-up visits are scheduled.",
+        "veneersCareTitle": "Caring for Your Veneers",
+        "veneersCareP1": "Caring for veneers is similar to caring for your natural teeth:",
+        "veneersCareItem1": "Maintain excellent oral hygiene: brush at least twice a day and floss daily.",
+        "veneersCareItem2": "Visit your dentist regularly for check-ups and professional cleanings.",
+        "veneersCareItem3": "Avoid biting hard objects (ice, nails, pens) or using your teeth as tools.",
+        "veneersCareItem4": "If you play contact sports, consider wearing a mouthguard.",
+        "veneersCareItem5": "If you grind your teeth (bruxism), discuss it with your dentist, as they may recommend a nightguard.",
+        "veneersCtaTitle": "Interested in Dental Veneers?",
+        "veneersCtaText": "Veneers can be the perfect solution to get the smile you've always wanted. Schedule a consultation to assess your case!",
+        "clinicNameFooter": "Dr. Santos Dental Clinic",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
         "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Dental Clinic",
+        "footerRights":"All rights reserved."
       }
     };
     // ---- INICIO SCRIPT GLOBAL (IDÉNTICO AL DE implantes.html) ----
-    // ... (todo el script global idéntico) ...
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainHeader = document.getElementById('mainHeader');
+      const mainNav = document.getElementById('mainNav'); 
+      const heroSection = document.getElementById('hero'); 
+      const hotSalePopup = document.getElementById('hotSalePopup');
+      const closePopupBtn = document.getElementById('closePopup');
+      const translateBtn = document.getElementById('translateBtn');
+      const currentYearSpan = document.getElementById('currentYear');
+
+      if(currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+          // Actualizar también las traducciones del copyright que usan el año
+          if (translations.es.footerCopyright) {
+            translations.es.footerCopyright = `© ${new Date().getFullYear()} ${translations.es.clinicNameFooterDomain || 'Dr. Santos Clínica Dental'}. ${translations.es.footerRights || 'Todos los derechos reservados.'}`;
+          }
+          if (translations.en.footerCopyright) {
+            translations.en.footerCopyright = `© ${new Date().getFullYear()} ${translations.en.clinicNameFooterDomain || 'Dr. Santos Dental Clinic'}. ${translations.en.footerRights || 'All rights reserved.'}`;
+          }
+      }
+      
+      function adjustLayout() {
+          if (mainHeader && mainNav) {
+              const headerHeight = mainHeader.offsetHeight;
+              mainNav.style.top = `${headerHeight}px`;
+              if (heroSection && document.body.classList.contains('home-page')) { 
+                  heroSection.style.marginTop = `${headerHeight + mainNav.offsetHeight}px`;
+              }
+          }
+          const pageHeaderSpacer = document.querySelector('.page-header-spacer');
+          if (mainHeader && mainNav && pageHeaderSpacer) {
+              pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`;
+          }
+      }
+
+      if (hotSalePopup) {
+          if (!localStorage.getItem('popupShownDrSantosV2')) {
+              setTimeout(function() {
+                  hotSalePopup.classList.add('active');
+                  localStorage.setItem('popupShownDrSantosV2', 'true');
+              }, 3500);
+          }
+          if (closePopupBtn) {
+              closePopupBtn.addEventListener('click', function() { hotSalePopup.classList.remove('active'); });
+          }
+          hotSalePopup.addEventListener('click', function(e) {
+              if (e.target === this) { hotSalePopup.classList.remove('active'); }
+          });
+      }
+
+      window.addEventListener('scroll', function() {
+          if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } 
+      });
+      
+      adjustLayout();
+      window.addEventListener('resize', adjustLayout);
+      setTimeout(adjustLayout, 300);
+
+      document.querySelectorAll('.faq-item h3').forEach(item => {
+        item.addEventListener('click', function() {
+          this.parentElement.classList.toggle('active');
+        });
+      });
+
+      function reveal() {
+          const reveals = document.querySelectorAll('.reveal');
+          for (let i = 0; i < reveals.length; i++) {
+              const windowHeight = window.innerHeight;
+              const elementTop = reveals[i].getBoundingClientRect().top;
+              const elementVisible = 80; 
+              if (elementTop < windowHeight - elementVisible) {
+                  reveals[i].classList.add('active');
+              }
+          }
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+
+      if (typeof translations !== 'undefined' && translateBtn) {
+          function changeLanguage(lang) {
+              document.documentElement.lang = lang;
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  let content = translations[lang] && translations[lang][key] ? translations[lang][key] : (translations['es'][key] || el.innerHTML); // Fallback a español o contenido actual
+                  // Para elementos que pueden contener HTML (como el span del copyright)
+                  if (el.tagName === 'P' && key === 'footerCopyright') {
+                      el.innerHTML = content; // Permitir HTML en el copyright
+                  } else if (el.tagName === 'LI' && key.startsWith('veneersBenefit')) {
+                      el.innerHTML = content; // Permitir HTML en beneficios de carillas
+                  }
+                  else {
+                      el.textContent = content.replace(/<[^>]*>/g, ""); // Limpiar HTML para otros elementos
+                  }
+              });
+              document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                  const key = el.getAttribute('data-i18n-placeholder');
+                  if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
+              });
+              
+              const pageTitleKey = document.querySelector('title').dataset.i18n;
+              if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
+                  document.title = translations[lang][pageTitleKey];
+              }
+
+              document.querySelectorAll('option[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
+              });
+              localStorage.setItem('preferredLangDrSantos', lang);
+          }
+
+          translateBtn.addEventListener('click', function() {
+              const currentLangStored = localStorage.getItem('preferredLangDrSantos') || 'es';
+              const newLang = currentLangStored === 'es' ? 'en' : 'es';
+              changeLanguage(newLang);
+              this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
+          });
+
+          const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
+          changeLanguage(savedLang); 
+          if (translateBtn.querySelector('span')) { 
+              translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
+          }
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href');
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                  let offset = 0;
+                  if (mainHeader) offset += mainHeader.offsetHeight;
+                  if (mainNav && getComputedStyle(mainNav).position === 'sticky') offset += mainNav.offsetHeight;
+                  const elementPosition = targetElement.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset - 10; 
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              }
+          });
+      });
+
+      const currentPage = window.location.pathname.split("/").pop() || "index.html"; 
+      if (mainNav) {
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+              link.classList.remove('active-tab'); 
+              let linkPage = link.getAttribute('href').split("/").pop();
+              if (linkPage === currentPage) {
+                  link.classList.add('active-tab');
+              }
+          });
+      }
+      
+      if (currentPage === "index.html") {
+          document.body.classList.add('home-page');
+      }
+    });
     // ---- FIN SCRIPT GLOBAL ----
   </script>
 </body>
