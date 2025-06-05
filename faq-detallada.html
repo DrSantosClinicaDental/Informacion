@@ -11,52 +11,106 @@
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
-      /* ... (resto de variables CSS) ... */
+      --acento: #5fb49c;
+      --blanco: #ffffff;
+      --gris-claro: #f5f7fa;
+      --gris-medio: #e9edf0;
+      --gris-texto: #4a4a4a;
+      --texto-oscuro-principal: #333333;
+      --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
+      --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
+      --whatsapp: #25D366;
+      --radio-borde-general: 10px;
+      --radio-borde-sm: 6px;
+      --acento-rgb: 95, 180, 156;
+      --color-text-subtle: #5a677d;
+      --color-border: #d1d9e0;
     }
-    /* ... (todo el CSS idéntico) ... */
-    .page-header-spacer { height: 150px; } 
-    .page-content { padding: clamp(30px, 5vh, 50px) 5%; } 
-    .page-content h1 {
-        text-align: center; color: var(--color-primario); margin-bottom: 30px;
-        font-size: clamp(1.8rem, 5vw, 2.5rem); 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--texto-oscuro-principal); background-color: var(--blanco); line-height: 1.7; overflow-x: hidden; font-smooth: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .header { background-color: var(--blanco); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; box-shadow: var(--sombra-ligera); transition: padding 0.3s ease, box-shadow 0.3s ease; }
+    .header.scrolled { padding: 8px 5%; box-shadow: var(--sombra-media); }
+    .logo { display: block; margin-left: auto; margin-right: auto; max-height: 65px; width: auto; max-width: 280px; margin-bottom: 8px; transition: max-height 0.3s ease; }
+    .header.scrolled .logo { max-height: 55px; }
+    .direccion-header { color: var(--color-secundario); font-size: 0.8rem; text-align: center; transition: font-size 0.3s ease; }
+    .direccion-header i { color: var(--color-primario); margin-right: 5px; }
+    .main-nav { background-color: var(--blanco); padding: 0.5rem 0; box-shadow: var(--sombra-ligera); border-bottom: 1px solid var(--gris-medio); position: sticky; top: 0; z-index: 999; width: 100%; }
+    .main-nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 10px; gap: 5px; }
+    .main-nav ul::-webkit-scrollbar { display: none; }
+    .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
+    .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
+    .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); background-color: transparent; border-bottom-color: var(--acento); box-shadow: none; }
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+    .popup-overlay.active { opacity: 1; visibility: visible; }
+    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; position: relative; opacity: 0; }
+    .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
+    .popup-img { width: 100%; height: auto; display: block; }
+    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.3s ease; border: none; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg) scale(1.1); }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); margin-bottom: 15px; }
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
+    .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+    .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
+    .footer p i { color: var(--acento); margin-right: 6px; }
+    .footer a { color: var(--blanco); } .footer a:hover { color: var(--acento); text-decoration: underline; }
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease 1s forwards; }
+    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
+    .translate-btn i { font-size: 20px; margin-bottom: 2px; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header-spacer { height: 150px; }
+    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
+    .page-content h1 { text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    .faq-detailed-section .faq-item { background-color: var(--blanco); padding: 18px 22px; border-radius: var(--radio-borde-sm); box-shadow: var(--sombra-ligera); margin-bottom: 18px; border-left: 4px solid var(--acento); }
+    .faq-detailed-section .faq-item h3 { font-size: 1.1rem; color: var(--color-primario); margin-bottom: 0; display: flex; align-items: center; cursor: pointer; transition: color 0.3s ease; padding: 8px 0; }
+    .faq-detailed-section .faq-item h3:hover { color: var(--color-secundario); }
+    .faq-detailed-section .faq-item h3::before { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px; color: var(--acento); transition: transform 0.3s ease; font-size: 0.8em; }
+    .faq-detailed-section .faq-item.active h3::before { content: '\f077'; transform: rotate(0deg); } /* Mantener ícono sin rotar o ajustar */
+    .faq-detailed-section .faq-item p { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, margin-top 0.4s ease-out, padding-bottom 0.4s ease-out; padding-left: 30px; color: var(--color-text-subtle); font-size: 0.95rem; line-height: 1.75; }
+    .faq-detailed-section .faq-item.active p { max-height: 600px; margin-top: 10px; padding-bottom: 10px; }
+    @media (min-width: 768px) {
+      .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; align-items: center; }
+      .logo { margin-bottom: 0; max-height: 70px; }
+      .header.scrolled .logo { max-height: 60px; }
+      .direccion-header { text-align: right; font-size: 0.9rem; }
+      .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; overflow-x: visible; }
+      .main-nav li a { font-size: 0.9rem; padding: 0.7em 1em; }
+      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
     }
-    /* Estilos específicos para la página de FAQ si son necesarios, o usar los de .faq-item de index.html */
-    .faq-detailed-section .faq-item { /* Hereda de .faq-item pero permite especificidad */
-        background-color: var(--blanco);
-        padding: 15px 20px;
-        border-radius: var(--radio-borde-sm);
-        box-shadow: var(--sombra-ligera);
-        margin-bottom: 15px; /* Más espaciado que el resumen */
-    }
-    .faq-detailed-section .faq-item h3 {
-        font-size: 1.15rem; /* Un poco más grande */
-        padding: 10px 0;
-    }
-     .faq-detailed-section .faq-item p {
-        padding-left: 30px; /* Más indentación para la respuesta */
-        font-size: 0.95rem;
-        line-height: 1.75;
-    }
-    .faq-detailed-section .faq-item.active p {
-        max-height: 500px; /* Permitir respuestas más largas */
-    }
-
-    /* ... (resto de estilos CSS idénticos) ... */
-     @media (min-width: 768px) {
-        /* ... */
-        .page-content { padding: clamp(30px, 5vh, 50px) 10%; } 
+    @media (min-width: 1024px) {
+      .logo { max-height: 80px; }
+      .header.scrolled .logo { max-height: 70px; }
+      .main-nav ul { gap: 20px; }
+      .main-nav li a { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="popup-overlay" id="hotSalePopup">
+     <div class="popup-container">
+      <button class="close-popup" id="closePopup" aria-label="Cerrar">×</button>
+      <img src="El5.png" alt="Promoción Hot Sale" class="popup-img">
     </div>
+  </div>
 
   <header class="header" id="mainHeader">
-    </header>
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <div class="direccion-header">
+      <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
+    </div>
+  </header>
 
   <nav class="main-nav" id="mainNav">
-    </nav>
+    <ul>
+      <li><a href="index.html" data-i18n="navHome">Inicio</a></li>
+      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
+      <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
+      <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
+      <li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li>
+    </ul>
+  </nav>
 
   <div class="page-header-spacer"></div>
 
@@ -64,101 +118,254 @@
     <h1 data-i18n="faqPageTitle">Preguntas Frecuentes Detalladas</h1>
     <section class="faq-detailed-section">
         <div class="faq-item">
-            <h3 data-i18n="faqDetailQ1">¿Qué debo esperar en mi primera visita?</h3>
-            <p data-i18n="faqDetailA1">Tu primera visita incluirá un examen dental completo, radiografías si son necesarias, y una discusión sobre tu historial dental y cualquier preocupación que tengas. Elaboraremos un plan de tratamiento personalizado si se requiere.</p>
+            <h3 data-i18n="faqGenQ1">¿Qué debo esperar en mi primera visita a la clínica?</h3>
+            <p data-i18n="faqGenA1">En tu primera visita, realizaremos un examen dental completo, que puede incluir radiografías digitales para obtener una visión detallada de tu salud oral. Discutiremos tu historial médico y dental, así como cualquier preocupación o meta estética que tengas. Finalmente, si es necesario, te presentaremos un plan de tratamiento personalizado y resolveremos todas tus dudas.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faqDetailQ2">¿Con qué frecuencia debo visitar al dentista?</h3>
-            <p data-i18n="faqDetailA2">Recomendamos visitas de revisión y limpieza cada seis meses. Sin embargo, dependiendo de tu salud oral, podríamos sugerir un calendario diferente.</p>
+            <h3 data-i18n="faqGenQ2">¿Con qué frecuencia debo visitar al dentista para revisiones y limpiezas?</h3>
+            <p data-i18n="faqGenA2">Generalmente, recomendamos una visita cada seis meses para una revisión dental y una limpieza profesional. Esto nos permite detectar problemas en etapas tempranas y mantener tu boca saludable. Sin embargo, dependiendo de tus necesidades individuales (por ejemplo, si tienes enfermedad de las encías o eres propenso a caries), podríamos recomendar visitas más frecuentes.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faq1">¿Duele el blanqueamiento dental?</h3>
-            <p data-i18n="faq1Answer">Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso y minimizan la sensibilidad. Puede haber una ligera sensibilidad temporal en algunos pacientes, pero generalmente desaparece rápidamente.</p>
+            <h3 data-i18n="faqCostQ1">¿Qué opciones de pago están disponibles? ¿Aceptan seguros dentales?</h3>
+            <p data-i18n="faqCostA1">Aceptamos diversas formas de pago, incluyendo efectivo y tarjetas de crédito/débito principales. Respecto a los seguros dentales, te ayudamos a gestionar la documentación necesaria para tus reembolsos si tu póliza lo permite, aunque no trabajamos con asignación directa. Te recomendamos verificar con tu aseguradora los detalles de tu cobertura. Podemos ofrecer planes de pago para ciertos tratamientos; consúltanos para más información.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faq2">¿Cuánto dura un blanqueamiento dental?</h3>
-            <p data-i18n="faq2Answer">Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos alimenticios, si fumas, y tu higiene oral. Te daremos consejos para mantener tu sonrisa brillante por más tiempo, como evitar ciertos alimentos y bebidas pigmentantes.</p>
+            <h3 data-i18n="faqEmergencyQ1">¿Qué debo hacer en caso de una emergencia dental fuera del horario de atención?</h3>
+            <p data-i18n="faqEmergencyA1">Si tienes una emergencia dental como dolor agudo, una fractura dental significativa o un absceso, contáctanos lo antes posible a nuestro número de teléfono. Si es fuera de horario, nuestro contestador podría proporcionar instrucciones o un número de contacto para emergencias. Para situaciones que pongan en riesgo la vida, acude al hospital más cercano.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faq5">¿Los implantes dentales son permanentes?</h3>
-            <p data-i18n="faq5Answer">Sí, con los cuidados adecuados y revisiones periódicas, los implantes dentales están diseñados para ser una solución a largo plazo, pudiendo durar toda la vida. La tasa de éxito es muy alta.</p>
+            <h3 data-i18n="faqWhiteningQ1">¿El blanqueamiento dental es seguro? ¿Daña los dientes?</h3>
+            <p data-i18n="faqWhiteningA1">El blanqueamiento dental realizado bajo supervisión profesional es un procedimiento seguro y efectivo. Utilizamos productos de calidad y técnicas que minimizan la sensibilidad y protegen tus encías. No daña el esmalte dental cuando se realiza correctamente. Algunos pacientes pueden experimentar sensibilidad temporal, que suele desaparecer en poco tiempo.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faqCarillas">¿Las carillas dentales requieren un cuidado especial?</h3>
-            <p data-i18n="faqCarillasAnswer">Las carillas no requieren un cuidado especial más allá de una buena higiene oral (cepillado dos veces al día, hilo dental una vez al día) y visitas regulares al dentista. Es importante evitar morder objetos muy duros o usar los dientes como herramientas.</p>
+            <h3 data-i18n="faqWhiteningQ2">¿Cuánto tiempo duran los resultados del blanqueamiento dental?</h3>
+            <p data-i18n="faqWhiteningA2">La duración de los resultados varía según tus hábitos. En promedio, pueden durar de 1 a 3 años. Evitar alimentos y bebidas con alta pigmentación (café, té, vino tinto, refrescos oscuros) y no fumar ayudará a prolongar los resultados. También ofrecemos opciones de retoque.</p>
         </div>
         <div class="faq-item">
-            <h3 data-i18n="faqDetailQ7">¿Qué opciones de pago aceptan?</h3>
-            <p data-i18n="faqDetailA7">Aceptamos diversas formas de pago, incluyendo efectivo, tarjetas de crédito/débito. Por favor, contáctanos para discutir opciones de financiamiento si es necesario.</p>
+            <h3 data-i18n="faqImplantsQ1">¿Soy candidato para implantes dentales?</h3>
+            <p data-i18n="faqImplantsA1">La mayoría de las personas con buena salud general y suficiente hueso en el maxilar son candidatas para implantes. Se requiere una evaluación detallada, incluyendo radiografías o tomografías, para determinar la idoneidad. Condiciones como diabetes no controlada o tabaquismo excesivo pueden afectar el éxito del implante.</p>
+        </div>
+        <div class="faq-item">
+            <h3 data-i18n="faqVeneersQ1">¿Las carillas dentales se ven naturales?</h3>
+            <p data-i18n="faqVeneersA1">Sí, las carillas modernas, especialmente las de porcelana, están diseñadas para imitar la apariencia, translucidez y brillo de los dientes naturales. Trabajamos de cerca contigo para seleccionar el color y la forma adecuados para que se integren armoniosamente con tu sonrisa.</p>
+        </div>
+         <div class="faq-item">
+            <h3 data-i18n="faqKidsQ1">¿A qué edad debe mi hijo tener su primera visita al dentista?</h3>
+            <p data-i18n="faqKidsA1">Recomendamos que la primera visita dental de un niño sea alrededor de su primer cumpleaños o cuando aparezca su primer diente. Estas visitas tempranas son importantes para familiarizar al niño con el entorno dental, revisar el desarrollo de sus dientes y encías, y orientar a los padres sobre higiene oral infantil.</p>
         </div>
     </section>
   </main>
 
   <footer class="footer">
-    </footer>
+    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
+    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
+    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
+    <p class="copyright">© <span id="currentYear">2025</span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+  </footer>
 
   <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
-    </button>
+    <i class="fas fa-language"></i>
+    <span>ES/EN</span>
+  </button>
 
   <script>
-    // Objeto de traducciones (COPIADO DE INDEX.HTML)
-    // NOTA: Deberás agregar/modificar claves aquí para el contenido específico de ESTA PÁGINA (FAQ).
     const translations = {
       es: {
         "titleFaqPage": "Preguntas Frecuentes | Dr. Santos Clínica Dental",
-        // ... (claves genéricas y de index.html) ...
         "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        "faq1": "¿Duele el blanqueamiento dental?", "faq1Answer": "Nuestro blanqueamiento está diseñado para ser cómodo. Usamos geles especiales que protegen tus encías durante el proceso y minimizan la sensibilidad. Puede haber una ligera sensibilidad temporal en algunos pacientes, pero generalmente desaparece rápidamente.",
-        "faq2": "¿Cuánto dura un blanqueamiento dental?", "faq2Answer": "Los resultados pueden durar de 1 a 3 años dependiendo de tus hábitos alimenticios, si fumas, y tu higiene oral. Te daremos consejos para mantener tu sonrisa brillante por más tiempo, como evitar ciertos alimentos y bebidas pigmentantes.",
-        "faq5": "¿Los implantes dentales son permanentes?", "faq5Answer": "Sí, con los cuidados adecuados y revisiones periódicas, los implantes dentales están diseñados para ser una solución a largo plazo, pudiendo durar toda la vida. La tasa de éxito es muy alta.",
-        "faqCarillas": "¿Las carillas dentales requieren un cuidado especial?", "faqCarillasAnswer": "Las carillas no requieren un cuidado especial más allá de una buena higiene oral (cepillado dos veces al día, hilo dental una vez al día) y visitas regulares al dentista. Es importante evitar morder objetos muy duros o usar los dientes como herramientas.",
-
-
-        // Claves específicas para faq-detallada.html
         "faqPageTitle": "Preguntas Frecuentes Detalladas",
-        "faqDetailQ1": "¿Qué debo esperar en mi primera visita?",
-        "faqDetailA1": "Tu primera visita incluirá un examen dental completo, radiografías si son necesarias, y una discusión sobre tu historial dental y cualquier preocupación que tengas. Elaboraremos un plan de tratamiento personalizado si se requiere.",
-        "faqDetailQ2": "¿Con qué frecuencia debo visitar al dentista?",
-        "faqDetailA2": "Recomendamos visitas de revisión y limpieza cada seis meses. Sin embargo, dependiendo de tu salud oral, podríamos sugerir un calendario diferente.",
-        "faqDetailQ7": "¿Qué opciones de pago aceptan?",
-        "faqDetailA7": "Aceptamos diversas formas de pago, incluyendo efectivo, tarjetas de crédito/débito. Por favor, contáctanos para discutir opciones de financiamiento si es necesario.",
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Clínica Dental. Todos los derechos reservados.`,
-        "clinicNameFooter": "Dr. Santos Clínica Dental", 
+        "faqGenQ1": "¿Qué debo esperar en mi primera visita a la clínica?",
+        "faqGenA1": "En tu primera visita, realizaremos un examen dental completo, que puede incluir radiografías digitales para obtener una visión detallada de tu salud oral. Discutiremos tu historial médico y dental, así como cualquier preocupación o meta estética que tengas. Finalmente, si es necesario, te presentaremos un plan de tratamiento personalizado y resolveremos todas tus dudas.",
+        "faqGenQ2": "¿Con qué frecuencia debo visitar al dentista para revisiones y limpiezas?",
+        "faqGenA2": "Generalmente, recomendamos una visita cada seis meses para una revisión dental y una limpieza profesional. Esto nos permite detectar problemas en etapas tempranas y mantener tu boca saludable. Sin embargo, dependiendo de tus necesidades individuales (por ejemplo, si tienes enfermedad de las encías o eres propenso a caries), podríamos recomendar visitas más frecuentes.",
+        "faqCostQ1": "¿Qué opciones de pago están disponibles? ¿Aceptan seguros dentales?",
+        "faqCostA1": "Aceptamos diversas formas de pago, incluyendo efectivo y tarjetas de crédito/débito principales. Respecto a los seguros dentales, te ayudamos a gestionar la documentación necesaria para tus reembolsos si tu póliza lo permite, aunque no trabajamos con asignación directa. Te recomendamos verificar con tu aseguradora los detalles de tu cobertura. Podemos ofrecer planes de pago para ciertos tratamientos; consúltanos para más información.",
+        "faqEmergencyQ1": "¿Qué debo hacer en caso de una emergencia dental fuera del horario de atención?",
+        "faqEmergencyA1": "Si tienes una emergencia dental como dolor agudo, una fractura dental significativa o un absceso, contáctanos lo antes posible a nuestro número de teléfono. Si es fuera de horario, nuestro contestador podría proporcionar instrucciones o un número de contacto para emergencias. Para situaciones que pongan en riesgo la vida, acude al hospital más cercano.",
+        "faqWhiteningQ1": "¿El blanqueamiento dental es seguro? ¿Daña los dientes?",
+        "faqWhiteningA1": "El blanqueamiento dental realizado bajo supervisión profesional es un procedimiento seguro y efectivo. Utilizamos productos de calidad y técnicas que minimizan la sensibilidad y protegen tus encías. No daña el esmalte dental cuando se realiza correctamente. Algunos pacientes pueden experimentar sensibilidad temporal, que suele desaparecer en poco tiempo.",
+        "faqWhiteningQ2": "¿Cuánto tiempo duran los resultados del blanqueamiento dental?",
+        "faqWhiteningA2": "La duración de los resultados varía según tus hábitos. En promedio, pueden durar de 1 a 3 años. Evitar alimentos y bebidas con alta pigmentación (café, té, vino tinto, refrescos oscuros) y no fumar ayudará a prolongar los resultados. También ofrecemos opciones de retoque.",
+        "faqImplantsQ1": "¿Soy candidato para implantes dentales?",
+        "faqImplantsA1": "La mayoría de las personas con buena salud general y suficiente hueso en el maxilar son candidatas para implantes. Se requiere una evaluación detallada, incluyendo radiografías o tomografías, para determinar la idoneidad. Condiciones como diabetes no controlada o tabaquismo excesivo pueden afectar el éxito del implante.",
+        "faqVeneersQ1": "¿Las carillas dentales se ven naturales?",
+        "faqVeneersA1": "Sí, las carillas modernas, especialmente las de porcelana, están diseñadas para imitar la apariencia, translucidez y brillo de los dientes naturales. Trabajamos de cerca contigo para seleccionar el color y la forma adecuados para que se integren armoniosamente con tu sonrisa.",
+        "faqKidsQ1": "¿A qué edad debe mi hijo tener su primera visita al dentista?",
+        "faqKidsA1": "Recomendamos que la primera visita dental de un niño sea alrededor de su primer cumpleaños o cuando aparezca su primer diente. Estas visitas tempranas son importantes para familiarizar al niño con el entorno dental, revisar el desarrollo de sus dientes y encías, y orientar a los padres sobre higiene oral infantil.",
+        "clinicNameFooter": "Dr. Santos Clínica Dental",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
         "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Clínica Dental",
+        "footerRights":"Todos los derechos reservados."
       },
       en: {
         "titleFaqPage": "Detailed FAQ | Dr. Santos Dental Clinic",
-        // ... (generic and index.html keys) ...
         "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-        "faq1": "Does teeth whitening hurt?", "faq1Answer": "Our whitening is designed to be comfortable. We use special gels that protect your gums during the process and minimize sensitivity. There might be slight temporary sensitivity in some patients, but it usually disappears quickly.",
-        "faq2": "How long does teeth whitening last?", "faq2Answer": "Results can last from 1 to 3 years depending on your eating habits, smoking, and oral hygiene. We'll give you tips to keep your smile bright for longer, such as avoiding certain pigmented foods and drinks.",
-        "faq5": "Are dental implants permanent?", "faq5Answer": "Yes, with proper care and regular check-ups, dental implants are designed for a long-term solution and can last a lifetime. The success rate is very high.",
-        "faqCarillas": "Do dental veneers require special care?", "faqCarillasAnswer": "Veneers do not require special care beyond good oral hygiene (brushing twice a day, flossing once a day) and regular dental visits. It's important to avoid biting very hard objects or using your teeth as tools.",
-
-        // English translations for faq-detallada.html
         "faqPageTitle": "Detailed Frequently Asked Questions",
-        "faqDetailQ1": "What should I expect on my first visit?",
-        "faqDetailA1": "Your first visit will include a comprehensive dental exam, X-rays if necessary, and a discussion about your dental history and any concerns you may have. We will develop a personalized treatment plan if required.",
-        "faqDetailQ2": "How often should I visit the dentist?",
-        "faqDetailA2": "We recommend check-up and cleaning visits every six months. However, depending on your oral health, we might suggest a different schedule.",
-        "faqDetailQ7": "What payment options do you accept?",
-        "faqDetailA7": "We accept various forms of payment, including cash, credit/debit cards. Please contact us to discuss financing options if needed.",
-
-
-        "footerCopyright": `© ${new Date().getFullYear()} Dr. Santos Dental Clinic. All rights reserved.`,
-        "clinicNameFooter": "Dr. Santos Dental Clinic", 
+        "faqGenQ1": "What should I expect on my first visit to the clinic?",
+        "faqGenA1": "On your first visit, we will perform a comprehensive dental exam, which may include digital X-rays for a detailed view of your oral health. We will discuss your medical and dental history, as well as any concerns or aesthetic goals you may have. Finally, if necessary, we will present you with a personalized treatment plan and answer all your questions.",
+        "faqGenQ2": "How often should I visit the dentist for check-ups and cleanings?",
+        "faqGenA2": "Generally, we recommend a visit every six months for a dental check-up and professional cleaning. This allows us to detect problems in their early stages and maintain your oral health. However, depending on your individual needs (e.g., if you have gum disease or are prone to cavities), we might recommend more frequent visits.",
+        "faqCostQ1": "What payment options are available? Do you accept dental insurance?",
+        "faqCostA1": "We accept various forms of payment, including cash and major credit/debit cards. Regarding dental insurance, we assist you in managing the necessary documentation for your reimbursements if your policy allows, although we do not work with direct assignment. We recommend you verify your coverage details with your insurer. We can offer payment plans for certain treatments; please consult us for more information.",
+        "faqEmergencyQ1": "What should I do in case of a dental emergency outside of office hours?",
+        "faqEmergencyA1": "If you have a dental emergency such as acute pain, a significant tooth fracture, or an abscess, contact us as soon as possible at our phone number. If it's after hours, our answering machine may provide instructions or an emergency contact number. For life-threatening situations, go to the nearest hospital.",
+        "faqWhiteningQ1": "Is teeth whitening safe? Does it damage teeth?",
+        "faqWhiteningA1": "Teeth whitening performed under professional supervision is a safe and effective procedure. We use quality products and techniques that minimize sensitivity and protect your gums. It does not damage tooth enamel when done correctly. Some patients may experience temporary sensitivity, which usually disappears shortly.",
+        "faqWhiteningQ2": "How long do teeth whitening results last?",
+        "faqWhiteningA2": "The duration of the results varies depending on your habits. On average, they can last from 1 to 3 years. Avoiding foods and drinks with high pigmentation (coffee, tea, red wine, dark sodas) and not smoking will help prolong the results. We also offer touch-up options.",
+        "faqImplantsQ1": "Am I a candidate for dental implants?",
+        "faqImplantsA1": "Most people in good general health with sufficient jawbone are candidates for implants. A detailed evaluation, including X-rays or CT scans, is required to determine suitability. Conditions such as uncontrolled diabetes or heavy smoking can affect implant success.",
+        "faqVeneersQ1": "Do dental veneers look natural?",
+        "faqVeneersA1": "Yes, modern veneers, especially porcelain ones, are designed to mimic the appearance, translucency, and shine of natural teeth. We work closely with you to select the appropriate color and shape so they blend harmoniously with your smile.",
+        "faqKidsQ1": "At what age should my child have their first dental visit?",
+        "faqKidsA1": "We recommend that a child's first dental visit be around their first birthday or when their first tooth appears. These early visits are important to familiarize the child with the dental environment, check the development of their teeth and gums, and guide parents on children's oral hygiene.",
+        "clinicNameFooter": "Dr. Santos Dental Clinic",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
         "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673"
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Dental Clinic",
+        "footerRights":"All rights reserved."
       }
     };
     // ---- INICIO SCRIPT GLOBAL (IDÉNTICO AL DE implantes.html) ----
-    // ... (todo el script global idéntico) ...
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainHeader = document.getElementById('mainHeader');
+      const mainNav = document.getElementById('mainNav'); 
+      const heroSection = document.getElementById('hero'); 
+      const hotSalePopup = document.getElementById('hotSalePopup');
+      const closePopupBtn = document.getElementById('closePopup');
+      const translateBtn = document.getElementById('translateBtn');
+      const currentYearSpan = document.getElementById('currentYear');
+
+      if(currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+           if (translations.es.footerCopyright) {
+            translations.es.footerCopyright = `© ${new Date().getFullYear()} ${translations.es.clinicNameFooterDomain || 'Dr. Santos Clínica Dental'}. ${translations.es.footerRights || 'Todos los derechos reservados.'}`;
+          }
+          if (translations.en.footerCopyright) {
+            translations.en.footerCopyright = `© ${new Date().getFullYear()} ${translations.en.clinicNameFooterDomain || 'Dr. Santos Dental Clinic'}. ${translations.en.footerRights || 'All rights reserved.'}`;
+          }
+      }
+      
+      function adjustLayout() {
+          if (mainHeader && mainNav) {
+              const headerHeight = mainHeader.offsetHeight;
+              mainNav.style.top = `${headerHeight}px`;
+              if (heroSection && document.body.classList.contains('home-page')) { 
+                  heroSection.style.marginTop = `${headerHeight + mainNav.offsetHeight}px`;
+              }
+          }
+          const pageHeaderSpacer = document.querySelector('.page-header-spacer');
+          if (mainHeader && mainNav && pageHeaderSpacer) {
+              pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`;
+          }
+      }
+
+      if (hotSalePopup) {
+          if (!localStorage.getItem('popupShownDrSantosV2')) {
+              setTimeout(function() {
+                  hotSalePopup.classList.add('active');
+                  localStorage.setItem('popupShownDrSantosV2', 'true');
+              }, 3500);
+          }
+          if (closePopupBtn) {
+              closePopupBtn.addEventListener('click', function() { hotSalePopup.classList.remove('active'); });
+          }
+          hotSalePopup.addEventListener('click', function(e) {
+              if (e.target === this) { hotSalePopup.classList.remove('active'); }
+          });
+      }
+
+      window.addEventListener('scroll', function() {
+          if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } 
+      });
+      
+      adjustLayout();
+      window.addEventListener('resize', adjustLayout);
+      setTimeout(adjustLayout, 300);
+
+      document.querySelectorAll('.faq-item h3').forEach(item => {
+        item.addEventListener('click', function() {
+          this.parentElement.classList.toggle('active');
+        });
+      });
+
+      function reveal() {
+          const reveals = document.querySelectorAll('.reveal');
+          // ... (código reveal idéntico)
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+
+      if (typeof translations !== 'undefined' && translateBtn) {
+          function changeLanguage(lang) {
+              document.documentElement.lang = lang;
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  let content = translations[lang] && translations[lang][key] ? translations[lang][key] : (translations['es'][key] || el.innerHTML);
+                  if (el.tagName === 'P' && key === 'footerCopyright') {
+                      el.innerHTML = content; 
+                  } else {
+                      el.textContent = content.replace(/<[^>]*>/g, ""); 
+                  }
+              });
+              document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                  const key = el.getAttribute('data-i18n-placeholder');
+                  if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
+              });
+              
+              const pageTitleKey = document.querySelector('title').dataset.i18n;
+              if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
+                  document.title = translations[lang][pageTitleKey];
+              }
+
+              document.querySelectorAll('option[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
+              });
+              localStorage.setItem('preferredLangDrSantos', lang);
+          }
+
+          translateBtn.addEventListener('click', function() {
+              const currentLangStored = localStorage.getItem('preferredLangDrSantos') || 'es';
+              const newLang = currentLangStored === 'es' ? 'en' : 'es';
+              changeLanguage(newLang);
+              this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
+          });
+
+          const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
+          changeLanguage(savedLang); 
+          if (translateBtn.querySelector('span')) { 
+              translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
+          }
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          // ... (código smooth scroll idéntico)
+      });
+
+      const currentPage = window.location.pathname.split("/").pop() || "index.html"; 
+      if (mainNav) {
+          const navLinks = mainNav.querySelectorAll('a');
+          // ... (código active tab idéntico)
+           navLinks.forEach(link => {
+              link.classList.remove('active-tab'); 
+              let linkPage = link.getAttribute('href').split("/").pop();
+              if (linkPage === currentPage) {
+                  link.classList.add('active-tab');
+              }
+          });
+      }
+      
+      if (currentPage === "index.html") {
+          document.body.classList.add('home-page');
+      }
+    });
     // ---- FIN SCRIPT GLOBAL ----
   </script>
 </body>
