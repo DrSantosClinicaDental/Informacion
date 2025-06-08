@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carillas Dentales | Dr. Santos Clínica Dental</title>
+  <title data-i18n="titleVeneersPage">Carillas Dentales | Dr. Santos Clínica Dental</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /*
-      ================================================
-      AQUÍ VA TODO TU CÓDIGO DE ESTILOS CSS
-      No es necesario cambiar nada aquí.
-      ================================================
-    */
+    /* Tu bloque de estilos CSS completo va aquí */
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
@@ -42,6 +37,24 @@
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
     .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
     .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); border-bottom-color: var(--acento); }
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .popup-overlay.active { opacity: 1; visibility: visible; }
+    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: all 0.35s ease; position: relative; opacity: 0; }
+    .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
+    .popup-img { width: 100%; height: auto; display: block; }
+    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: all 0.3s ease; border: none; z-index: 10; }
+    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg); }
+    .btn-contacto { background-color: var(--acento); color: var(--blanco); padding: 12px 25px; border-radius: var(--radio-borde-general); display: inline-block; margin-top: 20px; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: var(--sombra-media); transition: all 0.25s ease-out; border: 2px solid transparent; }
+    .btn-contacto:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(95, 180, 156, 0.4); }
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
+    .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+    .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
+    .footer p i { color: var(--acento); margin-right: 6px; }
+    .footer a { color: var(--blanco); text-decoration: none; } .footer a:hover { text-decoration: underline; }
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; }
+    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
+    .translate-btn i { font-size: 20px; margin-bottom: 2px; }
     .page-header-spacer { height: 150px; }
     .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
     .page-content > h1 { font-family: 'Poppins', sans-serif; text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
@@ -59,109 +72,146 @@
     .cta-section { text-align: center; padding: 30px 20px; background-color: var(--color-background-light-section); border-radius: var(--radio-borde-general); margin-top: 40px; }
     .cta-section h2 { border-bottom: none; padding-bottom: 0; display: block; font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom:15px; }
     .cta-section p { max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 25px; }
-    @media (min-width: 768px) { .header { flex-direction: row; justify-content: space-between; } .logo { margin: 0; } .main-nav ul { flex-wrap: wrap; gap: 15px; } .page-content { padding: clamp(40px, 7vh, 60px) 10%; } }
+    @media (min-width: 768px) {
+      .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; }
+      .logo { margin: 0; }
+      .main-nav ul { flex-wrap: wrap; gap: 15px; }
+      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
+    }
   </style>
 </head>
 <body>
-
-  <header class="header" id="mainHeader">
-    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
-    <div class="direccion-header"><i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Cd. Juárez</div>
-  </header>
-
-  <nav class="main-nav" id="mainNav">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="implantes.html">Implantes</a></li>
-      <li><a href="carillas.html">Carillas</a></li>
-      <li><a href="faq-detallada.html">FAQ</a></li>
-      <li><a href="agenda.html">Agenda</a></li>
-    </ul>
-  </nav>
-
+  <div class="popup-overlay" id="hotSalePopup"><div class="popup-container"><button class="close-popup" id="closePopup" aria-label="Cerrar">×</button><img src="El5.png" alt="Promoción" class="popup-img"></div></div>
+  <header class="header" id="mainHeader"><img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo"><div class="direccion-header"><i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span></div></header>
+  <nav class="main-nav" id="mainNav"><ul><li><a href="index.html" data-i18n="navHome">Inicio</a></li><li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li><li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li><li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li><li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li></ul></nav>
   <div class="page-header-spacer"></div>
 
   <main class="page-content">
-
-    <h1>Carillas Dentales: Transforma Tu Sonrisa</h1>
+    <h1 data-i18n="veneersPageTitle">Carillas Dentales: Transforma Tu Sonrisa</h1>
     
     <div class="content-section">
-      <h2>¿Qué son las Carillas Dentales?</h2>
-      <p>Las carillas dentales son unas finas láminas, generalmente de porcelana o composite, que se adhieren a la superficie frontal de los dientes. Están diseñadas a medida para cada paciente, buscando mejorar la estética de la sonrisa al corregir problemas de color, forma, tamaño, o alineación dental.</p>
-      <p>Son una solución popular y efectiva para quienes desean una transformación significativa de su sonrisa de manera conservadora, ya que requieren una preparación mínima del diente.</p>
+      <h2 data-i18n="veneersWhatAreTitle">¿Qué son las Carillas Dentales?</h2>
+      <p data-i18n="veneersWhatAreP1">Las carillas dentales son unas finas láminas, generalmente de porcelana o composite, que se adhieren a la superficie frontal de los dientes. Están diseñadas a medida para cada paciente, buscando mejorar la estética de la sonrisa al corregir problemas de color, forma, tamaño, o alineación dental.</p>
+      <p data-i18n="veneersWhatAreP2">Son una solución popular y efectiva para quienes desean una transformación significativa de su sonrisa de manera conservadora, ya que requieren una preparación mínima del diente.</p>
     </div>
 
     <div class="content-section">
-      <h2>Ilustraciones del Tratamiento</h2>
+      <h2 data-i18n="veneersGalleryTitle">Ilustraciones del Tratamiento</h2>
       <div class="image-gallery-container">
         <div class="image-item">
           <img src="El13.png" alt="Ilustración de una carilla dental colocándose sobre un diente">
-          <p class="disclaimer">Imagen solo para fines ilustrativos.</p>
+          <p class="disclaimer" data-i18n="imageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
         </div>
         <div class="image-item">
-          <img src="El14.png" alt="Ilustración mostrando la delgadez y ajuste de una carilla de porcelana">
-          <p class="disclaimer">Imagen solo para fines ilustrativos.</p>
+          <img src="El14.png" alt="Diagrama mostrando la delgadez de una carilla de porcelana y su ajuste perfecto">
+          <p class="disclaimer" data-i18n="imageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
         </div>
       </div>
     </div>
-    
+
     <div class="content-section">
-      <h2>Beneficios Principales de las Carillas</h2>
+      <h2 data-i18n="veneersBenefitsTitle">Beneficios Principales de las Carillas</h2>
       <ul>
-        <li><strong>Mejora Estética Espectacular:</strong> Corrigen decoloraciones, manchas, fracturas leves, espacios entre dientes (diastemas) y dientes ligeramente desalineados.</li>
-        <li><strong>Aspecto Completamente Natural:</strong> Las carillas de porcelana imitan la translucidez y el brillo de los dientes naturales, ofreciendo un resultado indetectable.</li>
-        <li><strong>Alta Durabilidad y Resistencia:</strong> Con el cuidado adecuado, las carillas de porcelana pueden durar muchos años y son muy resistentes a las manchas de café, té o vino.</li>
-        <li><strong>Tratamiento Mínimamente Invasivo:</strong> En comparación con las coronas, la preparación del diente es mínima, preservando la mayor parte de la estructura dental sana.</li>
+        <li data-i18n="veneersBenefit1"><strong>Mejora Estética Espectacular:</strong> Corrigen decoloraciones, manchas, fracturas leves, espacios entre dientes (diastemas) y dientes ligeramente desalineados.</li>
+        <li data-i18n="veneersBenefit2"><strong>Aspecto Completamente Natural:</strong> Las carillas de porcelana imitan la translucidez y el brillo de los dientes naturales, ofreciendo un resultado indetectable.</li>
+        <li data-i18n="veneersBenefit3"><strong>Alta Durabilidad y Resistencia:</strong> Con el cuidado adecuado, las carillas de porcelana pueden durar muchos años y son muy resistentes a las manchas de café, té o vino.</li>
+        <li data-i18n="veneersBenefit4"><strong>Tratamiento Mínimamente Invasivo:</strong> En comparación con las coronas, la preparación del diente es mínima, preservando la mayor parte de la estructura dental sana.</li>
+        <li data-i18n="veneersBenefit5"><strong>Resultados en Poco Tiempo:</strong> El proceso completo puede realizarse en tan solo dos o tres visitas, ofreciendo una nueva sonrisa de forma rápida.</li>
       </ul>
     </div>
     
     <div class="content-section">
-      <h2>El Proceso de Colocación, Paso a Paso</h2>
+      <h2 data-i18n="veneersProcessTitle">El Proceso de Colocación, Paso a Paso</h2>
       <ol>
-        <li><strong>Diagnóstico y Diseño de Sonrisa:</strong> En la primera cita, evaluamos tu caso, discutimos tus objetivos estéticos y planificamos el diseño de tu nueva sonrisa.</li>
-        <li><strong>Preparación Dental y Toma de Impresiones:</strong> Se prepara el diente retirando una finísima capa de esmalte y tomamos una impresión digital precisa para el laboratorio.</li>
-        <li><strong>Cementación y Adhesión:</strong> Una vez listas tus carillas a medida, verificamos el ajuste y color, y las adherimos permanentemente a tus dientes con un cemento especial.</li>
-        <li><strong>Ajustes Finales:</strong> Realizamos los pulidos y ajustes finales para asegurar una mordida cómoda y una estética perfecta.</li>
+        <li data-i18n="veneersProcessStep1"><strong>Diagnóstico y Diseño de Sonrisa:</strong> En la primera cita, evaluamos tu caso, discutimos tus objetivos estéticos y planificamos el diseño de tu nueva sonrisa (color, forma, tamaño).</li>
+        <li data-i18n="veneersProcessStep2"><strong>Preparación Dental:</strong> Se prepara el diente retirando una finísima capa de esmalte de la superficie frontal, equivalente al grosor de la futura carilla (aprox. 0.5 mm).</li>
+        <li data-i18n="veneersProcessStep3"><strong>Toma de Impresiones Digitales:</strong> Utilizamos un escáner intraoral para tomar una impresión digital precisa de tus dientes, que se envía al laboratorio para fabricar tus carillas a medida.</li>
+        <li data-i18n="veneersProcessStep4"><strong>Cementación y Adhesión:</strong> Una vez recibidas del laboratorio, verificamos el ajuste y color de las carillas. Luego, se adhieren permanentemente a tus dientes con un cemento especial que se endurece con una luz de alta intensidad.</li>
+        <li data-i18n="veneersProcessStep5"><strong>Ajustes Finales:</strong> Realizamos los pulidos y ajustes finales para asegurar una mordida cómoda y una estética perfecta.</li>
       </ol>
     </div>
 
     <section class="cta-section">
-        <h2>¿Listo para la Sonrisa de tus Sueños?</h2>
-        <p>Las carillas dentales pueden ser la solución que buscas. Agenda una consulta de valoración y descubre cómo podemos transformar tu sonrisa.</p>
-        <a href="agenda.html" class="btn-contacto"><i class="fas fa-calendar-check"></i> Agenda tu cita</a>
+        <h2 data-i18n="veneersCtaTitle">¿Listo para la Sonrisa de tus Sueños?</h2>
+        <p data-i18n="veneersCtaText">Las carillas dentales pueden ser la solución que buscas. Agenda una consulta de valoración y descubre cómo podemos transformar tu sonrisa.</p>
+        <a href="agenda.html" class="btn-contacto"><i class="fas fa-calendar-check"></i> <span data-i18n="contactBtn">Agenda tu cita</span></a>
     </section>
-
   </main>
+
   <footer class="footer">
-    <p><strong>Dr. Santos Clínica Dental</strong></p>
-    <p><i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
-    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
-    <p><i class="fas fa-phone"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp"></i> WhatsApp: +52 1 614-780-4673</p>
-    <p>© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
+    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
+    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
+    <p>© <span id="currentYear"></span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
   </footer>
 
+  <button id="translateBtn" class="translate-btn" title="Cambiar idioma"><i class="fas fa-language"></i><span>ES/EN</span></button>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Pone el año actual en el pie de página
-      const currentYearEl = document.getElementById("currentYear");
-      if(currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
+    const translations = {
+      es: {
+        "titleVeneersPage": "Carillas Dentales | Dr. Santos Clínica Dental",
+        "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "contactBtn": "Agenda tu cita",
+        "veneersPageTitle": "Carillas Dentales: Transforma Tu Sonrisa",
+        "veneersWhatAreTitle": "¿Qué son las Carillas Dentales?",
+        "veneersWhatAreP1": "Las carillas dentales son unas finas láminas, generalmente de porcelana o composite, que se adhieren a la superficie frontal de los dientes. Están diseñadas a medida para cada paciente, buscando mejorar la estética de la sonrisa al corregir problemas de color, forma, tamaño, o alineación dental.",
+        "veneersWhatAreP2": "Son una solución popular y efectiva para quienes desean una transformación significativa de su sonrisa de manera conservadora, ya que requieren una preparación mínima del diente.",
+        "veneersGalleryTitle": "Ilustraciones del Tratamiento",
+        "imageDisclaimer": "Imagen solo para fines ilustrativos. No es un caso real.",
+        "veneersBenefitsTitle": "Beneficios Principales de las Carillas",
+        "veneersBenefit1": "<strong>Mejora Estética Espectacular:</strong> Corrigen decoloraciones, manchas, fracturas leves, espacios entre dientes (diastemas) y dientes ligeramente desalineados.",
+        "veneersBenefit2": "<strong>Aspecto Completamente Natural:</strong> Las carillas de porcelana imitan la translucidez y el brillo de los dientes naturales, ofreciendo un resultado indetectable.",
+        "veneersBenefit3": "<strong>Alta Durabilidad y Resistencia:</strong> Con el cuidado adecuado, las carillas de porcelana pueden durar muchos años y son muy resistentes a las manchas de café, té o vino.",
+        "veneersBenefit4": "<strong>Tratamiento Mínimamente Invasivo:</strong> En comparación con las coronas, la preparación del diente es mínima, preservando la mayor parte de la estructura dental sana.",
+        "veneersBenefit5": "<strong>Resultados en Poco Tiempo:</strong> El proceso completo puede realizarse en tan solo dos o tres visitas, ofreciendo una nueva sonrisa de forma rápida.",
+        "veneersProcessTitle": "El Proceso de Colocación, Paso a Paso",
+        "veneersProcessStep1": "<strong>Diagnóstico y Diseño de Sonrisa:</strong> En la primera cita, evaluamos tu caso, discutimos tus objetivos estéticos y planificamos el diseño de tu nueva sonrisa (color, forma, tamaño).",
+        "veneersProcessStep2": "<strong>Preparación Dental:</strong> Se prepara el diente retirando una finísima capa de esmalte de la superficie frontal, equivalente al grosor de la futura carilla (aprox. 0.5 mm).",
+        "veneersProcessStep3": "<strong>Toma de Impresiones Digitales:</strong> Utilizamos un escáner intraoral para tomar una impresión digital precisa de tus dientes, que se envía al laboratorio para fabricar tus carillas a medida.",
+        "veneersProcessStep4": "<strong>Cementación y Adhesión:</strong> Una vez recibidas del laboratorio, verificamos el ajuste y color de las carillas. Luego, se adhieren permanentemente a tus dientes con un cemento especial que se endurece con una luz de alta intensidad.",
+        "veneersProcessStep5": "<strong>Ajustes Finales:</strong> Realizamos los pulidos y ajustes finales para asegurar una mordida cómoda y una estética perfecta.",
+        "veneersCtaTitle": "¿Listo para la Sonrisa de tus Sueños?",
+        "veneersCtaText": "Las carillas dentales pueden ser la solución que buscas. Agenda una consulta de valoración y descubre cómo podemos transformar tu sonrisa.",
+        "clinicNameFooter": "Dr. Santos Clínica Dental", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
+        "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Clínica Dental", "footerRights":"Todos los derechos reservados."
+      },
+      en: {
+        "titleVeneersPage": "Dental Veneers | Dr. Santos Dental Clinic",
+        "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "contactBtn": "Book your appointment",
+        "veneersPageTitle": "Dental Veneers: Transform Your Smile",
+        "veneersWhatAreTitle": "What Are Dental Veneers?",
+        "veneersWhatAreP1": "Dental veneers are thin shells, usually made of porcelain or composite, that are bonded to the front surface of the teeth. They are custom-designed for each patient to improve the aesthetics of the smile by correcting issues with color, shape, size, or alignment.",
+        "veneersWhatAreP2": "They are a popular and effective solution for those who want a significant smile transformation conservatively, as they require minimal tooth preparation.",
+        "veneersGalleryTitle": "Treatment Illustrations",
+        "imageDisclaimer": "For illustrative purposes only. Not a real case.",
+        "veneersBenefitsTitle": "Main Benefits of Veneers",
+        "veneersBenefit1": "<strong>Spectacular Aesthetic Improvement:</strong> They correct discolorations, stains, minor fractures, gaps between teeth (diastemas), and slightly misaligned teeth.",
+        "veneersBenefit2": "<strong>Completely Natural Look:</strong> Porcelain veneers mimic the translucency and shine of natural teeth, offering an undetectable result.",
+        "veneersBenefit3": "<strong>High Durability and Resistance:</strong> With proper care, porcelain veneers can last for many years and are highly resistant to stains from coffee, tea, or wine.",
+        "veneersBenefit4": "<strong>Minimally Invasive Treatment:</strong> Compared to crowns, tooth preparation is minimal, preserving most of the healthy tooth structure.",
+        "veneersBenefit5": "<strong>Results in a Short Time:</strong> The entire process can be completed in just two or three visits, providing a new smile quickly.",
+        "veneersProcessTitle": "The Placement Process, Step by Step",
+        "veneersProcessStep1": "<strong>Diagnosis and Smile Design:</strong> At the first appointment, we evaluate your case, discuss your aesthetic goals, and plan the design of your new smile (color, shape, size).",
+        "veneersProcessStep2": "<strong>Tooth Preparation:</strong> The tooth is prepared by removing a very thin layer of enamel from the front surface, equivalent to the thickness of the future veneer (approx. 0.5 mm).",
+        "veneersProcessStep3": "<strong>Digital Impressions:</strong> We use an intraoral scanner to take a precise digital impression of your teeth, which is sent to the lab to fabricate your custom veneers.",
+        "veneersProcessStep4": "<strong>Bonding and Adhesion:</strong> Once received from the lab, we check the fit and color of the veneers. They are then permanently bonded to your teeth with a special cement hardened by a high-intensity light.",
+        "veneersProcessStep5": "<strong>Final Adjustments:</strong> We perform final polishing and adjustments to ensure a comfortable bite and perfect aesthetics.",
+        "veneersCtaTitle": "Ready for the Smile of Your Dreams?",
+        "veneersCtaText": "Dental veneers could be the solution you're looking for. Schedule a consultation to see how we can transform your smile.",
+        "clinicNameFooter": "Dr. Santos Dental Clinic", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
+        "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Dental Clinic", "footerRights":"All rights reserved."
       }
-
-      // Marca la pestaña de navegación activa
-      const nav = document.getElementById('mainNav');
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
-      if (nav) {
-        nav.querySelectorAll('a').forEach(link => {
-          link.classList.remove('active-tab');
-          let linkPage = link.getAttribute('href').split("/").pop();
-          if (linkPage === currentPage) {
-            link.classList.add('active-tab');
-          }
-        });
-      }
-    });
+    };
+    document.addEventListener('DOMContentLoaded',function(){const e=document.getElementById("mainHeader"),t=document.getElementById("mainNav"),o=document.getElementById("hotSalePopup"),a=document.getElementById("closePopup"),n=document.getElementById("translateBtn"),i=document.getElementById("currentYear");i&&(i.textContent=(new Date).getFullYear());function c(){const o=document.querySelector(".page-header-spacer");e&&t&&o&&(o.style.height=`${e.offsetHeight+t.offsetHeight}px`)}o&&(!localStorage.getItem("popupShownDrSantosV2")&&setTimeout(function(){o.classList.add("active"),localStorage.setItem("popupShownDrSantosV2","true")},3500),a&&a.addEventListener("click",function(){o.classList.remove("active")}),o.addEventListener("click",function(e){"hotSalePopup"===e.target.id&&o.classList.remove("active")})),window.addEventListener("scroll",function(){e&&e.classList.toggle("scrolled",window.scrollY>30)}),c(),window.addEventListener("resize",c),setTimeout(c,300),"undefined"!=typeof translations&&n&&(!function e(t){document.documentElement.lang=t,document.querySelectorAll("[data-i18n]").forEach(e=>{const o=e.getAttribute("data-i18n"),a=translations[t]&&translations[t][o]||translations.es&&translations.es[o]||e.innerHTML;["veneersBenefit1","veneersBenefit2","veneersBenefit3","veneersBenefit4","veneersBenefit5","veneersProcessStep1","veneersProcessStep2","veneersProcessStep3","veneersProcessStep4","veneersProcessStep5"].includes(o)?e.innerHTML=a:e.textContent=a.replace(/<[^>]*>/g,"")});const o=document.querySelector("title").dataset.i18n;o&&translations[t]&&translations[t][o]&&(document.title=translations[t][o]),localStorage.setItem("preferredLangDrSantos",t)}(localStorage.getItem("preferredLangDrSantos")||"es"),n.addEventListener("click",function(){const t=localStorage.getItem("preferredLangDrSantos")||"es";e("es"===t?"en":"es"),this.querySelector("span").textContent="es"===t?"EN/ES":"ES/EN"}));const l=window.location.pathname.split("/").pop()||"index.html";t&&t.querySelectorAll("a").forEach(e=>{e.classList.remove("active-tab");let t=e.getAttribute("href").split("/").pop();t===l&&e.classList.add("active-tab")})});
   </script>
-
 </body>
 </html>
