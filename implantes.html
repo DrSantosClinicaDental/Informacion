@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Implantes Dentales | Dr. Santos Clínica Dental</title>
+  <title data-i18n="titleImplantsPage">Implantes Dentales | Dr. Santos Clínica Dental</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /*
-      ================================================
-      AQUÍ VA TODO TU CÓDIGO DE ESTILOS CSS
-      Es el mismo para ambas páginas.
-      ================================================
-    */
+    /* Tu bloque de estilos CSS completo va aquí */
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
@@ -42,6 +37,24 @@
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
     .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
     .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); border-bottom-color: var(--acento); }
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .popup-overlay.active { opacity: 1; visibility: visible; }
+    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: all 0.35s ease; position: relative; opacity: 0; }
+    .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
+    .popup-img { width: 100%; height: auto; display: block; }
+    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: all 0.3s ease; border: none; z-index: 10; }
+    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg); }
+    .btn-contacto { background-color: var(--acento); color: var(--blanco); padding: 12px 25px; border-radius: var(--radio-borde-general); display: inline-block; margin-top: 20px; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: var(--sombra-media); transition: all 0.25s ease-out; border: 2px solid transparent; }
+    .btn-contacto:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(95, 180, 156, 0.4); }
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
+    .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+    .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
+    .footer p i { color: var(--acento); margin-right: 6px; }
+    .footer a { color: var(--blanco); text-decoration: none; } .footer a:hover { text-decoration: underline; }
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; }
+    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
+    .translate-btn i { font-size: 20px; margin-bottom: 2px; }
     .page-header-spacer { height: 150px; }
     .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
     .page-content > h1 { font-family: 'Poppins', sans-serif; text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
@@ -59,93 +72,123 @@
     .cta-section { text-align: center; padding: 30px 20px; background-color: var(--color-background-light-section); border-radius: var(--radio-borde-general); margin-top: 40px; }
     .cta-section h2 { border-bottom: none; padding-bottom: 0; display: block; font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom:15px; }
     .cta-section p { max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 25px; }
-    @media (min-width: 768px) { .header { flex-direction: row; justify-content: space-between; } .logo { margin: 0; } .main-nav ul { flex-wrap: wrap; gap: 15px; } .page-content { padding: clamp(40px, 7vh, 60px) 10%; } }
+    @media (min-width: 768px) {
+      .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; }
+      .logo { margin: 0; }
+      .main-nav ul { flex-wrap: wrap; gap: 15px; }
+      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
+    }
   </style>
 </head>
 <body>
-
-  <header class="header" id="mainHeader">
-    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
-    <div class="direccion-header"><i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Cd. Juárez</div>
-  </header>
-  <nav class="main-nav" id="mainNav">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="implantes.html">Implantes</a></li>
-      <li><a href="carillas.html">Carillas</a></li>
-      <li><a href="faq-detallada.html">FAQ</a></li>
-      <li><a href="agenda.html">Agenda</a></li>
-    </ul>
-  </nav>
+  <div class="popup-overlay" id="hotSalePopup"><div class="popup-container"><button class="close-popup" id="closePopup" aria-label="Cerrar">×</button><img src="El5.png" alt="Promoción" class="popup-img"></div></div>
+  <header class="header" id="mainHeader"><img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo"><div class="direccion-header"><i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span></div></header>
+  <nav class="main-nav" id="mainNav"><ul><li><a href="index.html" data-i18n="navHome">Inicio</a></li><li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li><li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li><li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li><li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li></ul></nav>
   <div class="page-header-spacer"></div>
 
   <main class="page-content">
-    <h1>Implantes Dentales: La Solución Permanente</h1>
+    <h1 data-i18n="implantsPageTitle">Implantes Dentales: La Solución Definitiva</h1>
     
     <div class="content-section">
-      <h2>¿Qué es un Implante Dental?</h2>
-      <p>Un implante dental es un poste de titanio (similar a un tornillo) que se diseña para reemplazar la raíz de un diente perdido. Se inserta quirúrgicamente en el hueso maxilar, y sobre él se coloca una corona dental hecha a medida. El resultado es un diente artificial que se ve, se siente y funciona como uno natural.</p>
-      <p>Es la opción más avanzada y duradera para restaurar dientes, ya que se integra con el hueso en un proceso llamado osteointegración.</p>
+      <h2 data-i18n="implantsWhatAreTitle">¿Qué son los Implantes Dentales?</h2>
+      <p data-i18n="implantsWhatAreP1">Un implante dental es un poste de titanio biocompatible que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) o un puente. Este procedimiento representa la solución más avanzada y duradera para reemplazar dientes perdidos.</p>
+      <p data-i18n="implantsWhatAreP2">Al integrarse con el hueso (un proceso llamado osteointegración), el implante proporciona una base estable y fuerte, permitiendo que el nuevo diente se sienta y funcione de manera completamente natural, sin afectar a los dientes vecinos.</p>
     </div>
 
     <div class="content-section">
-      <h2>Ilustraciones del Tratamiento</h2>
+      <h2 data-i18n="implantsGalleryTitle">Ilustraciones del Tratamiento</h2>
       <div class="image-gallery-container">
         <div class="image-item">
-          <img src="El11.png" alt="Ilustración de un implante dental con sus componentes: tornillo, pilar y corona.">
-          <p class="disclaimer">Imagen solo para fines ilustrativos.</p>
+          <img src="El11.png" alt="Diagrama de un implante dental mostrando el tornillo, el pilar y la corona.">
+          <p class="disclaimer" data-i18n="imageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
         </div>
         <div class="image-item">
-          <img src="El12.png" alt="Diagrama mostrando cómo el implante dental se integra en el hueso maxilar.">
-          <p class="disclaimer">Imagen solo para fines ilustrativos.</p>
+          <img src="El12.png" alt="Ilustración de cómo un implante dental se integra en el hueso de la mandíbula.">
+          <p class="disclaimer" data-i18n="imageDisclaimer">Imagen solo para fines ilustrativos. No es un caso real.</p>
         </div>
       </div>
     </div>
     
     <div class="content-section">
-      <h2>Beneficios Clave de los Implantes</h2>
+      <h2 data-i18n="implantsBenefitsTitle">Ventajas Principales de los Implantes</h2>
       <ul>
-        <li><strong>Solución Fija y Duradera:</strong> Con el cuidado adecuado, los implantes pueden durar toda la vida.</li>
-        <li><strong>Preservación Ósea:</strong> Evitan la pérdida de hueso que ocurre cuando falta un diente, manteniendo la estructura facial.</li>
-        <li><strong>No Afecta a Dientes Vecinos:</strong> A diferencia de los puentes, no es necesario tallar los dientes adyacentes sanos.</li>
-        <li><strong>Funcionalidad Completa:</strong> Permiten masticar con total normalidad y confianza, sin el movimiento de las dentaduras postizas.</li>
-        <li><strong>Estética Insuperable:</strong> La corona sobre el implante se diseña para coincidir perfectamente con el color y forma de tus otros dientes.</li>
+        <li data-i18n="implantsBenefit1"><strong>Funcionalidad Completa:</strong> Permiten masticar, hablar y sonreír con total normalidad y confianza, como si fuera un diente natural.</li>
+        <li data-i18n="implantsBenefit2"><strong>Durabilidad a Largo Plazo:</strong> Con el cuidado adecuado, los implantes están diseñados para durar toda la vida.</li>
+        <li data-i18n="implantsBenefit3"><strong>Preservación del Hueso:</strong> Evitan la pérdida ósea que ocurre naturalmente tras la pérdida de un diente, manteniendo la estructura y la forma del rostro.</li>
+        <li data-i18n="implantsBenefit4"><strong>Protección de Dientes Sanos:</strong> No es necesario tallar o alterar los dientes adyacentes, como ocurre con los puentes tradicionales.</li>
+        <li data-i18n="implantsBenefit5"><strong>Estética Inmejorable:</strong> Las coronas sobre implantes se diseñan a medida para coincidir perfectamente en color, forma y tamaño con el resto de tus dientes.</li>
       </ul>
     </div>
-    
+
     <section class="cta-section">
-        <h2>Recupera la Función y Estética de tu Sonrisa</h2>
-        <p>Los implantes dentales son la mejor inversión en tu salud bucal a largo plazo. Agenda una cita para una valoración completa.</p>
-        <a href="agenda.html" class="btn-contacto"><i class="fas fa-calendar-check"></i> Agenda tu cita</a>
+        <h2 data-i18n="implantsCtaTitle">Recupera tu Sonrisa por Completo</h2>
+        <p data-i18n="implantsCtaText">Los implantes dentales son la mejor inversión a largo plazo en tu salud y confianza. Agenda una consulta de valoración para saber si eres candidato.</p>
+        <a href="agenda.html" class="btn-contacto"><i class="fas fa-calendar-check"></i> <span data-i18n="contactBtn">Agenda tu cita</span></a>
     </section>
   </main>
-  
+
   <footer class="footer">
-    <p><strong>Dr. Santos Clínica Dental</strong></p>
-    <p><i class="fas fa-map-marker-alt"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</p>
-    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</p>
-    <p><i class="fas fa-phone"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp"></i> WhatsApp: +52 1 614-780-4673</p>
-    <p>© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
+    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM</span></p>
+    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
+    <p>© <span id="currentYear"></span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
   </footer>
 
+  <button id="translateBtn" class="translate-btn" title="Cambiar idioma"><i class="fas fa-language"></i><span>ES/EN</span></button>
+  
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentYearEl = document.getElementById("currentYear");
-      if(currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
+    const translations = {
+      es: {
+        "titleImplantsPage": "Implantes Dentales | Dr. Santos Clínica Dental",
+        "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "contactBtn": "Agenda tu cita",
+        "implantsPageTitle": "Implantes Dentales: La Solución Definitiva",
+        "implantsWhatAreTitle": "¿Qué son los Implantes Dentales?",
+        "implantsWhatAreP1": "Un implante dental es un poste de titanio biocompatible que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) o un puente. Este procedimiento representa la solución más avanzada y duradera para reemplazar dientes perdidos.",
+        "implantsWhatAreP2": "Al integrarse con el hueso (un proceso llamado osteointegración), el implante proporciona una base estable y fuerte, permitiendo que el nuevo diente se sienta y funcione de manera completamente natural, sin afectar a los dientes vecinos.",
+        "implantsGalleryTitle": "Ilustraciones del Tratamiento",
+        "imageDisclaimer": "Imagen solo para fines ilustrativos. No es un caso real.",
+        "implantsBenefitsTitle": "Ventajas Principales de los Implantes",
+        "implantsBenefit1": "<strong>Funcionalidad Completa:</strong> Permiten masticar, hablar y sonreír con total normalidad y confianza, como si fuera un diente natural.",
+        "implantsBenefit2": "<strong>Durabilidad a Largo Plazo:</strong> Con el cuidado adecuado, los implantes están diseñados para durar toda la vida.",
+        "implantsBenefit3": "<strong>Preservación del Hueso:</strong> Evitan la pérdida ósea que ocurre naturalmente tras la pérdida de un diente, manteniendo la estructura y la forma del rostro.",
+        "implantsBenefit4": "<strong>Protección de Dientes Sanos:</strong> No es necesario tallar o alterar los dientes adyacentes, como ocurre con los puentes tradicionales.",
+        "implantsBenefit5": "<strong>Estética Inmejorable:</strong> Las coronas sobre implantes se diseñan a medida para coincidir perfectamente en color, forma y tamaño con el resto de tus dientes.",
+        "implantsCtaTitle": "Recupera tu Sonrisa por Completo",
+        "implantsCtaText": "Los implantes dentales son la mejor inversión a largo plazo en tu salud y confianza. Agenda una consulta de valoración para saber si eres candidato.",
+        "clinicNameFooter": "Dr. Santos Clínica Dental", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
+        "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 2:00 PM",
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Clínica Dental", "footerRights":"Todos los derechos reservados."
+      },
+      en: {
+        "titleImplantsPage": "Dental Implants | Dr. Santos Dental Clinic",
+        "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "contactBtn": "Book your appointment",
+        "implantsPageTitle": "Dental Implants: The Definitive Solution",
+        "implantsWhatAreTitle": "What Are Dental Implants?",
+        "implantsWhatAreP1": "A dental implant is a biocompatible titanium post that acts as an artificial tooth root. It is surgically inserted into the jawbone to support a replacement tooth (crown) or bridge. This procedure represents the most advanced and durable solution for replacing missing teeth.",
+        "implantsWhatAreP2": "By integrating with the bone (a process called osseointegration), the implant provides a stable and strong base, allowing the new tooth to feel and function completely naturally, without affecting neighboring teeth.",
+        "implantsGalleryTitle": "Treatment Illustrations",
+        "imageDisclaimer": "For illustrative purposes only. Not a real case.",
+        "implantsBenefitsTitle": "Main Advantages of Implants",
+        "implantsBenefit1": "<strong>Complete Functionality:</strong> They allow you to chew, speak, and smile with total normalcy and confidence, just like a natural tooth.",
+        "implantsBenefit2": "<strong>Long-Term Durability:</strong> With proper care, implants are designed to last a lifetime.",
+        "implantsBenefit3": "<strong>Bone Preservation:</strong> They prevent the bone loss that naturally occurs after losing a tooth, maintaining facial structure and shape.",
+        "implantsBenefit4": "<strong>Protection of Healthy Teeth:</strong> It is not necessary to grind or alter adjacent teeth, as is the case with traditional bridges.",
+        "implantsBenefit5": "<strong>Unbeatable Aesthetics:</strong> Crowns on implants are custom-designed to perfectly match the color, shape, and size of your other teeth.",
+        "implantsCtaTitle": "Fully Recover Your Smile",
+        "implantsCtaText": "Dental implants are the best long-term investment in your health and confidence. Schedule an evaluation consultation to see if you are a candidate.",
+        "clinicNameFooter": "Dr. Santos Dental Clinic", "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
+        "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
+        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
+        "clinicNameFooterDomain":"Dr. Santos Dental Clinic", "footerRights":"All rights reserved."
       }
-      const nav = document.getElementById('mainNav');
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
-      if (nav) {
-        nav.querySelectorAll('a').forEach(link => {
-          link.classList.remove('active-tab');
-          let linkPage = link.getAttribute('href').split("/").pop();
-          if (linkPage === currentPage) {
-            link.classList.add('active-tab');
-          }
-        });
-      }
-    });
+    };
+    document.addEventListener('DOMContentLoaded',function(){const e=document.getElementById("mainHeader"),t=document.getElementById("mainNav"),o=document.getElementById("hotSalePopup"),a=document.getElementById("closePopup"),n=document.getElementById("translateBtn"),i=document.getElementById("currentYear");i&&(i.textContent=(new Date).getFullYear());function c(){const o=document.querySelector(".page-header-spacer");e&&t&&o&&(o.style.height=`${e.offsetHeight+t.offsetHeight}px`)}o&&(!localStorage.getItem("popupShownDrSantosV2")&&setTimeout(function(){o.classList.add("active"),localStorage.setItem("popupShownDrSantosV2","true")},3500),a&&a.addEventListener("click",function(){o.classList.remove("active")}),o.addEventListener("click",function(e){"hotSalePopup"===e.target.id&&o.classList.remove("active")})),window.addEventListener("scroll",function(){e&&e.classList.toggle("scrolled",window.scrollY>30)}),c(),window.addEventListener("resize",c),setTimeout(c,300),"undefined"!=typeof translations&&n&&(!function e(t){document.documentElement.lang=t,document.querySelectorAll("[data-i18n]").forEach(e=>{const o=e.getAttribute("data-i18n"),a=translations[t]&&translations[t][o]||translations.es&&translations.es[o]||e.innerHTML;["implantsBenefit1","implantsBenefit2","implantsBenefit3","implantsBenefit4","implantsBenefit5"].includes(o)?e.innerHTML=a:e.textContent=a.replace(/<[^>]*>/g,"")});const o=document.querySelector("title").dataset.i18n;o&&translations[t]&&translations[t][o]&&(document.title=translations[t][o]),localStorage.setItem("preferredLangDrSantos",t)}(localStorage.getItem("preferredLangDrSantos")||"es"),n.addEventListener("click",function(){const t=localStorage.getItem("preferredLangDrSantos")||"es";e("es"===t?"en":"es"),this.querySelector("span").textContent="es"===t?"EN/ES":"ES/EN"}));const l=window.location.pathname.split("/").pop()||"index.html";t&&t.querySelectorAll("a").forEach(e=>{e.classList.remove("active-tab");let t=e.getAttribute("href").split("/").pop();t===l&&e.classList.add("active-tab")})});
   </script>
 </body>
 </html>
