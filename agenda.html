@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Contenido de style.css COMPLETO (el mismo de index.html original) */
+    /* Contenido de style.css - Se mantienen los estilos base y se añaden mejoras */
     :root {
       --color-primario: #2a7f7f;
       --color-secundario: #3a506b;
@@ -20,8 +20,8 @@
       --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
       --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
       --whatsapp: #25D366;
-      --radio-borde-general: 10px;
-      --radio-borde-sm: 6px; 
+      --radio-borde-general: 12px; /* Aumentado para un look más moderno */
+      --radio-borde-sm: 8px; 
       --acento-rgb: 95, 180, 156; 
       --color-text-subtle: #5a677d; 
       --color-border: #d1d9e0; 
@@ -42,102 +42,264 @@
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
     .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
     .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); background-color: transparent; border-bottom-color: var(--acento); box-shadow: none; }
-    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
-    .popup-overlay.active { opacity: 1; visibility: visible; }
-    .popup-container { background-color: var(--blanco); border-radius: var(--radio-borde-general); overflow: hidden; max-width: 90%; width: 600px; box-shadow: 0 10px 35px rgba(0,0,0,0.25); transform: scale(0.85); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; position: relative; opacity: 0; }
-    .popup-overlay.active .popup-container { transform: scale(1); opacity: 1; }
-    .popup-img { width: 100%; height: auto; display: block; }
-    .close-popup { position: absolute; top: 10px; right: 10px; background-color: var(--color-primario); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.3s ease; border: none; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-    .close-popup:hover { background-color: var(--color-secundario); transform: rotate(180deg) scale(1.1); }
-    .hero { background: linear-gradient(135deg, var(--color-primario), var(--color-secundario) 90%); color: var(--blanco); padding: 40px 5% 60px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); z-index: 1; }
-    .hero-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
-    h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); margin-bottom: 15px; }
-    .hero h1 { color: var(--blanco); font-size: clamp(1.8rem, 6vw, 2.5rem); line-height: 1.25; text-shadow: 0 2px 5px rgba(0,0,0,0.25); animation: fadeInDown 0.8s ease-out both; }
-    .hero p { color: rgba(255,255,255,0.95); margin-bottom: 25px; font-size: 1rem; animation: fadeIn 0.8s ease-out 0.3s both; }
-    .btn-container { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 320px; margin: 25px auto 0; animation: fadeInUp 0.8s ease-out 0.6s both; }
-    .btn { display: flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: var(--radio-borde-general); font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.25s ease-out; position: relative; overflow: hidden; border: 2px solid transparent; }
-    .btn-whatsapp { background-color: var(--blanco); color: var(--color-primario); box-shadow: var(--sombra-ligera); }
-    .btn-whatsapp:hover { background-color: var(--whatsapp); color: var(--blanco); border-color: var(--whatsapp); transform: translateY(-2px); }
-    .btn-llamar { background-color: transparent; color: var(--blanco); border: 2px solid var(--blanco); }
-    .btn-llamar:hover { background-color: var(--blanco); color: var(--color-primario); transform: translateY(-2px); }
-    .btn-llamar-internacional { background-color: var(--acento); color: var(--blanco); border-color: var(--acento); }
-    .btn-llamar-internacional:hover { background-color: var(--blanco); color: var(--acento); border-color: var(--blanco); transform: translateY(-2px); }
-    .btn-contacto { background-color: var(--acento); color: var(--blanco); padding: 12px 25px; border-radius: var(--radio-borde-general); display: inline-block; margin: 20px 0; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: var(--sombra-media); transition: all 0.25s ease-out; animation: fadeIn 1s ease 0.9s both; border: 2px solid var(--acento); }
-    .btn-contacto:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(var(--acento-rgb), 0.4); background-color: var(--acento); border-color: var(--acento); color: var(--blanco); }
-    .btn-whatsapp::after { content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px; border-radius: calc(var(--radio-borde-general) + 8px); border: 2px solid var(--whatsapp); opacity: 0; animation: pulse 2s infinite ease-out; }
-    .btn-whatsapp:hover::after { opacity: 0.6; }
-    @keyframes pulse { 0% { transform: scale(0.98); opacity: 0.6; } 70% { transform: scale(1.12); opacity: 0; } 100% { transform: scale(0.98); opacity: 0; } }
-    .icon { margin-right: 8px; width: 18px; height: 18px; transition: transform 0.3s ease; }
-    .btn:hover .icon { transform: scale(1.15) rotate(-5deg); }
-    section { padding: clamp(40px, 7vh, 60px) 5%; position: relative; }
-    section:nth-child(even) { background-color: var(--gris-claro); }
-    section h2 { text-align: center; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: clamp(25px, 4vh, 40px); position: relative; padding-bottom: 12px; }
-    section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background-color: var(--acento); border-radius: 2px; }
-    .servicios-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 25px; }
-    .servicio-item { background: var(--blanco); padding: 25px; border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; z-index: 1; border-left: 4px solid var(--acento); }
-    .servicio-item:hover { transform: translateY(-6px); box-shadow: var(--sombra-media); }
-    .servicio-item h3 { color: var(--color-primario); margin-bottom: 12px; display: flex; align-items: center; font-size: 1.2rem; transition: color 0.3s ease; }
-    .servicio-item:hover h3 { color: var(--color-secundario); }
-    .servicio-item h3 i { margin-right: 10px; color: var(--acento); font-size: 1.4rem; transition: transform 0.3s ease; }
-    .servicio-item:hover h3 i { transform: scale(1.1); }
-    .servicio-item p { color: var(--color-text-subtle); transition: color 0.3s ease; font-size: 0.9rem; }
-    .servicios-grid .servicio-item { opacity: 0; transform: translateY(25px); animation: fadeInUp 0.5s ease-out forwards; }
-    .servicios-grid .servicio-item:nth-child(1) { animation-delay: 0.1s; } .servicios-grid .servicio-item:nth-child(2) { animation-delay: 0.18s; } .servicios-grid .servicio-item:nth-child(3) { animation-delay: 0.26s; } .servicios-grid .servicio-item:nth-child(4) { animation-delay: 0.34s; } .servicios-grid .servicio-item:nth-child(5) { animation-delay: 0.42s; } .servicios-grid .servicio-item:nth-child(6) { animation-delay: 0.5s; } .servicios-grid .servicio-item:nth-child(7) { animation-delay: 0.58s; }
-    .galeria-ads { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 25px; }
-    .galeria-ads img { width: 100%; height: auto; object-fit: contain; border-radius: var(--radio-borde-general); box-shadow: var(--sombra-media); transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
-    .galeria-ads img:hover { transform: scale(1.03); box-shadow: var(--sombra-dark); }
-    .testimonios-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 25px; }
-    .testimonio-card { background: var(--blanco); padding: 20px; border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); border-top: 4px solid var(--acento); }
-    .testimonio-card p.testimonio-texto { font-style: italic; color: var(--color-text-subtle); margin-bottom: 12px; position: relative; padding-left: 30px; font-size: 0.9rem; }
-    .testimonio-card p.testimonio-texto::before { content: '\f10d'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: -3px; font-size: 1.3rem; color: var(--acento); opacity: 0.8; }
-    .testimonio-card p.testimonio-autor { text-align: right; font-weight: 600; color: var(--color-primario); font-size: 0.9rem; }
-    .faq-item { margin-bottom: 12px; border-bottom: 1px solid var(--gris-medio); padding-bottom: 12px; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease-out forwards; }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-item:nth-child(1) { animation-delay: 0.1s; } .faq-item:nth-child(2) { animation-delay: 0.15s; } .faq-item:nth-child(3) { animation-delay: 0.2s; } .faq-item:nth-child(4) { animation-delay: 0.25s; } .faq-item:nth-child(5) { animation-delay: 0.3s; } .faq-item:nth-child(6) { animation-delay: 0.35s; }
-    .faq-item h3 { color: var(--color-primario); margin-bottom: 0; font-size: 1.05rem; display: flex; align-items: center; cursor: pointer; transition: color 0.3s ease; padding: 8px 0; }
-    .faq-item h3:hover { color: var(--color-secundario); }
-    .faq-item h3::before { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px; color: var(--acento); transition: transform 0.3s ease; font-size: 0.8em; }
-    .faq-item.active h3::before { content: '\f077'; }
-    .faq-item p { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, margin-top 0.35s ease-out, padding-bottom 0.35s ease-out; padding-left: 25px; color: var(--color-text-subtle); font-size: 0.9rem; }
-    .faq-item.active p { max-height: 250px; margin-top: 8px; padding-bottom: 8px; }
-    .mapa-container { margin-top: 25px; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); transition: box-shadow 0.3s ease; }
-    .mapa-container:hover { box-shadow: var(--sombra-dark); }
-    .mapa { width: 100%; height: 250px; border: none; display: block; }
-    .form-section { background-color: var(--blanco); border-radius: var(--radio-borde-general); padding: clamp(25px, 4vw, 35px); max-width: 100%; margin: 0 auto; box-shadow: var(--sombra-media); opacity: 1; transform: translateY(0px); /* Ajustado para que no dependa de animación inicial de index */ }
-    .form-title { text-align: center; color: var(--color-primario); margin-bottom: 25px; font-size: 1.5rem; }
-    .form-group { margin-bottom: 18px; position: relative; }
-    .form-label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--color-secundario); font-size: 0.85rem; }
-    .form-control { width: 100%; padding: 12px 15px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-general); font-family: 'Open Sans', sans-serif; font-size: 0.95rem; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-    .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.15); outline: none; }
-    .submit-btn { background-color: var(--color-primario); color: white; border: none; padding: 12px 25px; border-radius: var(--radio-borde-general); font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; width: 100%; margin-top: 12px; position: relative; overflow: hidden; }
-    .submit-btn .fas { margin-right: 8px; }
-    .submit-btn:hover { background-color: var(--color-secundario); transform: translateY(-3px); }
-    .submit-btn::after { content: ''; position: absolute; top: 50%; left: 50%; width: 5px; height: 5px; background: rgba(255, 255, 255, 0.4); opacity: 0; border-radius: 100%; transform: scale(1, 1) translate(-50%); transform-origin: 50% 50%; }
-    .submit-btn:focus:not(:active)::after { animation: ripple 0.8s ease-out; }
-    @keyframes ripple { 0% { transform: scale(0, 0) translate(-50%); opacity: 1; } 20% { transform: scale(30, 30) translate(-50%); opacity: 1; } 100% { opacity: 0; transform: scale(50, 50) translate(-50%); } }
-    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; }
+    
+    .page-header-spacer { height: 150px; }
+    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
+    
+    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; margin-top: 50px;}
     .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
     .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
     .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
     .footer p i { color: var(--acento); margin-right: 6px; }
     .footer a { color: var(--blanco); } .footer a:hover { color: var(--acento); text-decoration: underline; }
-    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s ease 1s forwards; }
+    
+    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100;}
     .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
     .translate-btn i { font-size: 20px; margin-bottom: 2px; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-25px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes fadeInRight { from { opacity: 0; transform: translateX(25px); } to { opacity: 1; transform: translateX(0); } }
-    .reveal { position: relative; opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .reveal.active { opacity: 1; }
-    .reveal.active.fade-bottom { transform: translateY(0); animation-name: fadeInUp; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.active.fade-left { transform: translateX(0); animation-name: fadeInLeft; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.active.fade-right { transform: translateX(0); animation-name: fadeInRight; animation-duration: 0.8s; animation-timing-function: ease-out; }
-    .reveal.fade-bottom { transform: translateY(30px); }
-    .reveal.fade-left { transform: translateX(-30px); }
-    .reveal.fade-right { transform: translateX(30px); }
+
+    /* --- NUEVOS ESTILOS PARA LA PÁGINA DE AGENDA --- */
+    .schedule-header {
+      text-align: center;
+      margin-bottom: clamp(30px, 6vh, 50px);
+    }
+    .schedule-header h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--color-primario);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .schedule-header p {
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: var(--color-text-subtle);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .schedule-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (min-width: 992px) {
+      .schedule-container {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 50px;
+      }
+    }
+
+    .form-section {
+      background-color: var(--blanco);
+      border-radius: var(--radio-borde-general);
+      padding: clamp(25px, 4vw, 40px);
+      box-shadow: var(--sombra-dark);
+    }
+    .form-title {
+      text-align: left;
+      font-size: 1.8rem;
+      color: var(--color-secundario);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    .form-group { margin-bottom: 20px; position: relative; }
+    .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-secundario); font-size: 0.9rem; }
+    .form-control { 
+      width: 100%; 
+      padding: 14px 18px; 
+      border: 1px solid var(--gris-medio); 
+      border-radius: var(--radio-borde-sm); 
+      font-family: 'Open Sans', sans-serif; 
+      font-size: 1rem; 
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+      background-color: var(--gris-claro);
+    }
+    .form-control:focus { 
+      border-color: var(--acento); 
+      box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); 
+      outline: none; 
+      background-color: var(--blanco);
+    }
+    .submit-btn { 
+      background: linear-gradient(135deg, var(--color-primario), var(--acento));
+      color: white; 
+      border: none; 
+      padding: 16px 25px; 
+      border-radius: var(--radio-borde-sm); 
+      font-size: 1.1rem; 
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      width: 100%; 
+      margin-top: 15px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3);
+    }
+    .submit-btn:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45);
+    }
+
+    .info-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .info-card {
+      background-color: var(--gris-claro);
+      padding: 30px;
+      border-radius: var(--radio-borde-general);
+      border-left: 5px solid var(--acento);
+    }
+    .info-card h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-secundario);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .info-card ul li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--color-text-subtle);
+      font-size: 0.95rem;
+    }
+    .info-card ul i {
+      color: var(--acento);
+      font-size: 1.2rem;
+      width: 20px;
+      text-align: center;
+    }
+    .info-card .hours-info, .info-card .address-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 20px;
+        color: var(--color-text-subtle);
+        font-size: 0.95rem;
+    }
+    .info-card .hours-info i, .info-card .address-info i {
+        color: var(--color-primario);
+        font-size: 1.2rem;
+        margin-top: 4px;
+    }
+    .info-card .hours-info strong, .info-card .address-info strong {
+        color: var(--color-secundario);
+        display: block;
+        margin-bottom: 3px;
+    }
+    
+    .info-contact-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 25px;
+    }
+    .info-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        border-radius: var(--radio-borde-sm);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        gap: 8px;
+    }
+    .info-btn.whatsapp {
+        background-color: var(--whatsapp);
+        color: var(--blanco);
+    }
+    .info-btn.whatsapp:hover {
+        background-color: #1ebe58;
+        transform: scale(1.05);
+    }
+    .info-btn.phone {
+        background-color: var(--color-secundario);
+        color: var(--blanco);
+    }
+    .info-btn.phone:hover {
+        background-color: #31445a;
+        transform: scale(1.05);
+    }
+
+    .steps-section {
+      text-align: center;
+      margin-top: clamp(50px, 8vh, 80px);
+      padding: 30px 20px;
+      background-color: var(--gris-claro);
+      border-radius: var(--radio-borde-general);
+    }
+    .steps-section h2 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: var(--color-primario);
+      margin-bottom: 30px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .step-item {
+      position: relative;
+    }
+    .step-icon {
+      width: 70px;
+      height: 70px;
+      background-color: var(--blanco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      box-shadow: var(--sombra-ligera);
+      border: 3px solid var(--acento);
+    }
+    .step-icon i {
+      font-size: 2rem;
+      color: var(--color-primario);
+    }
+    .step-item h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-secundario);
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+    .step-item p {
+      color: var(--color-text-subtle);
+      font-size: 0.9rem;
+    }
+    
+    .mapa-container { margin-top: 25px; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); }
+    .mapa { width: 100%; height: 350px; border: none; display: block; }
+    
+    @media (min-width: 768px) {
+        .steps-grid { grid-template-columns: repeat(3, 1fr); }
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: calc(50% + 45px);
+            width: calc(100% - 90px);
+            height: 2px;
+            background-color: var(--gris-medio);
+            z-index: -1;
+        }
+    }
+    
+    /* Responsive media queries */
     @media (min-width: 768px) {
       .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; align-items: center; }
       .logo { margin-bottom: 0; max-height: 70px; }
@@ -145,63 +307,25 @@
       .direccion-header { text-align: right; font-size: 0.9rem; }
       .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; overflow-x: visible; }
       .main-nav li a { font-size: 0.9rem; padding: 0.7em 1em; }
-      .hero { padding-top: 60px; } .hero h1 { font-size: 2.5rem; }
-      .btn-container { grid-template-columns: repeat(3, 1fr); max-width: 500px; }
-      .servicios-grid, .galeria-ads, .testimonios-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-      .mapa { height: 350px; } .form-section { max-width: 700px; }
     }
     @media (min-width: 1024px) {
       .logo { max-height: 80px; } .header.scrolled .logo { max-height: 70px; }
       .main-nav ul { gap: 20px; } .main-nav li a { font-size: 1rem; }
-      .hero h1 { font-size: 3rem; } .servicios-grid { grid-template-columns: repeat(3, 1fr); }
-      .mapa { height: 400px; } .testimonios-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .page-header-spacer { height: 150px; }
-    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
-    .page-content h1 { text-align: center; color: var(--color-primario); margin-bottom: 30px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-    .content-section { margin-bottom: 30px; padding: 25px; background-color: var(--blanco); border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); }
-    .content-section h2 { color: var(--color-secundario); font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--acento); display: inline-block; }
-    .content-section p, .content-section ul { color: var(--color-text-subtle); line-height: 1.75; margin-bottom: 15px; font-size: 0.95rem; }
-    .content-section ul { list-style: none; padding-left: 0; }
-    .content-section ul li { position: relative; padding-left: 25px; margin-bottom: 10px; }
-    .content-section ul li::before { content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; font-size: 0.9em; color: var(--acento); }
-    .image-placeholder-container { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; margin-bottom: 20px; }
-    .image-placeholder { width: 100%; height: 180px; background-color: var(--gris-medio); border-radius: var(--radio-borde-general); display: flex; justify-content: center; align-items: center; color: var(--color-text-subtle); font-style: italic; text-align: center; border: 2px dashed var(--color-border); padding: 10px; font-size: 0.9rem; }
-    .image-placeholder.large { height: 250px; }
-    .cta-section { text-align: center; padding: 25px; background-color: var(--color-background-light-section); border-radius: var(--radio-borde-general); margin-top: 30px; }
-    .cta-section h2 { color: var(--color-primario); border-bottom: none; padding-bottom: 0; display: block; font-size: clamp(1.5rem, 4.5vw, 2rem); }
-    .cta-section p { color: var(--color-text-subtle); max-width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 20px; font-size: 0.95rem; }
-    @media (min-width: 768px) {
-      .image-placeholder-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-      .cta-section p { max-width: 600px; }
-      .page-content { padding: clamp(40px, 7vh, 60px) 10%; }
-    }
-    /* Estilos específicos para la página de FAQ (no relevantes aquí pero mantenidos) */
-    .faq-detailed-section .faq-item { background-color: var(--blanco); padding: 18px 22px; border-radius: var(--radio-borde-sm); box-shadow: var(--sombra-ligera); margin-bottom: 18px; border-left: 4px solid var(--acento); opacity:0; transform: translateY(20px); animation: fadeInUp .5s ease-out forwards; }
-    .faq-detailed-section .faq-item h3 { font-size: 1.1rem; color: var(--color-primario); margin-bottom: 0; display: flex; align-items: center; cursor: pointer; transition: color 0.3s ease; padding: 10px 0; }
-    .faq-detailed-section .faq-item h3:hover { color: var(--color-secundario); }
-    .faq-detailed-section .faq-item h3::before { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px; color: var(--acento); transition: transform 0.3s ease; font-size: 0.8em; }
-    .faq-detailed-section .faq-item.active h3::before { content: '\f077'; transform: rotate(0deg); }
-    .faq-detailed-section .faq-item p { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, margin-top 0.4s ease-out, padding-bottom 0.4s ease-out; padding-left: 30px; color: var(--color-text-subtle); font-size: 0.95rem; line-height: 1.75; }
-    .faq-detailed-section .faq-item.active p { max-height: 600px; margin-top: 10px; padding-bottom: 10px; }
-    /* Estilos para la página de Agenda */
-    .schedule-info { text-align: center; margin-bottom: 30px; padding: 20px; background-color: var(--gris-claro); border-radius: var(--radio-borde-general); box-shadow: var(--sombra-ligera); }
-    .schedule-info p { color: var(--color-text-subtle); font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6; }
-    .schedule-info strong { color: var(--color-secundario); }
-    .schedule-info a { color: var(--color-primario); text-decoration: underline; }
-    .schedule-info a:hover { color: var(--acento); }
   </style>
 </head>
 <body>
+
+  <!-- Popup y Header se mantienen igual -->
   <div class="popup-overlay" id="hotSalePopup">
      <div class="popup-container">
       <button class="close-popup" id="closePopup" aria-label="Cerrar">×</button>
-      <img src="El5.png" alt="Promoción Hot Sale" class="popup-img">
+      <img src="El5.png" alt="Promoción Hot Sale" class="popup-img" onerror="this.style.display='none'">
     </div>
   </div>
 
   <header class="header" id="mainHeader">
-    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo">
+    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo" onerror="this.alt='Logo Dr. Santos'">
     <div class="direccion-header">
       <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
     </div>
@@ -213,104 +337,154 @@
       <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
       <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
       <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
-      <li><a href="agenda.html" data-i18n="navScheduleEasy">Agenda</a></li>
+      <li><a href="agenda.html" data-i18n="navScheduleEasy" class="active-tab">Agenda</a></li>
     </ul>
   </nav>
 
   <div class="page-header-spacer"></div>
 
   <main class="page-content">
-    <h1 data-i18n="schedulePageTitle">Agenda tu Cita Fácilmente</h1>
+    <div class="schedule-header">
+      <h1 data-i18n="schedulePageTitle">Tu Sonrisa Ideal Comienza Aquí</h1>
+      <p data-i18n="schedulePageSubtitle">Da el primer paso hacia una salud dental excepcional. Llena el formulario y nuestro equipo te contactará para confirmar tu cita a la brevedad.</p>
+    </div>
     
-    <div class="schedule-info">
-        <p data-i18n="scheduleInfoText1">Utiliza el formulario a continuación para solicitar tu cita. Nos pondremos en contacto contigo a la brevedad para confirmar el día y la hora.</p>
-        <p data-i18n="scheduleInfoText2">Si prefieres, también puedes agendar llamándonos al <a href="tel:6147804673" data-i18n="phoneNumber">(614) 780-4673</a> o <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20Dr.%20Santos%20Clínica%20Dental" target="_blank" rel="noopener noreferrer" data-i18n="whatsappLinkText">vía WhatsApp</a>.</p>
-        <p><strong data-i18n="ourHoursTitle">Nuestro Horario de Atención:</strong> <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM</span></p>
+    <div class="schedule-container">
+      <!-- Columna del Formulario -->
+      <div class="form-column">
+        <section id="contacto-formulario" class="form-section">
+          <h2 class="form-title" data-i18n="formTitle">Completa tus Datos</h2>
+          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos Clínica Dental (Página Agenda)">
+              <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              
+              <div class="form-group">
+                  <label for="nombre" class="form-label" data-i18n="nameLabel">Nombre completo</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" required data-i18n-placeholder="namePlaceholder" placeholder="Ej. Ana Sofía García">
+              </div>
+
+              <div class="form-group">
+                  <label for="telefono" class="form-label" data-i18n="phoneLabel">Número de teléfono (WhatsApp)</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control" required data-i18n-placeholder="phonePlaceholder" placeholder="Para confirmar tu cita">
+              </div>
+              
+              <div class="form-group">
+                  <label for="motivo" class="form-label" data-i18n="reasonLabel">Motivo de consulta</label>
+                  <select id="motivo" name="motivo" class="form-control" required>
+                      <option value="" disabled selected data-i18n="selectReason">Selecciona el motivo principal</option>
+                      <option value="Consulta de Valoración y Limpieza" data-i18n="optionValoracion">Consulta de Valoración y Limpieza</option>
+                      <option value="Odontología Estética (Carillas, Blanqueamiento)" data-i18n="optionEstetica">Odontología Estética (Carillas, Blanqueamiento)</option>
+                      <option value="Implantes y Rehabilitación (Coronas, Puentes)" data-i18n="optionRehabilitacion">Implantes y Rehabilitación (Coronas, Puentes)</option>
+                      <option value="Ortodoncia (Brackets/Alineadores)" data-i18n="optionOrtodoncia">Ortodoncia (Brackets/Alineadores)</option>
+                      <option value="Urgencia Dental (Dolor, Infección)" data-i18n="optionUrgencia">Urgencia Dental (Dolor, Infección)</option>
+                      <option value="Otro Motivo / No estoy seguro" data-i18n="optionOtro">Otro Motivo / No estoy seguro</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="dia" class="form-label" data-i18n="dayLabel">Día de preferencia</label>
+                  <select id="dia" name="dia" class="form-control" required>
+                      <option value="" disabled selected data-i18n="selectDay">Elige un día</option>
+                      <option value="Lunes" data-i18n="day1">Lunes</option>
+                      <option value="Martes" data-i18n="day2">Martes</option>
+                      <option value="Miércoles" data-i18n="day3">Miércoles</option>
+                      <option value="Jueves" data-i18n="day4">Jueves</option>
+                      <option value="Viernes" data-i18n="day5">Viernes</option>
+                      <option value="Sábado" data-i18n="day6">Sábado</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="horario" class="form-label" data-i18n="timeLabel">Horario de preferencia</label>
+                  <select id="horario" name="horario" class="form-control" required>
+                      <option value="" disabled selected data-i18n="selectTime">Elige un bloque horario</option>
+                      <option value="Mañana (9am-1pm)" data-i18n="timeMorning">Mañana (9am - 1pm)</option>
+                      <option value="Tarde (1pm-6pm)" data-i18n="timeAfternoon">Tarde (1pm - 6pm)</option>
+                      <option value="Sábado - Mañana (9am-1pm)" data-i18n="timeSatMorning">Sábado - Mañana (9am - 1pm)</option>
+                      <option value="Sábado - Tarde (1pm-5pm)" data-i18n="timeSatAfternoon">Sábado - Tarde (1pm - 5pm)</option>
+                      <option value="Indiferente / El más próximo" data-i18n="timeIndifferent">Indiferente / El más próximo</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="mensaje" class="form-label" data-i18n="messageLabel">Mensaje adicional (opcional)</label>
+                  <textarea id="mensaje" name="mensaje" class="form-control" rows="3" data-i18n-placeholder="messagePlaceholder" placeholder="Danos más detalles si lo necesitas."></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                  <i class="fas fa-calendar-check"></i> <span data-i18n="submitBtn">Agendar mi Cita Ahora</span>
+              </button>
+          </form>
+        </section>
+      </div>
+      
+      <!-- Columna de Información -->
+      <div class="info-column">
+        <div class="info-card">
+          <h3 data-i18n="whyChooseUsTitle">¿Por qué elegirnos?</h3>
+          <ul>
+            <li data-i18n="benefit1"><i class="fas fa-user-md"></i>Atención 100% personalizada por especialistas.</li>
+            <li data-i18n="benefit2"><i class="fas fa-microscope"></i>Usamos tecnología de punta para tu diagnóstico.</li>
+            <li data-i18n="benefit3"><i class="fas fa-smile-beam"></i>Enfocados en resultados estéticos y funcionales.</li>
+            <li data-i18n="benefit4"><i class="fas fa-shield-alt"></i>Altos estándares de higiene y esterilización.</li>
+          </ul>
+          <div class="info-contact-buttons">
+            <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20Dr.%20Santos%20Clínica%20Dental" target="_blank" rel="noopener noreferrer" class="info-btn whatsapp" data-i18n="whatsappBtn"><i class="fab fa-whatsapp"></i> Agendar por WhatsApp</a>
+            <a href="tel:6147804673" class="info-btn phone" data-i18n="phoneBtn"><i class="fas fa-phone-alt"></i> Llamar a la Clínica</a>
+          </div>
+        </div>
+        <div class="info-card">
+            <div class="hours-info">
+              <i class="fas fa-clock"></i>
+              <div>
+                <strong data-i18n="ourHoursTitle">Nuestro Horario de Atención</strong>
+                <span data-i18n="hoursDetail">Lunes a Viernes: 9am - 6pm<br>Sábados: 9am - 5pm</span>
+              </div>
+            </div>
+            <div class="address-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong data-i18n="ourLocationTitle">Encuéntranos en</strong>
+                <span data-i18n="addressDetail">Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juárez, Chih.</span>
+              </div>
+            </div>
+            <div class="mapa-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy" title="Ubicación de Dr. Santos Clínica Dental en Ciudad Juárez"></iframe>
+            </div>
+        </div>
+      </div>
     </div>
 
-    <section id="contacto-formulario" class="form-section-container" style="padding:0;">
-        <div class="form-section" style="box-shadow: var(--sombra-media); margin-top:0; opacity:1; transform:none;"> <h2 class="form-title" data-i18n="formTitle" style="font-size: 1.6rem; margin-bottom:20px;">Solicita tu Cita</h2>
-            <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos Clínica Dental (Página Agenda)">
-                <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <div class="form-group">
-                    <label for="nombre" class="form-label" data-i18n="nameLabel">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" required data-i18n-placeholder="namePlaceholder" placeholder="Ingresa tu nombre completo">
-                </div>
-                <div class="form-group">
-                    <label for="motivo" class="form-label" data-i18n="reasonLabel">Motivo de consulta</label>
-                    <select id="motivo" name="motivo" class="form-control" required>
-                        <option value="" disabled selected data-i18n="selectReason">Selecciona un motivo</option>
-                        <option value="Consulta General / Revision" data-i18n="optionConsulta">Consulta General / Revisión</option>
-                        <option value="Limpieza Profesional" data-i18n="optionLimpieza">Limpieza Profesional</option>
-                        <option value="Blanqueamiento Dental" data-i18n="optionBlanqueamiento">Blanqueamiento Dental</option>
-                        <option value="Carillas Dentales" data-i18n="optionCarillas">Carillas Dentales</option>
-                        <option value="Implante Dental" data-i18n="optionImplante">Implante Dental</option>
-                        <option value="Corona Dental" data-i18n="optionCorona">Corona Dental</option>
-                        <option value="Puente Dental" data-i18n="optionPuente">Puente Dental</option>
-                        <option value="Tratamiento de Canal (Endodoncia)" data-i18n="optionEndodoncia">Tratamiento de Canal (Endodoncia)</option>
-                        <option value="Extraccion Dental" data-i18n="optionExtraccion">Extracción Dental</option>
-                        <option value="Ortodoncia (Brackets/Alineadores)" data-i18n="optionOrtodoncia">Ortodoncia (Brackets/Alineadores)</option>
-                        <option value="Periodoncia (Encías)" data-i18n="optionPeriodoncia">Periodoncia (Tratamiento de Encías)</option>
-                        <option value="Odontopediatria" data-i18n="optionOdontopediatria">Odontopediatría (Niños)</option>
-                        <option value="Urgencia Dental / Dolor" data-i18n="optionUrgencia">Urgencia Dental / Dolor</option>
-                        <option value="Otro" data-i18n="optionOtro">Otro (especificar en mensaje)</option>
-                    </select>
-                </div>
-                 <div class="form-group">
-                    <label for="mensaje" class="form-label" data-i18n="messageLabel">Mensaje adicional (opcional)</label>
-                    <textarea id="mensaje" name="mensaje" class="form-control" rows="3" data-i18n-placeholder="messagePlaceholder" placeholder="Si seleccionaste 'Otro' o tienes alguna preferencia, por favor detalla aquí."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="dia" class="form-label" data-i18n="dayLabel">Día de preferencia para la consulta</label>
-                    <select id="dia" name="dia" class="form-control" required>
-                        <option value="" disabled selected data-i18n="selectDay">Selecciona un día</option>
-                        <option value="Lunes" data-i18n="day1">Lunes</option>
-                        <option value="Martes" data-i18n="day2">Martes</option>
-                        <option value="Miércoles" data-i18n="day3">Miércoles</option>
-                        <option value="Jueves" data-i18n="day4">Jueves</option>
-                        <option value="Viernes" data-i18n="day5">Viernes</option>
-                        <option value="Sábado" data-i18n="day6">Sábado</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="horario" class="form-label" data-i18n="timeLabel">Horario de preferencia</label>
-                    <select id="horario" name="horario" class="form-control" required>
-                        <option value="" disabled selected data-i18n="selectTime">Selecciona un horario</option>
-                        <option value="Mañana (9am-12pm)" data-i18n="time1">Mañana (9am-12pm)</option>
-                        <option value="Tarde (1pm-3pm)" data-i18n="time2alt">Mediodía (1pm-3pm)</option>
-                        <option value="Tarde (3pm-6pm)" data-i18n="time2">Tarde (3pm-6pm)</option>
-                        <option value="Sábado (9am-2pm)" data-i18n="time3">Sábado (9am-2pm)</option>
-                        <option value="Indiferente" data-i18n="timeIndifferent">Indiferente / Flexible</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="telefono" class="form-label" data-i18n="phoneLabel">Número de teléfono (WhatsApp preferible)</label>
-                    <input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Ingresa tu número de teléfono" data-i18n-placeholder="phonePlaceholder">
-                </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud de Cita</span>
-                </button>
-            </form>
+    <!-- Sección de Pasos -->
+    <section class="steps-section">
+      <h2 data-i18n="stepsTitle">Tu Cita en 3 Sencillos Pasos</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-keyboard"></i></div>
+          <h3 data-i18n="step1Title">1. Envía el Formulario</h3>
+          <p data-i18n="step1Desc">Llena tus datos. Solo nos toma un minuto revisar tu solicitud.</p>
         </div>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-comments"></i></div>
+          <h3 data-i18n="step2Title">2. Recibe Confirmación</h3>
+          <p data-i18n="step2Desc">Te contactaremos por teléfono o WhatsApp para confirmar el día y la hora.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-clinic-medical"></i></div>
+          <h3 data-i18n="step3Title">3. Asiste a tu Cita</h3>
+          <p data-i18n="step3Desc">¡Listo! Te esperamos en la clínica para cuidar de tu sonrisa.</p>
+        </div>
+      </div>
     </section>
-    
-    <div class="content-section" style="margin-top: 40px; text-align:center; padding: 25px; background-color: var(--gris-claro); border-radius: var(--radio-borde-general);">
-        <h2 data-i18n="locationTitle" style="text-align:center; border-bottom:none; padding-bottom:0; margin-bottom:15px;">Nuestra Ubicación</h2>
-         <p style="margin-bottom:15px;"><strong data-i18n="addressTitle">Dirección:</strong> <span data-i18n="addressDetail">Av. Plutarco Elías Calles 315, Col. Progresista, C.P. 32370, Ciudad Juárez, Chihuahua.</span></p>
-        <div class="mapa-container" style="max-width: 700px; margin-left:auto; margin-right:auto;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" style="height: 300px;" allowfullscreen="" loading="lazy" title="Ubicación de Dr. Santos Clínica Dental en Ciudad Juárez"></iframe>
-        </div>
-    </div>
 
   </main>
 
   <footer class="footer">
     <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
     <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
-    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="hoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM</span></p>
+    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="footerHoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM</span></p>
     <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
     <p class="copyright">© <span id="currentYear">2025</span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
   </footer>
@@ -321,47 +495,49 @@
   </button>
 
   <script>
-    // Objeto de traducciones para agenda.html
     const translations = {
       es: {
         "titleSchedulePage": "Agenda tu Cita | Dr. Santos Clínica Dental",
         "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        "formTitle": "Solicita tu Cita",
-        "nameLabel": "Nombre completo", "namePlaceholder": "Ingresa tu nombre completo",
-        "reasonLabel": "Motivo de consulta", "selectReason": "Selecciona un motivo",
-        "optionConsulta": "Consulta General / Revisión",
-        "optionLimpieza": "Limpieza Profesional",
-        "optionBlanqueamiento": "Blanqueamiento Dental",
-        "optionCarillas": "Carillas Dentales",
-        "optionImplante": "Implante Dental",
-        "optionCorona": "Corona Dental",
-        "optionPuente": "Puente Dental",
-        "optionEndodoncia": "Tratamiento de Canal (Endodoncia)",
-        "optionExtraccion": "Extracción Dental",
+        "schedulePageTitle": "Tu Sonrisa Ideal Comienza Aquí",
+        "schedulePageSubtitle": "Da el primer paso hacia una salud dental excepcional. Llena el formulario y nuestro equipo te contactará para confirmar tu cita a la brevedad.",
+        "formTitle": "Completa tus Datos",
+        "nameLabel": "Nombre completo", "namePlaceholder": "Ej. Ana Sofía García",
+        "phoneLabel": "Número de teléfono (WhatsApp)", "phonePlaceholder": "Para confirmar tu cita",
+        "reasonLabel": "Motivo de consulta", "selectReason": "Selecciona el motivo principal",
+        "optionValoracion": "Consulta de Valoración y Limpieza",
+        "optionEstetica": "Odontología Estética (Carillas, Blanqueamiento)",
+        "optionRehabilitacion": "Implantes y Rehabilitación (Coronas, Puentes)",
         "optionOrtodoncia": "Ortodoncia (Brackets/Alineadores)",
-        "optionPeriodoncia": "Periodoncia (Tratamiento de Encías)",
-        "optionOdontopediatria": "Odontopediatría (Niños)",
-        "optionUrgencia": "Urgencia Dental / Dolor",
-        "optionOtro": "Otro (especificar en mensaje)",
-        "messageLabel": "Mensaje adicional (opcional)", "messagePlaceholder": "Si seleccionaste 'Otro' o tienes alguna preferencia, por favor detalla aquí.",
-        "dayLabel": "Día de preferencia para la consulta", "selectDay": "Selecciona un día", 
+        "optionUrgencia": "Urgencia Dental (Dolor, Infección)",
+        "optionOtro": "Otro Motivo / No estoy seguro",
+        "messageLabel": "Mensaje adicional (opcional)", "messagePlaceholder": "Danos más detalles si lo necesitas.",
+        "dayLabel": "Día de preferencia", "selectDay": "Elige un día", 
         "day1": "Lunes", "day2": "Martes", "day3": "Miércoles", "day4": "Jueves", "day5": "Viernes", "day6": "Sábado",
-        "timeLabel": "Horario de preferencia", "selectTime": "Selecciona un horario", 
-        "time1": "Mañana (9am-12pm)", "time2alt": "Mediodía (1pm-3pm)", "time2": "Tarde (3pm-6pm)", "time3": "Sábado (9am-2pm)", "timeIndifferent": "Indiferente / Flexible",
-        "phoneLabel": "Número de teléfono (WhatsApp preferible)", "phonePlaceholder": "Ingresa tu número de teléfono", 
-        "submitBtn": "Enviar Solicitud de Cita",
-        "locationTitle": "Nuestra Ubicación",
-        "addressTitle": "Dirección:", "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, C.P. 32370, Ciudad Juárez, Chihuahua.",
-        "phoneNumber": "(614) 780-4673",
-        "schedulePageTitle": "Agenda tu Cita Fácilmente",
-        "scheduleInfoText1": "Utiliza el formulario a continuación para solicitar tu cita. Nos pondremos en contacto contigo a la brevedad para confirmar el día y la hora.",
-        "scheduleInfoText2": "Si prefieres, también puedes agendar llamándonos al <a href=\"tel:6147804673\">(614) 780-4673</a> o <a href=\"https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20Dr.%20Santos%20Clínica%20Dental\" target=\"_blank\" rel=\"noopener noreferrer\">vía WhatsApp</a>.",
-        "whatsappLinkText": "vía WhatsApp", // Importante para que el JS no lo limpie
-        "ourHoursTitle":"Nuestro Horario de Atención:",
+        "timeLabel": "Horario de preferencia", "selectTime": "Elige un bloque horario",
+        "timeMorning": "Mañana (9am - 1pm)", "timeAfternoon": "Tarde (1pm - 6pm)",
+        "timeSatMorning": "Sábado - Mañana (9am - 1pm)", "timeSatAfternoon": "Sábado - Tarde (1pm - 5pm)",
+        "timeIndifferent": "Indiferente / El más próximo",
+        "submitBtn": "Agendar mi Cita Ahora",
+        "whyChooseUsTitle": "¿Por qué elegirnos?",
+        "benefit1": "Atención 100% personalizada por especialistas.",
+        "benefit2": "Usamos tecnología de punta para tu diagnóstico.",
+        "benefit3": "Enfocados en resultados estéticos y funcionales.",
+        "benefit4": "Altos estándares de higiene y esterilización.",
+        "whatsappBtn": "Agendar por WhatsApp",
+        "phoneBtn": "Llamar a la Clínica",
+        "ourHoursTitle": "Nuestro Horario de Atención",
+        "hoursDetail": "Lunes a Viernes: 9am - 6pm<br>Sábados: 9am - 5pm",
+        "ourLocationTitle": "Encuéntranos en",
+        "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juárez, Chih.",
+        "stepsTitle": "Tu Cita en 3 Sencillos Pasos",
+        "step1Title": "1. Envía el Formulario", "step1Desc": "Llena tus datos. Solo nos toma un minuto revisar tu solicitud.",
+        "step2Title": "2. Recibe Confirmación", "step2Desc": "Te contactaremos por teléfono o WhatsApp para confirmar el día y la hora.",
+        "step3Title": "3. Asiste a tu Cita", "step3Desc": "¡Listo! Te esperamos en la clínica para cuidar de tu sonrisa.",
         "clinicNameFooter": "Dr. Santos Clínica Dental",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
-        "hours": "Horario", "hoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM",
+        "hours": "Horario", "footerHoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM",
         "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
         "clinicNameFooterDomain":"Dr. Santos Clínica Dental",
         "footerRights":"Todos los derechos reservados."
@@ -370,70 +546,61 @@
         "titleSchedulePage": "Schedule Your Appointment | Dr. Santos Dental Clinic",
         "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-        "formTitle": "Request Your Appointment",
-        "nameLabel": "Full name", "namePlaceholder": "Enter your full name",
-        "reasonLabel": "Reason for consultation", "selectReason": "Select a reason",
-        "optionConsulta": "General Consultation / Check-up",
-        "optionLimpieza": "Professional Cleaning",
-        "optionBlanqueamiento": "Teeth Whitening",
-        "optionCarillas": "Dental Veneers",
-        "optionImplante": "Dental Implant",
-        "optionCorona": "Dental Crown",
-        "optionPuente": "Dental Bridge",
-        "optionEndodoncia": "Root Canal Treatment (Endodontics)",
-        "optionExtraccion": "Tooth Extraction",
+        "schedulePageTitle": "Your Ideal Smile Starts Here",
+        "schedulePageSubtitle": "Take the first step towards exceptional dental health. Fill out the form, and our team will contact you shortly to confirm your appointment.",
+        "formTitle": "Fill Out Your Information",
+        "nameLabel": "Full name", "namePlaceholder": "e.g., John D. Smith",
+        "phoneLabel": "Phone number (WhatsApp)", "phonePlaceholder": "To confirm your appointment",
+        "reasonLabel": "Reason for consultation", "selectReason": "Select the main reason",
+        "optionValoracion": "Check-up & Cleaning",
+        "optionEstetica": "Cosmetic Dentistry (Veneers, Whitening)",
+        "optionRehabilitacion": "Implants & Oral Rehabilitation (Crowns, Bridges)",
         "optionOrtodoncia": "Orthodontics (Braces/Aligners)",
-        "optionPeriodoncia": "Periodontics (Gum Treatment)",
-        "optionOdontopediatria": "Pediatric Dentistry (Children)",
-        "optionUrgencia": "Dental Emergency / Pain",
-        "optionOtro": "Other (specify in message)",
-        "messageLabel": "Additional message (optional)", "messagePlaceholder": "If you selected 'Other' or have any preferences, please detail here.",
-        "dayLabel": "Preferred day for consultation", "selectDay": "Select a day", 
+        "optionUrgencia": "Dental Emergency (Pain, Infection)",
+        "optionOtro": "Other Reason / Not sure",
+        "messageLabel": "Additional message (optional)", "messagePlaceholder": "Give us more details if you need to.",
+        "dayLabel": "Preferred day", "selectDay": "Choose a day",
         "day1": "Monday", "day2": "Tuesday", "day3": "Wednesday", "day4": "Thursday", "day5": "Friday", "day6": "Saturday",
-        "timeLabel": "Preferred time", "selectTime": "Select a time", 
-        "time1": "Morning (9am-12pm)", "time2alt": "Midday (1pm-3pm)", "time2": "Afternoon (3pm-6pm)", "time3": "Saturday (9am-2pm)", "timeIndifferent": "Indifferent / Flexible",
-        "phoneLabel": "Phone number (WhatsApp preferred)", "phonePlaceholder": "Enter your phone number", 
-        "submitBtn": "Send Appointment Request",
-        "locationTitle": "Our Location",
-        "addressTitle": "Address:", "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, C.P. 32370, Ciudad Juarez, Chihuahua.",
-        "phoneNumber": "(614) 780-4673",
-        "schedulePageTitle": "Schedule Your Appointment Easily",
-        "scheduleInfoText1": "Use the form below to request your appointment. We will contact you shortly to confirm the day and time.",
-        "scheduleInfoText2": "If you prefer, you can also schedule by calling us at <a href=\"tel:6147804673\">(614) 780-4673</a> or <a href=\"https://wa.me/5216147804673?text=Hello,%20I%20would%20like%20to%20schedule%20an%20appointment%20at%20Dr.%20Santos%20Dental%20Clinic\" target=\"_blank\" rel=\"noopener noreferrer\">via WhatsApp</a>.",
-        "whatsappLinkText": "via WhatsApp", // Importante para que el JS no lo limpie
-        "ourHoursTitle":"Our Office Hours:",
+        "timeLabel": "Preferred time", "selectTime": "Choose a time slot",
+        "timeMorning": "Morning (9am - 1pm)", "timeAfternoon": "Afternoon (1pm - 6pm)",
+        "timeSatMorning": "Saturday - Morning (9am - 1pm)", "timeSatAfternoon": "Saturday - Afternoon (1pm - 5pm)",
+        "timeIndifferent": "Flexible / Soonest available",
+        "submitBtn": "Schedule My Appointment Now",
+        "whyChooseUsTitle": "Why Choose Us?",
+        "benefit1": "100% personalized care by specialists.",
+        "benefit2": "We use state-of-the-art technology for your diagnosis.",
+        "benefit3": "Focused on aesthetic and functional results.",
+        "benefit4": "High standards of hygiene and sterilization.",
+        "whatsappBtn": "Schedule via WhatsApp",
+        "phoneBtn": "Call the Clinic",
+        "ourHoursTitle": "Our Office Hours",
+        "hoursDetail": "Monday to Friday: 9am - 6pm<br>Saturdays: 9am - 5pm",
+        "ourLocationTitle": "Find Us At",
+        "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juarez, Chih.",
+        "stepsTitle": "Your Appointment in 3 Easy Steps",
+        "step1Title": "1. Submit the Form", "step1Desc": "Fill in your details. It only takes a minute for us to review your request.",
+        "step2Title": "2. Get Confirmation", "step2Desc": "We will contact you by phone or WhatsApp to confirm the day and time.",
+        "step3Title": "3. Attend Your Appointment", "step3Desc": "All set! We look forward to seeing you at the clinic to care for your smile.",
         "clinicNameFooter": "Dr. Santos Dental Clinic",
         "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
-        "hours": "Hours", "hoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 2:00 PM",
+        "hours": "Hours", "footerHoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 5:00 PM",
         "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
         "clinicNameFooterDomain":"Dr. Santos Dental Clinic",
         "footerRights":"All rights reserved."
       }
     };
-    // ---- INICIO SCRIPT GLOBAL (IDÉNTICO AL DE RESPUESTA ANTERIOR) ----
+    
+    // ---- SCRIPT GLOBAL ADAPTADO ----
     document.addEventListener('DOMContentLoaded', function() {
       const mainHeader = document.getElementById('mainHeader');
-      const mainNav = document.getElementById('mainNav'); 
-      const heroSection = document.getElementById('hero'); 
+      const mainNav = document.getElementById('mainNav');
       const hotSalePopup = document.getElementById('hotSalePopup');
       const closePopupBtn = document.getElementById('closePopup');
       const translateBtn = document.getElementById('translateBtn');
       const currentYearSpan = document.getElementById('currentYear');
 
       if(currentYearSpan) {
-          const year = new Date().getFullYear();
-          currentYearSpan.textContent = year;
-          if (translations.es.footerCopyright && translations.es.footerCopyright.includes('${new Date().getFullYear()}')) {
-            translations.es.footerCopyright = `© ${year} ${translations.es.clinicNameFooterDomain || 'Dr. Santos Clínica Dental'}. ${translations.es.footerRights || 'Todos los derechos reservados.'}`;
-          } else if (translations.es.footerCopyright && !translations.es.footerCopyright.includes(year.toString())) {
-             translations.es.footerCopyright = `© ${year} ${translations.es.clinicNameFooterDomain || 'Dr. Santos Clínica Dental'}. ${translations.es.footerRights || 'Todos los derechos reservados.'}`;
-          }
-
-          if (translations.en.footerCopyright && translations.en.footerCopyright.includes('${new Date().getFullYear()}')) {
-            translations.en.footerCopyright = `© ${year} ${translations.en.clinicNameFooterDomain || 'Dr. Santos Dental Clinic'}. ${translations.en.footerRights || 'All rights reserved.'}`;
-          } else if (translations.en.footerCopyright && !translations.en.footerCopyright.includes(year.toString())) {
-             translations.en.footerCopyright = `© ${year} ${translations.en.clinicNameFooterDomain || 'Dr. Santos Dental Clinic'}. ${translations.en.footerRights || 'All rights reserved.'}`;
-          }
+          currentYearSpan.textContent = new Date().getFullYear();
       }
       
       function adjustLayout() {
@@ -470,44 +637,18 @@
       window.addEventListener('resize', adjustLayout);
       setTimeout(adjustLayout, 300);
 
-      // Funcionalidad para los items de FAQ en .faq-detailed-section (si existen en la página)
-      document.querySelectorAll('.faq-detailed-section .faq-item h3').forEach(item => {
-        item.addEventListener('click', function() {
-          this.parentElement.classList.toggle('active');
-        });
-      });
-      // También para los .faq-item que podrían estar fuera de .faq-detailed-section (como en index)
-       document.querySelectorAll('section#faq .faq-item h3').forEach(item => {
-        item.addEventListener('click', function() {
-          this.parentElement.classList.toggle('active');
-        });
-      });
-      
-      function reveal() {
-          const reveals = document.querySelectorAll('.reveal');
-           for (let i = 0; i < reveals.length; i++) {
-              const windowHeight = window.innerHeight;
-              const elementTop = reveals[i].getBoundingClientRect().top;
-              const elementVisible = 80; 
-              if (elementTop < windowHeight - elementVisible) {
-                  reveals[i].classList.add('active');
-              }
-          }
-      }
-      window.addEventListener('scroll', reveal);
-      reveal();
-
       if (typeof translations !== 'undefined' && translateBtn) {
           function changeLanguage(lang) {
               document.documentElement.lang = lang;
               document.querySelectorAll('[data-i18n]').forEach(el => {
                   const key = el.getAttribute('data-i18n');
-                  let content = translations[lang] && translations[lang][key] ? translations[lang][key] : (translations['es'] && translations['es'][key] ? translations['es'][key] : el.innerHTML);
-                  
-                  if (key === 'scheduleInfoText2' || (el.tagName === 'P' && key === 'footerCopyright') ) { // Permitir HTML en estos elementos específicos
-                      el.innerHTML = content; 
-                  } else {
-                      el.textContent = content.replace(/<[^>]*>/g, ""); 
+                  if(translations[lang] && translations[lang][key]) {
+                      // Allow HTML for elements that need it (like line breaks in hours)
+                      if (key === 'hoursDetail') {
+                          el.innerHTML = translations[lang][key];
+                      } else {
+                          el.textContent = translations[lang][key];
+                      }
                   }
               });
               document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
@@ -536,48 +677,7 @@
               translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
           }
       }
-
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-              const targetId = this.getAttribute('href');
-              const targetElement = document.querySelector(targetId);
-              if (targetElement) {
-                  let offset = 0;
-                  if (mainHeader) offset += mainHeader.offsetHeight;
-                  if (mainNav && getComputedStyle(mainNav).position === 'sticky') offset += mainNav.offsetHeight;
-                  const elementPosition = targetElement.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset - 10; 
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-          });
-      });
-
-      const currentPage = window.location.pathname.split("/").pop() || "index.html"; 
-      if (mainNav) {
-          const navLinks = mainNav.querySelectorAll('a');
-          navLinks.forEach(link => {
-              link.classList.remove('active-tab'); 
-              let linkPage = link.getAttribute('href').split("/").pop();
-              if (linkPage === currentPage) {
-                  link.classList.add('active-tab');
-              }
-          });
-      }
-      
-      // Para la página de agenda, el form-section no debe tener la animación de fadeInUp inicial
-      // ya que es el contenido principal y no un elemento que aparece con scroll.
-      if (currentPage === "agenda.html") {
-          const formSection = document.querySelector('.form-section');
-          if (formSection) {
-              formSection.style.opacity = '1';
-              formSection.style.transform = 'none';
-              // Si la animación está aplicada por clase, removerla
-              // formSection.classList.remove('fadeInUp'); 
-          }
-      }
     });
-    // ---- FIN SCRIPT GLOBAL ----
   </script>
 </body>
 </html>
