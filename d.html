@@ -2,304 +2,300 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Historia Clínica Odontológica</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap');
-
+        /* Estilos optimizados para compatibilidad con Word */
         body {
-            font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 10.5pt;
-            line-height: 1.4;
-            color: #34495e;
-            margin: 2cm;
-            background-color: #fdfdfd;
+            font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+            font-size: 11pt;
+            color: #333;
+            background-color: #fff;
+        }
+        .page-container {
+            width: 18cm; /* Ancho A4 menos márgenes */
+            margin: auto;
         }
         h1, h3 {
-            font-family: 'Lato', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Cambria', 'Garamond', serif;
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 6px;
-            margin-top: 20pt;
-            font-weight: 700;
+            text-align: center;
+            padding-bottom: 5px;
+            font-weight: normal;
         }
         h1 {
-            text-align: center;
-            font-size: 20pt;
-            border-bottom: 4px double #3498db;
-            margin-bottom: 12pt;
+            font-size: 22pt;
+            border-bottom: 3px double #4a86e8;
+            margin-bottom: 25px;
         }
         h3 {
-            font-size: 15pt;
-            color: #3498db;
+            font-size: 16pt;
+            color: #4a86e8;
+            border-bottom: 1px solid #4a86e8;
+            margin-top: 30px;
+            text-align: left;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10pt;
-            margin-bottom: 10pt;
-            font-size: 10pt;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 10.5pt;
         }
-        th, td {
-            border: 1px solid #d5dbdb;
-            padding: 7px;
+        td {
+            border: 1px solid #cccccc;
+            padding: 8px;
             text-align: left;
             vertical-align: top;
         }
-        th {
-            background-color: #eaf2f8;
-            font-weight: bold;
-            color: #2874a6;
-        }
         .section-title {
-            font-family: 'Lato', sans-serif;
             font-weight: bold;
-            font-size: 11pt;
-            color: #2c3e50;
-            margin-top: 18pt;
+            background-color: #eaf2f8;
+            padding: 8px;
+            border-radius: 4px;
         }
         .signature-line {
-            border-top: 1px solid #34495e;
-            margin-top: 40px;
+            border-top: 1px solid #333;
+            margin-top: 50px;
             text-align: center;
             padding-top: 5px;
-        }
-        .clinic-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 9.5pt;
-        }
-        .clinic-header div {
-            flex-basis: 48%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .logo-placeholder {
             text-align: center;
-            padding: 20px;
-            border: 2px dashed #bdc3c7;
-            margin-bottom: 20px;
-            color: #7f8c8d;
+            padding: 25px;
+            border: 2px dashed #cccccc;
+            margin-bottom: 25px;
+            color: #999;
         }
         .odontogram-placeholder {
             text-align: center;
-            padding: 50px;
-            border: 1px solid #d5dbdb;
+            padding: 60px;
+            border: 1px solid #cccccc;
             margin-top: 10px;
-            background-color: #fdfdfd;
-            color: #7f8c8d;
+            background-color: #f9f9f9;
+            color: #999;
         }
         .checkbox {
             display: inline-block;
-            width: 11px;
-            height: 11px;
-            border: 1px solid #34495e;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #333;
             margin: 0 5px;
             vertical-align: middle;
         }
-        .underline {
-            border-bottom: 1px solid #999;
-            padding: 0 5px;
-            min-width: 150px;
-            display: inline-block;
-            height: 14px;
-        }
         .fillable-area {
-            border: 1px solid #d5dbdb;
+            border: 1px solid #cccccc;
             padding: 10px;
-            min-height: 60px;
-            background-color: #fdfdfd;
-            border-radius: 4px;
+            min-height: 50px;
+            margin-top: 5px;
         }
         .footer-note {
             text-align: center;
             font-style: italic;
             font-size: 9pt;
-            color: #95a5a6;
-            margin-top: 30pt;
+            color: #888;
+            margin-top: 40px;
+        }
+        /* Tabla sin bordes para layout */
+        .layout-table, .layout-table td {
+            border: none;
+        }
+        /* Salto de página */
+        .page-break {
+            page-break-before: always;
         }
     </style>
 </head>
 <body>
-    <div class="logo-placeholder">
-        [ESPACIO PARA EL LOGO DE LA CLÍNICA]
-    </div>
-
-    <div class="clinic-header">
-        <div>
-            <strong>[NOMBRE DE LA CLÍNICA DENTAL]</strong><br>
-            Av. Plutarco Elías Calles 315<br>
-            [Colonia, Ciudad, Estado, C.P.]<br>
-            Tel: [Número de Teléfono]
+    <div class="page-container">
+        <div class="logo-placeholder">
+            [ESPACIO PARA EL LOGO DE LA CLÍNICA]
         </div>
-        <div style="text-align: right;">
-            <strong>Dr(a). [NOMBRE DEL DOCTOR(A) PRINCIPAL]</strong><br>
-            Céd. Prof. [Número de Cédula Profesional]<br>
-            [Especialidad Principal]
+
+        <table class="layout-table" style="margin-bottom: 30px;">
+            <tr>
+                <td style="width: 50%;">
+                    <strong>[NOMBRE DE LA CLÍNICA DENTAL]</strong><br>
+                    Av. Plutarco Elías Calles 315<br>
+                    [Colonia, Ciudad, Estado, C.P.]<br>
+                    Tel: [Número de Teléfono]
+                </td>
+                <td style="width: 50%; text-align: right;">
+                    <strong>Dr(a). [NOMBRE DEL DOCTOR(A) PRINCIPAL]</strong><br>
+                    Céd. Prof. [Número de Cédula Profesional]<br>
+                    [Especialidad Principal]
+                </td>
+            </tr>
+        </table>
+
+        <h1>HISTORIA CLÍNICA ODONTOLÓGICA</h1>
+
+        <table>
+            <tr>
+                <td style="width: 20%;"><strong>Nombre del Paciente:</strong></td>
+                <td></td>
+                <td style="width: 15%;"><strong>No. de Expediente:</strong></td>
+                <td></td>
+                <td style="width: 10%;"><strong>Fecha:</strong></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h3>1. FICHA DE FILIACIÓN</h3>
+        <table>
+            <tr>
+                <td style="width: 30%;"><strong>Nombre Completo:</strong></td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td><strong>Fecha de Nacimiento:</strong></td>
+                <td></td>
+                <td style="width: 15%;"><strong>Edad:</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Sexo:</strong></td>
+                <td colspan="3">M ( <span class="checkbox"></span> ) &nbsp;&nbsp;&nbsp; F ( <span class="checkbox"></span> )</td>
+            </tr>
+            <tr>
+                <td><strong>Domicilio:</strong></td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+
+        <h3>2. ANAMNESIS / INTERROGATORIO</h3>
+        <p class="section-title">MOTIVO PRINCIPAL DE LA CONSULTA:</p>
+        <div class="fillable-area"></div>
+
+        <p class="section-title" style="margin-top: 20px;">ANTECEDENTES HEREDOFAMILIARES:</p>
+        <table>
+            <tr>
+                <td style="width:25%;">Diabetes</td>
+                <td style="width:25%;">Sí <span class="checkbox"></span> No <span class="checkbox"></span> Parentesco:</td>
+                <td style="width:25%;">Cáncer</td>
+                <td style="width:25%;">Sí <span class="checkbox"></span> No <span class="checkbox"></span> Parentesco:</td>
+            </tr>
+            <tr>
+                <td>Hipertensión Arterial</td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> Parentesco:</td>
+                <td>Problemas Cardiacos</td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> Parentesco:</td>
+            </tr>
+        </table>
+        
+        <p class="section-title" style="margin-top: 20px;">ANTECEDENTES PERSONALES PATOLÓGICOS:</p>
+        <table>
+            <tr>
+                <td><strong>Alergias (Medicamentos, anestesia, etc.)</strong></td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> ¿Cuál?:</td>
+            </tr>
+            <tr>
+                <td><strong>Problemas Cardiovasculares (Hipertensión, etc.)</strong></td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> ¿Cuál?:</td>
+            </tr>
+            <tr>
+                <td><strong>Diabetes (Tipo 1 o 2)</strong></td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> ¿Está controlada?:</td>
+            </tr>
+             <tr>
+                <td><strong>¿Está usted bajo tratamiento médico actualmente?</strong></td>
+                <td>Sí <span class="checkbox"></span> No <span class="checkbox"></span> ¿Cuál?:</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h3>3. EXPLORACIÓN CLÍNICA</h3>
+        <p class="section-title">SIGNOS VITALES:</p>
+        <table>
+            <tr>
+                <td style="width: 50%;"><strong>Presión Arterial:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mmHg</td>
+                <td style="width: 50%;"><strong>Frecuencia Cardiaca:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x min</td>
+            </tr>
+        </table>
+        
+        <p class="section-title" style="margin-top:20px;">EXAMEN EXTRAORAL:</p>
+        <div class="fillable-area"></div>
+
+        <p class="section-title" style="margin-top:20px;">EXAMEN INTRAORAL DE TEJIDOS BLANDOS:</p>
+        <div class="fillable-area"></div>
+
+        <h3>4. ODONTOGRAMAS</h3>
+        <p class="section-title" style="text-align:center;">ODONTOGRAMA DE HALLAZGOS INICIALES</p>
+        <div class="odontogram-placeholder">[IMAGEN DE ODONTOGRAMA ANATÓMICO]</div>
+
+        <p class="section-title" style="text-align:center; margin-top:20px;">ODONTOGRAMA DE PLAN DE TRATAMIENTO</p>
+        <div class="odontogram-placeholder">[IMAGEN DE ODONTOGRAMA ANATÓMICO]</div>
+
+        <div class="page-break"></div>
+        
+        <h3>5. DIAGNÓSTICO Y PLAN DE TRATAMIENTO</h3>
+        <p class="section-title">DIAGNÓSTICO(S):</p>
+        <div class="fillable-area" style="min-height: 100px;"></div>
+
+        <p class="section-title" style="margin-top:20px;">PLAN DE TRATAMIENTO Y PRESUPUESTO:</p>
+        <table>
+            <tr style="text-align:center; font-weight:bold; background-color: #f2f2f2;">
+                <td>Fase / Cita</td><td>Diente(s)</td><td>Tratamiento a Realizar</td><td>Costo</td><td>Realizado (Firma)</td>
+            </tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr style="font-weight:bold;">
+                <td colspan="3" style="text-align:right;">Total:</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+        
+        <h3>6. CARTA DE CONSENTIMIENTO INFORMADO GENERAL</h3>
+        <div style="padding: 10px; border: 1px solid #ccc; line-height: 1.6; text-align: justify;">
+            <p>
+                Yo, _______________________________________________________, en pleno uso de mis facultades, declaro que he sido informado(a) de manera clara y suficiente por el/la C.D. _______________________________________________________ (Céd. Prof. _________________), sobre mi estado de salud bucodental.
+            </p>
+            <ol>
+                <li><strong>AUTORIZACIÓN:</strong> Autorizo al personal de la clínica a realizar los procedimientos de diagnóstico y los tratamientos descritos en el "Plan de Tratamiento".</li>
+                <li><strong>RIESGOS Y BENEFICIOS:</strong> Entiendo que todo procedimiento dental conlleva beneficios, pero también riesgos y complicaciones potenciales (dolor, inflamación, infección, reacciones alérgicas, parestesia, etc.).</li>
+                <li><strong>CONFIDENCIALIDAD:</strong> Autorizo el tratamiento de mis datos conforme a la Ley de Protección de Datos Personales, con fines exclusivamente médico-asistenciales.</li>
+            </ol>
+            <p>Habiendo leído y comprendido lo anterior, y habiendo aclarado todas mis dudas, firmo de conformidad.</p>
+            <p><strong>Lugar y Fecha:</strong> _______________________________________________________</p>
         </div>
+        
+        <table class="layout-table" style="margin-top: 60px;">
+            <tr>
+                <td style="width: 50%;"><p class="signature-line">Firma del Paciente o Representante Legal</p></td>
+                <td style="width: 50%;"><p class="signature-line">Nombre y Firma del Odontólogo Tratante</p></td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+        
+        <h3>7. NOTAS DE EVOLUCIÓN</h3>
+        <table>
+            <tr style="text-align:center; font-weight:bold; background-color: #f2f2f2;">
+                <td style="width: 15%;">Fecha y Hora</td>
+                <td style="width: 10%;">Diente/Zona</td>
+                <td>Evolución, Signos Vitales, Procedimiento, Indicaciones, etc.</td>
+                <td style="width: 20%;">Nombre y Firma del Odontólogo</td>
+            </tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+            <tr><td style="height: 50px;"></td><td></td><td></td><td></td></tr>
+        </table>
+
+        <p class="footer-note">Esta historia clínica es un documento confidencial y propiedad de la clínica.</p>
     </div>
-
-    <h1>HISTORIA CLÍNICA ODONTOLÓGICA</h1>
-
-    <table>
-        <tr>
-            <td style="width: 20%;"><strong>Nombre del Paciente:</strong></td>
-            <td></td>
-            <td style="width: 15%;"><strong>No. de Expediente:</strong></td>
-            <td></td>
-            <td style="width: 10%;"><strong>Fecha:</strong></td>
-            <td></td>
-        </tr>
-    </table>
-
-    <h3>1. FICHA DE FILIACIÓN</h3>
-    <table>
-        <tr>
-            <td style="width: 30%;"><strong>Nombre Completo:</strong></td>
-            <td colspan="3"></td>
-        </tr>
-        <tr>
-            <td><strong>Fecha de Nacimiento:</strong></td>
-            <td></td>
-            <td style="width: 15%;"><strong>Edad:</strong></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><strong>Sexo:</strong></td>
-            <td colspan="3">M ( <span class="checkbox"></span> ) F ( <span class="checkbox"></span> )</td>
-        </tr>
-        <tr>
-            <td><strong>Domicilio:</strong></td>
-            <td colspan="3"></td>
-        </tr>
-    </table>
-
-    <h3>2. ANAMNESIS / INTERROGATORIO</h3>
-    <p class="section-title">MOTIVO PRINCIPAL DE LA CONSULTA:</p>
-    <div class="fillable-area"></div>
-
-    <p class="section-title">ANTECEDENTES HEREDOFAMILIARES:</p>
-    <table>
-        <tr>
-            <th>Enfermedad</th><th>Sí</th><th>No</th><th>Parentesco</th>
-            <th>Enfermedad</th><th>Sí</th><th>No</th><th>Parentesco</th>
-        </tr>
-        <tr>
-            <td>Diabetes</td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td>
-            <td>Cáncer</td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td>
-        </tr>
-        <tr>
-            <td>Hipertensión Arterial</td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td>
-            <td>Problemas Cardiacos</td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td>
-        </tr>
-    </table>
-    
-    <p class="section-title">ANTECEDENTES PERSONALES PATOLÓGICOS:</p>
-    <table>
-        <tr><th>Condición</th><th>Sí</th><th>No</th><th>Especifique / Tratamiento actual</th></tr>
-        <tr><td><strong>Alergias (Medicamentos, anestesia, látex, etc.)</strong></td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td></tr>
-        <tr><td><strong>Problemas Cardiovasculares (Hipertensión, etc.)</strong></td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td></tr>
-        <tr><td><strong>Diabetes (Tipo 1 o 2)</strong></td><td><span class="checkbox"></span></td><td><span class="checkbox"></span></td><td></td></tr>
-    </table>
-    <p><strong>¿Está usted bajo tratamiento médico actualmente?</strong> Sí <span class="checkbox"></span> No <span class="checkbox"></span> <strong>¿Cuál?</strong> <span class="underline" style="width: 50%;"></span></p>
-
-    <div style="page-break-before: always;"></div>
-
-    <h3>3. EXPLORACIÓN CLÍNICA</h3>
-    <p class="section-title">SIGNOS VITALES:</p>
-    <table>
-        <tr>
-            <td><strong>Presión Arterial:</strong></td>
-            <td>/ mmHg</td>
-            <td><strong>Frecuencia Cardiaca:</strong></td>
-            <td>x min</td>
-        </tr>
-    </table>
-    
-    <p class="section-title">EXAMEN EXTRAORAL:</p>
-    <div class="fillable-area"></div>
-
-    <p class="section-title">EXAMEN INTRAORAL DE TEJIDOS BLANDOS:</p>
-    <div class="fillable-area"></div>
-
-    <h3>4. ODONTOGRAMAS</h3>
-    <p class="section-title">ODONTOGRAMA DE HALLAZGOS INICIALES</p>
-    <div class="odontogram-placeholder">[IMAGEN DE ODONTOGRAMA ANATÓMICO]</div>
-
-    <p class="section-title">ODONTOGRAMA DE PLAN DE TRATAMIENTO</p>
-    <div class="odontogram-placeholder">[IMAGEN DE ODONTOGRAMA ANATÓMICO]</div>
-
-    <div style="page-break-before: always;"></div>
-    
-    <h3>5. DIAGNÓSTICO Y PLAN DE TRATAMIENTO</h3>
-    <p class="section-title">DIAGNÓSTICO(S):</p>
-    <div class="fillable-area" style="min-height: 80px;"></div>
-
-    <p class="section-title">PLAN DE TRATAMIENTO Y PRESUPUESTO:</p>
-    <table>
-        <thead>
-            <tr><th>Fase / Cita</th><th>Diente(s)</th><th>Tratamiento a Realizar</th><th>Costo</th><th>Realizado (Firma)</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>5</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>6</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>7</td><td></td><td></td><td></td><td></td></tr>
-            <tr><td>8</td><td></td><td></td><td></td><td></td></tr>
-        </tbody>
-        <tfoot>
-            <tr><td colspan="3" style="text-align:right;"><strong>Total:</strong></td><td></td><td></td></tr>
-        </tfoot>
-    </table>
-
-    <div style="page-break-before: always;"></div>
-    
-    <h3>6. CARTA DE CONSENTIMIENTO INFORMADO GENERAL</h3>
-    <p style="text-align: justify; line-height: 1.6;">
-        Yo, <span class="underline" style="min-width: 300px;"></span>, en pleno uso de mis facultades, declaro que he sido informado(a) de manera clara y suficiente por el/la C.D. <span class="underline" style="min-width: 300px;"></span> (Céd. Prof. <span class="underline" style="min-width: 100px;"></span>), sobre mi estado de salud bucodental.
-    </p>
-    <ol style="text-align: justify; line-height: 1.6;">
-        <li><strong>AUTORIZACIÓN:</strong> Autorizo al personal de la clínica a realizar los procedimientos de diagnóstico y los tratamientos descritos en el "Plan de Tratamiento".</li>
-        <li><strong>RIESGOS Y BENEFICIOS:</strong> Entiendo que todo procedimiento dental conlleva beneficios, pero también riesgos y complicaciones potenciales (dolor, inflamación, infección, reacciones alérgicas, parestesia, etc.).</li>
-        <li><strong>CONFIDENCIALIDAD:</strong> Autorizo el tratamiento de mis datos conforme a la Ley de Protección de Datos Personales, con fines exclusivamente médico-asistenciales.</li>
-    </ol>
-    <p>Habiendo leído y comprendido lo anterior, y habiendo aclarado todas mis dudas, firmo de conformidad.</p>
-
-    <p><strong>Lugar y Fecha:</strong> <span class="underline" style="min-width: 300px;"></span></p>
-
-    <table style="border: none; margin-top: 50px;">
-        <tr style="text-align: center;">
-            <td style="border: none; padding: 20px;"><p class="signature-line">Firma del Paciente o Representante Legal</p></td>
-            <td style="border: none; padding: 20px;"><p class="signature-line">Nombre y Firma del Odontólogo Tratante</p></td>
-        </tr>
-    </table>
-
-    <div style="page-break-before: always;"></div>
-    
-    <h3>7. NOTAS DE EVOLUCIÓN</h3>
-    <table>
-        <thead>
-            <tr><th>Fecha y Hora</th><th>Diente/Zona</th><th>Evolución, Signos Vitales, Procedimiento Realizado, Indicaciones, etc.</th><th>Nombre Completo, Cédula y Firma del Odontólogo</th></tr>
-        </thead>
-        <tbody>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-            <tr><td style="height: 45px;"></td><td></td><td></td><td></td></tr>
-        </tbody>
-    </table>
-
-    <p class="footer-note">Esta historia clínica es un documento confidencial y propiedad de la clínica.</p>
 </body>
 </html>
