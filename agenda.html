@@ -122,8 +122,12 @@
     .form-control { width: 100%; padding: 14px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); font-size: 1rem; transition: all 0.3s ease; background-color: #fcfcfc; }
     .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); outline: none; background-color: var(--blanco); }
     
-    /* --- NUEVOS ESTILOS PARA HORARIOS PREFERIDOS --- */
-    .radio-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+    /* --- ESTILOS CORREGIDOS PARA HORARIOS PREFERIDOS --- */
+    .radio-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); /* Aumentado el ancho mínimo */
+        gap: 10px;
+    }
     .radio-group input[type="radio"] { display: none; }
     .radio-group label {
         padding: 12px;
@@ -133,6 +137,7 @@
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 500;
+        white-space: nowrap; /* Evita que el texto se divida en varias líneas */
     }
     .radio-group input[type="radio"]:checked + label {
         background-color: rgba(var(--acento-rgb), 0.15);
@@ -145,7 +150,7 @@
         border-color: var(--acento);
         background-color: rgba(var(--acento-rgb), 0.05);
     }
-    /* --- FIN NUEVOS ESTILOS --- */
+    /* --- FIN ESTILOS CORREGIDOS --- */
 
     .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
     .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
