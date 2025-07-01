@@ -31,6 +31,7 @@
       --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
       --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); 
       --whatsapp: #25D366;
+      --whatsapp-hover: #20b055;
       --radio-borde-general: 12px;
       --radio-borde-sm: 8px; 
       --color-text-subtle: #5a677d;
@@ -62,11 +63,55 @@
     .section-container { max-width: 900px; margin: 0 auto; }
     .section-spacing { margin-bottom: clamp(40px, 8vh, 70px); }
 
-    .schedule-header { text-align: center; margin-bottom: 40px; }
-    .schedule-header h1 { font-size: clamp(2.2rem, 6vw, 3rem); color: var(--color-primario); font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+    .schedule-header { text-align: center; margin-bottom: 30px; }
+    .schedule-header h1 { font-size: clamp(2rem, 6vw, 2.8rem); color: var(--color-primario); font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
     .schedule-header .sub-h1 { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--color-secundario); margin-bottom: 15px; font-weight: 500;}
     .schedule-header p { font-size: clamp(1rem, 2.5vw, 1.1rem); color: var(--color-text-subtle); max-width: 700px; margin: 0 auto; }
     
+    /* --- NUEVOS ESTILOS PARA BOTONES DE ACCIÓN RÁPIDA --- */
+    .quick-actions-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+    @media(min-width: 600px) {
+        .quick-actions-container { grid-template-columns: 1fr 1fr; }
+    }
+    .quick-action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        border-radius: var(--radio-borde-sm);
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: var(--sombra-ligera);
+    }
+    .quick-action-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sombra-media);
+    }
+    .quick-action-btn i {
+        font-size: 1.5rem;
+    }
+    .btn-whatsapp { background-color: var(--whatsapp); color: var(--blanco); }
+    .btn-whatsapp:hover { background-color: var(--whatsapp-hover); }
+    .btn-call { background-color: var(--color-secundario); color: var(--blanco); }
+    .btn-call:hover { background-color: var(--color-primario); }
+    .form-divider {
+        text-align: center;
+        color: var(--color-text-subtle);
+        font-size: 1rem;
+        margin-bottom: 30px;
+        font-family: 'Poppins', sans-serif;
+    }
+    /* --- FIN NUEVOS ESTILOS --- */
+
     .form-section-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: flex-start; }
     @media(min-width: 900px) { .form-section-wrapper { grid-template-columns: 1fr 1fr; } }
     
@@ -76,6 +121,32 @@
     .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-secundario); font-size: 0.9rem; }
     .form-control { width: 100%; padding: 14px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); font-size: 1rem; transition: all 0.3s ease; background-color: #fcfcfc; }
     .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); outline: none; background-color: var(--blanco); }
+    
+    /* --- NUEVOS ESTILOS PARA HORARIOS PREFERIDOS --- */
+    .radio-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+    .radio-group input[type="radio"] { display: none; }
+    .radio-group label {
+        padding: 12px;
+        border: 1px solid var(--gris-medio);
+        border-radius: var(--radio-borde-sm);
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    .radio-group input[type="radio"]:checked + label {
+        background-color: rgba(var(--acento-rgb), 0.15);
+        border-color: var(--acento);
+        color: var(--color-primario);
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(var(--acento-rgb), 0.1);
+    }
+    .radio-group label:hover {
+        border-color: var(--acento);
+        background-color: rgba(var(--acento-rgb), 0.05);
+    }
+    /* --- FIN NUEVOS ESTILOS --- */
+
     .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
     .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
     
@@ -127,16 +198,26 @@
     <div class="section-container">
 
       <!-- ENCABEZADO MEJORADO -->
-      <section class="schedule-header section-spacing">
+      <section class="schedule-header">
         <h1 data-i18n="schedulePageTitle">Invierta en la Sonrisa que Merece</h1>
         <h2 class="sub-h1" data-i18n="schedulePageSubtitle">Una experiencia dental de primer nivel para pacientes de Juárez y El Paso.</h2>
-        <p data-i18n="schedulePageIntro">Sabemos que su sonrisa es una parte esencial de su identidad. Permítanos conocer su caso y diseñar juntos un plan de tratamiento que cumpla sus más altas expectativas. El primer paso es una conversación.</p>
+        <p data-i18n="schedulePageIntro">El primer paso es una conversación. Contáctenos hoy mismo.</p>
+      </section>
+
+      <!-- NUEVA SECCIÓN DE ACCIONES RÁPIDAS -->
+      <section class="quick-actions-container section-spacing">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." target="_blank" class="quick-action-btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> <span data-i18n="btnWhatsapp">Agendar por WhatsApp</span>
+        </a>
+        <a href="tel:+526147804673" class="quick-action-btn btn-call">
+          <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar para Agendar</span>
+        </a>
       </section>
 
       <!-- SECCIÓN DE FORMULARIO Y FOTO -->
       <section class="form-section-wrapper section-spacing">
         <div class="form-section">
-          <h2 class="form-title" data-i18n="formTitle">Inicie su Valoración Personalizada</h2>
+          <h2 class="form-title" data-i18n="formTitle">O complete el formulario</h2>
           <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="Nueva solicitud de VALORACIÓN - Página Agenda">
               <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
@@ -156,8 +237,34 @@
                       <option value="Otro Motivo" data-i18n="optionOtro">Otro</option>
                   </select>
               </div>
+
+              <!-- NUEVOS CAMPOS DE DÍA Y HORARIO -->
+              <div class="form-group">
+                <label for="dia_preferido" class="form-label" data-i18n="dayLabel">Día de preferencia (opcional)</label>
+                <input type="text" id="dia_preferido" name="Día de Preferencia" class="form-control" placeholder="Ej: Lunes por la tarde, fin de semana">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="timeLabel">Horario de preferencia (opcional)</label>
+                <div class="radio-group">
+                    <div>
+                        <input type="radio" id="horario1" name="Horario Preferido" value="9am - 12pm">
+                        <label for="horario1">9am - 12pm</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="horario2" name="Horario Preferido" value="12pm - 3pm">
+                        <label for="horario2">12pm - 3pm</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="horario3" name="Horario Preferido" value="3pm - 6pm">
+                        <label for="horario3">3pm - 6pm</label>
+                    </div>
+                </div>
+              </div>
+              <!-- FIN DE NUEVOS CAMPOS -->
+
               <div class="form-group"><label for="mensaje" class="form-label" data-i18n="messageLabel">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" class="form-control" rows="3" placeholder="Si lo desea, brinde más detalles sobre su caso."></textarea></div>
-              <button type="submit" class="submit-btn"><i class="fas fa-calendar-check"></i> <span data-i18n="submitBtn">Solicitar mi Valoración</span></button>
+              <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span></button>
           </form>
         </div>
         <div class="patient-photo-card">
@@ -165,42 +272,18 @@
         </div>
       </section>
 
-      <!-- NUEVA SECCIÓN: COMPROMISO CON LA EXCELENCIA -->
+      <!-- SECCIÓN COMPROMISO CON LA EXCELENCIA (SIN CAMBIOS) -->
       <section class="excellence-section section-spacing">
         <h2 data-i18n="excellenceTitle">Nuestro Compromiso con la Excelencia</h2>
         <div class="excellence-grid">
-          <div class="excellence-item">
-            <i class="fas fa-award"></i>
-            <div>
-              <h3 data-i18n="excellence1Title">Materiales de Prestigio Mundial</h3>
-              <p data-i18n="excellence1Desc">Trabajamos exclusivamente con las mejores marcas de implantes, coronas y resinas, garantizando durabilidad y una estética impecable.</p>
-            </div>
-          </div>
-          <div class="excellence-item">
-            <i class="fas fa-digital-tachograph"></i>
-            <div>
-              <h3 data-i18n="excellence2Title">Diagnóstico Digital de Precisión</h3>
-              <p data-i18n="excellence2Desc">Utilizamos escáneres intraorales y radiografía 3D para una planificación milimétrica, asegurando resultados predecibles y exitosos.</p>
-            </div>
-          </div>
-          <div class="excellence-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <div>
-              <h3 data-i18n="excellence3Title">Un Plan Único para Usted</h3>
-              <p data-i18n="excellence3Desc">Rechazamos los tratamientos genéricos. El Dr. Santos diseña personalmente cada plan para armonizar con sus rasgos y objetivos.</p>
-            </div>
-          </div>
-          <div class="excellence-item">
-            <i class="fas fa-shield-alt"></i>
-            <div>
-              <h3 data-i18n="excellence4Title">Garantía de Confianza</h3>
-              <p data-i18n="excellence4Desc">Respaldamos la calidad de nuestro trabajo. Su tranquilidad y satisfacción a largo plazo son el pilar de nuestra práctica.</p>
-            </div>
-          </div>
+          <div class="excellence-item"><i class="fas fa-award"></i><div><h3 data-i18n="excellence1Title">Materiales de Prestigio Mundial</h3><p data-i18n="excellence1Desc">Trabajamos exclusivamente con las mejores marcas de implantes, coronas y resinas, garantizando durabilidad y una estética impecable.</p></div></div>
+          <div class="excellence-item"><i class="fas fa-digital-tachograph"></i><div><h3 data-i18n="excellence2Title">Diagnóstico Digital de Precisión</h3><p data-i18n="excellence2Desc">Utilizamos escáneres intraorales y radiografía 3D para una planificación milimétrica, asegurando resultados predecibles y exitosos.</p></div></div>
+          <div class="excellence-item"><i class="fas fa-hand-holding-heart"></i><div><h3 data-i18n="excellence3Title">Un Plan Único para Usted</h3><p data-i18n="excellence3Desc">Rechazamos los tratamientos genéricos. El Dr. Santos diseña personalmente cada plan para armonizar con sus rasgos y objetivos.</p></div></div>
+          <div class="excellence-item"><i class="fas fa-shield-alt"></i><div><h3 data-i18n="excellence4Title">Garantía de Confianza</h3><p data-i18n="excellence4Desc">Respaldamos la calidad de nuestro trabajo. Su tranquilidad y satisfacción a largo plazo son el pilar de nuestra práctica.</p></div></div>
         </div>
       </section>
 
-      <!-- SECCIÓN FAQ ACTUALIZADA -->
+      <!-- SECCIÓN FAQ (SIN CAMBIOS) -->
       <section class="faq-section section-spacing">
         <h2 data-i18n="faqTitle">Resolvemos sus Dudas</h2>
         <div class="faq-item"><h3 class="faq-question" data-i18n="faqQ1">¿Qué marcas de materiales utilizan?</h3><div class="faq-answer"><p data-i18n="faqA1">Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.</p></div></div>
@@ -232,13 +315,17 @@
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
         "schedulePageTitle": "Invierta en la Sonrisa que Merece",
         "schedulePageSubtitle": "Una experiencia dental de primer nivel para pacientes de Juárez y El Paso.",
-        "schedulePageIntro": "Sabemos que su sonrisa es una parte esencial de su identidad. Permítanos conocer su caso y diseñar juntos un plan de tratamiento que cumpla sus más altas expectativas. El primer paso es una conversación.",
-        "formTitle": "Inicie su Valoración Personalizada",
+        "schedulePageIntro": "El primer paso es una conversación. Contáctenos hoy mismo.",
+        "btnWhatsapp": "Agendar por WhatsApp",
+        "btnCall": "Llamar para Agendar",
+        "formTitle": "O complete el formulario",
         "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto",
         "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio",
         "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro",
+        "dayLabel": "Día de preferencia (opcional)",
+        "timeLabel": "Horario de preferencia (opcional)",
         "messageLabel": "Mensaje (opcional)",
-        "submitBtn": "Solicitar mi Valoración",
+        "submitBtn": "Enviar Solicitud",
         "excellenceTitle": "Nuestro Compromiso con la Excelencia",
         "excellence1Title": "Materiales de Prestigio Mundial", "excellence1Desc": "Trabajamos exclusivamente con las mejores marcas de implantes, coronas y resinas, garantizando durabilidad y una estética impecable.",
         "excellence2Title": "Diagnóstico Digital de Precisión", "excellence2Desc": "Utilizamos escáneres intraorales y radiografía 3D para una planificación milimétrica, asegurando resultados predecibles y exitosos.",
@@ -256,13 +343,17 @@
         "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
         "schedulePageTitle": "Invest in the Smile You Deserve",
         "schedulePageSubtitle": "A world-class dental experience for patients from Juarez and El Paso.",
-        "schedulePageIntro": "We know your smile is an essential part of your identity. Let us understand your case and design together a treatment plan that meets your highest expectations. The first step is a conversation.",
-        "formTitle": "Start Your Personal Assessment",
+        "schedulePageIntro": "The first step is a conversation. Contact us today.",
+        "btnWhatsapp": "Schedule via WhatsApp",
+        "btnCall": "Call to Schedule",
+        "formTitle": "Or, fill out the form",
         "nameLabel": "Full Name", "phoneLabel": "Contact Phone",
         "reasonLabel": "Service of Interest", "selectReason": "Select a service",
         "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other",
+        "dayLabel": "Preferred day (optional)",
+        "timeLabel": "Preferred time (optional)",
         "messageLabel": "Message (optional)",
-        "submitBtn": "Request My Assessment",
+        "submitBtn": "Send Request",
         "excellenceTitle": "Our Commitment to Excellence",
         "excellence1Title": "World-Renowned Materials", "excellence1Desc": "We exclusively work with the best brands of implants, crowns, and resins, ensuring durability and an impeccable aesthetic.",
         "excellence2Title": "Precise Digital Diagnosis", "excellence2Desc": "We use intraoral scanners and 3D radiography for millimeter-level planning, ensuring predictable and successful results.",
@@ -277,7 +368,7 @@
     };
     
     document.addEventListener('DOMContentLoaded', function() {
-      // --- NUEVO SCRIPT PARA FAQ ACORDEÓN ---
+      // --- SCRIPT PARA FAQ ACORDEÓN (SIN CAMBIOS) ---
       const faqItems = document.querySelectorAll('.faq-item');
       faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -314,7 +405,12 @@
               document.documentElement.lang = lang;
               document.querySelectorAll('[data-i18n]').forEach(el => {
                   const key = el.getAttribute('data-i18n');
-                  if(translations[lang]?.[key]) { el.innerHTML = translations[lang][key]; }
+                  if(translations[lang]?.[key]) { 
+                      // Evita sobreescribir el contenido de los labels de radio
+                      if (el.tagName !== 'LABEL' || !el.closest('.radio-group')) {
+                          el.innerHTML = translations[lang][key];
+                      }
+                  }
               });
               document.title = translations[lang]?.titleSchedulePage || document.title;
               localStorage.setItem('preferredLangDrSantos', lang);
