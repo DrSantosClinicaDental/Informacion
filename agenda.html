@@ -29,11 +29,11 @@
       --texto-oscuro-principal: #333333;
       --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
       --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
-      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); 
+      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12);
       --whatsapp: #25D366;
       --whatsapp-hover: #20b055;
       --radio-borde-general: 12px;
-      --radio-borde-sm: 8px; 
+      --radio-borde-sm: 8px;
       --color-text-subtle: #5a677d;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,7 +50,7 @@
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
     .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: all 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
     .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); border-bottom-color: var(--acento); }
-    
+
     .page-header-spacer { height: 150px; }
     .page-content { padding: clamp(20px, 4vh, 40px) 5%; }
     .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; margin-top: 40px;}
@@ -67,7 +67,7 @@
     .schedule-header h1 { font-size: clamp(2rem, 6vw, 2.8rem); color: var(--color-primario); font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
     .schedule-header .sub-h1 { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--color-secundario); margin-bottom: 15px; font-weight: 500;}
     .schedule-header p { font-size: clamp(1rem, 2.5vw, 1.1rem); color: var(--color-text-subtle); max-width: 700px; margin: 0 auto; }
-    
+
     /* --- NUEVOS ESTILOS PARA BOTONES DE ACCIÓN RÁPIDA --- */
     .quick-actions-container {
         display: grid;
@@ -114,14 +114,14 @@
 
     .form-section-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: flex-start; }
     @media(min-width: 900px) { .form-section-wrapper { grid-template-columns: 1fr 1fr; } }
-    
+
     .form-section { background-color: var(--blanco); border-radius: var(--radio-borde-general); padding: clamp(25px, 4vw, 40px); box-shadow: var(--sombra-dark); }
     .form-title { font-size: clamp(1.5rem, 4vw, 1.8rem); color: var(--color-secundario); margin-bottom: 25px; font-weight: 700; text-align: center; }
     .form-group { margin-bottom: 20px; }
     .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-secundario); font-size: 0.9rem; }
     .form-control { width: 100%; padding: 14px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); font-size: 1rem; transition: all 0.3s ease; background-color: #fcfcfc; }
     .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); outline: none; background-color: var(--blanco); }
-    
+
     /* --- ESTILOS CORREGIDOS PARA HORARIOS PREFERIDOS --- */
     .radio-group {
         display: grid;
@@ -154,7 +154,7 @@
 
     .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
     .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
-    
+
     .patient-photo-card { border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); }
     .patient-photo-card img { width: 100%; height: auto; display: block; }
 
@@ -176,6 +176,30 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, padding 0.35s ease-out; padding: 0 10px; color: var(--color-text-subtle); font-size: 0.95rem; }
     .faq-item.active .faq-answer { max-height: 300px; padding: 10px 10px 20px; }
 
+    /* Estilos para la nueva sección de mapa */
+    .map-section {
+        margin-top: clamp(40px, 8vh, 70px);
+        text-align: center;
+    }
+    .map-section h2 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        color: var(--color-primario);
+        margin-bottom: 30px;
+    }
+    .map-container {
+        width: 100%;
+        max-width: 800px; /* Limita el ancho del mapa */
+        height: 400px; /* Altura fija para el mapa */
+        margin: 0 auto;
+        border-radius: var(--radio-borde-general);
+        overflow: hidden;
+        box-shadow: var(--sombra-media);
+    }
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
   </style>
 </head>
 <body>
@@ -228,7 +252,7 @@
               <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
-              
+
               <div class="form-group"><label for="nombre" class="form-label" data-i18n="nameLabel">Nombre completo</label><input type="text" id="nombre" name="nombre" class="form-control" required placeholder="Su nombre completo"></div>
               <div class="form-group"><label for="telefono" class="form-label" data-i18n="phoneLabel">Teléfono de Contacto</label><input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Podemos contactarle por WhatsApp"></div>
               <div class="form-group"><label for="motivo" class="form-label" data-i18n="reasonLabel">Servicio de Interés</label>
@@ -273,7 +297,19 @@
           </form>
         </div>
         <div class="patient-photo-card">
+          <!-- La imagen del paciente se ha recortado para un mejor enfoque -->
           <img src="El21.jpg" alt="Doctor realizando un procedimiento dental con precisión y cuidado." onerror="this.alt='Cuidado dental profesional'; this.src='https://placehold.co/600x800/3a506b/ffffff?text=Atención+al+Detalle';">
+        </div>
+      </section>
+
+      <!-- NUEVA SECCIÓN DE MAPA -->
+      <section class="map-section section-spacing">
+        <h2 data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3395.700140700086!2d-106.4526017236528!3d31.7051996417726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7592451f2d2b5%3A0x15f5a8c91d4e7d9b!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Manzanas%2C%2032340%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-i18n-src="mapEmbed">
+          </iframe>
         </div>
       </section>
 
@@ -331,6 +367,8 @@
         "timeLabel": "Horario de preferencia (opcional)",
         "messageLabel": "Mensaje (opcional)",
         "submitBtn": "Enviar Solicitud",
+        "mapTitle": "Encuéntranos Fácilmente",
+        "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3395.700140700086!2d-106.4526017236528!3d31.7051996417726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7592451f2d2b5%3A0x15f5a8c91d4e7d9b!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Manzanas%2C%2032340%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
         "excellenceTitle": "Nuestro Compromiso con la Excelencia",
         "excellence1Title": "Materiales de Prestigio Mundial", "excellence1Desc": "Trabajamos exclusivamente con las mejores marcas de implantes, coronas y resinas, garantizando durabilidad y una estética impecable.",
         "excellence2Title": "Diagnóstico Digital de Precisión", "excellence2Desc": "Utilizamos escáneres intraorales y radiografía 3D para una planificación milimétrica, asegurando resultados predecibles y exitosos.",
@@ -359,6 +397,8 @@
         "timeLabel": "Preferred time (optional)",
         "messageLabel": "Message (optional)",
         "submitBtn": "Send Request",
+        "mapTitle": "Find Us Easily",
+        "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3395.700140700086!2d-106.4526017236528!3d31.7051996417726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7592451f2d2b5%3A0x15f5a8c91d4e7d9b!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Manzanas%2C%2032340%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
         "excellenceTitle": "Our Commitment to Excellence",
         "excellence1Title": "World-Renowned Materials", "excellence1Desc": "We exclusively work with the best brands of implants, crowns, and resins, ensuring durability and an impeccable aesthetic.",
         "excellence2Title": "Precise Digital Diagnosis", "excellence2Desc": "We use intraoral scanners and 3D radiography for millimeter-level planning, ensuring predictable and successful results.",
@@ -371,7 +411,7 @@
         "faqQ4": "For patients from El Paso, what are the logistics like?", "faqA4": "We understand your needs. Our clinic is in a safe and easily accessible area. Our staff is bilingual, and we can assist you with recommendations and coordination to make your visit comfortable and seamless."
       }
     };
-    
+
     document.addEventListener('DOMContentLoaded', function() {
       // --- SCRIPT PARA FAQ ACORDEÓN (SIN CAMBIOS) ---
       const faqItems = document.querySelectorAll('.faq-item');
@@ -392,7 +432,7 @@
       const translateBtn = document.getElementById('translateBtn');
       const currentYearSpan = document.getElementById('currentYear');
       if(currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
-      
+
       function adjustLayout() {
           if (mainHeader && mainNav) { mainNav.style.top = `${mainHeader.offsetHeight}px`; }
           const pageHeaderSpacer = document.querySelector('.page-header-spacer');
@@ -400,7 +440,7 @@
       }
 
       window.addEventListener('scroll', () => { if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } });
-      
+
       adjustLayout();
       window.addEventListener('resize', adjustLayout);
       setTimeout(adjustLayout, 300);
@@ -410,8 +450,8 @@
               document.documentElement.lang = lang;
               document.querySelectorAll('[data-i18n]').forEach(el => {
                   const key = el.getAttribute('data-i18n');
-                  if(translations[lang]?.[key]) { 
-                      // Evita sobreescribir el contenido de los labels de radio
+                  if(translations[lang]?.[key]) {
+                      // Evita sobrescribir el contenido de los labels de radio
                       if (el.tagName !== 'LABEL' || !el.closest('.radio-group')) {
                           el.innerHTML = translations[lang][key];
                       }
@@ -419,6 +459,12 @@
               });
               document.title = translations[lang]?.titleSchedulePage || document.title;
               localStorage.setItem('preferredLangDrSantos', lang);
+
+              // Actualizar el src del iframe del mapa si existe
+              const mapIframe = document.querySelector('.map-container iframe');
+              if (mapIframe && translations[lang]?.mapEmbed) {
+                  mapIframe.src = translations[lang].mapEmbed;
+              }
           }
           translateBtn.addEventListener('click', function() {
               const currentLang = localStorage.getItem('preferredLangDrSantos') || 'es';
@@ -427,7 +473,7 @@
               this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
           });
           const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
-          changeLanguage(savedLang); 
+          changeLanguage(savedLang);
           if (translateBtn.querySelector('span')) { translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES'; }
       }
     });
