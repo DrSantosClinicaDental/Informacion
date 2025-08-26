@@ -14,26 +14,8 @@
     gtag('config', 'AW-17076577011');
   </script>
   <style>
-    /* ESTILOS BASE EXISTENTES CON ADICIONES PARA NUEVOS COMPONENTES */
     :root {
-      --color-primario: #2a7f7f;
-      --color-primario-rgb: 42, 127, 127;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
-      --acento-rgb: 95, 180, 156;
-      --blanco: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-medio: #e9edf0;
-      --gris-texto: #4a4a4a;
-      --texto-oscuro-principal: #333333;
-      --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
-      --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
-      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12);
-      --whatsapp: #25D366;
-      --whatsapp-hover: #20b055;
-      --radio-borde-general: 12px;
-      --radio-borde-sm: 8px;
-      --color-text-subtle: #5a677d;
+      --color-primario: #2a7f7f; --color-primario-rgb: 42, 127, 127; --color-secundario: #3a506b; --acento: #5fb49c; --acento-rgb: 95, 180, 156; --blanco: #ffffff; --gris-claro: #f5f7fa; --gris-medio: #e9edf0; --gris-texto: #4a4a4a; --texto-oscuro-principal: #333333; --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08); --sombra-media: 0 6px 20px rgba(0,0,0,0.1); --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); --whatsapp: #25D366; --whatsapp-hover: #20b055; --radio-borde-general: 12px; --radio-borde-sm: 8px; --color-text-subtle: #5a677d;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Open Sans', sans-serif; color: var(--texto-oscuro-principal); background-color: var(--blanco); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -49,7 +31,6 @@
     .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
     .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: all 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
     .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); border-bottom-color: var(--acento); }
-
     .page-header-spacer { height: 150px; }
     .page-content { padding: clamp(20px, 4vh, 40px) 5%; }
     .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; margin-top: 40px;}
@@ -57,118 +38,44 @@
     .footer p { margin-bottom: 10px; font-size: 0.85rem; } .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); } .footer p i { color: var(--acento); margin-right: 6px; } .footer a { color: var(--blanco); } .footer a:hover { color: var(--acento); text-decoration: underline; }
     .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100;}
     .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); } .translate-btn i { font-size: 20px; margin-bottom: 2px; }
-
-    /* ESTILOS MEJORADOS Y NUEVOS PARA LA PÁGINA DE AGENDA */
     .section-container { max-width: 900px; margin: 0 auto; }
     .section-spacing { margin-bottom: clamp(40px, 8vh, 70px); }
-
     .schedule-header { text-align: center; margin-bottom: 30px; }
-    .schedule-header h1 { font-size: clamp(2rem, 6vw, 2.8rem); color: var(--color-primario); font-weight: 700; line-height: 1.2; margin-bottom: 15px; /* MEJORA: Sombra de texto sutil para mayor impacto visual */ text-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .schedule-header h1 { font-size: clamp(2rem, 6vw, 2.8rem); color: var(--color-primario); font-weight: 700; line-height: 1.2; margin-bottom: 15px; text-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .schedule-header .sub-h1 { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--color-secundario); margin-bottom: 15px; font-weight: 500;}
     .schedule-header p { font-size: clamp(1rem, 2.5vw, 1.1rem); color: var(--color-text-subtle); max-width: 700px; margin: 0 auto; }
-
-    /* --- ESTILOS PARA BOTONES DE ACCIÓN RÁPIDA --- */
-    .quick-actions-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-bottom: 40px;
-    }
-    @media(min-width: 600px) {
-        .quick-actions-container { grid-template-columns: 1fr 1fr; gap: 20px; /* MEJORA: Mayor espaciado en pantallas grandes */ }
-    }
-    .quick-action-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        padding: 16px;
-        border-radius: var(--radio-borde-sm);
-        text-decoration: none;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: var(--sombra-ligera);
-    }
-    .quick-action-btn:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--sombra-media);
-    }
+    .quick-actions-container { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 40px; }
+    @media(min-width: 600px) { .quick-actions-container { grid-template-columns: 1fr 1fr; gap: 20px; } }
+    .quick-action-btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border-radius: var(--radio-borde-sm); text-decoration: none; font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--sombra-ligera); }
+    .quick-action-btn:hover { transform: translateY(-4px); box-shadow: var(--sombra-media); }
     .quick-action-btn i { font-size: 1.5rem; }
     .btn-whatsapp { background-color: var(--whatsapp); color: var(--blanco); }
     .btn-whatsapp:hover { background-color: var(--whatsapp-hover); }
     .btn-call { background-color: var(--color-secundario); color: var(--blanco); }
     .btn-call:hover { background-color: var(--color-primario); }
-    .form-divider {
-        text-align: center;
-        color: var(--color-text-subtle);
-        font-size: 1rem;
-        margin-bottom: 30px;
-        font-family: 'Poppins', sans-serif;
-    }
-
+    .form-divider { text-align: center; color: var(--color-text-subtle); font-size: 1rem; margin-bottom: 30px; font-family: 'Poppins', sans-serif; }
     .form-section-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: flex-start; }
     @media(min-width: 900px) { .form-section-wrapper { grid-template-columns: 1fr 1fr; } }
-
     .form-section { background-color: var(--blanco); border-radius: var(--radio-borde-general); padding: clamp(25px, 4vw, 40px); box-shadow: var(--sombra-dark); }
     .form-title { font-size: clamp(1.5rem, 4vw, 1.8rem); color: var(--color-secundario); margin-bottom: 25px; font-weight: 700; text-align: center; }
     .form-group { margin-bottom: 20px; }
     .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-secundario); font-size: 0.9rem; }
     .form-control { width: 100%; padding: 14px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); font-size: 1rem; transition: all 0.3s ease; background-color: #fcfcfc; }
     .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); outline: none; background-color: var(--blanco); }
-
-    /* --- ESTILOS PARA HORARIOS PREFERIDOS --- */
-    .radio-group {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
-        gap: 10px;
-    }
+    .radio-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 10px; }
     .radio-group input[type="radio"] { display: none; }
-    .radio-group label {
-        padding: 12px;
-        border: 1px solid var(--gris-medio);
-        border-radius: var(--radio-borde-sm);
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        white-space: nowrap;
-    }
-    .radio-group input[type="radio"]:checked + label {
-        background-color: rgba(var(--acento-rgb), 0.15);
-        border-color: var(--acento);
-        color: var(--color-primario);
-        font-weight: 600;
-        box-shadow: 0 2px 8px rgba(var(--acento-rgb), 0.1);
-    }
-    .radio-group label:hover {
-        border-color: var(--acento);
-        background-color: rgba(var(--acento-rgb), 0.05);
-    }
-    
+    .radio-group label { padding: 12px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); text-align: center; cursor: pointer; transition: all 0.3s ease; font-weight: 500; white-space: nowrap; }
+    .radio-group input[type="radio"]:checked + label { background-color: rgba(var(--acento-rgb), 0.15); border-color: var(--acento); color: var(--color-primario); font-weight: 600; box-shadow: 0 2px 8px rgba(var(--acento-rgb), 0.1); }
+    .radio-group label:hover { border-color: var(--acento); background-color: rgba(var(--acento-rgb), 0.05); }
     .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
     .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
-    
-    /* MEJORA: Animación sutil para el botón de envío */
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    .cta-pulse { animation: pulse 2.5s infinite; }
-
     .patient-photo-card { border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); }
     .patient-photo-card img { width: 100%; height: auto; display: block; }
-
-    .excellence-section h2 { text-align: center; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: 30px; }
-    .excellence-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-    @media(min-width: 768px) { .excellence-grid { grid-template-columns: 1fr 1fr; } }
-    .excellence-item { display: flex; align-items: flex-start; gap: 20px; }
-    .excellence-item i { font-size: 2rem; color: var(--acento); margin-top: 5px; width: 30px; }
-    .excellence-item div h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); font-size: 1.1rem; margin-bottom: 5px; }
-    .excellence-item div p { color: var(--color-text-subtle); font-size: 0.95rem; }
-
+    /* --- CAMBIO: ESTILOS PARA LA NUEVA SECCIÓN DE SERVICIOS --- */
+    .services-section h2 { text-align: center; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: 30px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; max-width: 800px; margin: 0 auto; }
+    .service-item { background-color: var(--gris-claro); color: var(--color-secundario); padding: 15px 20px; text-align: center; border-radius: var(--radio-borde-sm); font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; border: 1px solid var(--gris-medio); }
+    .service-item:hover { transform: translateY(-3px); background-color: var(--blanco); box-shadow: var(--sombra-ligera); color: var(--color-primario); }
     .faq-section h2 { text-align: center; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: 25px; }
     .faq-item { margin-bottom: 12px; border-bottom: 1px solid var(--gris-medio); }
     .faq-item:last-child { border-bottom: none; }
@@ -178,32 +85,10 @@
     .faq-item.active .faq-question::after { transform: rotate(180deg); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, padding 0.35s ease-out; padding: 0 10px; color: var(--color-text-subtle); font-size: 0.95rem; }
     .faq-item.active .faq-answer { max-height: 300px; padding: 10px 10px 20px; }
-
-    /* Estilos para la sección de mapa */
-    .map-section {
-        margin-top: clamp(40px, 8vh, 70px);
-        text-align: center;
-    }
-    .map-section h2 {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
-        color: var(--color-primario);
-        margin-bottom: 30px;
-    }
-    .map-container {
-        width: 100%;
-        max-width: 800px;
-        height: 400px;
-        margin: 0 auto;
-        border-radius: var(--radio-borde-general);
-        overflow: hidden;
-        box-shadow: var(--sombra-media);
-        background-color: var(--gris-claro); /* Color de fondo mientras carga el mapa */
-    }
-    .map-container iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
+    .map-section { margin-top: clamp(40px, 8vh, 70px); text-align: center; }
+    .map-section h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: 30px; }
+    .map-container { width: 100%; max-width: 800px; height: 400px; margin: 0 auto; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); background-color: var(--gris-claro); }
+    .map-container iframe { width: 100%; height: 100%; border: 0; }
   </style>
 </head>
 <body>
@@ -214,6 +99,7 @@
       <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
     </div>
   </header>
+  
   <nav class="main-nav" id="mainNav">
     <ul>
       <li><a href="index.html" data-i18n="navHome">Inicio</a></li>
@@ -230,7 +116,7 @@
     <div class="section-container">
 
       <section class="schedule-header">
-        <h1 data-i18n="schedulePageTitle">Invierta en la Sonrisa que Merece</h1>
+        <h1 data-i18n="schedulePageTitle">El primer paso hacia tu sonrisa ideal empieza aquí</h1>
         <h2 class="sub-h1" data-i18n="schedulePageSubtitle">Una experiencia dental de primer nivel para pacientes de Juárez y El Paso.</h2>
         <p data-i18n="schedulePageIntro">El primer paso es una conversación. Contáctenos hoy mismo.</p>
       </section>
@@ -266,49 +152,34 @@
                       <option value="Otro Motivo" data-i18n="optionOtro">Otro</option>
                   </select>
               </div>
-
-              <div class="form-group">
-                <label for="dia_preferido" class="form-label" data-i18n="dayLabel">Día de preferencia (opcional)</label>
-                <input type="text" id="dia_preferido" name="Día de Preferencia" class="form-control" placeholder="Ej: Cualquier lunes, o el próximo fin de semana">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" data-i18n="timeLabel">Horario de preferencia (opcional)</label>
+              <div class="form-group"><label for="dia_preferido" class="form-label" data-i18n="dayLabel">Día de preferencia (opcional)</label><input type="text" id="dia_preferido" name="Día de Preferencia" class="form-control" placeholder="Ej: Cualquier lunes, o el próximo fin de semana"></div>
+              <div class="form-group"><label class="form-label" data-i18n="timeLabel">Horario de preferencia (opcional)</label>
                 <div class="radio-group">
                     <div><input type="radio" id="horario1" name="Horario Preferido" value="9am - 12pm"><label for="horario1">9am - 12pm</label></div>
                     <div><input type="radio" id="horario2" name="Horario Preferido" value="12pm - 3pm"><label for="horario2">12pm - 3pm</label></div>
                     <div><input type="radio" id="horario3" name="Horario Preferido" value="3pm - 6pm"><label for="horario3">3pm - 6pm</label></div>
                 </div>
               </div>
-
               <div class="form-group"><label for="mensaje" class="form-label" data-i18n="messageLabel">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" class="form-control" rows="3" placeholder="Si lo desea, brinde más detalles sobre su caso."></textarea></div>
-              <button type="submit" class="submit-btn cta-pulse"><i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span></button>
+              <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span></button>
           </form>
         </div>
         <div class="patient-photo-card">
           <img src="El21.jpg" alt="Doctor realizando un procedimiento dental con precisión y cuidado." onerror="this.alt='Cuidado dental profesional'; this.src='https://placehold.co/600x800/3a506b/ffffff?text=Atención+al+Detalle';">
         </div>
       </section>
-      
-      <section class="map-section section-spacing">
-        <h2 data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx"
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </section>
 
-      <section class="excellence-section section-spacing">
-        <h2 data-i18n="excellenceTitle">Nuestro Compromiso con la Excelencia</h2>
-        <div class="excellence-grid">
-          <div class="excellence-item"><i class="fas fa-award"></i><div><h3 data-i18n="excellence1Title">Materiales de Prestigio Mundial</h3><p data-i18n="excellence1Desc">Trabajamos exclusivamente con las mejores marcas de implantes, coronas y resinas, garantizando durabilidad y una estética impecable.</p></div></div>
-          <div class="excellence-item"><i class="fas fa-digital-tachograph"></i><div><h3 data-i18n="excellence2Title">Diagnóstico Digital de Precisión</h3><p data-i18n="excellence2Desc">Utilizamos escáneres intraorales y radiografía 3D para una planificación milimétrica, asegurando resultados predecibles y exitosos.</p></div></div>
-          <div class="excellence-item"><i class="fas fa-hand-holding-heart"></i><div><h3 data-i18n="excellence3Title">Un Plan Único para Usted</h3><p data-i18n="excellence3Desc">Rechazamos los tratamientos genéricos. El Dr. Santos diseña personalmente cada plan para armonizar con sus rasgos y objetivos.</p></div></div>
-          <div class="excellence-item"><i class="fas fa-shield-alt"></i><div><h3 data-i18n="excellence4Title">Garantía de Confianza</h3><p data-i18n="excellence4Desc">Respaldamos la calidad de nuestro trabajo. Su tranquilidad y satisfacción a largo plazo son el pilar de nuestra práctica.</p></div></div>
+      <section class="services-section section-spacing">
+        <h2 data-i18n="servicesTitle">Nuestros Servicios Principales</h2>
+        <div class="services-grid">
+          <div class="service-item" data-i18n="service1">Blanqueamiento Dental</div>
+          <div class="service-item" data-i18n="service2">Resinas Estéticas</div>
+          <div class="service-item" data-i18n="service3">Coronas y Puentes</div>
+          <div class="service-item" data-i18n="service4">Implantes Dentales</div>
+          <div class="service-item" data-i18n="service5">Limpieza Profesional</div>
+          <div class="service-item" data-i18n="service6">Extracciones</div>
+          <div class="service-item" data-i18n="service7">Ortodoncia</div>
+          <div class="service-item" data-i18n="service8">¡Y mucho más!</div>
         </div>
       </section>
 
@@ -318,6 +189,16 @@
         <div class="faq-item"><h3 class="faq-question" data-i18n="faqQ2">¿Cómo es el proceso de una primera cita?</h3><div class="faq-answer"><p data-i18n="faqA2">Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.</p></div></div>
         <div class="faq-item"><h3 class="faq-question" data-i18n="faqQ3">¿Aceptan seguros o planes de pago?</h3><div class="faq-answer"><p data-i18n="faqA3">Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.</p></div></div>
         <div class="faq-item"><h3 class="faq-question" data-i18n="faqQ4">Para pacientes de El Paso, ¿cómo es la logística?</h3><div class="faq-answer"><p data-i18n="faqA4">Entendemos sus necesidades. Nuestra clínica se encuentra en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones y coordinación para que su visita sea cómoda y sin contratiempos.</p></div></div>
+      </section>
+
+      <section class="map-section section-spacing">
+        <h2 data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </section>
 
     </div>
@@ -336,15 +217,99 @@
   </button>
 
   <script>
-    // --- SCRIPT MODIFICADO PARA INCLUIR NUEVAS TRADUCCIONES Y FUNCIONALIDAD DE FAQ ---
     const translations = {
-      // (Tu objeto de traducciones permanece aquí sin cambios)
+      es: {
+        // CAMBIO: TEXTOS ACTUALIZADOS Y AÑADIDOS
+        "schedulePageTitle": "El primer paso hacia tu sonrisa ideal empieza aquí",
+        "servicesTitle": "Nuestros Servicios Principales",
+        "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!",
+        // --- Textos existentes ---
+        "titleSchedulePage": "Inicia tu Valoración | Dr. Santos Clínica Dental",
+        "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "schedulePageSubtitle": "Una experiencia dental de primer nivel para pacientes de Juárez y El Paso.",
+        "schedulePageIntro": "El primer paso es una conversación. Contáctenos hoy mismo.",
+        "btnWhatsapp": "Agendar por WhatsApp", "btnCall": "Llamar para Agendar",
+        "formTitle": "O complete el formulario", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio",
+        "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro",
+        "dayLabel": "Día de preferencia (opcional)", "timeLabel": "Horario de preferencia (opcional)", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud",
+        "mapTitle": "Encuéntranos Fácilmente",
+        "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqA1": "Priorizamos la calidad y durabilidad...", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqA2": "Su primera visita es una consulta integral...", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqA3": "Aunque no trabajamos con aseguradoras directamente...", "faqQ4": "Para pacientes de El Paso, ¿cómo es la logística?", "faqA4": "Entendemos sus necesidades...",
+      },
+      en: {
+        // CAMBIO: TEXTOS ACTUALIZADOS Y AÑADIDOS
+        "schedulePageTitle": "The first step to your ideal smile starts here",
+        "servicesTitle": "Our Main Services",
+        "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!",
+        // --- Textos existentes ---
+        "titleSchedulePage": "Start Your Assessment | Dr. Santos Dental Clinic",
+        "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "schedulePageSubtitle": "A world-class dental experience for patients from Juarez and El Paso.",
+        "schedulePageIntro": "The first step is a conversation. Contact us today.",
+        "btnWhatsapp": "Schedule via WhatsApp", "btnCall": "Call to Schedule",
+        "formTitle": "Or, fill out the form", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service",
+        "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other",
+        "dayLabel": "Preferred day (optional)", "timeLabel": "Preferred time (optional)", "messageLabel": "Message (optional)", "submitBtn": "Send Request",
+        "mapTitle": "Find Us Easily",
+        "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqA1": "We prioritize quality and durability...", "faqQ2": "What is the process for a first appointment?", "faqA2": "Your first visit is a comprehensive consultation...", "faqQ3": "Do you accept insurance or payment plans?", "faqA3": "While we do not work directly with insurance companies...", "faqQ4": "For patients from El Paso, what are the logistics like?", "faqA4": "We understand your needs...",
+      }
     };
-    // El resto de tu JavaScript permanece igual
+
     document.addEventListener('DOMContentLoaded', function() {
       const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => { /* ... */ });
-      // ... todo el resto de tu script sin cambios
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) { item.classList.add('active'); }
+        });
+      });
+
+      const mainHeader = document.getElementById('mainHeader');
+      const mainNav = document.getElementById('mainNav');
+      const translateBtn = document.getElementById('translateBtn');
+      const currentYearSpan = document.getElementById('currentYear');
+      if(currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
+      function adjustLayout() {
+          if (mainHeader && mainNav) { mainNav.style.top = `${mainHeader.offsetHeight}px`; }
+          const pageHeaderSpacer = document.querySelector('.page-header-spacer');
+          if (mainHeader && mainNav && pageHeaderSpacer) { pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`; }
+      }
+      window.addEventListener('scroll', () => { if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } });
+      adjustLayout();
+      window.addEventListener('resize', adjustLayout);
+      setTimeout(adjustLayout, 300);
+
+      if (typeof translations !== 'undefined' && translateBtn) {
+          function changeLanguage(lang) {
+              document.documentElement.lang = lang;
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                  const key = el.getAttribute('data-i18n');
+                  if(translations[lang]?.[key]) {
+                      if (el.tagName !== 'LABEL' || !el.closest('.radio-group')) {
+                          el.innerHTML = translations[lang][key];
+                      }
+                  }
+              });
+              document.title = translations[lang]?.titleSchedulePage || document.title;
+              localStorage.setItem('preferredLangDrSantos', lang);
+              const mapIframe = document.querySelector('.map-container iframe');
+              if (mapIframe && translations[lang]?.mapEmbed) {
+                  mapIframe.src = translations[lang].mapEmbed;
+              }
+          }
+          translateBtn.addEventListener('click', function() {
+              const currentLang = localStorage.getItem('preferredLangDrSantos') || 'es';
+              const newLang = currentLang === 'es' ? 'en' : 'es';
+              changeLanguage(newLang);
+              this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
+          });
+          const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
+          changeLanguage(savedLang);
+          if (translateBtn.querySelector('span')) { translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES'; }
+      }
     });
   </script>
 </body>
