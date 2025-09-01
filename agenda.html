@@ -143,7 +143,8 @@ function gtag_report_conversion(url) {
         <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." target="_blank" class="quick-action-btn btn-whatsapp">
           <i class="fab fa-whatsapp"></i> <span data-i18n="btnWhatsapp">Agendar por WhatsApp</span>
         </a>
-        <a href="tel:+526147804673" class="quick-action-btn btn-call">
+        <!-- CAMBIO: Se agregó el evento onclick para registrar la conversión de llamada -->
+        <a href="tel:+526147804673" onclick="return gtag_report_conversion('tel:+526147804673');" class="quick-action-btn btn-call">
           <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar para Agendar</span>
         </a>
       </section>
@@ -151,7 +152,8 @@ function gtag_report_conversion(url) {
       <section class="form-section-wrapper section-spacing">
         <div class="form-section">
           <h2 class="form-title" data-i18n="formTitle">O complete el formulario</h2>
-          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
+          <!-- CAMBIO: Se agregó el evento onsubmit para registrar la conversión del formulario -->
+          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_conversion();">
               <input type="hidden" name="_subject" value="Nueva solicitud de VALORACIÓN - Página Agenda">
               <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
               <input type="hidden" name="_captcha" value="false">
