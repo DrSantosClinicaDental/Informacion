@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Event snippet for Contact conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
+  <!-- Seguimiento de Conversiones de Google Ads -->
+  <script>
+    // -- Función para la conversión al ENVIAR EL FORMULARIO
+    function gtag_report_form_conversion() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_'
+      });
+      return true; // Permite que el formulario se envíe
     }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+
+    // -- Función para la conversión al HACER CLIC EN LLAMAR
+    function gtag_report_call_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN',
+          'event_callback': callback
+      });
+      return false;
+    }
+    
+    // -- Función para la conversión al HACER CLIC EN WHATSAPP
+    function gtag_report_whatsapp_conversion() {
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN'
+      });
+    }
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +104,6 @@ function gtag_report_conversion(url) {
     .radio-group label:hover { border-color: var(--acento); background-color: rgba(var(--acento-rgb), 0.05); }
     .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
     .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
-    /* --- CAMBIO: ESTILOS PARA LA NUEVA GALERÍA DESLIZABLE --- */
     .gallery-container { position: relative; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); -webkit-user-select: none; user-select: none; }
     .gallery-slider { display: flex; transition: transform 0.4s ease-in-out; }
     .gallery-slider img { width: 100%; flex-shrink: 0; display: block; height: auto; }
@@ -107,6 +125,88 @@ function gtag_report_conversion(url) {
     .faq-item.active .faq-answer { max-height: 300px; padding: 10px 10px 20px; }
     .map-container { width: 100%; max-width: 800px; height: clamp(300px, 60vh, 400px); margin: 0 auto; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); background-color: var(--gris-claro); }
     .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+    /* --- ESTILOS PARA POP-UP PROMOCIONAL --- */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0s 0.4s;
+    }
+    .popup-overlay.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s ease;
+    }
+    .popup-content {
+      background-color: var(--blanco);
+      padding: 30px;
+      border-radius: var(--radio-borde-general);
+      box-shadow: var(--sombra-dark);
+      text-align: center;
+      max-width: 90%;
+      width: 450px;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+    .popup-overlay.show .popup-content {
+      transform: scale(1);
+    }
+    .popup-content img {
+      max-width: 100%;
+      border-radius: var(--radio-borde-sm);
+      margin-bottom: 20px;
+    }
+    .popup-content h2 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        color: var(--color-primario);
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 15px;
+    }
+    .popup-content p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        color: var(--color-secundario);
+        margin-bottom: 25px;
+    }
+    .popup-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--color-primario), var(--acento));
+        color: white;
+        padding: 12px 30px;
+        border-radius: var(--radio-borde-sm);
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+    .popup-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sombra-media);
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 2.5rem;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .popup-close:hover {
+      color: var(--color-secundario);
+    }
   </style>
 </head>
 <body>
@@ -140,11 +240,12 @@ function gtag_report_conversion(url) {
       </section>
 
       <section class="quick-actions-container section-spacing">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." target="_blank" class="quick-action-btn btn-whatsapp">
+        <!-- CAMBIO: Se agregó el onclick para la conversión de WhatsApp -->
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="quick-action-btn btn-whatsapp">
           <i class="fab fa-whatsapp"></i> <span data-i18n="btnWhatsapp">Agendar por WhatsApp</span>
         </a>
-        <!-- CAMBIO: Se agregó el evento onclick para registrar la conversión de llamada -->
-        <a href="tel:+526147804673" onclick="return gtag_report_conversion('tel:+526147804673');" class="quick-action-btn btn-call">
+        <!-- CAMBIO: Se actualizó el onclick para la nueva función de conversión de llamadas -->
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="quick-action-btn btn-call">
           <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar para Agendar</span>
         </a>
       </section>
@@ -152,8 +253,8 @@ function gtag_report_conversion(url) {
       <section class="form-section-wrapper section-spacing">
         <div class="form-section">
           <h2 class="form-title" data-i18n="formTitle">O complete el formulario</h2>
-          <!-- CAMBIO: Se agregó el evento onsubmit para registrar la conversión del formulario -->
-          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_conversion();">
+          <!-- CAMBIO: Se actualizó el onsubmit para la nueva función de conversión de formulario -->
+          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();">
               <input type="hidden" name="_subject" value="Nueva solicitud de VALORACIÓN - Página Agenda">
               <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
               <input type="hidden" name="_captcha" value="false">
@@ -239,6 +340,23 @@ function gtag_report_conversion(url) {
   <button id="translateBtn" class="translate-btn" title="Cambiar idioma" aria-label="Change Language">
     <i class="fas fa-language"></i><span>ES/EN</span>
   </button>
+  
+  <!-- CÓDIGO HTML PARA EL POP-UP PROMOCIONAL -->
+  <div id="promo-popup-overlay" class="popup-overlay">
+    <div class="popup-content">
+      <button id="close-popup" class="popup-close">&times;</button>
+      <!-- Opción 1: Usa tu imagen. Reemplaza 'TU_IMAGEN.jpg' con la URL de tu imagen -->
+      <!-- <img src="TU_IMAGEN.jpg" alt="Promoción de Limpieza Dental Septiembre"> -->
+      
+      <!-- Opción 2: Usa el texto directamente. Puedes borrar la línea de la imagen si prefieres esto. -->
+      <h2>Promoción de Septiembre</h2>
+      <p>¡Limpieza dental completa a solo <strong>$400</strong>!</p>
+      <p style="font-size: 0.9rem; margin-top: -15px; margin-bottom: 25px;">Válido hasta el 30 de Septiembre, 2025.</p>
+      
+      <a href="#appointmentForm" class="popup-btn">Agendar Ahora</a>
+    </div>
+  </div>
+
 
   <script>
     const translations = {
@@ -285,6 +403,31 @@ function gtag_report_conversion(url) {
     };
 
     document.addEventListener('DOMContentLoaded', function() {
+      // --- CÓDIGO PARA POP-UP PROMOCIONAL ---
+      const promoPopup = document.getElementById('promo-popup-overlay');
+      const closePopupBtn = document.getElementById('close-popup');
+      if (promoPopup && closePopupBtn) {
+        function showPopup() { promoPopup.classList.add('show'); }
+        function hidePopup() { promoPopup.classList.remove('show'); }
+
+        if (!sessionStorage.getItem('promoShown')) {
+            setTimeout(showPopup, 3000);
+            sessionStorage.setItem('promoShown', 'true');
+        }
+
+        closePopupBtn.addEventListener('click', hidePopup);
+        promoPopup.addEventListener('click', function(event) {
+            if (event.target === promoPopup) { hidePopup(); }
+        });
+        
+        const popupCTAButton = promoPopup.querySelector('.popup-btn');
+        if(popupCTAButton){
+            popupCTAButton.addEventListener('click', function(e){
+                hidePopup();
+            });
+        }
+      }
+
       // --- CÓDIGO PARA GALERÍA DESLIZABLE ---
       const gallery = document.getElementById('patientGallery');
       if (gallery) {
@@ -304,7 +447,6 @@ function gtag_report_conversion(url) {
         prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
         nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
-        // Swipe functionality for touch devices
         let touchstartX = 0;
         let touchendX = 0;
         slider.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
@@ -371,3 +513,5 @@ function gtag_report_conversion(url) {
   </script>
 </body>
 </html>
+
+
