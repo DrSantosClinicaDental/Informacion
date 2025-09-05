@@ -121,18 +121,18 @@
     <!-- Hero Section -->
     <section class="text-center mb-16">
       <h1 class="text-4xl md:text-5xl font-bold text-teal-700 mb-4" data-i18n="schedulePageTitle">Agenda tu Valoración Hoy</h1>
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.</p>
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.</p>
       
       <!-- Quick Actions -->
       <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
           <i class="fab fa-whatsapp text-2xl"></i>
           <div>
             <span data-i18n="btnWhatsapp">Inicia por WhatsApp</span>
             <p class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Resolvemos tus dudas al instante</p>
           </div>
         </a>
-        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
           <i class="fas fa-phone-alt"></i>
           <span data-i18n="btnCall">Llamar para Agendar</span>
         </a>
@@ -145,8 +145,8 @@
             
             <!-- Simplified Form -->
             <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="formTitle">¿Prefieres que te contactemos?</h2>
-                <p class="text-gray-500 mb-6" data-i18n="formSubtitle">Déjanos tus datos y te llamaremos a la brevedad.</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2" data-i18n="formTitle">¿Prefieres que te contactemos?</h2>
+                <p class="text-base text-gray-500 mb-6" data-i18n="formSubtitle">Déjanos tus datos y te llamaremos a la brevedad.</p>
                 <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-5">
                     <input type="hidden" name="_subject" value="Nueva solicitud de VALORACIÓN - Página Agenda">
                     <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
@@ -154,18 +154,18 @@
                     <input type="hidden" name="_template" value="table">
                     
                     <div>
-                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="nameLabel">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow" required placeholder="Tu nombre completo">
+                        <label for="nombre" class="block text-base font-medium text-gray-700 mb-1" data-i18n="nameLabel">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow text-base" required placeholder="Tu nombre completo">
                     </div>
                     
                     <div>
-                        <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
-                        <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow" required placeholder="Ej. (915) 123-4567">
+                        <label for="telefono" class="block text-base font-medium text-gray-700 mb-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
+                        <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow text-base" required placeholder="Ej. (915) 123-4567">
                     </div>
                     
                     <div>
-                        <label for="motivo" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="reasonLabel">Servicio de Interés</label>
-                        <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow" required>
+                        <label for="motivo" class="block text-base font-medium text-gray-700 mb-1" data-i18n="reasonLabel">Servicio de Interés</label>
+                        <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow text-base" required>
                             <option value="" disabled selected data-i18n="selectReason">Seleccione un servicio</option>
                             <option value="Implantes y Rehabilitación Oral" data-i18n="optionRehabilitacion">Implantes y Rehabilitación Oral</option>
                             <option value="Diseño de Sonrisa y Carillas" data-i18n="optionEstetica">Diseño de Sonrisa y Carillas</option>
@@ -177,18 +177,18 @@
                     </div>
 
                     <div>
-                        <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="messageLabel">Mensaje (opcional)</label>
-                        <textarea id="mensaje" name="mensaje" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow" rows="3" placeholder="Si lo desea, brinde más detalles sobre su caso."></textarea>
+                        <label for="mensaje" class="block text-base font-medium text-gray-700 mb-1" data-i18n="messageLabel">Mensaje (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-shadow text-base" rows="3" placeholder="Si lo desea, brinde más detalles sobre su caso."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                    <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 text-lg">
                         <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span>
                     </button>
                 </form>
             </div>
 
             <!-- Image Gallery -->
-            <div class="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[400px]" id="patientGallery">
+            <div class="relative rounded-xl overflow-hidden shadow-lg w-full aspect-[4/3]" id="patientGallery">
                 <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
                     <img src="El21.jpg" alt="Doctor realizando un procedimiento dental con precisión y cuidado." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Cuidado dental profesional';">
                     <img src="El31.png" alt="Paciente sonriendo después de un tratamiento dental." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Resultado de diseño de sonrisa';">
@@ -204,7 +204,8 @@
     
     <!-- Map Section -->
     <section class="py-16">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
+        <p class="text-base text-center text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="mapDescription">Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.</p>
         <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -212,8 +213,8 @@
 
     <!-- Services Section -->
     <section class="py-16">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-i18n="servicesTitle">Nuestros Servicios Principales</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10" data-i18n="servicesTitle">Nuestros Servicios Principales</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-base">
           <div class="service-item bg-white p-4 text-center rounded-lg border border-gray-200 hover:shadow-md hover:-translate-y-1 transition-transform" data-i18n="service1">Blanqueamiento Dental</div>
           <div class="service-item bg-white p-4 text-center rounded-lg border border-gray-200 hover:shadow-md hover:-translate-y-1 transition-transform" data-i18n="service2">Resinas Estéticas</div>
           <div class="service-item bg-white p-4 text-center rounded-lg border border-gray-200 hover:shadow-md hover:-translate-y-1 transition-transform" data-i18n="service3">Coronas y Puentes</div>
@@ -227,35 +228,35 @@
     
     <!-- FAQ Section -->
     <section class="max-w-3xl mx-auto py-16">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-i18n="faqTitle">Resolvemos sus Dudas</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10" data-i18n="faqTitle">Resolvemos sus Dudas</h2>
         <div class="space-y-4">
             <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
                     <span data-i18n="faqQ1">¿Qué marcas de materiales utilizan?</span>
                     <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
                 </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA1"></p></div>
+                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA1"></p></div>
             </div>
             <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
                     <span data-i18n="faqQ2">¿Cómo es el proceso de una primera cita?</span>
                     <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
                 </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA2"></p></div>
+                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA2"></p></div>
             </div>
             <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
                     <span data-i18n="faqQ3">¿Aceptan seguros o planes de pago?</span>
                     <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
                 </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA3"></p></div>
+                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA3"></p></div>
             </div>
             <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
                     <span data-i18n="faqQ4">Para pacientes de El Paso, ¿cómo es la logística?</span>
                     <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
                 </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA4"></p></div>
+                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA4"></p></div>
             </div>
         </div>
     </section>
@@ -281,10 +282,10 @@
   <script>
     const translations = {
       es: {
-        "schedulePageTitle": "Agenda tu Valoración Hoy", "schedulePageSubtitle": "Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnWhatsapp": "Inicia por WhatsApp", "btnCall": "Llamar para Agendar", "formTitle": "¿Prefieres que te contactemos?", "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.", "servicesTitle": "Nuestros Servicios Principales", "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!", "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.", "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.", "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.", "faqA4": "Entendemos sus necesidades. Nuestra clínica se encuentra en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones y coordinación para que su visita sea cómoda y sin contratiempos.", "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio", "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud", "mapTitle": "Encuéntranos Fácilmente", "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqQ4": "Para pacientes de El Paso, ¿cómo es la logística?",
+        "schedulePageTitle": "Agenda tu Valoración Hoy", "schedulePageSubtitle": "Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnWhatsapp": "Inicia por WhatsApp", "btnCall": "Llamar para Agendar", "formTitle": "¿Prefieres que te contactemos?", "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.", "servicesTitle": "Nuestros Servicios Principales", "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!", "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.", "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.", "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.", "faqA4": "Entendemos sus necesidades. Nuestra clínica se encuentra en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones y coordinación para que su visita sea cómoda y sin contratiempos.", "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio", "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud", "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.", "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqQ4": "Para pacientes de El Paso, ¿cómo es la logística?",
       },
       en: {
-        "schedulePageTitle": "Schedule Your Assessment Today", "schedulePageSubtitle": "We offer comprehensive dental care for patients from Juarez and El Paso. Your oral health is our priority.", "whatsappSubtext": "We answer your questions instantly", "btnWhatsapp": "Start on WhatsApp", "btnCall": "Call to Schedule", "formTitle": "Prefer us to contact you?", "formSubtitle": "Leave your details and we will call you shortly.", "servicesTitle": "Our Main Services", "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!", "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.", "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.", "faqA3": "While we do not work directly with insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement from your US insurance. We also offer various payment options for your convenience.", "faqA4": "We understand your needs. Our clinic is in a safe and easily accessible area. Our staff is bilingual, and we can assist you with recommendations and coordination to make your visit comfortable and seamless.", "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service", "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other", "messageLabel": "Message (optional)", "submitBtn": "Send Request", "mapTitle": "Find Us Easily", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqQ2": "What is the process for a first appointment?", "faqQ3": "Do you accept insurance or payment plans?", "faqQ4": "For patients from El Paso, what are the logistics like?",
+        "schedulePageTitle": "Schedule Your Assessment Today", "schedulePageSubtitle": "We offer comprehensive dental care for patients from Juarez and El Paso. Your oral health is our priority.", "whatsappSubtext": "We answer your questions instantly", "btnWhatsapp": "Start on WhatsApp", "btnCall": "Call to Schedule", "formTitle": "Prefer us to contact you?", "formSubtitle": "Leave your details and we will call you shortly.", "servicesTitle": "Our Main Services", "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!", "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.", "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.", "faqA3": "While we do not work directly with insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement from your US insurance. We also offer various payment options for your convenience.", "faqA4": "We understand your needs. Our clinic is in a safe and easily accessible area. Our staff is bilingual, and we can assist you with recommendations and coordination to make your visit comfortable and seamless.", "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service", "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other", "messageLabel": "Message (optional)", "submitBtn": "Send Request", "mapTitle": "Find Us Easily", "mapDescription": "We are located on Av. Plutarco Elías Calles, 350 meters before Av. Paseo Triunfo de la República and one block after Av. Vicente Guerrero.", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqQ2": "What is the process for a first appointment?", "faqQ3": "Do you accept insurance or payment plans?", "faqQ4": "For patients from El Paso, what are the logistics like?",
       }
     };
 
