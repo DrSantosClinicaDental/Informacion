@@ -87,6 +87,13 @@
     .faq-item.active .faq-arrow {
       transform: rotate(180deg);
     }
+    /* Styles for Promo Pop-up */
+    #promo-popup-overlay {
+      transition: opacity 0.4s ease;
+    }
+    #promo-popup-content {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -104,12 +111,12 @@
             </div>
         </div>
         <nav class="border-t border-gray-100">
-            <ul class="flex justify-center items-center space-x-2 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
-                <li><a href="index.html" data-i18n="navHome" class="px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Inicio</a></li>
-                <li><a href="implantes.html" data-i18n="navImplants" class="px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Implantes</a></li>
-                <li><a href="carillas.html" data-i18n="navVeneers" class="px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Carillas</a></li>
-                <li><a href="faq-detallada.html" data-i18n="navFaqDetailed" class="px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">FAQ</a></li>
-                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-3 py-2 text-sm border-b-2 active-tab">Agenda</a></li>
+            <ul class="flex justify-center items-center space-x-1 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
+                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Carillas</a></li>
+                <li><a href="faq-detallada.html" data-i18n="navFaqDetailed" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">FAQ</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm border-b-2 active-tab">Agenda</a></li>
             </ul>
         </nav>
     </div>
@@ -207,7 +214,7 @@
         <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
         <p class="text-base text-center text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="mapDescription">Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.</p>
         <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -279,17 +286,64 @@
       <i class="fas fa-language text-xl"></i>
   </button>
   
+  <!-- Promotional Pop-up -->
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative transform scale-95 opacity-0">
+      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      <div class="text-teal-500 mb-4">
+        <i class="fas fa-calendar-check fa-3x"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Promoción de Septiembre!</h2>
+      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Limpieza dental completa a solo <span class="font-bold text-teal-600">$400</span>.</p>
+      <a href="#appointmentForm" id="popup-cta-btn" class="w-full gradient-bg text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">Agendar mi Limpieza</a>
+      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido hasta el 30 de Septiembre, 2025.</p>
+    </div>
+  </div>
+
+
   <script>
     const translations = {
       es: {
-        "schedulePageTitle": "Agenda tu Valoración Hoy", "schedulePageSubtitle": "Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnWhatsapp": "Inicia por WhatsApp", "btnCall": "Llamar para Agendar", "formTitle": "¿Prefieres que te contactemos?", "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.", "servicesTitle": "Nuestros Servicios Principales", "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!", "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.", "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.", "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.", "faqA4": "Entendemos sus necesidades. Nuestra clínica se encuentra en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones y coordinación para que su visita sea cómoda y sin contratiempos.", "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio", "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud", "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.", "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqQ4": "Para pacientes de El Paso, ¿cómo es la logística?",
+        "schedulePageTitle": "Agenda tu Valoración Hoy", "schedulePageSubtitle": "Ofrecemos una atención dental integral para pacientes de Juárez y El Paso. Tu salud bucal es nuestra prioridad.", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnWhatsapp": "Inicia por WhatsApp", "btnCall": "Llamar para Agendar", "formTitle": "¿Prefieres que te contactemos?", "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.", "servicesTitle": "Nuestros Servicios Principales", "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!", "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.", "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.", "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.", "faqA4": "Entendemos sus necesidades. Nuestra clínica se encuentra en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones y coordinación para que su visita sea cómoda y sin contratiempos.", "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio", "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud", "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.", "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqQ4": "Para pacientes de El Paso, ¿cómo es la logística?", "promoTitle": "¡Promoción de Septiembre!", "promoText": "Limpieza dental completa a solo <span class='font-bold text-teal-600'>$400</span>.", "promoBtn": "Agendar mi Limpieza", "promoDisclaimer": "Válido hasta el 30 de Septiembre, 2025."
       },
       en: {
-        "schedulePageTitle": "Schedule Your Assessment Today", "schedulePageSubtitle": "We offer comprehensive dental care for patients from Juarez and El Paso. Your oral health is our priority.", "whatsappSubtext": "We answer your questions instantly", "btnWhatsapp": "Start on WhatsApp", "btnCall": "Call to Schedule", "formTitle": "Prefer us to contact you?", "formSubtitle": "Leave your details and we will call you shortly.", "servicesTitle": "Our Main Services", "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!", "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.", "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.", "faqA3": "While we do not work directly with insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement from your US insurance. We also offer various payment options for your convenience.", "faqA4": "We understand your needs. Our clinic is in a safe and easily accessible area. Our staff is bilingual, and we can assist you with recommendations and coordination to make your visit comfortable and seamless.", "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service", "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other", "messageLabel": "Message (optional)", "submitBtn": "Send Request", "mapTitle": "Find Us Easily", "mapDescription": "We are located on Av. Plutarco Elías Calles, 350 meters before Av. Paseo Triunfo de la República and one block after Av. Vicente Guerrero.", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqQ2": "What is the process for a first appointment?", "faqQ3": "Do you accept insurance or payment plans?", "faqQ4": "For patients from El Paso, what are the logistics like?",
+        "schedulePageTitle": "Schedule Your Assessment Today", "schedulePageSubtitle": "We offer comprehensive dental care for patients from Juarez and El Paso. Your oral health is our priority.", "whatsappSubtext": "We answer your questions instantly", "btnWhatsapp": "Start on WhatsApp", "btnCall": "Call to Schedule", "formTitle": "Prefer us to contact you?", "formSubtitle": "Leave your details and we will call you shortly.", "servicesTitle": "Our Main Services", "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!", "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.", "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.", "faqA3": "While we do not work directly with insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement from your US insurance. We also offer various payment options for your convenience.", "faqA4": "We understand your needs. Our clinic is in a safe and easily accessible area. Our staff is bilingual, and we can assist you with recommendations and coordination to make your visit comfortable and seamless.", "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service", "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other", "messageLabel": "Message (optional)", "submitBtn": "Send Request", "mapTitle": "Find Us Easily", "mapDescription": "We are located on Av. Plutarco Elías Calles, 350 meters before Av. Paseo Triunfo de la República and one block after Av. Vicente Guerrero.", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqQ2": "What is the process for a first appointment?", "faqQ3": "Do you accept insurance or payment plans?", "faqQ4": "For patients from El Paso, what are the logistics like?", "promoTitle": "September Promotion!", "promoText": "Complete dental cleaning for just <span class='font-bold text-teal-600'>$400</span>.", "promoBtn": "Schedule my Cleaning", "promoDisclaimer": "Valid until September 30, 2025."
       }
     };
 
     document.addEventListener('DOMContentLoaded', function() {
+      // --- CÓDIGO PARA POP-UP PROMOCIONAL ---
+      const promoOverlay = document.getElementById('promo-popup-overlay');
+      const promoContent = document.getElementById('promo-popup-content');
+      const closePopupBtn = document.getElementById('close-popup');
+      const popupCtaBtn = document.getElementById('popup-cta-btn');
+
+      function showPopup() {
+        promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        promoContent.classList.remove('scale-95', 'opacity-0');
+      }
+      function hidePopup() {
+        promoOverlay.classList.add('opacity-0');
+        promoContent.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+          promoOverlay.classList.add('pointer-events-none');
+        }, 400);
+      }
+
+      if (!sessionStorage.getItem('promoShown')) {
+          setTimeout(showPopup, 3000);
+          sessionStorage.setItem('promoShown', 'true');
+      }
+      
+      closePopupBtn.addEventListener('click', hidePopup);
+      popupCtaBtn.addEventListener('click', hidePopup);
+      promoOverlay.addEventListener('click', function(event) {
+        if (event.target === promoOverlay) { hidePopup(); }
+      });
+
+
       // --- CÓDIGO PARA GALERÍA DESLIZABLE ---
       const gallery = document.getElementById('patientGallery');
       if (gallery) {
