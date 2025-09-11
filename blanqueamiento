@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="titleWhiteningPage">Blanqueamiento Dental | Dr. Santos Clínica Dental</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Ads Conversion Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17076577011');
+
+    // Funciones de conversión (se mantienen igual)
+    function gtag_report_form_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_' });
+      return true;
+    }
+    function gtag_report_call_conversion(url) {
+      var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN', 'event_callback': callback });
+      return false;
+    }
+    function gtag_report_whatsapp_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN' });
+    }
+  </script>
+
+  <style>
+    :root { --color-primario: #2a7f7f; --color-secundario: #3a506b; --acento: #5fb49c; }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #f8fafc; }
+    .gradient-bg { background: linear-gradient(135deg, var(--color-primario), var(--acento)); }
+    .active-tab { color: var(--color-primario) !important; font-weight: 600; border-color: var(--color-primario); }
+    #promo-popup-overlay { transition: opacity 0.4s ease; }
+    #promo-popup-content { transition: transform 0.4s ease, opacity 0.4s ease; border-top: 5px solid; border-image: linear-gradient(to right, #006847, #FFFFFF, #CE1126) 1; }
+  </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+  <!-- Header & Navigation -->
+  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 transition-all duration-300 shadow-md border-b border-gray-200">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col sm:flex-row justify-between items-center py-3">
+            <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-16 mb-3 sm:mb-0" onerror="this.alt='Logo Dr. Santos'">
+            <div class="text-center sm:text-right">
+                <p class="text-base font-semibold text-gray-700">
+                    <i class="fas fa-map-marker-alt text-teal-600 mr-1"></i>
+                    <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
+                </p>
+            </div>
+        </div>
+        <nav class="border-t border-gray-100">
+            <ul class="flex justify-center items-center space-x-1 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
+                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Carillas</a></li>
+                <li><a href="blanqueamiento.html" data-i18n="navWhitening" class="px-2 sm:px-3 py-2 text-sm border-b-2 active-tab">Blanqueamiento</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Agenda</a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12 md:py-20">
+    
+    <!-- Hero Section -->
+    <section class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-teal-700 mb-4" data-i18n="whiteningTitle">Blanqueamiento Dental Profesional</h1>
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="whiteningSubtitle">Recupera la luminosidad de tu sonrisa con un tratamiento seguro, cómodo y eficaz, diseñado para darte resultados visibles minimizando la sensibilidad.</p>
+      
+      <!-- Quick Actions -->
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20para%20blanqueamiento%20dental." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <div>
+            <span data-i18n="btnWhatsapp">Inicia por WhatsApp</span>
+            <p class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Resolvemos tus dudas al instante</p>
+          </div>
+        </a>
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+          <i class="fas fa-phone-alt"></i>
+          <span data-i18n="btnCall">Llamar para Agendar</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Content & Image Section -->
+    <section class="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200 mb-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Whitening Description -->
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4" data-i18n="philosophyTitle">Resultados Superiores con Máximo Cuidado</h2>
+                <div class="space-y-4 text-base text-gray-600">
+                    <p data-i18n="philosophyP1">En nuestra clínica, hemos dejado de lado el blanqueamiento con lámpara de fotocurado. Aunque popular, este método puede generar una considerable sensibilidad y molestias post-tratamiento.</p>
+                    <p data-i18n="philosophyP2">En su lugar, confiamos en <strong>Whiteness HP Maxx</strong>, un sistema de blanqueamiento químico de vanguardia que se activa sin necesidad de luz o calor. Esto nos permite ofrecer un procedimiento mucho más ameno y seguro para tus dientes.</p>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3" data-i18n="benefitsTitle">Beneficios de Nuestro Blanqueamiento:</h3>
+                <ul class="space-y-3 text-base">
+                    <li class="flex items-start"><i class="fas fa-check-circle text-teal-500 mt-1 mr-3"></i><span data-i18n="benefit1"><strong>Mínima Sensibilidad:</strong> Diseñado para ser gentil con tus dientes y reducir las molestias.</span></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-teal-500 mt-1 mr-3"></i><span data-i18n="benefit2"><strong>Resultados Efectivos:</strong> Aclara varias tonalidades en una sola sesión de consultorio.</span></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-teal-500 mt-1 mr-3"></i><span data-i18n="benefit3"><strong>Protección del Esmalte:</strong> Su fórmula segura no daña la estructura dental.</span></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-teal-500 mt-1 mr-3"></i><span data-i18n="benefit4"><strong>Procedimiento Cómodo:</strong> Sin el calor incómodo y la irritación de las lámparas.</span></li>
+                </ul>
+            </div>
+
+            <!-- Image -->
+            <div class="rounded-xl overflow-hidden shadow-xl w-full aspect-[4/3]">
+                <img src="El31.png" alt="Paciente con una sonrisa blanca y radiante después de un blanqueamiento dental." class="w-full h-full object-cover" onerror="this.alt='Sonrisa después de blanqueamiento';">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Form Section -->
+    <section class="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center" data-i18n="formTitle">Agenda tu Blanqueamiento Hoy</h2>
+      <p class="text-base text-gray-500 mb-8 text-center" data-i18n="formSubtitle">Déjanos tus datos y te contactaremos para confirmar tu cita.</p>
+      <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="max-w-xl mx-auto space-y-5">
+          <!-- Campos ocultos del formulario -->
+          <input type="hidden" name="_subject" value="Nueva solicitud de BLANQUEAMIENTO - Página Blanqueamiento">
+          <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <!-- Campo de motivo pre-seleccionado -->
+          <input type="hidden" name="motivo" value="Blanqueamiento Dental">
+          
+          <div>
+              <label for="nombre" class="block text-base font-medium text-gray-700 mb-1" data-i18n="nameLabel">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Tu nombre completo">
+          </div>
+          <div>
+              <label for="telefono" class="block text-base font-medium text-gray-700 mb-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
+              <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Ej. (656) 123-4567">
+          </div>
+          <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 text-lg">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span>
+          </button>
+      </form>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 mt-10 bg-gray-100 rounded-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
+        <p class="text-base text-center text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="mapDescription">Nuestra clínica está convenientemente ubicada para atenderte.</p>
+        <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-white">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white">
+      <div class="container mx-auto px-6 py-10 text-center">
+          <p class="font-bold text-lg">Dr. Santos Clínica Dental</p>
+          <p class="mt-2 text-gray-300"><i class="fas fa-map-marker-alt text-teal-400"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez</p>
+          <p class="mt-2 text-gray-300"><i class="fas fa-clock text-teal-400"></i> Horario: Lun-Vie 9am-6pm | Sáb 9am-5pm</p>
+          <p class="mt-2 text-gray-300"><i class="fas fa-phone text-teal-400"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp text-teal-400"></i> WhatsApp: +52 1 614-780-4673</p>
+          <p class="mt-6 text-sm text-gray-400">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+      </div>
+  </footer>
+
+  <!-- Language Switcher -->
+  <button id="translateBtn" class="fixed bottom-5 right-5 bg-teal-600 hover:bg-teal-700 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110" title="Change Language">
+      <i class="fas fa-language text-xl"></i>
+  </button>
+  
+  <!-- Promotional Pop-up (Se mantiene en todas las páginas) -->
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative transform scale-95 opacity-0 overflow-hidden">
+      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"><i class="fas fa-times text-2xl"></i></button>
+      <div class="text-green-600 mb-4"><i class="fas fa-bell fa-3x"></i></div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Promoción de Mes Patrio!</h2>
+      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Limpieza dental completa a <span class="font-bold text-red-600">$400</span>. <br><b class="text-green-700">¡Incluye valoración y radiografías GRATIS!</b></p>
+      <a href="agenda.html" id="popup-cta-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">Agendar mi Limpieza</a>
+      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido hasta el 30 de Septiembre, 2025.</p>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      es: {
+        "titleWhiteningPage": "Blanqueamiento Dental | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navWhitening": "Blanqueamiento", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "whiteningTitle": "Blanqueamiento Dental Profesional", "whiteningSubtitle": "Recupera la luminosidad de tu sonrisa con un tratamiento seguro, cómodo y eficaz, diseñado para darte resultados visibles minimizando la sensibilidad.",
+        "btnWhatsapp": "Inicia por WhatsApp", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnCall": "Llamar para Agendar",
+        "philosophyTitle": "Resultados Superiores con Máximo Cuidado", "philosophyP1": "En nuestra clínica, hemos dejado de lado el blanqueamiento con lámpara de fotocurado. Aunque popular, este método puede generar una considerable sensibilidad y molestias post-tratamiento.", "philosophyP2": "En su lugar, confiamos en <strong>Whiteness HP Maxx</strong>, un sistema de blanqueamiento químico de vanguardia que se activa sin necesidad de luz o calor. Esto nos permite ofrecer un procedimiento mucho más ameno y seguro para tus dientes.",
+        "benefitsTitle": "Beneficios de Nuestro Blanqueamiento:", "benefit1": "<strong>Mínima Sensibilidad:</strong> Diseñado para ser gentil con tus dientes y reducir las molestias.", "benefit2": "<strong>Resultados Efectivos:</strong> Aclara varias tonalidades en una sola sesión de consultorio.", "benefit3": "<strong>Protección del Esmalte:</strong> Su fórmula segura no daña la estructura dental.", "benefit4": "<strong>Procedimiento Cómodo:</strong> Sin el calor incómodo y la irritación de las lámparas.",
+        "formTitle": "Agenda tu Blanqueamiento Hoy", "formSubtitle": "Déjanos tus datos y te contactaremos para confirmar tu cita.", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "submitBtn": "Enviar Solicitud",
+        "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nuestra clínica está convenientemente ubicada para atenderte.",
+        "promoTitle": "¡Promoción de Mes Patrio!", "promoText": "Limpieza dental completa a <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>¡Incluye valoración y radiografías GRATIS!</b>", "promoBtn": "Agendar mi Limpieza", "promoDisclaimer": "Válido hasta el 30 de Septiembre, 2025."
+      },
+      en: {
+        "titleWhiteningPage": "Teeth Whitening | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navWhitening": "Whitening", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "whiteningTitle": "Professional Teeth Whitening", "whiteningSubtitle": "Recover your smile's brightness with a safe, comfortable, and effective treatment, designed to give you visible results while minimizing sensitivity.",
+        "btnWhatsapp": "Start on WhatsApp", "whatsappSubtext": "We answer your questions instantly", "btnCall": "Call to Schedule",
+        "philosophyTitle": "Superior Results with Maximum Care", "philosophyP1": "In our clinic, we have moved away from light-cured teeth whitening. Although popular, this method can cause considerable post-treatment sensitivity and discomfort.", "philosophyP2": "Instead, we trust <strong>Whiteness HP Maxx</strong>, a cutting-edge chemical whitening system that activates without the need for light or heat. This allows us to offer a much more pleasant and safer procedure for your teeth.",
+        "benefitsTitle": "Benefits of Our Whitening Treatment:", "benefit1": "<strong>Minimal Sensitivity:</strong> Designed to be gentle on your teeth and reduce discomfort.", "benefit2": "<strong>Effective Results:</strong> Lightens several shades in a single in-office session.", "benefit3": "<strong>Enamel Protection:</strong> Its safe formula does not damage the tooth structure.", "benefit4": "<strong>Comfortable Procedure:</strong> Without the uncomfortable heat and irritation from lamps.",
+        "formTitle": "Schedule Your Whitening Today", "formSubtitle": "Leave us your details, and we will contact you to confirm your appointment.", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "submitBtn": "Send Request",
+        "mapTitle": "Find Us Easily", "mapDescription": "Our clinic is conveniently located to serve you.",
+        "promoTitle": "Patriotic Month Promo!", "promoText": "Complete dental cleaning for <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>Includes a FREE assessment and X-rays!</b>", "promoBtn": "Schedule my Cleaning", "promoDisclaimer": "Valid until September 30, 2025."
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // --- CÓDIGO PARA POP-UP PROMOCIONAL ---
+      const promoOverlay = document.getElementById('promo-popup-overlay');
+      const promoContent = document.getElementById('promo-popup-content');
+      const closePopupBtn = document.getElementById('close-popup');
+      const popupCtaBtn = document.getElementById('popup-cta-btn');
+      function showPopup() { promoOverlay.classList.remove('opacity-0', 'pointer-events-none'); promoContent.classList.remove('scale-95', 'opacity-0'); }
+      function hidePopup() { promoOverlay.classList.add('opacity-0'); promoContent.classList.add('opacity-0', 'scale-95'); setTimeout(() => { promoOverlay.classList.add('pointer-events-none'); }, 400); }
+      if (!sessionStorage.getItem('promoShown')) { setTimeout(showPopup, 3000); sessionStorage.setItem('promoShown', 'true'); }
+      closePopupBtn.addEventListener('click', hidePopup);
+      popupCtaBtn.addEventListener('click', () => { window.location.href = 'agenda.html'; });
+      promoOverlay.addEventListener('click', function(event) { if (event.target === promoOverlay) { hidePopup(); } });
+
+      // --- CÓDIGO GENERAL Y DE TRADUCCIÓN ---
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      const translateBtn = document.getElementById('translateBtn');
+      function changeLanguage(lang) {
+          document.documentElement.lang = lang;
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if(translations[lang]?.[key]) { el.innerHTML = translations[lang][key]; }
+          });
+          document.title = translations[lang]?.titleWhiteningPage || document.title;
+          localStorage.setItem('preferredLangDrSantos', lang);
+      }
+      translateBtn.addEventListener('click', function() {
+          const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
+          changeLanguage(newLang);
+      });
+      changeLanguage(localStorage.getItem('preferredLangDrSantos') || 'es');
+    });
+  </script>
+
+</body>
+</html>
+
