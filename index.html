@@ -24,80 +24,42 @@
     gtag('js', new Date());
     gtag('config', 'AW-17076577011');
 
-    // Funciones de conversión
+    function gtag_report_form_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_' });
+      return true;
+    }
     function gtag_report_call_conversion(url) {
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_',
-          'value': 1.0, 'currency': 'MXN',
-          'event_callback': function () { if (typeof(url) != 'undefined') { window.location = url; } }
-      });
+      var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN', 'event_callback': callback });
       return false;
     }
-    
     function gtag_report_whatsapp_conversion() {
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_',
-          'value': 1.0, 'currency': 'MXN'
-      });
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN' });
     }
   </script>
 
   <style>
-    /* Estilos personalizados para complementar Tailwind */
-    :root {
-      --color-primario: #2a7f7f;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    .gradient-bg {
-      background: linear-gradient(135deg, var(--color-primario), var(--acento));
-    }
-    .text-shadow {
-        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .active-nav-link {
-      color: var(--color-primario) !important;
-      font-weight: 700;
-      border-color: var(--color-primario);
-    }
-    /* Estilos para acordeón de FAQ */
-    .faq-answer {
-      transition: max-height 0.35s ease-out, padding 0.35s ease-out;
-      max-height: 0;
-    }
-    .faq-item.active .faq-answer {
-      max-height: 300px; /* Aumentado para respuestas más largas */
-      padding-top: 0.5rem;
-      padding-bottom: 1rem;
-    }
-    .faq-item.active .faq-arrow {
-      transform: rotate(180deg);
-    }
-    /* Estilos para Pop-up Promocional */
-    #promo-popup-overlay {
-      transition: opacity 0.4s ease;
-    }
-    #promo-popup-content {
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
+    :root { --color-primario: #2a7f7f; --color-secundario: #3a506b; --acento: #5fb49c; }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #f8fafc; }
+    .gradient-bg { background: linear-gradient(135deg, var(--color-primario), var(--acento)); }
+    .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .active-tab { color: var(--color-primario) !important; font-weight: 600; border-color: var(--color-primario); }
+    .faq-answer { transition: max-height 0.35s ease-out, padding 0.35s ease-out; max-height: 0; }
+    .faq-item.active .faq-answer { max-height: 300px; padding-top: 0.5rem; padding-bottom: 1rem; }
+    .faq-item.active .faq-arrow { transform: rotate(180deg); }
+    #promo-popup-overlay { transition: opacity 0.4s ease; }
+    #promo-popup-content { transition: transform 0.4s ease, opacity 0.4s ease; border-top: 5px solid; border-image: linear-gradient(to right, #006847, #FFFFFF, #CE1126) 1; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-50 text-gray-800">
 
   <!-- Header & Navigation -->
-  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 transition-all duration-300 shadow-sm border-b border-gray-200">
+  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 transition-all duration-300 shadow-md border-b border-gray-200">
     <div class="container mx-auto px-6">
         <div class="flex flex-col sm:flex-row justify-between items-center py-3">
-            <a href="index.html">
-              <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-16 mb-3 sm:mb-0" onerror="this.alt='Logo Dr. Santos'">
-            </a>
+            <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-16 mb-3 sm:mb-0" onerror="this.alt='Logo Dr. Santos'">
             <div class="text-center sm:text-right">
-                <p class="text-sm font-medium text-gray-700">
+                <p class="text-base font-semibold text-gray-700">
                     <i class="fas fa-map-marker-alt text-teal-600 mr-1"></i>
                     <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
                 </p>
@@ -105,11 +67,11 @@
         </div>
         <nav class="border-t border-gray-100">
             <ul class="flex justify-center items-center space-x-1 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
-                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors border-b-2 active-nav-link">Inicio</a></li>
-                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Implantes</a></li>
-                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Carillas</a></li>
-                <li><a href="faq-detallada.html" data-i18n="navFaqDetailed" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">FAQ</a></li>
-                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm text-gray-600 hover:text-teal-600 transition-colors">Agenda</a></li>
+                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200 border-b-2 active-tab">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Carillas</a></li>
+                <li><a href="blanqueamiento.html" data-i18n="navWhitening" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Blanqueamiento</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Agenda</a></li>
             </ul>
         </nav>
     </div>
@@ -117,139 +79,144 @@
 
   <!-- Main Content -->
   <main>
-
     <!-- Hero Section -->
     <section class="gradient-bg text-white text-center py-20 px-6">
       <div class="container mx-auto">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-shadow" data-i18n="heroTitle">Atrévete a cambiar tu sonrisa</h1>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-shadow" data-i18n="heroTitle">Atrévete a Cambiar Tu Sonrisa</h1>
         <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 opacity-90" data-i18n="heroText">Combinamos experiencia, tecnología de vanguardia y un trato cálido para ofrecerte el mejor cuidado dental en Ciudad Juárez.</p>
-        
-        <!-- Quick Actions -->
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+          <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-white hover:bg-gray-100 text-teal-700 font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
             <i class="fab fa-whatsapp text-2xl"></i>
             <div>
-              <span data-i18n="btnWhatsapp">Inicia por WhatsApp</span>
+              <span data-i18n="btnWhatsapp">Agendar por WhatsApp</span>
               <p class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Resolvemos tus dudas al instante</p>
             </div>
           </a>
-          <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-white hover:bg-gray-100 text-teal-700 font-bold py-3 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
-            <i class="fas fa-phone-alt"></i>
-            <span data-i18n="btnCall">Llamar para Agendar</span>
+          <a href="agenda.html" class="w-full sm:w-auto bg-gray-800/20 hover:bg-gray-800/40 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+            <i class="fas fa-calendar-check"></i>
+            <span data-i18n="btnSchedule">Ver Agenda</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="container mx-auto px-6 py-16 md:py-24">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-4" data-i18n="servicesTitle">Nuestros Servicios Estrella</h2>
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="servicesSubtitle">Soluciones dentales completas para una salud bucal impecable y una sonrisa radiante.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-tooth text-teal-500 mr-3"></i><span data-i18n="service1">Blanqueamiento Dental</span></h3>
-                <p class="text-gray-600" data-i18n="service1Desc">Recupera el brillo y la confianza.</p>
+    <!-- Star Treatments Section -->
+    <section class="container mx-auto px-6 py-16 md:py-24">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-4" data-i18n="treatmentsTitle">Nuestros Tratamientos Estrella</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="treatmentsSubtitle">Soluciones de alta estética para una transformación completa de tu sonrisa.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Implantes Card -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row group">
+                <img src="El11.png" alt="Ilustración de un implante dental" class="w-full md:w-2/5 h-48 md:h-full object-cover">
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="implantsCardTitle">Implantes Dentales</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="implantsCardDesc">La solución definitiva y permanente para reemplazar dientes perdidos. Recupera la función y estética al 100%.</p>
+                    </div>
+                    <a href="implantes.html" class="font-semibold text-teal-600 hover:text-teal-800 self-start group-hover:underline" data-i18n="learnMore">Saber más <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i></a>
+                </div>
             </div>
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-crown text-teal-500 mr-3"></i><span data-i18n="service2">Coronas y Puentes</span></h3>
-                <p class="text-gray-600" data-i18n="service2Desc">Restauraciones de apariencia natural.</p>
-            </div>
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-teeth-open text-teal-500 mr-3"></i><span data-i18n="service3">Diseño de Sonrisa</span></h3>
-                <p class="text-gray-600" data-i18n="service3Desc">Transforma tu imagen con carillas.</p>
-            </div>
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-tooth text-teal-500 mr-3"></i><span data-i18n="service4">Implantes Dentales</span></h3>
-                <p class="text-gray-600" data-i18n="service4Desc">Soluciones permanentes y naturales.</p>
-            </div>
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-toothbrush text-teal-500 mr-3"></i><span data-i18n="service5">Limpieza Profesional</span></h3>
-                <p class="text-gray-600" data-i18n="service5Desc">Mantenemos tus encías saludables.</p>
-            </div>
-            <div class="servicio-item bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center"><i class="fas fa-first-aid text-teal-500 mr-3"></i><span data-i18n="service6">Atención a Urgencias</span></h3>
-                <p class="text-gray-600" data-i18n="service6Desc">Aliviamos tu dolor cuando más lo necesitas.</p>
+            <!-- Carillas Card -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row group">
+                <img src="El13.png" alt="Ilustración de carillas dentales" class="w-full md:w-2/5 h-48 md:h-full object-cover">
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="veneersCardTitle">Diseño de Sonrisa (Carillas)</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="veneersCardDesc">Transforma el color, forma y alineación de tus dientes en pocas citas con carillas de porcelana o resina.</p>
+                    </div>
+                    <a href="carillas.html" class="font-semibold text-teal-600 hover:text-teal-800 self-start group-hover:underline" data-i18n="learnMore">Saber más <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="bg-white py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-4" data-i18n="galleryTitle">Conócenos un Poco Más</h2>
-            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="gallerySubtitle">Instalaciones de vanguardia y un equipo humano dedicado a tu bienestar.</p>
-            <div class="relative rounded-xl overflow-hidden shadow-xl w-full max-w-4xl mx-auto aspect-video" id="patientGallery">
-                <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
-                    <img src="El21.jpg" alt="Doctor realizando un procedimiento dental con precisión y cuidado." class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Cuidado dental profesional';">
-                    <img src="El31.png" alt="Paciente sonriendo después de un tratamiento de diseño de sonrisa." class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Resultado de diseño de sonrisa';">
-                    <img src="El32.png" alt="Instalaciones modernas y equipadas de la clínica dental." class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Clínica dental moderna';">
-                    <img src="El2.jpg" alt="Sala de espera cómoda y acogedora de la clínica." class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Sala de espera de la clínica';">
-                </div>
-                <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
-                    <button class="prev bg-white/70 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-colors"><i class="fas fa-chevron-left"></i></button>
-                    <button class="next bg-white/70 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-colors"><i class="fas fa-chevron-right"></i></button>
-                </div>
+    <!-- Simplified Process Section -->
+    <section class="bg-white py-16 md:py-24">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="procedureTitle">Tu Sonrisa en 4 Sencillos Pasos</h2>
+        <div class="container mx-auto px-6 max-w-4xl grid md:grid-cols-4 gap-8 text-center relative">
+            <!-- Connecting line -->
+            <div class="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gray-200"></div>
+            <!-- Steps -->
+            <div class="relative flex flex-col items-center">
+                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg z-10">1</div>
+                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step1Title">Agenda tu Cita</h3>
+                <p class="text-sm text-gray-600" data-i18n="step1Desc">Contáctanos por WhatsApp o teléfono. ¡La valoración inicial es sin costo!</p>
+            </div>
+            <div class="relative flex flex-col items-center">
+                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg z-10">2</div>
+                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step2Title">Diagnóstico y Plan</h3>
+                <p class="text-sm text-gray-600" data-i18n="step2Desc">Usamos tecnología 3D para crear un plan de tratamiento a tu medida.</p>
+            </div>
+            <div class="relative flex flex-col items-center">
+                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg z-10">3</div>
+                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step3Title">Realizamos el Tratamiento</h3>
+                <p class="text-sm text-gray-600" data-i18n="step3Desc">Nuestro equipo de especialistas cuida de ti con un trato gentil y profesional.</p>
+            </div>
+            <div class="relative flex flex-col items-center">
+                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg z-10">4</div>
+                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step4Title">Disfruta tu Nueva Sonrisa</h3>
+                <p class="text-sm text-gray-600" data-i18n="step4Desc">Te damos todas las indicaciones para que tus resultados duren por años.</p>
             </div>
         </div>
     </section>
-    
-    <!-- FAQ Section -->
+
+    <!-- Testimonials Section -->
     <section class="container mx-auto px-6 py-16 md:py-24">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-12" data-i18n="faqTitle">Resolvemos Tus Dudas</h2>
-        <div class="max-w-3xl mx-auto space-y-4">
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
-                    <span data-i18n="faqQ1">¿Qué marcas de materiales utilizan?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
-                </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA1">Priorizamos la calidad. Usamos implantes de titanio de marcas líderes y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan máxima estética y resistencia.</p></div>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-12" data-i18n="testimonialsTitle">Lo Que Nuestros Pacientes Opinan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-circle text-4xl text-gray-300 mr-4"></i>
+                    <div>
+                        <p class="font-bold text-gray-800" data-i18n="t1Name">Laura M.</p>
+                        <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p class="text-gray-600" data-i18n="t1Text">"El trato es increíble y los resultados de mi diseño de sonrisa superaron mis expectativas. ¡Totalmente recomendados!"</p>
             </div>
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
-                    <span data-i18n="faqQ2">Para pacientes de El Paso, ¿cómo es la logística?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
-                </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA2">Nuestra clínica está en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones para que su visita sea cómoda y sin contratiempos.</p></div>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-circle text-4xl text-gray-300 mr-4"></i>
+                    <div>
+                        <p class="font-bold text-gray-800" data-i18n="t2Name">Carlos R.</p>
+                        <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p class="text-gray-600" data-i18n="t2Text">"Me coloqué un implante y todo el proceso fue sin dolor y muy profesional. La tecnología que usan es de primera."</p>
             </div>
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <h3 class="faq-question text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50">
-                    <span data-i18n="faqQ3">¿Aceptan seguros o planes de pago?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
-                </h3>
-                <div class="faq-answer px-5 text-gray-600 overflow-hidden"><p data-i18n="faqA3">Le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago.</p></div>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-circle text-4xl text-gray-300 mr-4"></i>
+                    <div>
+                        <p class="font-bold text-gray-800" data-i18n="t3Name">Ana G.</p>
+                        <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p class="text-gray-600" data-i18n="t3Text">"Excelente servicio y atención al cliente. Me explicaron todo mi tratamiento a detalle y resolvieron todas mis dudas."</p>
             </div>
-        </div>
-        <div class="text-center mt-8">
-            <a href="faq-detallada.html" class="text-teal-600 hover:text-teal-800 font-semibold" data-i18n="faqViewMore">Ver todas las preguntas <i class="fas fa-arrow-right ml-1"></i></a>
         </div>
     </section>
 
     <!-- Map Section -->
-    <section id="ubicacion" class="bg-white py-16 md:py-24">
+    <section class="bg-white py-16 md:py-24">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-700 mb-4" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
             <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="mapDescription">Estamos ubicados en una de las avenidas principales de la ciudad, con fácil acceso y estacionamiento disponible.</p>
             <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-             <div class="text-center mt-6">
-                <a href="https://maps.app.goo.gl/uFp6fG4mQ9H7xS8a9" target="_blank" rel="noopener noreferrer" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                    <i class="fas fa-directions mr-2"></i> <span data-i18n="getDirections">Obtener Indicaciones</span>
-                </a>
-            </div>
         </div>
     </section>
-
   </main>
   
   <!-- Footer -->
   <footer class="bg-gray-800 text-white">
       <div class="container mx-auto px-6 py-10 text-center">
-          <p class="font-bold text-lg" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-map-marker-alt text-teal-400"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez</span></p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-clock text-teal-400"></i> <span data-i18n="hours">Horario</span>: Lun-Vie 9am-6pm | Sáb 9am-5pm</p>
+          <p class="font-bold text-lg">Dr. Santos Clínica Dental</p>
+          <p class="mt-2 text-gray-300"><i class="fas fa-map-marker-alt text-teal-400"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez</p>
+          <p class="mt-2 text-gray-300"><i class="fas fa-clock text-teal-400"></i> Horario: Lun-Vie 9am-6pm | Sáb 9am-5pm</p>
           <p class="mt-2 text-gray-300"><i class="fas fa-phone text-teal-400"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp text-teal-400"></i> WhatsApp: +52 1 614-780-4673</p>
-          <p class="mt-6 text-sm text-gray-400" data-i18n="footerCopyright">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+          <p class="mt-6 text-sm text-gray-400">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
       </div>
   </footer>
 
@@ -260,30 +227,35 @@
   
   <!-- Promotional Pop-up -->
   <div id="promo-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
-    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-md text-center p-8 relative transform scale-95 opacity-0">
-      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
-        <i class="fas fa-times text-2xl"></i>
-      </button>
-      <div class="mb-4">
-        <img src="El5.png" alt="Promoción Especial" class="w-full h-auto max-h-48 object-contain" onerror="this.style.display='none'; document.getElementById('promo-icon-fallback').style.display='block';">
-        <div id="promo-icon-fallback" class="hidden text-teal-500"><i class="fas fa-tags fa-3x"></i></div>
-      </div>
-      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Oferta de Valoración!</h2>
-      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Agenda tu cita de valoración hoy y recibe un descuento especial en tu primer tratamiento.</p>
-      <a href="agenda.html" id="popup-cta-btn" class="w-full gradient-bg text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">¡Agendar mi Cita!</a>
-      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido para nuevos pacientes.</p>
+    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative transform scale-95 opacity-0 overflow-hidden">
+      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"><i class="fas fa-times text-2xl"></i></button>
+      <div class="text-green-600 mb-4"><i class="fas fa-bell fa-3x"></i></div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Promoción de Mes Patrio!</h2>
+      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Limpieza dental completa a <span class="font-bold text-red-600">$400</span>. <br><b class="text-green-700">¡Incluye valoración y radiografías GRATIS!</b></p>
+      <a href="agenda.html" id="popup-cta-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">Agendar mi Limpieza</a>
+      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido hasta el 30 de Septiembre, 2025.</p>
     </div>
   </div>
 
-
   <script>
-    // Objeto de traducciones simplificado para la página de inicio
     const translations = {
       es: {
-        "title": "Dr. Santos Clínica Dental | Tu Sonrisa Perfecta en Juárez", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "heroTitle": "Atrévete a cambiar tu sonrisa", "heroText": "Combinamos experiencia, tecnología de vanguardia y un trato cálido para ofrecerte el mejor cuidado dental en Ciudad Juárez.", "btnWhatsapp": "Inicia por WhatsApp", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnCall": "Llamar para Agendar", "servicesTitle": "Nuestros Servicios Estrella", "servicesSubtitle": "Soluciones dentales completas para una salud bucal impecable y una sonrisa radiante.", "service1": "Blanqueamiento Dental", "service1Desc": "Recupera el brillo y la confianza.", "service2": "Coronas y Puentes", "service2Desc": "Restauraciones de apariencia natural.", "service3": "Diseño de Sonrisa", "service3Desc": "Transforma tu imagen con carillas.", "service4": "Implantes Dentales", "service4Desc": "Soluciones permanentes y naturales.", "service5": "Limpieza Profesional", "service5Desc": "Mantenemos tus encías saludables.", "service6": "Atención a Urgencias", "service6Desc": "Aliviamos tu dolor cuando más lo necesitas.", "galleryTitle": "Conócenos un Poco Más", "gallerySubtitle": "Instalaciones de vanguardia y un equipo humano dedicado a tu bienestar.", "faqTitle": "Resolvemos Tus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqA1": "Priorizamos la calidad. Usamos implantes de titanio de marcas líderes y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan máxima estética y resistencia.", "faqQ2": "Para pacientes de El Paso, ¿cómo es la logística?", "faqA2": "Nuestra clínica está en una zona segura y de fácil acceso. El personal es bilingüe y podemos asistirle con recomendaciones para que su visita sea cómoda y sin contratiempos.", "faqQ3": "¿Aceptan seguros o planes de pago?", "faqA3": "Le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago.", "faqViewMore": "Ver todas las preguntas", "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Estamos ubicados en una de las avenidas principales de la ciudad, con fácil acceso y estacionamiento disponible.", "getDirections": "Obtener Indicaciones", "promoTitle": "¡Oferta de Valoración!", "promoText": "Agenda tu cita de valoración hoy y recibe un descuento especial en tu primer tratamiento.", "promoBtn": "¡Agendar mi Cita!", "promoDisclaimer": "Válido para nuevos pacientes."
+        "title": "Dr. Santos Clínica Dental | Tu Sonrisa Perfecta en Juárez", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navWhitening": "Blanqueamiento", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "heroTitle": "Atrévete a Cambiar Tu Sonrisa", "heroText": "Combinamos experiencia, tecnología de vanguardia y un trato cálido para ofrecerte el mejor cuidado dental en Ciudad Juárez.", "btnWhatsapp": "Agendar por WhatsApp", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnSchedule": "Ver Agenda",
+        "treatmentsTitle": "Nuestros Tratamientos Estrella", "treatmentsSubtitle": "Soluciones de alta estética para una transformación completa de tu sonrisa.", "implantsCardTitle": "Implantes Dentales", "implantsCardDesc": "La solución definitiva y permanente para reemplazar dientes perdidos. Recupera la función y estética al 100%.", "veneersCardTitle": "Diseño de Sonrisa (Carillas)", "veneersCardDesc": "Transforma el color, forma y alineación de tus dientes en pocas citas con carillas de porcelana o resina.", "learnMore": "Saber más",
+        "procedureTitle": "Tu Sonrisa en 4 Sencillos Pasos", "step1Title": "Agenda tu Cita", "step1Desc": "Contáctanos por WhatsApp o teléfono. ¡La valoración inicial es sin costo!", "step2Title": "Diagnóstico y Plan", "step2Desc": "Usamos tecnología 3D para crear un plan de tratamiento a tu medida.", "step3Title": "Realizamos el Tratamiento", "step3Desc": "Nuestro equipo de especialistas cuida de ti con un trato gentil y profesional.", "step4Title": "Disfruta tu Nueva Sonrisa", "step4Desc": "Te damos todas las indicaciones para que tus resultados duren por años.",
+        "testimonialsTitle": "Lo Que Nuestros Pacientes Opinan", "t1Name": "Laura M.", "t1Text": "\"El trato es increíble y los resultados de mi diseño de sonrisa superaron mis expectativas. ¡Totalmente recomendados!\"", "t2Name": "Carlos R.", "t2Text": "\"Me coloqué un implante y todo el proceso fue sin dolor y muy profesional. La tecnología que usan es de primera.\"", "t3Name": "Ana G.", "t3Text": "\"Excelente servicio y atención al cliente. Me explicaron todo mi tratamiento a detalle y resolvieron todas mis dudas.\"",
+        "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Estamos ubicados en una de las avenidas principales de la ciudad, con fácil acceso y estacionamiento disponible.",
+        "promoTitle": "¡Promoción de Mes Patrio!", "promoText": "Limpieza dental completa a <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>¡Incluye valoración y radiografías GRATIS!</b>", "promoBtn": "Agendar mi Limpieza", "promoDisclaimer": "Válido hasta el 30 de Septiembre, 2025."
       },
       en: {
-        "title": "Dr. Santos Dental Clinic | Your Perfect Smile in Juarez", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "heroTitle": "Dare to change your smile", "heroText": "We combine experience, cutting-edge technology, and warm care to offer you the best dental care in Ciudad Juarez.", "btnWhatsapp": "Start on WhatsApp", "whatsappSubtext": "We answer your questions instantly", "btnCall": "Call to Schedule", "servicesTitle": "Our Star Services", "servicesSubtitle": "Complete dental solutions for flawless oral health and a radiant smile.", "service1": "Teeth Whitening", "service1Desc": "Regain your brightness and confidence.", "service2": "Crowns & Bridges", "service2Desc": "Natural-looking restorations.", "service3": "Smile Design", "service3Desc": "Transform your image with veneers.", "service4": "Dental Implants", "service4Desc": "Permanent and natural solutions.", "service5": "Professional Cleaning", "service5Desc": "We keep your gums healthy.", "service6": "Emergency Care", "service6Desc": "We relieve your pain when you need it most.", "galleryTitle": "Get to Know Us Better", "gallerySubtitle": "State-of-the-art facilities and a team dedicated to your well-being.", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqA1": "We prioritize quality. We use leading brand titanium implants and work with zirconia and porcelain from certified labs that guarantee maximum aesthetics and strength.", "faqQ2": "For patients from El Paso, what are the logistics?", "faqA2": "Our clinic is in a safe, easily accessible area. Our staff is bilingual, and we can assist with recommendations to make your visit seamless.", "faqQ3": "Do you accept insurance or payment plans?", "faqA3": "We provide all detailed documentation (in English or Spanish) for you to request reimbursement from your US insurance. We also offer various payment options.", "faqViewMore": "View all questions", "mapTitle": "Find Us Easily", "mapDescription": "We are located on one of the city's main avenues, with easy access and available parking.", "getDirections": "Get Directions", "promoTitle": "Assessment Offer!", "promoText": "Schedule your assessment appointment today and receive a special discount on your first treatment.", "promoBtn": "Schedule my Appointment!", "promoDisclaimer": "Valid for new patients."
+        "title": "Dr. Santos Dental Clinic | Your Perfect Smile in Juarez", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navWhitening": "Whitening", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "heroTitle": "Dare to Change Your Smile", "heroText": "We combine experience, cutting-edge technology, and warm care to offer you the best dental care in Ciudad Juarez.", "btnWhatsapp": "Schedule on WhatsApp", "whatsappSubtext": "We answer your questions instantly", "btnSchedule": "View Schedule",
+        "treatmentsTitle": "Our Star Treatments", "treatmentsSubtitle": "High-end aesthetic solutions for a complete transformation of your smile.", "implantsCardTitle": "Dental Implants", "implantsCardDesc": "The definitive and permanent solution to replace missing teeth. Recover 100% of function and aesthetics.", "veneersCardTitle": "Smile Design (Veneers)", "veneersCardDesc": "Transform the color, shape, and alignment of your teeth in just a few appointments with porcelain or resin veneers.", "learnMore": "Learn more",
+        "procedureTitle": "Your Smile in 4 Simple Steps", "step1Title": "Schedule Your Appointment", "step1Desc": "Contact us via WhatsApp or phone. The initial assessment is free!", "step2Title": "Diagnosis and Plan", "step2Desc": "We use 3D technology to create a treatment plan tailored to you.", "step3Title": "We Perform the Treatment", "step3Desc": "Our team of specialists takes care of you with gentle and professional care.", "step4Title": "Enjoy Your New Smile", "step4Desc": "We provide all the instructions to ensure your results last for years.",
+        "testimonialsTitle": "What Our Patients Say", "t1Name": "Laura M.", "t1Text": "\"The treatment is incredible and the results of my smile design exceeded my expectations. Totally recommended!\"", "t2Name": "Carlos R.", "t2Text": "\"I got an implant and the whole process was painless and very professional. The technology they use is top-notch.\"", "t3Name": "Ana G.", "t3Text": "\"Excellent service and customer care. They explained my entire treatment in detail and answered all my questions.\"",
+        "mapTitle": "Find Us Easily", "mapDescription": "We are located on one of the city's main avenues, with easy access and available parking.",
+        "promoTitle": "Patriotic Month Promo!", "promoText": "Complete dental cleaning for <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>Includes a FREE assessment and X-rays!</b>", "promoBtn": "Schedule my Cleaning", "promoDisclaimer": "Valid until September 30, 2025."
       }
     };
 
@@ -293,86 +265,30 @@
       const promoContent = document.getElementById('promo-popup-content');
       const closePopupBtn = document.getElementById('close-popup');
       const popupCtaBtn = document.getElementById('popup-cta-btn');
-
-      function showPopup() {
-        if(promoOverlay && promoContent){
-            promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
-            promoContent.classList.remove('scale-95', 'opacity-0');
-        }
-      }
-      function hidePopup() {
-        if(promoOverlay && promoContent){
-            promoOverlay.classList.add('opacity-0');
-            promoContent.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-              promoOverlay.classList.add('pointer-events-none');
-            }, 400);
-        }
-      }
-
-      if (!sessionStorage.getItem('promoShown')) {
-          setTimeout(showPopup, 3000);
-          sessionStorage.setItem('promoShown', 'true');
-      }
-      
-      if(closePopupBtn) closePopupBtn.addEventListener('click', hidePopup);
-      if(popupCtaBtn) popupCtaBtn.addEventListener('click', hidePopup);
-      if(promoOverlay) promoOverlay.addEventListener('click', function(event) {
-        if (event.target === promoOverlay) { hidePopup(); }
-      });
-
-      // --- CÓDIGO PARA GALERÍA DESLIZABLE ---
-      const gallery = document.getElementById('patientGallery');
-      if (gallery) {
-        const slider = document.getElementById('gallerySlider');
-        const prevBtn = gallery.querySelector('.prev');
-        const nextBtn = gallery.querySelector('.next');
-        const slides = slider.querySelectorAll('img');
-        let currentIndex = 0;
-
-        function goToSlide(index) {
-          currentIndex = (index + slides.length) % slides.length;
-          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-        
-        setInterval(() => goToSlide(currentIndex + 1), 5000);
-      }
-
-      // --- CÓDIGO PARA FAQ ACORDEÓN ---
-      document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-          const faqItem = button.parentElement;
-          faqItem.classList.toggle('active');
-        });
-      });
+      function showPopup() { promoOverlay.classList.remove('opacity-0', 'pointer-events-none'); promoContent.classList.remove('scale-95', 'opacity-0'); }
+      function hidePopup() { promoOverlay.classList.add('opacity-0'); promoContent.classList.add('opacity-0', 'scale-95'); setTimeout(() => { promoOverlay.classList.add('pointer-events-none'); }, 400); }
+      if (!sessionStorage.getItem('promoShown')) { setTimeout(showPopup, 3000); sessionStorage.setItem('promoShown', 'true'); }
+      closePopupBtn.addEventListener('click', hidePopup);
+      popupCtaBtn.addEventListener('click', () => { window.location.href = 'agenda.html'; });
+      promoOverlay.addEventListener('click', function(event) { if (event.target === promoOverlay) { hidePopup(); } });
 
       // --- CÓDIGO GENERAL Y DE TRADUCCIÓN ---
       document.getElementById('currentYear').textContent = new Date().getFullYear();
-
       const translateBtn = document.getElementById('translateBtn');
-      const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
-
       function changeLanguage(lang) {
           document.documentElement.lang = lang;
           document.querySelectorAll('[data-i18n]').forEach(el => {
               const key = el.getAttribute('data-i18n');
-              if(translations[lang]?.[key]) {
-                  el.innerHTML = translations[lang][key];
-              }
+              if(translations[lang]?.[key]) { el.innerHTML = translations[lang][key]; }
           });
           document.title = translations[lang]?.title || document.title;
           localStorage.setItem('preferredLangDrSantos', lang);
       }
-      
       translateBtn.addEventListener('click', function() {
           const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
           changeLanguage(newLang);
       });
-      
-      changeLanguage(savedLang);
+      changeLanguage(localStorage.getItem('preferredLangDrSantos') || 'es');
     });
   </script>
 
