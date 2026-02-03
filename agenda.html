@@ -9,7 +9,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -51,244 +51,400 @@
   </script>
 
   <style>
-    /* Custom styles to complement Tailwind */
+    /* DESIGN SYSTEM OPTIMIZADO */
     :root {
-      --color-primario: #2a7f7f;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
+      --color-primario: #0d9488; /* Teal-600 */
+      --color-oscuro: #111827;
+      --color-suave: #f0fdfa;
     }
     body {
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background-color: #f8fafc; /* Color de fondo general mejorado */
+      background-color: #f8fafc;
     }
     .gradient-bg {
-      background: linear-gradient(135deg, var(--color-primario), var(--acento));
+      background: linear-gradient(135deg, #0d9488, #2dd4bf);
+    }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(135deg, #0d9488, #0f766e);
     }
     .active-tab {
       color: var(--color-primario) !important;
       font-weight: 600;
       border-color: var(--color-primario);
     }
-    /* Styles for FAQ accordion */
+    
+    /* FAQ Animaciones */
     .faq-answer {
-      transition: max-height 0.35s ease-out, padding 0.35s ease-out;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
       max-height: 0;
     }
     .faq-item.active .faq-answer {
-      max-height: 300px;
-      padding-top: 0.5rem;
-      padding-bottom: 1rem;
+      max-height: 500px; /* Aumentado por seguridad */
+      padding-top: 0.75rem;
+      padding-bottom: 1.5rem;
     }
     .faq-item.active .faq-arrow {
       transform: rotate(180deg);
+      color: var(--color-primario);
     }
-    /* Styles for Promo Pop-up */
-    #promo-popup-overlay {
-      transition: opacity 0.4s ease;
+
+    /* Popup Animations */
+    #promo-popup-overlay { transition: opacity 0.5s ease; }
+    #promo-popup-content { transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease; }
+    
+    /* Shine Effect for Promo */
+    .shine-effect {
+        position: relative;
+        overflow: hidden;
     }
-    #promo-popup-content {
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      /* Borde patriótico superior */
-      border-top: 5px solid;
-      border-image: linear-gradient(to right, #006847, #FFFFFF, #CE1126) 1;
+    .shine-effect::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shine 3s infinite;
+    }
+    @keyframes shine {
+        0% { left: -100%; }
+        20% { left: 100%; }
+        100% { left: 100%; }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-gray-800">
+<body class="bg-slate-50 text-slate-800">
 
-  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 transition-all duration-300 shadow-md border-b border-gray-200">
-    <div class="container mx-auto px-6">
+  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-6">
         <div class="flex flex-col sm:flex-row justify-between items-center py-3">
-            <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-16 mb-3 sm:mb-0" onerror="this.alt='Logo Dr. Santos'">
+            <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-14 md:h-16 mb-2 sm:mb-0 transition-transform hover:scale-105" onerror="this.alt='Logo Dr. Santos'">
             <div class="text-center sm:text-right">
-                <p class="text-base font-semibold text-gray-700">
+                <p class="text-sm md:text-base font-medium text-slate-600">
                     <i class="fas fa-map-marker-alt text-teal-600 mr-1"></i>
                     <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
                 </p>
             </div>
         </div>
         <nav class="border-t border-gray-100">
-            <ul class="flex justify-center items-center space-x-1 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
-                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Inicio</a></li>
-                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Implantes</a></li>
-                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Carillas</a></li>
-                <li><a href="https://drsantosclinicadental.com/blanqueamiento" data-i18n="navWhitening" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Blanqueamiento</a></li>
-                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm border-b-2 active-tab">Agenda</a></li>
+            <ul class="flex justify-center items-center gap-2 sm:gap-6 overflow-x-auto whitespace-nowrap py-2 no-scrollbar">
+                <li><a href="index.html" data-i18n="navHome" class="px-3 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-full transition-all">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="px-3 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-full transition-all">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="px-3 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-full transition-all">Carillas</a></li>
+                <li><a href="https://drsantosclinicadental.com/blanqueamiento" data-i18n="navWhitening" class="px-3 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-full transition-all">Blanqueamiento</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-3 py-2 text-sm font-semibold border-b-2 active-tab">Agenda</a></li>
             </ul>
         </nav>
     </div>
   </header>
 
-  <main class="container mx-auto px-6 py-12 md:py-20">
+  <main class="container mx-auto px-4 md:px-6 py-12 md:py-20 max-w-7xl">
     
-    <section class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold text-teal-700 mb-4" data-i18n="schedulePageTitle">Agenda tu Valoración Hoy</h1>
-      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Ofrecemos una atención dental integral para toda la comunidad de Ciudad Juárez. Tu salud bucal es nuestra prioridad.</p>
+    <section class="text-center mb-16 animate-fade-in-up">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight" data-i18n="schedulePageTitle">
+        Agenda tu <span class="gradient-text">Valoración Hoy</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="schedulePageSubtitle">
+        Ofrecemos atención dental integral de clase mundial en Ciudad Juárez. Tu sonrisa y salud son nuestra prioridad absoluta.
+      </p>
       
       <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
-          <i class="fab fa-whatsapp text-2xl"></i>
-          <div>
-            <span data-i18n="btnWhatsapp">Inicia por WhatsApp</span>
-            <p class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Resolvemos tus dudas al instante</p>
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-green-200/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg group">
+          <i class="fab fa-whatsapp text-3xl group-hover:rotate-12 transition-transform"></i>
+          <div class="text-left">
+            <span class="block leading-none" data-i18n="btnWhatsapp">Inicia por WhatsApp</span>
+            <span class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Respuesta inmediata</span>
           </div>
         </a>
-        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-slate-300/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
           <i class="fas fa-phone-alt"></i>
-          <span data-i18n="btnCall">Llamar para Agendar</span>
+          <span data-i18n="btnCall">Llamar Ahora</span>
         </a>
       </div>
     </section>
 
-    <section class="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200">
-        <div class="grid md:grid-cols-2 gap-12 items-start">
+    <section class="bg-white p-6 sm:p-10 md:p-12 rounded-3xl shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             
-            <div>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2" data-i18n="formTitle">¿Prefieres que te contactemos?</h2>
-                <p class="text-base text-gray-500 mb-6" data-i18n="formSubtitle">Déjanos tus datos y te llamaremos a la brevedad.</p>
-                <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-5">
+            <div class="order-2 lg:order-1">
+                <div class="mb-8">
+                  <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2" data-i18n="formTitle">¿Prefieres que te contactemos?</h2>
+                  <div class="h-1 w-20 bg-teal-500 rounded-full mb-3"></div>
+                  <p class="text-slate-500" data-i18n="formSubtitle">Déjanos tus datos. Es rápido, seguro y sin compromiso.</p>
+                </div>
+
+                <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-6">
                     <input type="hidden" name="_subject" value="Nueva solicitud de VALORACIÓN - Página Agenda">
                     <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     
-                    <div>
-                        <label for="nombre" class="block text-base font-medium text-gray-700 mb-1" data-i18n="nameLabel">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Tu nombre completo">
+                    <div class="group">
+                        <label for="nombre" class="block text-sm font-semibold text-slate-700 mb-1 ml-1" data-i18n="nameLabel">Nombre completo</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="far fa-user text-slate-400 group-focus-within:text-teal-500 transition-colors"></i>
+                            </div>
+                            <input type="text" id="nombre" name="nombre" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:bg-white focus:outline-none transition-all" required placeholder="Tu nombre completo">
+                        </div>
                     </div>
                     
-                    <div>
-                        <label for="telefono" class="block text-base font-medium text-gray-700 mb-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
-                        <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Ej. (656) 123-4567">
+                    <div class="group">
+                        <label for="telefono" class="block text-sm font-semibold text-slate-700 mb-1 ml-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-mobile-alt text-slate-400 group-focus-within:text-teal-500 transition-colors"></i>
+                            </div>
+                            <input type="tel" id="telefono" name="telefono" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:bg-white focus:outline-none transition-all" required placeholder="(656) 123-4567">
+                        </div>
                     </div>
                     
-                    <div>
-                        <label for="motivo" class="block text-base font-medium text-gray-700 mb-1" data-i18n="reasonLabel">Servicio de Interés</label>
-                        <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required>
-                            <option value="" disabled selected data-i18n="selectReason">Seleccione un servicio</option>
-                            <option value="Implantes y Rehabilitación Oral" data-i18n="optionRehabilitacion">Implantes y Rehabilitación Oral</option>
-                            <option value="Diseño de Sonrisa y Carillas" data-i18n="optionEstetica">Diseño de Sonrisa y Carillas</option>
-                            <option value="Ortodoncia y Alineadores" data-i18n="optionOrtodoncia">Ortodoncia y Alineadores</option>
-                            <option value="Consulta General y Diagnóstico" data-i18n="optionValoracion">Consulta General y Diagnóstico</option>
-                            <option value="Atención a Molestia o Urgencia" data-i18n="optionUrgencia">Atención a Molestia o Urgencia</option>
-                            <option value="Otro Motivo" data-i18n="optionOtro">Otro</option>
-                        </select>
+                    <div class="group">
+                        <label for="motivo" class="block text-sm font-semibold text-slate-700 mb-1 ml-1" data-i18n="reasonLabel">Servicio de Interés</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-tooth text-slate-400 group-focus-within:text-teal-500 transition-colors"></i>
+                            </div>
+                            <select id="motivo" name="motivo" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:bg-white focus:outline-none transition-all appearance-none" required>
+                                <option value="" disabled selected data-i18n="selectReason">Seleccione una opción</option>
+                                <option value="Implantes y Rehabilitación Oral" data-i18n="optionRehabilitacion">Implantes y Rehabilitación</option>
+                                <option value="Diseño de Sonrisa y Carillas" data-i18n="optionEstetica">Diseño de Sonrisa (Carillas)</option>
+                                <option value="Ortodoncia y Alineadores" data-i18n="optionOrtodoncia">Ortodoncia (Brackets/Invisalign)</option>
+                                <option value="Consulta General y Diagnóstico" data-i18n="optionValoracion">Limpieza y Valoración General</option>
+                                <option value="Atención a Molestia o Urgencia" data-i18n="optionUrgencia">Urgencia / Dolor</option>
+                                <option value="Blanqueamiento" data-i18n="optionBlanqueamiento">Promoción Blanqueamiento</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i class="fas fa-chevron-down text-xs text-slate-400"></i>
+                            </div>
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="mensaje" class="block text-base font-medium text-gray-700 mb-1" data-i18n="messageLabel">Mensaje (opcional)</label>
-                        <textarea id="mensaje" name="mensaje" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" rows="3" placeholder="Si lo desea, brinde más detalles sobre su caso."></textarea>
+                    <div class="group">
+                        <label for="mensaje" class="block text-sm font-semibold text-slate-700 mb-1 ml-1" data-i18n="messageLabel">Mensaje (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:bg-white focus:outline-none transition-all" rows="3" placeholder="Detalles adicionales..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 text-lg">
-                        <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Enviar Solicitud</span>
+                    <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-teal-500/40 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg shine-effect">
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Agendar Cita</span>
                     </button>
+                    <p class="text-xs text-center text-slate-400 mt-2">Sus datos están protegidos.</p>
                 </form>
             </div>
 
-            <div class="relative rounded-xl overflow-hidden shadow-xl w-full aspect-[4/3]" id="patientGallery">
-                <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
-                    <img src="El21.jpg" alt="Doctor realizando un procedimiento dental con precisión y cuidado." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Cuidado dental profesional';">
-                    <img src="El2.jpg" alt="Paciente sonriendo después de un tratamiento de carillas." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Resultado de diseño de sonrisa';">
-                    <img src="El31.png" alt="Paciente sonriendo después de un tratamiento dental." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Resultado de diseño de sonrisa';">
-                    <img src="El22.jpg" alt="Vista detallada de una sonrisa saludable." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Sonrisa saludable';">
-                    <img src="El32.png" alt="Instalaciones modernas de la clínica dental." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Clínica dental moderna';">
-                    <img src="El3.png" alt="Doctor y paciente discutiendo plan de tratamiento." loading="lazy" class="w-full h-full object-cover flex-shrink-0" onerror="this.alt='Consulta dental';">
-                </div>
-                <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-3">
-                    <button class="prev bg-white/70 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-colors"><i class="fas fa-chevron-left"></i></button>
-                    <button class="next bg-white/70 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-colors"><i class="fas fa-chevron-right"></i></button>
+            <div class="order-1 lg:order-2 h-full flex items-center">
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] border-4 border-white transform lg:rotate-1 hover:rotate-0 transition-transform duration-500" id="patientGallery">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                    
+                    <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="gallerySlider">
+                        <img src="El21.jpg" alt="Procedimiento dental de precisión" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="El2.jpg" alt="Paciente feliz carillas" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="El31.png" alt="Sonrisa perfecta" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="El22.jpg" alt="Detalle dientes sanos" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="El32.png" alt="Instalaciones Clínica Dr Santos" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="El3.png" alt="Consulta dental amigable" loading="lazy" class="w-full h-full object-cover flex-shrink-0">
+                    </div>
+                    
+                    <div class="absolute bottom-4 right-4 z-20 flex gap-2">
+                        <button class="prev bg-white/90 hover:bg-white text-teal-700 rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-all hover:scale-110 active:scale-95">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="next bg-teal-600/90 hover:bg-teal-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-all hover:scale-110 active:scale-95">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md">
+                        <p class="text-xs font-bold text-teal-800 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fas fa-star text-yellow-400"></i> Resultados Reales
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="py-16 mt-10 bg-gray-100 rounded-2xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
-        <p class="text-base text-center text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="mapDescription">Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.</p>
-        <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-white">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="py-16 mt-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-slate-800" data-i18n="mapTitle">Ubicación Estratégica</h2>
+            <p class="text-slate-500 mt-2" data-i18n="mapDescription">Fácil acceso en Av. Plutarco Elías Calles. Estacionamiento disponible.</p>
+        </div>
+        <div class="max-w-5xl mx-auto h-[400px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 relative group">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
+          <div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg max-w-xs hidden md:block">
+             <p class="text-sm font-bold text-slate-800">Dr. Santos Clínica Dental</p>
+             <a href="https://maps.google.com" target="_blank" class="text-xs text-blue-600 hover:underline">Ver en Google Maps</a>
+          </div>
         </div>
     </section>
 
-    <section class="py-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10" data-i18n="servicesTitle">Nuestros Servicios Principales</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto text-base">
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service1">Blanqueamiento Dental</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service2">Resinas Estéticas</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service3">Coronas y Puentes</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service4">Implantes Dentales</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service5">Limpieza Profesional</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service6">Extracciones</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service7">Ortodoncia</div>
-          <div class="service-item bg-white p-4 text-center rounded-lg border-b-4 border-gray-200 hover:border-teal-500 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all" data-i18n="service8">¡Y mucho más!</div>
+    <section class="py-16 bg-slate-100 rounded-[3rem] my-10 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12" data-i18n="servicesTitle">Nuestros Servicios</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-500 transition-colors">
+                        <i class="fas fa-magic text-teal-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service1">Blanqueamiento</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition-colors">
+                        <i class="fas fa-fill-drip text-blue-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service2">Resinas Estéticas</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition-colors">
+                        <i class="fas fa-crown text-purple-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service3">Coronas</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-500 transition-colors">
+                        <i class="fas fa-screw text-indigo-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service4">Implantes</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition-colors">
+                        <i class="fas fa-sparkles text-green-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service5">Limpieza Pro</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500 transition-colors">
+                        <i class="fas fa-hand-holding-medical text-red-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service6">Extracciones</h3>
+                </div>
+                
+                 <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 transition-colors">
+                        <i class="fas fa-teeth-open text-pink-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service7">Ortodoncia</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group cursor-default">
+                    <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-500 transition-colors">
+                        <i class="fas fa-plus text-gray-500 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 text-sm md:text-base" data-i18n="service8">Más Servicios</h3>
+                </div>
+            </div>
         </div>
     </section>
     
     <section class="max-w-3xl mx-auto py-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10" data-i18n="faqTitle">Resolvemos sus Dudas</h2>
+        <div class="text-center mb-10">
+            <span class="text-teal-600 font-bold uppercase tracking-wider text-sm">Dudas Frecuentes</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="faqTitle">Preguntas Comunes</h2>
+        </div>
+        
         <div class="space-y-4">
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors">
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-slate-700 p-5 cursor-pointer flex justify-between items-center hover:bg-slate-50 transition-colors select-none">
                     <span data-i18n="faqQ1">¿Qué marcas de materiales utilizan?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
+                    <i class="fas fa-chevron-down faq-arrow transition-transform duration-300"></i>
                 </h3>
-                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA1"></p></div>
+                <div class="faq-answer px-6 text-slate-600 leading-relaxed"><div class="pb-6 pt-2 border-t border-slate-50" data-i18n="faqA1"></div></div>
             </div>
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors">
+            
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-slate-700 p-5 cursor-pointer flex justify-between items-center hover:bg-slate-50 transition-colors select-none">
                     <span data-i18n="faqQ2">¿Cómo es el proceso de una primera cita?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
+                    <i class="fas fa-chevron-down faq-arrow transition-transform duration-300"></i>
                 </h3>
-                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA2"></p></div>
+                <div class="faq-answer px-6 text-slate-600 leading-relaxed"><div class="pb-6 pt-2 border-t border-slate-50" data-i18n="faqA2"></div></div>
             </div>
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors">
+            
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-slate-700 p-5 cursor-pointer flex justify-between items-center hover:bg-slate-50 transition-colors select-none">
                     <span data-i18n="faqQ3">¿Aceptan seguros de EE. UU.?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
+                    <i class="fas fa-chevron-down faq-arrow transition-transform duration-300"></i>
                 </h3>
-                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA3"></p></div>
+                <div class="faq-answer px-6 text-slate-600 leading-relaxed"><div class="pb-6 pt-2 border-t border-slate-50" data-i18n="faqA3"></div></div>
             </div>
-            <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <h3 class="faq-question text-base md:text-lg font-semibold text-gray-700 p-5 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors">
+            
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="faq-question text-base md:text-lg font-semibold text-slate-700 p-5 cursor-pointer flex justify-between items-center hover:bg-slate-50 transition-colors select-none">
                     <span data-i18n="faqQ4">¿Qué métodos de pago aceptan?</span>
-                    <i class="fas fa-chevron-down faq-arrow transition-transform"></i>
+                    <i class="fas fa-chevron-down faq-arrow transition-transform duration-300"></i>
                 </h3>
-                <div class="faq-answer px-5 text-base text-gray-600 overflow-hidden"><p data-i18n="faqA4"></p></div>
+                <div class="faq-answer px-6 text-slate-600 leading-relaxed"><div class="pb-6 pt-2 border-t border-slate-50" data-i18n="faqA4"></div></div>
             </div>
         </div>
     </section>
 
   </main>
 
-  <footer class="bg-gray-800 text-white">
-      <div class="container mx-auto px-6 py-10 text-center">
-          <p class="font-bold text-lg" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-map-marker-alt text-teal-400"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez</span></p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-clock text-teal-400"></i> <span data-i18n="hours">Horario</span>: Lun-Vie 9am-6pm | Sáb 9am-5pm</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-phone text-teal-400"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp text-teal-400"></i> WhatsApp: +52 1 614-780-4673</p>
-          <p class="mt-6 text-sm text-gray-400">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800">
+      <div class="container mx-auto px-6 py-12 text-center">
+          <img src="logo.png" alt="Logo footer" class="h-12 mx-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all" onerror="this.style.display='none'">
+          <p class="font-bold text-xl text-white mb-4" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
+          
+          <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8 text-sm">
+            <p><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315</span></p>
+            <p><i class="fas fa-clock text-teal-500 mr-2"></i> <span data-i18n="hours">Lun-Vie 9am-6pm | Sáb 9am-5pm</span></p>
+            <p><i class="fas fa-phone text-teal-500 mr-2"></i> (614) 780-4673</p>
+          </div>
+          
+          <div class="w-16 h-1 bg-teal-600 mx-auto rounded-full mb-6"></div>
+          
+          <p class="text-xs text-slate-500">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
       </div>
   </footer>
 
-  <button id="translateBtn" class="fixed bottom-5 right-5 bg-teal-600 hover:bg-teal-700 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110" title="Change Language">
-      <i class="fas fa-language text-xl"></i>
+  <button id="translateBtn" class="fixed bottom-6 right-6 z-40 bg-white text-slate-800 w-12 h-12 rounded-full shadow-xl border border-slate-100 flex items-center justify-center transition-transform hover:scale-110 hover:rotate-12 group" title="Change Language">
+      <i class="fas fa-globe text-xl text-teal-600 group-hover:text-teal-800"></i>
   </button>
   
-  <div id="promo-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
-    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative transform scale-95 opacity-0 overflow-hidden">
-      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10">
-        <i class="fas fa-times text-2xl"></i>
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+    <div id="promo-popup-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-sm text-center p-0 relative transform scale-95 opacity-0 overflow-hidden ring-1 ring-slate-200">
+      
+      <div class="bg-gradient-to-r from-teal-500 to-teal-700 h-2 w-full"></div>
+      
+      <button id="close-popup" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors z-10 bg-white rounded-full p-1">
+        <i class="fas fa-times text-xl"></i>
       </button>
-      <div class="text-green-600 mb-4">
-        <i class="fas fa-bell fa-3x"></i>
+
+      <div class="p-8">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-teal-50 rounded-full mb-5 animate-pulse">
+            <i class="fas fa-gem text-3xl text-teal-500"></i>
+          </div>
+          
+          <h2 class="text-2xl font-bold text-slate-800 mb-2" data-i18n="promoTitle">Paquete Sonrisa Radiante</h2>
+          <div class="w-12 h-1 bg-teal-200 mx-auto rounded-full mb-4"></div>
+          
+          <p class="text-slate-600 text-base mb-6 leading-relaxed" data-i18n="promoText">
+            Obtén una <span class="font-semibold text-teal-700">Limpieza Profunda</span> + <span class="font-semibold text-teal-700">Blanqueamiento</span> por solo:
+          </p>
+          
+          <div class="bg-slate-50 rounded-xl py-3 px-4 mb-6 border border-slate-100">
+              <span class="block text-xs text-slate-400 uppercase tracking-wider">Precio Especial</span>
+              <span class="text-3xl font-extrabold text-slate-800">$2,500 <span class="text-sm font-medium text-slate-500">MXN</span></span>
+          </div>
+          
+          <a href="#appointmentForm" id="popup-cta-btn" class="block w-full gradient-bg hover:bg-teal-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-teal-500/30 transform hover:-translate-y-0.5 transition-all duration-300 shine-effect" data-i18n="promoBtn">
+            ¡Lo quiero!
+          </a>
+          
+          <p class="text-[10px] text-slate-400 mt-4" data-i18n="promoDisclaimer">*Válido por tiempo limitado. Aplican restricciones.</p>
       </div>
-      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Promoción de Mes Patrio!</h2>
-      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Limpieza dental completa a <span class="font-bold text-red-600">$400</span>. <br><b class="text-green-700">¡Incluye valoración y radiografías GRATIS!</b></p>
-      <a href="#appointmentForm" id="popup-cta-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">Agendar mi Limpieza</a>
-      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido hasta el 30 de Septiembre, 2025.</p>
     </div>
   </div>
 
@@ -296,15 +452,117 @@
   <script>
     const translations = {
       es: {
-        "schedulePageTitle": "Agenda tu Valoración Hoy", "schedulePageSubtitle": "Ofrecemos una atención dental integral para toda la comunidad de Ciudad Juárez. Tu salud bucal es nuestra prioridad.", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnWhatsapp": "Inicia por WhatsApp", "btnCall": "Llamar para Agendar", "formTitle": "¿Prefieres que te contactemos?", "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.", "servicesTitle": "Nuestros Servicios Principales", "service1": "Blanqueamiento Dental", "service2": "Resinas Estéticas", "service3": "Coronas y Puentes", "service4": "Implantes Dentales", "service5": "Limpieza Profesional", "service6": "Extracciones", "service7": "Ortodoncia", "service8": "¡Y mucho más!", "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.", "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.", "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.", "faqA4": "Para tu comodidad, aceptamos pagos en efectivo, tarjetas de crédito y débito (Visa, Mastercard). También podemos conversar sobre opciones de pago flexibles para tu tratamiento.", "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navWhitening": "Blanqueamiento", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez", "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "reasonLabel": "Servicio de Interés", "selectReason": "Seleccione un servicio", "optionRehabilitacion": "Implantes y Rehabilitación Oral", "optionEstetica": "Diseño de Sonrisa y Carillas", "optionOrtodoncia": "Ortodoncia y Alineadores", "optionValoracion": "Consulta General y Diagnóstico", "optionUrgencia": "Atención a Molestia o Urgencia", "optionOtro": "Otro", "messageLabel": "Mensaje (opcional)", "submitBtn": "Enviar Solicitud", "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República y una cuadra después de Av. Vicente Guerrero.", "faqTitle": "Resolvemos sus Dudas", "faqQ1": "¿Qué marcas de materiales utilizan?", "faqQ2": "¿Cómo es el proceso de una primera cita?", "faqQ3": "¿Aceptan seguros de EE. UU.?", "faqQ4": "¿Qué métodos de pago aceptan?", "promoTitle": "¡Promoción de Mes Patrio!", "promoText": "Limpieza dental completa a <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>¡Incluye valoración y radiografías GRATIS!</b>", "promoBtn": "Agendar mi Limpieza", "promoDisclaimer": "Válido hasta el 30 de Septiembre, 2025."
+        "schedulePageTitle": "Agenda tu Valoración Hoy",
+        "schedulePageSubtitle": "Ofrecemos una atención dental integral para toda la comunidad de Ciudad Juárez. Tu salud bucal es nuestra prioridad.",
+        "whatsappSubtext": "Resolvemos tus dudas al instante",
+        "btnWhatsapp": "Inicia por WhatsApp",
+        "btnCall": "Llamar Ahora",
+        "formTitle": "¿Prefieres que te contactemos?",
+        "formSubtitle": "Déjanos tus datos y te llamaremos a la brevedad.",
+        "servicesTitle": "Nuestros Servicios",
+        "service1": "Blanqueamiento",
+        "service2": "Resinas Estéticas",
+        "service3": "Coronas y Puentes",
+        "service4": "Implantes Dentales",
+        "service5": "Limpieza Profesional",
+        "service6": "Extracciones",
+        "service7": "Ortodoncia",
+        "service8": "¡Y mucho más!",
+        "faqA1": "Priorizamos la calidad y durabilidad. Utilizamos implantes de titanio de marcas líderes con reconocimiento internacional y trabajamos con zirconio y porcelanas de laboratorios certificados que garantizan la máxima estética y resistencia.",
+        "faqA2": "Su primera visita es una consulta integral. Realizaremos un diagnóstico completo, incluyendo estudios digitales si son necesarios, para entender a fondo su salud oral. Luego, nos sentaremos con usted para discutir sus metas y presentarle un plan de tratamiento detallado y transparente.",
+        "faqA3": "Aunque no trabajamos con aseguradoras directamente, le proporcionamos toda la documentación detallada (en inglés o español) para que pueda solicitar el reembolso a su seguro de EE. UU. Ofrecemos también diversas opciones de pago para su comodidad.",
+        "faqA4": "Para tu comodidad, aceptamos pagos en efectivo, tarjetas de crédito y débito (Visa, Mastercard). También podemos conversar sobre opciones de pago flexibles para tu tratamiento.",
+        "titleSchedulePage": "Agenda tu Valoración | Dr. Santos Clínica Dental",
+        "navHome": "Inicio",
+        "navImplants": "Implantes",
+        "navVeneers": "Carillas",
+        "navWhitening": "Blanqueamiento",
+        "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
+        "nameLabel": "Nombre completo",
+        "phoneLabel": "Teléfono de Contacto",
+        "reasonLabel": "Servicio de Interés",
+        "selectReason": "Seleccione un servicio",
+        "optionRehabilitacion": "Implantes y Rehabilitación Oral",
+        "optionEstetica": "Diseño de Sonrisa y Carillas",
+        "optionOrtodoncia": "Ortodoncia y Alineadores",
+        "optionValoracion": "Consulta General y Diagnóstico",
+        "optionUrgencia": "Atención a Molestia o Urgencia",
+        "optionBlanqueamiento": "Promoción Blanqueamiento",
+        "messageLabel": "Mensaje (opcional)",
+        "submitBtn": "Agendar Cita",
+        "mapTitle": "Encuéntranos Fácilmente",
+        "mapDescription": "Nos encontramos sobre Av. Plutarco Elías Calles, 350 metros antes de Av. Paseo Triunfo de la República.",
+        "faqTitle": "Preguntas Comunes",
+        "faqQ1": "¿Qué marcas de materiales utilizan?",
+        "faqQ2": "¿Cómo es el proceso de una primera cita?",
+        "faqQ3": "¿Aceptan seguros de EE. UU.?",
+        "faqQ4": "¿Qué métodos de pago aceptan?",
+        
+        // NUEVA PROMO
+        "promoTitle": "Paquete Sonrisa Radiante",
+        "promoText": "Obtén una <span class='font-semibold text-teal-700'>Limpieza Profunda</span> + <span class='font-semibold text-teal-700'>Blanqueamiento</span> por solo:",
+        "promoBtn": "¡Lo quiero!",
+        "promoDisclaimer": "*Válido por tiempo limitado. Aplican restricciones."
       },
       en: {
-        "schedulePageTitle": "Schedule Your Assessment Today", "schedulePageSubtitle": "We offer comprehensive dental care for the entire Ciudad Juárez community. Your oral health is our priority.", "whatsappSubtext": "We answer your questions instantly", "btnWhatsapp": "Start on WhatsApp", "btnCall": "Call to Schedule", "formTitle": "Prefer us to contact you?", "formSubtitle": "Leave your details and we will call you shortly.", "servicesTitle": "Our Main Services", "service1": "Teeth Whitening", "service2": "Cosmetic Fillings", "service3": "Crowns & Bridges", "service4": "Dental Implants", "service5": "Professional Cleaning", "service6": "Extractions", "service7": "Orthodontics", "service8": "And much more!", "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.", "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.", "faqA3": "While we do not work directly with US insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement. We also offer various payment options for your convenience.", "faqA4": "For your convenience, we accept cash, credit, and debit cards (Visa, Mastercard). We can also discuss flexible payment options for your treatment.", "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navWhitening": "Whitening", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez", "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "reasonLabel": "Service of Interest", "selectReason": "Select a service", "optionRehabilitacion": "Implants & Oral Rehabilitation", "optionEstetica": "Smile Design & Veneers", "optionOrtodoncia": "Orthodontics & Aligners", "optionValoracion": "General Consultation & Diagnosis", "optionUrgencia": "Attention to Discomfort or Emergency", "optionOtro": "Other", "messageLabel": "Message (optional)", "submitBtn": "Send Request", "mapTitle": "Find Us Easily", "mapDescription": "We are located on Av. Plutarco Elías Calles, 350 meters before Av. Paseo Triunfo de la República and one block after Av. Vicente Guerrero.", "faqTitle": "Answering Your Questions", "faqQ1": "What brands of materials do you use?", "faqQ2": "What is the process for a first appointment?", "faqQ3": "Do you accept US insurance?", "faqQ4": "What payment methods do you accept?", "promoTitle": "Patriotic Month Promo!", "promoText": "Complete dental cleaning for <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>Includes a FREE assessment and X-rays!</b>", "promoBtn": "Schedule my Cleaning", "promoDisclaimer": "Valid until September 30, 2025."
+        "schedulePageTitle": "Schedule Your Assessment Today",
+        "schedulePageSubtitle": "We offer comprehensive dental care for the entire Ciudad Juárez community. Your oral health is our priority.",
+        "whatsappSubtext": "Instant response",
+        "btnWhatsapp": "Start on WhatsApp",
+        "btnCall": "Call Now",
+        "formTitle": "Prefer us to contact you?",
+        "formSubtitle": "Leave your details and we will call you shortly.",
+        "servicesTitle": "Our Services",
+        "service1": "Teeth Whitening",
+        "service2": "Cosmetic Fillings",
+        "service3": "Crowns & Bridges",
+        "service4": "Dental Implants",
+        "service5": "Professional Cleaning",
+        "service6": "Extractions",
+        "service7": "Orthodontics",
+        "service8": "And much more!",
+        "faqA1": "We prioritize quality and durability. We use titanium implants from leading, internationally recognized brands and work with zirconia and porcelains from certified labs that guarantee maximum aesthetics and strength.",
+        "faqA2": "Your first visit is a comprehensive consultation. We will perform a complete diagnosis, including digital studies if necessary, to fully understand your oral health. Then, we will sit down with you to discuss your goals and present a detailed and transparent treatment plan.",
+        "faqA3": "While we do not work directly with US insurance companies, we provide you with all the detailed documentation (in English or Spanish) so you can file for reimbursement. We also offer various payment options for your convenience.",
+        "faqA4": "For your convenience, we accept cash, credit, and debit cards (Visa, Mastercard). We can also discuss flexible payment options for your treatment.",
+        "titleSchedulePage": "Schedule Your Assessment | Dr. Santos Dental Clinic",
+        "navHome": "Home",
+        "navImplants": "Implants",
+        "navVeneers": "Veneers",
+        "navWhitening": "Whitening",
+        "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
+        "nameLabel": "Full Name",
+        "phoneLabel": "Contact Phone",
+        "reasonLabel": "Service of Interest",
+        "selectReason": "Select a service",
+        "optionRehabilitacion": "Implantes & Oral Rehabilitation",
+        "optionEstetica": "Smile Design & Veneers",
+        "optionOrtodoncia": "Orthodontics & Aligners",
+        "optionValoracion": "General Consultation & Diagnosis",
+        "optionUrgencia": "Emergency / Pain",
+        "optionBlanqueamiento": "Whitening Promo",
+        "messageLabel": "Message (optional)",
+        "submitBtn": "Book Appointment",
+        "mapTitle": "Find Us Easily",
+        "mapDescription": "We are located on Av. Plutarco Elías Calles, 350 meters before Av. Paseo Triunfo de la República.",
+        "faqTitle": "Common Questions",
+        "faqQ1": "What brands of materials do you use?",
+        "faqQ2": "What is the process for a first appointment?",
+        "faqQ3": "Do you accept US insurance?",
+        "faqQ4": "What payment methods do you accept?",
+        
+        // NEW PROMO ENGLISH
+        "promoTitle": "Radiant Smile Package",
+        "promoText": "Get a <span class='font-semibold text-teal-700'>Deep Cleaning</span> + <span class='font-semibold text-teal-700'>Whitening</span> for only:",
+        "promoBtn": "I want this!",
+        "promoDisclaimer": "*Valid for a limited time. Restrictions apply."
       }
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-      // --- CÓDIGO PARA POP-UP PROMOCIONAL ---
+      // --- LOGICA POPUP OPTIMIZADA ---
       const promoOverlay = document.getElementById('promo-popup-overlay');
       const promoContent = document.getElementById('promo-popup-content');
       const closePopupBtn = document.getElementById('close-popup');
@@ -312,29 +570,47 @@
 
       function showPopup() {
         promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
-        promoContent.classList.remove('scale-95', 'opacity-0');
+        setTimeout(() => {
+             promoContent.classList.remove('scale-95', 'opacity-0');
+        }, 50);
       }
+      
       function hidePopup() {
-        promoOverlay.classList.add('opacity-0');
         promoContent.classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
-          promoOverlay.classList.add('pointer-events-none');
-        }, 400);
+          promoOverlay.classList.add('opacity-0');
+          setTimeout(() => {
+             promoOverlay.classList.add('pointer-events-none');
+          }, 500);
+        }, 300);
       }
 
-      if (!sessionStorage.getItem('promoShown')) {
-          setTimeout(showPopup, 3000);
-          sessionStorage.setItem('promoShown', 'true');
+      // Reiniciamos promo si el usuario no la ha visto en esta sesión
+      // (Para pruebas puedes quitar el if, en producción déjalo)
+      if (!sessionStorage.getItem('promoShown2500')) {
+          setTimeout(showPopup, 3500); // 3.5 segundos de espera
+          sessionStorage.setItem('promoShown2500', 'true');
       }
       
       closePopupBtn.addEventListener('click', hidePopup);
-      popupCtaBtn.addEventListener('click', hidePopup);
+      popupCtaBtn.addEventListener('click', function() {
+          // Scrollear al formulario suavemente
+          document.querySelector('#appointmentForm').scrollIntoView({ 
+              behavior: 'smooth' 
+          });
+          // Pre-seleccionar la opción de blanqueamiento si existe en el select
+          const select = document.getElementById('motivo');
+          if(select) select.value = "Blanqueamiento";
+          
+          hidePopup();
+      });
+      
       promoOverlay.addEventListener('click', function(event) {
         if (event.target === promoOverlay) { hidePopup(); }
       });
 
 
-      // --- CÓDIGO PARA GALERÍA DESLIZABLE ---
+      // --- SLIDER LOGIC ---
       const gallery = document.getElementById('patientGallery');
       if (gallery) {
         const slider = document.getElementById('gallerySlider');
@@ -348,21 +624,41 @@
           slider.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+            resetTimer();
+        });
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+            resetTimer();
+        });
         
-        setInterval(() => goToSlide(currentIndex + 1), 5000); // Auto-slide every 5 seconds
+        let slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        }
       }
 
-      // --- CÓDIGO PARA FAQ ACORDEÓN ---
+      // --- FAQ LOGIC ---
       document.querySelectorAll('.faq-question').forEach(button => {
         button.addEventListener('click', () => {
           const faqItem = button.parentElement;
-          faqItem.classList.toggle('active');
+          const isActive = faqItem.classList.contains('active');
+          
+          // Cerrar otros (Opcional, para estilo acordeón estricto)
+          document.querySelectorAll('.faq-item').forEach(item => {
+              item.classList.remove('active');
+          });
+
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
         });
       });
 
-      // --- CÓDIGO GENERAL Y DE TRADUCCIÓN ---
+      // --- GENERAL ---
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
       const translateBtn = document.getElementById('translateBtn');
@@ -377,10 +673,13 @@
           document.title = translations[lang]?.titleSchedulePage || document.title;
           localStorage.setItem('preferredLangDrSantos', lang);
       }
+      
       translateBtn.addEventListener('click', function() {
           const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
           changeLanguage(newLang);
       });
+      
+      // Init Language
       changeLanguage(localStorage.getItem('preferredLangDrSantos') || 'es');
     });
   </script>
