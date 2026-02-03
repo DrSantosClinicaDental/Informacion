@@ -2,448 +2,508 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="titleSchedulePage">Agenda tu Cita | Dr. Santos Clínica Dental</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title data-i18n="titleSchedulePage">Agenda tu Valoración | Dr. Santos Clínica Dental</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Contenido de style.css - Se mantienen los estilos base y se añaden mejoras */
-    :root {
-      --color-primario: #2a7f7f;
-      --color-secundario: #3a506b;
-      --acento: #5fb49c;
-      --blanco: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-medio: #e9edf0;
-      --gris-texto: #4a4a4a;
-      --texto-oscuro-principal: #333333;
-      --sombra-ligera: 0 4px 12px rgba(0,0,0,0.08);
-      --sombra-media: 0 6px 20px rgba(0,0,0,0.1);
-      --whatsapp: #25D366;
-      --radio-borde-general: 12px; /* Aumentado para un look más moderno */
-      --radio-borde-sm: 8px; 
-      --acento-rgb: 95, 180, 156; 
-      --color-text-subtle: #5a677d; 
-      --color-border: #d1d9e0; 
-      --color-background-light-section: #f8f9fa; 
-      --sombra-dark: 0 8px 25px rgba(0,0,0,0.12); 
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17076577011');
+
+    function gtag_report_form_conversion() {
+      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_' });
+      return true;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--texto-oscuro-principal); background-color: var(--blanco); line-height: 1.7; overflow-x: hidden; font-smooth: antialiased; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    .header { background-color: var(--blanco); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; box-shadow: var(--sombra-ligera); transition: padding 0.3s ease, box-shadow 0.3s ease; }
-    .header.scrolled { padding: 8px 5%; box-shadow: var(--sombra-media); }
-    .logo { display: block; margin-left: auto; margin-right: auto; max-height: 65px; width: auto; max-width: 280px; margin-bottom: 8px; transition: max-height 0.3s ease; }
-    .header.scrolled .logo { max-height: 55px; }
-    .direccion-header { color: var(--color-secundario); font-size: 0.8rem; text-align: center; transition: font-size 0.3s ease; }
-    .direccion-header i { color: var(--color-primario); margin-right: 5px; }
-    .main-nav { background-color: var(--blanco); padding: 0.5rem 0; box-shadow: var(--sombra-ligera); border-bottom: 1px solid var(--gris-medio); position: sticky; top: 0; z-index: 999; width: 100%; }
-    .main-nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 10px; gap: 5px; }
-    .main-nav ul::-webkit-scrollbar { display: none; }
-    .main-nav ul { -ms-overflow-style: none; scrollbar-width: none; }
-    .main-nav li a { color: var(--color-primario); text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.85rem; padding: 0.6em 0.9em; border-radius: var(--radio-borde-sm); transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease; display: block; text-align: center; white-space: nowrap; border-bottom: 3px solid transparent; }
-    .main-nav li a:hover, .main-nav li a.active-tab { color: var(--acento); background-color: transparent; border-bottom-color: var(--acento); box-shadow: none; }
+
+    function gtag_report_call_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') { window.location = url; }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN',
+          'event_callback': callback
+      });
+      return false;
+    }
     
-    .page-header-spacer { height: 150px; }
-    .page-content { padding: clamp(30px, 5vh, 50px) 5%; }
-    .footer { background-color: var(--color-secundario); color: var(--blanco); padding: 30px 5% 20px; text-align: center; position: relative; margin-top: 50px;}
-    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--color-primario), var(--acento)); }
-    .footer p { margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
-    .footer p:first-child { font-weight: 600; font-size: 1.1rem; color: var(--blanco); margin-bottom: 12px; }
-    .footer p i { color: var(--acento); margin-right: 6px; }
-    .footer a { color: var(--blanco); } .footer a:hover { color: var(--acento); text-decoration: underline; }
-    .translate-btn { position: fixed; bottom: 15px; right: 15px; background-color: var(--color-primario); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; font-size: 10px; transition: all 0.3s ease; box-shadow: var(--sombra-media); z-index: 100;}
-    .translate-btn:hover { background-color: var(--color-secundario); transform: translateY(-4px) scale(1.08); }
-    .translate-btn i { font-size: 20px; margin-bottom: 2px; }
-    .schedule-header { text-align: center; margin-bottom: clamp(30px, 6vh, 50px); }
-    .schedule-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--color-primario); line-height: 1.2; margin-bottom: 10px; }
-    .schedule-header p { font-size: clamp(1rem, 2.5vw, 1.1rem); color: var(--color-text-subtle); max-width: 650px; margin: 0 auto; }
-    .schedule-container { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-    @media (min-width: 992px) { .schedule-container { grid-template-columns: 1fr 0.8fr; gap: 50px; } }
-    .form-section { background-color: var(--blanco); border-radius: var(--radio-borde-general); padding: clamp(25px, 4vw, 40px); box-shadow: var(--sombra-dark); }
-    .form-title { text-align: left; font-size: 1.8rem; color: var(--color-secundario); margin-bottom: 25px; font-weight: 700; }
-    .form-group { margin-bottom: 20px; position: relative; }
-    .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-secundario); font-size: 0.9rem; }
-    .form-control { width: 100%; padding: 14px 18px; border: 1px solid var(--gris-medio); border-radius: var(--radio-borde-sm); font-family: 'Open Sans', sans-serif; font-size: 1rem; transition: border-color 0.3s ease, box-shadow 0.3s ease; background-color: var(--gris-claro); }
-    .form-control:focus { border-color: var(--acento); box-shadow: 0 0 0 4px rgba(var(--acento-rgb), 0.2); outline: none; background-color: var(--blanco); }
-    .submit-btn { background: linear-gradient(135deg, var(--color-primario), var(--acento)); color: white; border: none; padding: 16px 25px; border-radius: var(--radio-borde-sm); font-size: 1.1rem; font-weight: 700; font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(var(--acento-rgb), 0.3); }
-    .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(var(--acento-rgb), 0.45); }
-    .info-column { display: flex; flex-direction: column; gap: 30px; }
-    .info-card { background-color: var(--gris-claro); padding: 30px; border-radius: var(--radio-borde-general); border-left: 5px solid var(--acento); }
-    .info-card h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); font-size: 1.5rem; margin-bottom: 20px; }
-    .info-card ul { list-style: none; padding: 0; margin-bottom: 20px; }
-    .info-card ul li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--color-text-subtle); font-size: 0.95rem; }
-    .info-card ul i { color: var(--acento); font-size: 1.2rem; width: 20px; text-align: center; }
-    .info-card .hours-info, .info-card .address-info { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; color: var(--color-text-subtle); font-size: 0.95rem; }
-    .info-card .hours-info i, .info-card .address-info i { color: var(--color-primario); font-size: 1.2rem; margin-top: 4px; }
-    .info-card .hours-info strong, .info-card .address-info strong { color: var(--color-secundario); display: block; margin-bottom: 3px; }
-    .info-contact-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 25px; }
-    .info-btn { display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: var(--radio-borde-sm); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; gap: 8px; }
-    .info-btn.whatsapp { background-color: var(--whatsapp); color: var(--blanco); }
-    .info-btn.whatsapp:hover { background-color: #1ebe58; transform: scale(1.05); }
-    .info-btn.phone { background-color: var(--color-secundario); color: var(--blanco); }
-    .info-btn.phone:hover { background-color: #31445a; transform: scale(1.05); }
-    .steps-section { text-align: center; margin-top: clamp(50px, 8vh, 80px); padding: 30px 20px; background-color: var(--gris-claro); border-radius: var(--radio-borde-general); }
-    .steps-section h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primario); margin-bottom: 30px; }
-    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
-    .step-item { position: relative; }
-    .step-icon { width: 70px; height: 70px; background-color: var(--blanco); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: var(--sombra-ligera); border: 3px solid var(--acento); }
-    .step-icon i { font-size: 2rem; color: var(--color-primario); }
-    .step-item h3 { font-family: 'Poppins', sans-serif; color: var(--color-secundario); margin-bottom: 5px; font-size: 1.2rem; }
-    .step-item p { color: var(--color-text-subtle); font-size: 0.9rem; }
-    .mapa-container { margin-top: 25px; border-radius: var(--radio-borde-general); overflow: hidden; box-shadow: var(--sombra-media); }
-    .mapa { width: 100%; height: 350px; border: none; display: block; }
-    @media (min-width: 768px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } .step-item:not(:last-child)::after { content: ''; position: absolute; top: 35px; left: calc(50% + 45px); width: calc(100% - 90px); height: 2px; background-color: var(--gris-medio); z-index: -1; } }
-    @media (min-width: 768px) { .header { padding: 15px 5%; flex-direction: row; justify-content: space-between; align-items: center; } .logo { margin-bottom: 0; max-height: 70px; } .header.scrolled .logo { max-height: 60px; } .direccion-header { text-align: right; font-size: 0.9rem; } .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; overflow-x: visible; } .main-nav li a { font-size: 0.9rem; padding: 0.7em 1em; } }
-    @media (min-width: 1024px) { .logo { max-height: 80px; } .header.scrolled .logo { max-height: 70px; } .main-nav ul { gap: 20px; } .main-nav li a { font-size: 1rem; } }
+    function gtag_report_whatsapp_conversion() {
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN'
+      });
+    }
+  </script>
+
+  <style>
+    /* DESIGN SYSTEM OPTIMIZADO PARA MÓVIL */
+    :root {
+      --color-primario: #0d9488;
+      --color-fondo: #f8fafc;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: var(--color-fondo);
+      /* Prevenir rebote elástico en iOS para sensación más nativa */
+      overscroll-behavior-y: none;
+    }
+    
+    /* Ocultar scrollbar pero permitir scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+    }
+    
+    /* Animaciones suaves */
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Estilos del Popup Móvil */
+    #promo-popup-overlay { transition: opacity 0.3s ease; }
+    #promo-popup-content { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; }
+    
+    /* Inputs amigables para dedos */
+    input, select, textarea, button {
+        touch-action: manipulation; /* Mejora respuesta táctil */
+    }
+    
+    /* Estilo de Pestaña Activa (Pill shape) */
+    .nav-pill.active {
+        background-color: #0f766e;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.3);
+    }
+    .nav-pill {
+        transition: all 0.2s ease;
+    }
   </style>
 </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17076577011');
-</script>
-<body>
-
-  <header class="header" id="mainHeader">
-    <img src="logo.png" alt="Dr. Santos Clínica Dental" class="logo" onerror="this.alt='Logo Dr. Santos'">
-    <div class="direccion-header">
-      <i class="fas fa-map-marker-alt"></i> <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
+<body class="text-slate-800 pb-20"> <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
+    <div class="container mx-auto px-4 pt-3 pb-2">
+        <div class="flex justify-between items-center mb-3">
+            <img src="logo.png" alt="Dr. Santos" class="h-10 md:h-14 w-auto" onerror="this.alt='Dr. Santos'">
+            <a href="#mapSection" class="text-xs font-medium text-slate-500 flex items-center bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+                <i class="fas fa-map-marker-alt text-teal-600 mr-1.5"></i>
+                <span data-i18n="clinicLocationShort">Cd. Juárez</span>
+            </a>
+        </div>
+        
+        <nav class="w-full overflow-x-auto no-scrollbar pb-1">
+            <ul class="flex space-x-2 min-w-max px-1">
+                <li><a href="index.html" data-i18n="navHome" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Carillas</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="nav-pill active px-4 py-2 text-sm rounded-full border border-transparent">Agenda</a></li>
+                <li><a href="https://drsantosclinicadental.com/blanqueamiento" data-i18n="navWhitening" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Blanqueamiento</a></li>
+            </ul>
+        </nav>
     </div>
   </header>
 
-  <nav class="main-nav" id="mainNav">
-    <ul>
-      <li><a href="index.html" data-i18n="navHome">Inicio</a></li>
-      <li><a href="implantes.html" data-i18n="navImplants">Implantes</a></li>
-      <li><a href="carillas.html" data-i18n="navVeneers">Carillas</a></li>
-      <li><a href="faq-detallada.html" data-i18n="navFaqDetailed">FAQ</a></li>
-      <li><a href="agenda.html" data-i18n="navScheduleEasy" class="active-tab">Agenda</a></li>
-    </ul>
-  </nav>
+  <main class="container mx-auto px-4 md:px-6 pt-8 md:pt-12 max-w-5xl">
+    
+    <section class="text-center mb-10 fade-enter">
+      <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="schedulePageTitle">
+        Agenda tu <span class="text-teal-600">Valoración</span>
+      </h1>
+      <p class="text-slate-500 text-sm md:text-lg max-w-xl mx-auto mb-8" data-i18n="schedulePageSubtitle">
+        Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.
+      </p>
+      
+      <div class="flex flex-col gap-3 max-w-sm mx-auto">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span data-i18n="btnWhatsapp">WhatsApp Directo</span>
+        </a>
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full bg-slate-800 active:bg-slate-900 text-white font-bold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-center gap-3 transition-transform active:scale-95">
+          <i class="fas fa-phone-alt"></i>
+          <span data-i18n="btnCall">Llamar Ahora</span>
+        </a>
+      </div>
+    </section>
 
-  <div class="page-header-spacer"></div>
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        
+        <section id="formSection" class="bg-white p-5 md:p-8 rounded-2xl shadow-xl border border-slate-100 order-1">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600">
+                    <i class="far fa-calendar-check text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800" data-i18n="formTitle">Solicitud de Cita</h2>
+                    <p class="text-xs text-slate-500" data-i18n="formSubtitle">Te confirmaremos por WhatsApp/Llamada.</p>
+                </div>
+            </div>
 
-  <main class="page-content">
-    <div class="schedule-header">
-      <h1 data-i18n="schedulePageTitle">Tu Sonrisa Ideal Comienza Aquí</h1>
-      <p data-i18n="schedulePageSubtitle">Da el primer paso hacia una salud dental excepcional. Llena el formulario y nuestro equipo te contactará para confirmar tu cita a la brevedad.</p>
+            <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
+                <input type="hidden" name="_subject" value="Nueva Cita - Página Agenda">
+                <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1" data-i18n="nameLabel">Nombre</label>
+                    <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base" required placeholder="Tu nombre completo">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1" data-i18n="phoneLabel">Teléfono</label>
+                    <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base" required placeholder="(656) ...">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1" data-i18n="reasonLabel">Motivo</label>
+                    <div class="relative">
+                        <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base appearance-none" required>
+                            <option value="" disabled selected data-i18n="selectReason">Selecciona...</option>
+                            <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">⭐ Promo: Blanqueamiento + Limpieza</option>
+                            <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option>
+                            <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option>
+                            <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option>
+                            <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option>
+                            <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full gradient-bg text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-98 transition-all flex items-center justify-center gap-2 mt-2">
+                    <span data-i18n="submitBtn">Enviar Solicitud</span> <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </section>
+
+        <div class="order-2 fade-enter" style="animation-delay: 0.2s;">
+             <h3 class="text-center text-slate-400 text-sm font-medium mb-3 uppercase tracking-widest">Resultados Reales</h3>
+             <div class="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-video" id="patientGallery">
+                <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
+                    <img src="El21.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                    <img src="El2.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                    <img src="El31.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                    <img src="El22.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                    <img src="El32.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                    <img src="El3.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+                </div>
+                <button class="prev absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-left"></i></button>
+                <button class="next absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
     </div>
     
-    <div class="schedule-container">
-      <!-- Columna del Formulario -->
-      <div class="form-column">
-        <section id="contacto-formulario" class="form-section">
-          <h2 class="form-title" data-i18n="formTitle">Completa tus Datos</h2>
-          <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Santos Clínica Dental (Página Agenda)">
-              <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              
-              <div class="form-group">
-                  <label for="nombre" class="form-label" data-i18n="nameLabel">Nombre completo</label>
-                  <input type="text" id="nombre" name="nombre" class="form-control" required data-i18n-placeholder="namePlaceholder" placeholder="Ej. Ana Sofía García">
-              </div>
-
-              <div class="form-group">
-                  <label for="telefono" class="form-label" data-i18n="phoneLabel">Número de teléfono (WhatsApp)</label>
-                  <input type="tel" id="telefono" name="telefono" class="form-control" required data-i18n-placeholder="phonePlaceholder" placeholder="Para confirmar tu cita">
-              </div>
-              
-              <div class="form-group">
-                  <label for="motivo" class="form-label" data-i18n="reasonLabel">Motivo de consulta</label>
-                  <select id="motivo" name="motivo" class="form-control" required>
-                      <option value="" disabled selected data-i18n="selectReason">Selecciona el motivo principal</option>
-                      <option value="Consulta de Valoración y Limpieza" data-i18n="optionValoracion">Consulta de Valoración y Limpieza</option>
-                      <option value="Odontología Estética (Carillas, Blanqueamiento)" data-i18n="optionEstetica">Odontología Estética (Carillas, Blanqueamiento)</option>
-                      <option value="Implantes y Rehabilitación (Coronas, Puentes)" data-i18n="optionRehabilitacion">Implantes y Rehabilitación (Coronas, Puentes)</option>
-                      <option value="Ortodoncia (Brackets/Alineadores)" data-i18n="optionOrtodoncia">Ortodoncia (Brackets/Alineadores)</option>
-                      <option value="Urgencia Dental (Dolor, Infección)" data-i18n="optionUrgencia">Urgencia Dental (Dolor, Infección)</option>
-                      <option value="Otro Motivo / No estoy seguro" data-i18n="optionOtro">Otro Motivo / No estoy seguro</option>
-                  </select>
-              </div>
-
-              <div class="form-group">
-                  <label for="dia" class="form-label" data-i18n="dayLabel">Día de preferencia</label>
-                  <select id="dia" name="dia" class="form-control" required>
-                      <option value="" disabled selected data-i18n="selectDay">Elige un día</option>
-                      <option value="Lunes" data-i18n="day1">Lunes</option>
-                      <option value="Martes" data-i18n="day2">Martes</option>
-                      <option value="Miércoles" data-i18n="day3">Miércoles</option>
-                      <option value="Jueves" data-i18n="day4">Jueves</option>
-                      <option value="Viernes" data-i18n="day5">Viernes</option>
-                      <option value="Sábado" data-i18n="day6">Sábado</option>
-                  </select>
-              </div>
-
-              <div class="form-group">
-                  <label for="horario" class="form-label" data-i18n="timeLabel">Horario de preferencia</label>
-                  <select id="horario" name="horario" class="form-control" required>
-                      <option value="" disabled selected data-i18n="selectTime">Elige un bloque horario</option>
-                      <option value="Mañana (9am-1pm)" data-i18n="timeMorning">Mañana (9am - 1pm)</option>
-                      <option value="Tarde (1pm-6pm)" data-i18n="timeAfternoon">Tarde (1pm - 6pm)</option>
-                      <option value="Sábado - Mañana (9am-1pm)" data-i18n="timeSatMorning">Sábado - Mañana (9am - 1pm)</option>
-                      <option value="Sábado - Tarde (1pm-5pm)" data-i18n="timeSatAfternoon">Sábado - Tarde (1pm - 5pm)</option>
-                      <option value="Indiferente / El más próximo" data-i18n="timeIndifferent">Indiferente / El más próximo</option>
-                  </select>
-              </div>
-
-              <div class="form-group">
-                  <label for="mensaje" class="form-label" data-i18n="messageLabel">Mensaje adicional (opcional)</label>
-                  <textarea id="mensaje" name="mensaje" class="form-control" rows="3" data-i18n-placeholder="messagePlaceholder" placeholder="Danos más detalles si lo necesitas."></textarea>
-              </div>
-
-              <button type="submit" class="submit-btn">
-                  <i class="fas fa-calendar-check"></i> <span data-i18n="submitBtn">Agendar mi Cita Ahora</span>
-              </button>
-          </form>
-        </section>
-      </div>
-      
-      <!-- Columna de Información -->
-      <div class="info-column">
-        <div class="info-card">
-          <h3 data-i18n="whyChooseUsTitle">¿Por qué elegirnos?</h3>
-          <ul>
-            <li data-i18n="benefit1"><i class="fas fa-user-md"></i>Atención 100% personalizada por especialistas.</li>
-            <li data-i18n="benefit2"><i class="fas fa-microscope"></i>Usamos tecnología de punta para tu diagnóstico.</li>
-            <li data-i18n="benefit3"><i class="fas fa-smile-beam"></i>Enfocados en resultados estéticos y funcionales.</li>
-            <li data-i18n="benefit4"><i class="fas fa-shield-alt"></i>Altos estándares de higiene y esterilización.</li>
-          </ul>
-          <div class="info-contact-buttons">
-            <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20Dr.%20Santos%20Clínica%20Dental" target="_blank" rel="noopener noreferrer" class="info-btn whatsapp" data-i18n="whatsappBtn"><i class="fab fa-whatsapp"></i> Agendar por WhatsApp</a>
-            <a href="tel:6147804673" class="info-btn phone" data-i18n="phoneBtn"><i class="fas fa-phone-alt"></i> Llamar a la Clínica</a>
-          </div>
+    <section id="mapSection" class="py-12">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="mapTitle">Ubicación</h2>
+        <div class="w-full h-64 rounded-xl overflow-hidden shadow-md border border-slate-200">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <div class="info-card">
-            <div class="hours-info">
-              <i class="fas fa-clock"></i>
-              <div>
-                <strong data-i18n="ourHoursTitle">Nuestro Horario de Atención</strong>
-                <span data-i18n="hoursDetail">Lunes a Viernes: 9am - 6pm<br>Sábados: 9am - 5pm</span>
-              </div>
+        <p class="text-center text-sm text-slate-500 mt-3 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315. (Estacionamiento disponible)</p>
+    </section>
+
+    <section class="py-8 bg-slate-100 rounded-3xl mb-10">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="servicesTitle">Servicios</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 px-4">
+            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                <i class="fas fa-magic text-teal-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
             </div>
-            <div class="address-info">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <strong data-i18n="ourLocationTitle">Encuéntranos en</strong>
-                <span data-i18n="addressDetail">Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juárez, Chih.</span>
-              </div>
+            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                <i class="fas fa-fill-drip text-blue-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
             </div>
-            <div class="mapa-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.622763784383!2d-106.4343879241366!3d31.4819999754399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e8d9c9b9e8c9b9%3A0x9e8c9b9e8c9b9e8c!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Ciudad%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" class="mapa" allowfullscreen="" loading="lazy" title="Ubicación de Dr. Santos Clínica Dental en Ciudad Juárez"></iframe>
+            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                <i class="fas fa-crown text-purple-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                <i class="fas fa-screw text-indigo-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
             </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Sección de Pasos -->
-    <section class="steps-section">
-      <h2 data-i18n="stepsTitle">Tu Cita en 3 Sencillos Pasos</h2>
-      <div class="steps-grid">
-        <div class="step-item">
-          <div class="step-icon"><i class="fas fa-keyboard"></i></div>
-          <h3 data-i18n="step1Title">1. Envía el Formulario</h3>
-          <p data-i18n="step1Desc">Llena tus datos. Solo nos toma un minuto revisar tu solicitud.</p>
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="faqTitle">Preguntas</h2>
+        <div class="space-y-3">
+            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
+                    <span data-i18n="faqQ1">¿Materiales?</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
+                </summary>
+                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA1"></div>
+            </details>
+            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
+                    <span data-i18n="faqQ2">¿Primera cita?</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
+                </summary>
+                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA2"></div>
+            </details>
+            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
+                    <span data-i18n="faqQ3">¿Seguros USA?</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
+                </summary>
+                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA3"></div>
+            </details>
+            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
+                    <span data-i18n="faqQ4">¿Pagos?</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
+                </summary>
+                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA4"></div>
+            </details>
         </div>
-        <div class="step-item">
-          <div class="step-icon"><i class="fas fa-comments"></i></div>
-          <h3 data-i18n="step2Title">2. Recibe Confirmación</h3>
-          <p data-i18n="step2Desc">Te contactaremos por teléfono o WhatsApp para confirmar el día y la hora.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon"><i class="fas fa-clinic-medical"></i></div>
-          <h3 data-i18n="step3Title">3. Asiste a tu Cita</h3>
-          <p data-i18n="step3Desc">¡Listo! Te esperamos en la clínica para cuidar de tu sonrisa.</p>
-        </div>
-      </div>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <p><strong data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</strong></p>
-    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footerAddress">Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua</span></p>
-    <p><i class="fas fa-clock"></i> <span data-i18n="hours">Horario</span>: <span data-i18n="footerHoursDetail">Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM</span></p>
-    <p><i class="fas fa-phone"></i> <span data-i18n="footerTel">Tel: (614) 780-4673</span> | <i class="fab fa-whatsapp"></i> <span data-i18n="footerWhatsapp">WhatsApp: +52 1 614-780-4673</span></p>
-    <p class="copyright">© <span id="currentYear">2025</span> <span data-i18n="clinicNameFooterDomain">Dr. Santos Clínica Dental</span>. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+      <div class="container mx-auto px-6">
+          <p class="text-white font-bold text-lg mb-2" data-i18n="clinicNameFooter">Dr. Santos</p>
+          <p class="mb-4">Av. Plutarco Elías Calles 315</p>
+          <p class="text-xs">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+      </div>
   </footer>
 
-  <button id="translateBtn" class="translate-btn" title="Cambiar idioma">
-    <i class="fas fa-language"></i>
-    <span>ES/EN</span>
+  <button id="translateBtn" class="fixed bottom-6 right-4 z-30 bg-white text-teal-700 w-12 h-12 rounded-full shadow-xl border border-teal-50 flex items-center justify-center active:scale-90 transition-transform">
+      <i class="fas fa-globe text-xl"></i>
   </button>
+  
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none backdrop-blur-sm">
+    <div id="promo-popup-content" class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 relative">
+      
+        <button id="close-popup" class="absolute top-3 right-3 bg-slate-100 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-200 z-10">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="p-6 text-center">
+            <div class="mx-auto w-14 h-14 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mb-4 animate-bounce">
+                <i class="fas fa-certificate text-2xl"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-slate-800 mb-1" data-i18n="promoTitle">Paquete Sonrisa Radiante</h3>
+            <p class="text-sm text-slate-500 mb-4">Oferta Especial Limitada</p>
+            
+            <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 mb-5">
+                <div class="text-slate-700 text-sm mb-1" data-i18n="promoText">
+                    Limpieza Dental + Blanqueamiento
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <span class="text-slate-400 line-through text-sm">$3,500</span>
+                    <span class="text-3xl font-extrabold text-teal-600">$2,500</span>
+                </div>
+            </div>
+            
+            <button id="popup-cta-btn" class="w-full bg-teal-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-teal-200 active:bg-teal-700 transition-colors" data-i18n="promoBtn">
+                ¡Quiero aprovechar!
+            </button>
+        </div>
+    </div>
+  </div>
+
 
   <script>
     const translations = {
       es: {
-        "titleSchedulePage": "Agenda tu Cita | Dr. Santos Clínica Dental",
-        "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navFaqDetailed": "FAQ", "navScheduleEasy": "Agenda",
-        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        "schedulePageTitle": "Tu Sonrisa Ideal Comienza Aquí",
-        "schedulePageSubtitle": "Da el primer paso hacia una salud dental excepcional. Llena el formulario y nuestro equipo te contactará para confirmar tu cita a la brevedad.",
-        "formTitle": "Completa tus Datos",
-        "nameLabel": "Nombre completo", "namePlaceholder": "Ej. Ana Sofía García",
-        "phoneLabel": "Número de teléfono (WhatsApp)", "phonePlaceholder": "Para confirmar tu cita",
-        "reasonLabel": "Motivo de consulta", "selectReason": "Selecciona el motivo principal",
-        "optionValoracion": "Consulta de Valoración y Limpieza",
-        "optionEstetica": "Odontología Estética (Carillas, Blanqueamiento)",
-        "optionRehabilitacion": "Implantes y Rehabilitación (Coronas, Puentes)",
-        "optionOrtodoncia": "Ortodoncia (Brackets/Alineadores)",
-        "optionUrgencia": "Urgencia Dental (Dolor, Infección)",
-        "optionOtro": "Otro Motivo / No estoy seguro",
-        "messageLabel": "Mensaje adicional (opcional)", "messagePlaceholder": "Danos más detalles si lo necesitas.",
-        "dayLabel": "Día de preferencia", "selectDay": "Elige un día", 
-        "day1": "Lunes", "day2": "Martes", "day3": "Miércoles", "day4": "Jueves", "day5": "Viernes", "day6": "Sábado",
-        "timeLabel": "Horario de preferencia", "selectTime": "Elige un bloque horario",
-        "timeMorning": "Mañana (9am - 1pm)", "timeAfternoon": "Tarde (1pm - 6pm)",
-        "timeSatMorning": "Sábado - Mañana (9am - 1pm)", "timeSatAfternoon": "Sábado - Tarde (1pm - 5pm)",
-        "timeIndifferent": "Indiferente / El más próximo",
-        "submitBtn": "Agendar mi Cita Ahora",
-        "whyChooseUsTitle": "¿Por qué elegirnos?",
-        "benefit1": "Atención 100% personalizada por especialistas.",
-        "benefit2": "Usamos tecnología de punta para tu diagnóstico.",
-        "benefit3": "Enfocados en resultados estéticos y funcionales.",
-        "benefit4": "Altos estándares de higiene y esterilización.",
-        "whatsappBtn": "Agendar por WhatsApp",
-        "phoneBtn": "Llamar a la Clínica",
-        "ourHoursTitle": "Nuestro Horario de Atención",
-        "hoursDetail": "Lunes a Viernes: 9am - 6pm<br>Sábados: 9am - 5pm",
-        "ourLocationTitle": "Encuéntranos en",
-        "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juárez, Chih.",
-        "stepsTitle": "Tu Cita en 3 Sencillos Pasos",
-        "step1Title": "1. Envía el Formulario", "step1Desc": "Llena tus datos. Solo nos toma un minuto revisar tu solicitud.",
-        "step2Title": "2. Recibe Confirmación", "step2Desc": "Te contactaremos por teléfono o WhatsApp para confirmar el día y la hora.",
-        "step3Title": "3. Asiste a tu Cita", "step3Desc": "¡Listo! Te esperamos en la clínica para cuidar de tu sonrisa.",
-        "clinicNameFooter": "Dr. Santos Clínica Dental",
-        "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juárez, Chihuahua",
-        "hours": "Horario", "footerHoursDetail": "Lunes a Viernes 9:00 AM - 6:00 PM | Sábados 9:00 AM - 5:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
-        "clinicNameFooterDomain":"Dr. Santos Clínica Dental",
-        "footerRights":"Todos los derechos reservados."
+        "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
+        "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.",
+        "btnWhatsapp": "WhatsApp Directo",
+        "btnCall": "Llamar Ahora",
+        "formTitle": "Solicitud de Cita",
+        "formSubtitle": "Te confirmaremos por WhatsApp.",
+        "servicesTitle": "Servicios",
+        "service1": "Blanqueamiento",
+        "service2": "Resinas",
+        "service3": "Coronas",
+        "service4": "Implantes",
+        "faqA1": "Usamos implantes de titanio premium y porcelanas certificadas para máxima duración.",
+        "faqA2": "Diagnóstico completo, fotos digitales y plan de tratamiento transparente.",
+        "faqA3": "Te damos la documentación para tu reembolso en EE. UU.",
+        "faqA4": "Efectivo, Visa, Mastercard y planes de pago.",
+        "titleSchedulePage": "Agenda tu Valoración | Dr. Santos",
+        "navHome": "Inicio",
+        "navImplants": "Implantes",
+        "navVeneers": "Carillas",
+        "navWhitening": "Blanqueamiento",
+        "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Cd. Juárez",
+        "nameLabel": "Nombre",
+        "phoneLabel": "Teléfono",
+        "reasonLabel": "Motivo",
+        "selectReason": "Selecciona...",
+        "optionRehabilitacion": "Implantes Dentales",
+        "optionEstetica": "Carillas / Diseño Sonrisa",
+        "optionOrtodoncia": "Brackets / Ortodoncia",
+        "optionValoracion": "Valoración General",
+        "optionUrgencia": "Tengo Dolor / Urgencia",
+        "optionBlanqueamiento": "⭐ Promo: Blanqueamiento + Limpieza",
+        "submitBtn": "Enviar Solicitud",
+        "mapTitle": "Ubicación",
+        "mapDescription": "Av. Plutarco Elías Calles 315. (Estacionamiento disponible)",
+        "faqTitle": "Preguntas",
+        "faqQ1": "¿Materiales?",
+        "faqQ2": "¿Primera cita?",
+        "faqQ3": "¿Seguros USA?",
+        "faqQ4": "¿Pagos?",
+        
+        // PROMO TEXTS
+        "promoTitle": "Paquete Sonrisa Radiante",
+        "promoText": "Limpieza Dental + Blanqueamiento",
+        "promoBtn": "¡Quiero aprovechar!"
       },
       en: {
-        "titleSchedulePage": "Schedule Your Appointment | Dr. Santos Dental Clinic",
-        "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navFaqDetailed": "FAQ", "navScheduleEasy": "Schedule",
-        "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-        "schedulePageTitle": "Your Ideal Smile Starts Here",
-        "schedulePageSubtitle": "Take the first step towards exceptional dental health. Fill out the form, and our team will contact you shortly to confirm your appointment.",
-        "formTitle": "Fill Out Your Information",
-        "nameLabel": "Full name", "namePlaceholder": "e.g., John D. Smith",
-        "phoneLabel": "Phone number (WhatsApp)", "phonePlaceholder": "To confirm your appointment",
-        "reasonLabel": "Reason for consultation", "selectReason": "Select the main reason",
-        "optionValoracion": "Check-up & Cleaning",
-        "optionEstetica": "Cosmetic Dentistry (Veneers, Whitening)",
-        "optionRehabilitacion": "Implants & Oral Rehabilitation (Crowns, Bridges)",
-        "optionOrtodoncia": "Orthodontics (Braces/Aligners)",
-        "optionUrgencia": "Dental Emergency (Pain, Infection)",
-        "optionOtro": "Other Reason / Not sure",
-        "messageLabel": "Additional message (optional)", "messagePlaceholder": "Give us more details if you need to.",
-        "dayLabel": "Preferred day", "selectDay": "Choose a day",
-        "day1": "Monday", "day2": "Tuesday", "day3": "Wednesday", "day4": "Thursday", "day5": "Friday", "day6": "Saturday",
-        "timeLabel": "Preferred time", "selectTime": "Choose a time slot",
-        "timeMorning": "Morning (9am - 1pm)", "timeAfternoon": "Afternoon (1pm - 6pm)",
-        "timeSatMorning": "Saturday - Morning (9am - 1pm)", "timeSatAfternoon": "Saturday - Afternoon (1pm - 5pm)",
-        "timeIndifferent": "Flexible / Soonest available",
-        "submitBtn": "Schedule My Appointment Now",
-        "whyChooseUsTitle": "Why Choose Us?",
-        "benefit1": "100% personalized care by specialists.",
-        "benefit2": "We use state-of-the-art technology for your diagnosis.",
-        "benefit3": "Focused on aesthetic and functional results.",
-        "benefit4": "High standards of hygiene and sterilization.",
-        "whatsappBtn": "Schedule via WhatsApp",
-        "phoneBtn": "Call the Clinic",
-        "ourHoursTitle": "Our Office Hours",
-        "hoursDetail": "Monday to Friday: 9am - 6pm<br>Saturdays: 9am - 5pm",
-        "ourLocationTitle": "Find Us At",
-        "addressDetail": "Av. Plutarco Elías Calles 315, Col. Progresista, Cd. Juarez, Chih.",
-        "stepsTitle": "Your Appointment in 3 Easy Steps",
-        "step1Title": "1. Submit the Form", "step1Desc": "Fill in your details. It only takes a minute for us to review your request.",
-        "step2Title": "2. Get Confirmation", "step2Desc": "We will contact you by phone or WhatsApp to confirm the day and time.",
-        "step3Title": "3. Attend Your Appointment", "step3Desc": "All set! We look forward to seeing you at the clinic to care for your smile.",
-        "clinicNameFooter": "Dr. Santos Dental Clinic",
-        "footerAddress": "Av. Plutarco Elías Calles 315, Ciudad Juarez, Chihuahua",
-        "hours": "Hours", "footerHoursDetail": "Monday to Friday 9:00 AM - 6:00 PM | Saturdays 9:00 AM - 5:00 PM",
-        "footerTel": "Tel: (614) 780-4673", "footerWhatsapp": "WhatsApp: +52 1 614-780-4673",
-        "clinicNameFooterDomain":"Dr. Santos Dental Clinic",
-        "footerRights":"All rights reserved."
+        "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
+        "schedulePageSubtitle": "Expert dental care in Ciudad Juárez. Your smile is our priority.",
+        "btnWhatsapp": "WhatsApp Us",
+        "btnCall": "Call Now",
+        "formTitle": "Appointment Request",
+        "formSubtitle": "We will confirm via WhatsApp.",
+        "servicesTitle": "Services",
+        "service1": "Whitening",
+        "service2": "Fillings",
+        "service3": "Crowns",
+        "service4": "Implants",
+        "faqA1": "We use premium titanium implants and certified porcelains for maximum durability.",
+        "faqA2": "Complete diagnosis, digital photos, and a transparent treatment plan.",
+        "faqA3": "We provide documentation for your US insurance reimbursement.",
+        "faqA4": "Cash, Visa, Mastercard, and payment plans.",
+        "titleSchedulePage": "Book Now | Dr. Santos",
+        "navHome": "Home",
+        "navImplants": "Implants",
+        "navVeneers": "Veneers",
+        "navWhitening": "Whitening",
+        "navScheduleEasy": "Book",
+        "clinicLocationShort": "Cd. Juarez",
+        "nameLabel": "Name",
+        "phoneLabel": "Phone",
+        "reasonLabel": "Reason",
+        "selectReason": "Select...",
+        "optionRehabilitacion": "Dental Implants",
+        "optionEstetica": "Veneers / Smile Design",
+        "optionOrtodoncia": "Brackets / Ortho",
+        "optionValoracion": "Check-up",
+        "optionUrgencia": "Pain / Emergency",
+        "optionBlanqueamiento": "⭐ Promo: Whitening + Cleaning",
+        "submitBtn": "Send Request",
+        "mapTitle": "Location",
+        "mapDescription": "Av. Plutarco Elías Calles 315. (Parking available)",
+        "faqTitle": "Questions",
+        "faqQ1": "Materials?",
+        "faqQ2": "First visit?",
+        "faqQ3": "US Insurance?",
+        "faqQ4": "Payments?",
+        
+        // PROMO TEXTS ENGLISH
+        "promoTitle": "Radiant Smile Package",
+        "promoText": "Dental Cleaning + Whitening",
+        "promoBtn": "Get this offer!"
       }
     };
-    
-    // ---- SCRIPT GLOBAL ADAPTADO ----
+
     document.addEventListener('DOMContentLoaded', function() {
-      const mainHeader = document.getElementById('mainHeader');
-      const mainNav = document.getElementById('mainNav');
-      const translateBtn = document.getElementById('translateBtn');
-      const currentYearSpan = document.getElementById('currentYear');
+      // --- LOGICA POPUP MÓVIL ---
+      const promoOverlay = document.getElementById('promo-popup-overlay');
+      const promoContent = document.getElementById('promo-popup-content');
+      const closePopupBtn = document.getElementById('close-popup');
+      const popupCtaBtn = document.getElementById('popup-cta-btn');
 
-      if(currentYearSpan) {
-          currentYearSpan.textContent = new Date().getFullYear();
+      function showPopup() {
+        promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+             promoContent.classList.remove('scale-95', 'opacity-0');
+        }, 50);
       }
       
-      function adjustLayout() {
-          if (mainHeader && mainNav) {
-              const headerHeight = mainHeader.offsetHeight;
-              mainNav.style.top = `${headerHeight}px`;
-          }
-          const pageHeaderSpacer = document.querySelector('.page-header-spacer');
-          if (mainHeader && mainNav && pageHeaderSpacer) {
-              pageHeaderSpacer.style.height = `${mainHeader.offsetHeight + mainNav.offsetHeight}px`;
-          }
+      function hidePopup() {
+        promoContent.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+          promoOverlay.classList.add('opacity-0');
+          setTimeout(() => {
+             promoOverlay.classList.add('pointer-events-none');
+          }, 300);
+        }, 200);
       }
 
-      window.addEventListener('scroll', function() {
-          if (mainHeader) { mainHeader.classList.toggle('scrolled', window.scrollY > 30); } 
+      // Mostrar promo después de 2.5 seg
+      if (!sessionStorage.getItem('promoShown2500_v2')) {
+          setTimeout(showPopup, 2500);
+          sessionStorage.setItem('promoShown2500_v2', 'true');
+      }
+      
+      closePopupBtn.addEventListener('click', hidePopup);
+      popupCtaBtn.addEventListener('click', function() {
+          document.querySelector('#formSection').scrollIntoView({ behavior: 'smooth' });
+          const select = document.getElementById('motivo');
+          if(select) select.value = "Blanqueamiento + Limpieza";
+          hidePopup();
       });
-      
-      adjustLayout();
-      window.addEventListener('resize', adjustLayout);
-      setTimeout(adjustLayout, 300);
+      promoOverlay.addEventListener('click', (e) => { if(e.target === promoOverlay) hidePopup(); });
 
-      if (typeof translations !== 'undefined' && translateBtn) {
-          function changeLanguage(lang) {
-              document.documentElement.lang = lang;
-              document.querySelectorAll('[data-i18n]').forEach(el => {
-                  const key = el.getAttribute('data-i18n');
-                  if(translations[lang] && translations[lang][key]) {
-                      if (key === 'hoursDetail') {
-                          el.innerHTML = translations[lang][key];
-                      } else {
-                          el.textContent = translations[lang][key];
-                      }
-                  }
-              });
-              document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                  const key = el.getAttribute('data-i18n-placeholder');
-                  if (translations[lang] && translations[lang][key]) { el.setAttribute('placeholder', translations[lang][key]); }
-              });
-              const pageTitleKey = document.querySelector('title').dataset.i18n;
-              if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
-                  document.title = translations[lang][pageTitleKey];
-              }
-              document.querySelectorAll('option[data-i18n]').forEach(el => {
-                  const key = el.getAttribute('data-i18n');
-                  if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; }
-              });
-              localStorage.setItem('preferredLangDrSantos', lang);
-          }
-          translateBtn.addEventListener('click', function() {
-              const currentLangStored = localStorage.getItem('preferredLangDrSantos') || 'es';
-              const newLang = currentLangStored === 'es' ? 'en' : 'es';
-              changeLanguage(newLang);
-              this.querySelector('span').textContent = newLang === 'es' ? 'ES/EN' : 'EN/ES';
-          });
-          const savedLang = localStorage.getItem('preferredLangDrSantos') || 'es';
-          changeLanguage(savedLang); 
-          if (translateBtn.querySelector('span')) { 
-              translateBtn.querySelector('span').textContent = savedLang === 'es' ? 'ES/EN' : 'EN/ES';
-          }
+
+      // --- SLIDER LOGIC ---
+      const gallery = document.getElementById('patientGallery');
+      if (gallery) {
+        const slider = document.getElementById('gallerySlider');
+        const prevBtn = gallery.querySelector('.prev');
+        const nextBtn = gallery.querySelector('.next');
+        const slides = slider.querySelectorAll('img');
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        setInterval(() => goToSlide(currentIndex + 1), 5000);
       }
+
+      // --- TRADUCCIÓN ---
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      const translateBtn = document.getElementById('translateBtn');
+      
+      function changeLanguage(lang) {
+          document.documentElement.lang = lang;
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if(translations[lang]?.[key]) el.innerHTML = translations[lang][key];
+          });
+          document.title = translations[lang]?.titleSchedulePage || document.title;
+          localStorage.setItem('preferredLangDrSantos', lang);
+      }
+      
+      translateBtn.addEventListener('click', function() {
+          const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
+          changeLanguage(newLang);
+      });
+      changeLanguage(localStorage.getItem('preferredLangDrSantos') || 'es');
     });
   </script>
+
 </body>
 </html>
