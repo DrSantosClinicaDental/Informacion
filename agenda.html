@@ -1,17 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title data-i18n="titleSchedulePage">Agenda tu Valoración | Dr. Santos Clínica Dental</title>
-  
   <script src="https://cdn.tailwindcss.com"></script>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,310 +42,284 @@
       });
     }
   </script>
-
   <style>
-    /* OPTIMIZACIÓN MÓVIL (MOBILE FIRST) */
-    :root {
-      --color-primario: #0d9488;
-      --color-fondo: #f8fafc;
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-fondo);
-      -webkit-tap-highlight-color: transparent; /* Elimina el flash azul al tocar en Android */
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0fdfb 0%, #f5f9f7 100%);
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
     }
-    
-    /* Ocultar barra de scroll en navegación pero permitir deslizar */
+
+    html, body {
+      height: 100%;
+    }
+
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --accent: #14b8a6;
+      --surface: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+    }
+
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    .gradient-bg {
-      background: linear-gradient(135deg, #0d9488, #0f766e);
-    }
-    
-    /* Estilos para Pestañas (Pills) */
-    .nav-pill {
-        white-space: nowrap;
-        transition: all 0.2s ease;
-    }
-    .nav-pill.active {
-        background-color: #0f766e;
-        color: white;
-        font-weight: 600;
-        border-color: transparent;
-        box-shadow: 0 2px 5px rgba(13, 148, 136, 0.3);
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animaciones Pop-up */
-    #promo-popup-overlay { transition: opacity 0.3s ease; }
-    #promo-popup-content { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; }
-    
-    /* Inputs táctiles amigables (altura mínima 44px) */
-    input, select, button { touch-action: manipulation; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-in {
+      animation: slideUp 0.5s ease-out forwards;
+    }
+
+    .header-nav {
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .service-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.12);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.95);
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+      touch-action: manipulation;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+    }
+
+    .gallery-slider {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item details[open] summary i {
+      transform: rotate(180deg);
+    }
+
+    .popup-overlay {
+      backdrop-filter: blur(4px);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-content {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-bottom: 20px;
+      }
+    }
   </style>
-</head>
-<body class="text-slate-800 pb-20">
-
-  <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
-    <div class="container mx-auto px-4 pt-3 pb-2">
-        <div class="flex justify-between items-center mb-3">
-            <img src="logo.png" alt="Dr. Santos" class="h-10 w-auto object-contain" onerror="this.alt='Dr. Santos'">
-            <a href="#mapSection" class="text-xs font-medium text-slate-500 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full flex items-center active:bg-slate-100">
-                <i class="fas fa-map-marker-alt text-teal-600 mr-1.5"></i>
-                <span data-i18n="clinicLocationShort">Cd. Juárez</span>
-            </a>
-        </div>
-        
-        <nav class="w-full overflow-x-auto no-scrollbar pb-1 -mx-4 px-4">
-            <ul class="flex space-x-2 min-w-max">
-                <li><a href="index.html" data-i18n="navHome" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full">Inicio</a></li>
-                <li><a href="implantes.html" data-i18n="navImplants" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full">Implantes</a></li>
-                <li><a href="carillas.html" data-i18n="navVeneers" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full">Carillas</a></li>
-                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="nav-pill active px-4 py-2 text-sm rounded-full border border-transparent">Agenda</a></li>
-                <li><a href="https://drsantosclinicadental.com/blanqueamiento" data-i18n="navWhitening" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-white border border-slate-200 rounded-full">Blanqueamiento</a></li>
-            </ul>
-        </nav>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="text-slate-800"><!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white header-nav">
+   <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+     <div class="flex-1"><img src="logo.png" alt="Dr. Santos" class="h-9 w-auto object-contain" onerror="this.alt='Dr. Santos'">
+     </div>
+     <nav class="flex-1 overflow-x-auto no-scrollbar -mx-2 px-2">
+      <ul class="flex gap-1.5 min-w-max md:justify-center md:mx-auto">
+       <li><a href="index.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navHome">Inicio</a></li>
+       <li><a href="implantes.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navImplants">Implantes</a></li>
+       <li><a href="carillas.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navVeneers">Carillas</a></li>
+       <li><a href="agenda.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-teal-600 border-b-2 border-teal-600" data-i18n="navScheduleEasy">Agenda</a></li>
+       <li><a href="https://drsantosclinicadental.com/blanqueamiento" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navWhitening">Blanqueamiento</a></li>
+      </ul>
+     </nav>
+     <div class="flex-1 text-right"><a href="#mapSection" class="text-xs font-medium text-slate-500 hover:text-slate-700 transition-colors inline-flex items-center gap-1"> <i class="fas fa-map-marker-alt text-teal-600"></i> <span data-i18n="clinicLocationShort" class="hidden sm:inline">Cd. Juárez</span> </a>
+     </div>
     </div>
+   </div>
   </header>
-
-  <main class="container mx-auto px-4 pt-8 md:pt-12 max-w-4xl">
-    
-    <section class="text-center mb-10">
-      <h1 class="text-3xl font-bold text-slate-900 mb-2 leading-tight" data-i18n="schedulePageTitle">
-        Agenda tu <span class="text-teal-600">Valoración</span>
-      </h1>
-      <p class="text-slate-500 text-sm max-w-md mx-auto mb-6" data-i18n="schedulePageSubtitle">
-        Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.
-      </p>
-      
-      <div class="flex flex-col gap-3">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-98 transition-transform">
-          <i class="fab fa-whatsapp text-2xl"></i>
-          <span data-i18n="btnWhatsapp">WhatsApp Directo</span>
-        </a>
-        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 active:scale-98 transition-transform">
-          <i class="fas fa-phone-alt"></i>
-          <span data-i18n="btnCall">Llamar Ahora</span>
-        </a>
+  <main class="w-full overflow-auto"><!-- HERO SECTION -->
+   <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-8 md:pt-12 pb-10 md:pb-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+     <div class="text-center mb-8 md:mb-10">
+      <h1 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
+      <p class="text-sm md:text-base text-slate-600 max-w-lg mx-auto mb-6" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.</p>
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center"><a href="https://wa.me/?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">WhatsApp</span> </a> <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-6 py-3 rounded-lg text-teal-600 border-2 border-teal-600 font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 transition-colors"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar</span> </a>
       </div>
-    </section>
-
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
-        
-        <section id="formSection" class="bg-white p-5 rounded-2xl shadow-xl border border-slate-100 order-1">
-            <div class="flex items-center gap-3 mb-5 border-b border-slate-50 pb-3">
-                <div class="w-8 h-8 bg-teal-50 rounded-full flex items-center justify-center text-teal-600"><i class="far fa-calendar-check"></i></div>
-                <h2 class="text-lg font-bold text-slate-800" data-i18n="formTitle">Solicita tu Cita</h2>
-            </div>
-
-            <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
-                <input type="hidden" name="_subject" value="Nueva Cita - Página Agenda">
-                <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
-                <input type="hidden" name="_captcha" value="false">
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1 ml-1" data-i18n="nameLabel">Nombre</label>
-                    <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition-all text-base" required placeholder="Tu nombre">
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1 ml-1" data-i18n="phoneLabel">Teléfono</label>
-                    <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition-all text-base" required placeholder="(656) ...">
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1 ml-1" data-i18n="reasonLabel">Motivo</label>
-                    <div class="relative">
-                        <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition-all text-base appearance-none bg-white" required>
-                            <option value="" disabled selected data-i18n="selectReason">Selecciona...</option>
-                            <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">⭐ Promo: Blanqueamiento + Limpieza</option>
-                            <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option>
-                            <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option>
-                            <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option>
-                            <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option>
-                            <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
-                    </div>
-                </div>
-                
-                <div>
-                     <textarea name="mensaje" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none text-sm" rows="2" placeholder="Mensaje opcional..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full gradient-bg text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg active:scale-95 transition-all mt-2">
-                    <span data-i18n="submitBtn">Enviar Solicitud</span>
-                </button>
-            </form>
-        </section>
-
-        <div class="order-2 mt-4 lg:mt-0">
-             <div class="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-video bg-gray-100" id="patientGallery">
-                <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
-                    <img src="El21.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El2.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El31.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El22.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El32.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El3.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                </div>
-                <button class="prev absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-left"></i></button>
-                <button class="next absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
-                
-                <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full">
-                    <p class="text-[10px] text-white font-medium uppercase tracking-wider">Resultados Reales</p>
-                </div>
-            </div>
+     </div><!-- FORM & GALLERY GRID -->
+     <div class="grid md:grid-cols-2 gap-6 md:gap-8"><!-- FORM -->
+      <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+       <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+        <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600"><i class="far fa-calendar-check text-lg"></i>
         </div>
-    </div>
-    
-    <section id="mapSection" class="py-10">
-        <h2 class="text-xl font-bold text-center text-slate-800 mb-4" data-i18n="mapTitle">Ubicación</h2>
-        <div class="w-full h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+        <h2 class="text-lg md:text-xl font-bold text-slate-900" data-i18n="formTitle">Solicita tu Cita</h2>
+       </div>
+       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4"><input type="hidden" name="_subject" value="Nueva Cita - Página Agenda"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
+        <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="nameLabel">Nombre</label> <input type="text" name="nombre" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="Tu nombre completo">
         </div>
-        <p class="text-center text-xs text-slate-500 mt-2 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315.</p>
-    </section>
-
-    <section class="mb-10">
-        <h2 class="text-xl font-bold text-center text-slate-800 mb-6" data-i18n="servicesTitle">Servicios</h2>
-        <div class="grid grid-cols-2 gap-3">
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100 flex flex-col items-center justify-center aspect-[4/3]">
-                <i class="fas fa-magic text-teal-500 text-2xl mb-2"></i>
-                <p class="text-xs font-bold text-slate-600 leading-tight" data-i18n="service1">Blanqueamiento</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100 flex flex-col items-center justify-center aspect-[4/3]">
-                <i class="fas fa-fill-drip text-blue-500 text-2xl mb-2"></i>
-                <p class="text-xs font-bold text-slate-600 leading-tight" data-i18n="service2">Resinas</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100 flex flex-col items-center justify-center aspect-[4/3]">
-                <i class="fas fa-crown text-purple-500 text-2xl mb-2"></i>
-                <p class="text-xs font-bold text-slate-600 leading-tight" data-i18n="service3">Coronas</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100 flex flex-col items-center justify-center aspect-[4/3]">
-                <i class="fas fa-screw text-indigo-500 text-2xl mb-2"></i>
-                <p class="text-xs font-bold text-slate-600 leading-tight" data-i18n="service4">Implantes</p>
-            </div>
+        <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="phoneLabel">Teléfono</label> <input type="tel" name="telefono" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="(656) XXX-XXXX">
         </div>
-    </section>
-
-    <section class="mb-12">
-        <h2 class="text-xl font-bold text-center text-slate-800 mb-6" data-i18n="faqTitle">Preguntas</h2>
-        <div class="space-y-3">
-            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
-                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-sm text-slate-700">
-                    <span data-i18n="faqQ1">¿Materiales?</span>
-                    <i class="fas fa-chevron-down text-teal-500 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="text-slate-500 px-4 pb-4 text-sm leading-relaxed" data-i18n="faqA1"></div>
-            </details>
-            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
-                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-sm text-slate-700">
-                    <span data-i18n="faqQ2">¿Primera cita?</span>
-                    <i class="fas fa-chevron-down text-teal-500 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="text-slate-500 px-4 pb-4 text-sm leading-relaxed" data-i18n="faqA2"></div>
-            </details>
-            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
-                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-sm text-slate-700">
-                    <span data-i18n="faqQ3">¿Seguros USA?</span>
-                    <i class="fas fa-chevron-down text-teal-500 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="text-slate-500 px-4 pb-4 text-sm leading-relaxed" data-i18n="faqA3"></div>
-            </details>
-            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
-                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-sm text-slate-700">
-                    <span data-i18n="faqQ4">¿Pagos?</span>
-                    <i class="fas fa-chevron-down text-teal-500 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="text-slate-500 px-4 pb-4 text-sm leading-relaxed" data-i18n="faqA4"></div>
-            </details>
+        <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
+         <div class="relative"><select id="motivo" name="motivo" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">⭐ Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+         </div>
         </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm mt-8">
-      <div class="container mx-auto px-6">
-          <p class="text-white font-bold text-lg mb-2" data-i18n="clinicNameFooter">Dr. Santos</p>
-          <p class="mb-4 text-xs">Av. Plutarco Elías Calles 315</p>
-          <p class="text-[10px]">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+        <div><textarea name="mensaje" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
+        </div><button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold text-sm mt-4"> <span data-i18n="submitBtn">Enviar Solicitud</span> </button>
+       </form>
+      </div><!-- GALLERY -->
+      <div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-slate-100 aspect-video md:aspect-auto md:min-h-96">
+       <div class="gallery-slider" id="gallerySlider"><img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El31.png" alt="Resultado dental 3" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El32.png" alt="Resultado dental 5" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+       </div><button class="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-left text-xs"></i> </button> <button class="gallery-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-right text-xs"></i> </button>
+       <div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
+        <p class="text-[10px] text-white font-semibold uppercase tracking-wider">Resultados Reales</p>
+       </div>
       </div>
-  </footer>
-
-  <button id="translateBtn" class="fixed bottom-6 right-4 z-30 bg-white text-teal-700 w-12 h-12 rounded-full shadow-xl border border-teal-50 flex items-center justify-center active:scale-90 transition-transform">
-      <i class="fas fa-globe text-xl"></i>
-  </button>
-  
-  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none backdrop-blur-sm">
-    <div id="promo-popup-content" class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 relative">
-      
-        <button id="close-popup" class="absolute top-2 right-2 p-2 text-slate-400 hover:text-slate-600 z-10">
-            <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                <i class="fas fa-times"></i>
-            </div>
-        </button>
-
-        <div class="p-6 text-center">
-            <div class="mx-auto w-12 h-12 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mb-4">
-                <i class="fas fa-sparkles text-xl"></i>
-            </div>
-            
-            <h3 class="text-xl font-bold text-slate-800 mb-1" data-i18n="promoTitle">Paquete Sonrisa</h3>
-            <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">Promoción Especial</p>
-            
-            <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 mb-5">
-                <div class="text-slate-700 font-medium text-sm mb-2" data-i18n="promoText">
-                    Limpieza Dental + Blanqueamiento
-                </div>
-                <div class="flex items-center justify-center gap-2">
-                    <span class="text-2xl font-extrabold text-teal-600">$2,500</span>
-                    <span class="text-xs text-slate-400">MXN</span>
-                </div>
-            </div>
-            
-            <button id="popup-cta-btn" class="w-full bg-teal-600 text-white font-bold py-3 rounded-xl shadow-lg active:bg-teal-700 transition-colors" data-i18n="promoBtn">
-                ¡Lo quiero!
-            </button>
-        </div>
+     </div>
     </div>
+   </section><!-- SERVICES SECTION -->
+   <section class="py-10 md:py-14 px-4">
+    <div class="container mx-auto max-w-4xl">
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="servicesTitle">Nuestros Servicios</h2>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100"><i class="fas fa-sparkles text-2xl text-teal-600 mb-2"></i>
+       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
+      </div>
+      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100"><i class="fas fa-fill-drip text-2xl text-blue-500 mb-2"></i>
+       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
+      </div>
+      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100"><i class="fas fa-crown text-2xl text-purple-500 mb-2"></i>
+       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
+      </div>
+      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100"><i class="fas fa-screw text-2xl text-indigo-500 mb-2"></i>
+       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- LOCATION SECTION -->
+   <section id="mapSection" class="py-10 md:py-14 px-4 bg-white">
+    <div class="container mx-auto max-w-4xl">
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-6" data-i18n="mapTitle">Ubicación</h2>
+     <div class="w-full h-48 md:h-64 rounded-xl overflow-hidden shadow-md border border-slate-200 mb-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.. !3d31.. !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v. !5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+     </div>
+     <p class="text-center text-sm text-slate-600" data-i18n="mapDescription">Av. Plutarco Elías Calles 315</p>
+    </div>
+   </section><!-- FAQ SECTION -->
+   <section class="py-10 md:py-14 px-4">
+    <div class="container mx-auto max-w-4xl">
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="faqTitle">Preguntas Frecuentes</h2>
+     <div class="space-y-2.5">
+      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4"><summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ1">¿Qué materiales usas?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
+       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA1">
+        Usamos implantes de titanio premium y porcelanas certificadas para máxima durabilidad.
+       </div>
+      </details>
+      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4"><summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ2">¿Cómo es mi primera cita?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
+       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA2">
+        Te hacemos un diagnóstico completo, tomas fotos y te presentamos un plan transparente de tratamiento.
+       </div>
+      </details>
+      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4"><summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ3">¿Aceptan seguros de USA?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
+       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA3">
+        Sí, te proporcionamos toda la documentación necesaria para que tramites tu reembolso.
+       </div>
+      </details>
+      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4"><summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ4">¿Formas de pago?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
+       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA4">
+        Aceptamos efectivo, Visa, Mastercard y contamos con planes de pago flexible.
+       </div>
+      </details>
+     </div>
+    </div>
+   </section>
+  </main><!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 py-8 px-4 text-center text-xs md:text-sm">
+   <div class="container mx-auto">
+    <p class="text-white font-bold text-base md:text-lg mb-1" data-i18n="clinicNameFooter">Dr. Santos</p>
+    <p class="mb-2 text-slate-400">Av. Plutarco Elías Calles 315, Cd. Juárez</p>
+    <p class="text-slate-500">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+   </div>
+  </footer><!-- TRANSLATE BUTTON --> <button id="translateBtn" class="fixed bottom-6 right-4 z-30 w-12 h-12 rounded-full shadow-lg border border-teal-100 bg-white text-teal-600 flex items-center justify-center hover:bg-teal-50 transition-colors active:scale-90"> <i class="fas fa-globe text-lg"></i> </button> <!-- PROMO POPUP -->
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none popup-overlay">
+   <div id="promo-popup-content" class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 popup-content"><button id="close-popup" class="absolute top-3 right-3 p-2 text-slate-400 hover:text-slate-600 z-10 transition-colors"> <i class="fas fa-times text-lg"></i> </button>
+    <div class="p-6 md:p-8 text-center">
+     <div class="mx-auto w-12 h-12 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mb-4"><i class="fas fa-sparkles text-xl"></i>
+     </div>
+     <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1" data-i18n="promoTitle">Paquete Sonrisa</h3>
+     <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">Promoción Especial</p>
+     <div class="bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-lg p-4 mb-6">
+      <div class="text-slate-700 font-semibold text-sm mb-2" data-i18n="promoText">
+       Limpieza Dental + Blanqueamiento
+      </div>
+      <div class="flex items-baseline justify-center gap-1"><span class="text-2xl md:text-3xl font-bold text-teal-600">$2,500</span> <span class="text-xs text-slate-600">MXN</span>
+      </div>
+     </div><button id="popup-cta-btn" class="btn-primary w-full py-3 rounded-lg text-white font-semibold text-sm" data-i18n="promoBtn"> ¡Lo quiero! </button>
+    </div>
+   </div>
   </div>
-
   <script>
     const translations = {
       es: {
         "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
         "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.",
-        "btnWhatsapp": "WhatsApp Directo",
-        "btnCall": "Llamar Ahora",
+        "btnWhatsapp": "WhatsApp",
+        "btnCall": "Llamar",
         "formTitle": "Solicita tu Cita",
         "nameLabel": "Nombre",
         "phoneLabel": "Teléfono",
-        "reasonLabel": "Motivo",
-        "selectReason": "Selecciona...",
+        "reasonLabel": "Motivo de la cita",
+        "selectReason": "Selecciona una opción",
         "optionRehabilitacion": "Implantes Dentales",
         "optionEstetica": "Carillas / Diseño Sonrisa",
         "optionOrtodoncia": "Brackets / Ortodoncia",
         "optionValoracion": "Valoración General",
         "optionUrgencia": "Tengo Dolor / Urgencia",
-        "optionBlanqueamiento": "⭐ Promo: Blanqueamiento + Limpieza",
+        "optionBlanqueamiento": "⭐ Blanqueamiento + Limpieza",
         "submitBtn": "Enviar Solicitud",
         "mapTitle": "Ubicación",
-        "mapDescription": "Av. Plutarco Elías Calles 315.",
-        "servicesTitle": "Servicios",
+        "mapDescription": "Av. Plutarco Elías Calles 315",
+        "servicesTitle": "Nuestros Servicios",
         "service1": "Blanqueamiento",
         "service2": "Resinas",
         "service3": "Coronas",
         "service4": "Implantes",
-        "faqTitle": "Preguntas",
-        "faqQ1": "¿Materiales?",
-        "faqA1": "Usamos implantes de titanio premium y porcelanas certificadas.",
-        "faqQ2": "¿Primera cita?",
-        "faqA2": "Diagnóstico completo, fotos digitales y plan transparente.",
-        "faqQ3": "¿Seguros USA?",
-        "faqA3": "Te damos documentación para tu reembolso en EE. UU.",
-        "faqQ4": "¿Pagos?",
-        "faqA4": "Efectivo, Visa, Mastercard y planes de pago.",
+        "faqTitle": "Preguntas Frecuentes",
+        "faqQ1": "¿Qué materiales usas?",
+        "faqA1": "Usamos implantes de titanio premium y porcelanas certificadas para máxima durabilidad.",
+        "faqQ2": "¿Cómo es mi primera cita?",
+        "faqA2": "Te hacemos un diagnóstico completo, tomas fotos y te presentamos un plan transparente de tratamiento.",
+        "faqQ3": "¿Aceptan seguros de USA?",
+        "faqA3": "Sí, te proporcionamos toda la documentación necesaria para que tramites tu reembolso.",
+        "faqQ4": "¿Formas de pago?",
+        "faqA4": "Aceptamos efectivo, Visa, Mastercard y contamos con planes de pago flexible.",
         "navHome": "Inicio",
         "navImplants": "Implantes",
         "navVeneers": "Carillas",
@@ -356,8 +327,6 @@
         "navWhitening": "Blanqueamiento",
         "clinicLocationShort": "Cd. Juárez",
         "clinicNameFooter": "Dr. Santos",
-        
-        // POPUP TEXTOS (CORREGIDO: Sin "Profunda")
         "promoTitle": "Paquete Sonrisa",
         "promoText": "Limpieza Dental + Blanqueamiento",
         "promoBtn": "¡Lo quiero!"
@@ -365,36 +334,36 @@
       en: {
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
         "schedulePageSubtitle": "Expert dental care in Ciudad Juárez.",
-        "btnWhatsapp": "WhatsApp Us",
-        "btnCall": "Call Now",
+        "btnWhatsapp": "WhatsApp",
+        "btnCall": "Call",
         "formTitle": "Request Appointment",
         "nameLabel": "Name",
         "phoneLabel": "Phone",
-        "reasonLabel": "Reason",
-        "selectReason": "Select...",
+        "reasonLabel": "Reason for visit",
+        "selectReason": "Select an option",
         "optionRehabilitacion": "Dental Implants",
         "optionEstetica": "Veneers / Smile Design",
         "optionOrtodoncia": "Brackets / Ortho",
         "optionValoracion": "Check-up",
         "optionUrgencia": "Pain / Emergency",
-        "optionBlanqueamiento": "⭐ Promo: Whitening + Cleaning",
+        "optionBlanqueamiento": "⭐ Whitening + Cleaning",
         "submitBtn": "Send Request",
         "mapTitle": "Location",
-        "mapDescription": "Av. Plutarco Elías Calles 315.",
-        "servicesTitle": "Services",
+        "mapDescription": "Av. Plutarco Elías Calles 315",
+        "servicesTitle": "Our Services",
         "service1": "Whitening",
         "service2": "Fillings",
         "service3": "Crowns",
         "service4": "Implants",
-        "faqTitle": "Questions",
-        "faqQ1": "Materials?",
-        "faqA1": "Premium titanium implants and certified porcelains.",
-        "faqQ2": "First visit?",
-        "faqA2": "Complete diagnosis, photos, and transparent plan.",
-        "faqQ3": "US Insurance?",
-        "faqA3": "We provide docs for reimbursement.",
-        "faqQ4": "Payments?",
-        "faqA4": "Cash, Visa, Mastercard accepted.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqQ1": "What materials do you use?",
+        "faqA1": "We use premium titanium implants and certified porcelains for maximum durability.",
+        "faqQ2": "What's my first visit like?",
+        "faqA2": "We'll do a complete diagnosis, take photos, and present you with a transparent treatment plan.",
+        "faqQ3": "Do you accept US insurance?",
+        "faqA3": "Yes, we provide all documentation needed for your reimbursement.",
+        "faqQ4": "What payment methods?",
+        "faqA4": "We accept cash, Visa, Mastercard, and flexible payment plans.",
         "navHome": "Home",
         "navImplants": "Implants",
         "navVeneers": "Veneers",
@@ -402,8 +371,6 @@
         "navWhitening": "Whitening",
         "clinicLocationShort": "Cd. Juarez",
         "clinicNameFooter": "Dr. Santos",
-        
-        // POPUP TEXTS ENGLISH (CORRECTED: No "Deep")
         "promoTitle": "Smile Package",
         "promoText": "Dental Cleaning + Whitening",
         "promoBtn": "Get this offer!"
@@ -411,7 +378,28 @@
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-      // --- LOGICA POPUP MÓVIL ---
+      // Set year
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // GALLERY
+      const gallerySlider = document.getElementById('gallerySlider');
+      const galleryPrevBtn = document.querySelector('.gallery-prev');
+      const galleryNextBtn = document.querySelector('.gallery-next');
+      const galleryImages = gallerySlider.querySelectorAll('img');
+      let currentGalleryIndex = 0;
+
+      function goToGallerySlide(index) {
+        currentGalleryIndex = (index + galleryImages.length) % galleryImages.length;
+        gallerySlider.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
+      }
+
+      galleryPrevBtn.addEventListener('click', () => goToGallerySlide(currentGalleryIndex - 1));
+      galleryNextBtn.addEventListener('click', () => goToGallerySlide(currentGalleryIndex + 1));
+      
+      // Auto-advance gallery every 6 seconds
+      setInterval(() => goToGallerySlide(currentGalleryIndex + 1), 6000);
+
+      // POPUP
       const promoOverlay = document.getElementById('promo-popup-overlay');
       const promoContent = document.getElementById('promo-popup-content');
       const closePopupBtn = document.getElementById('close-popup');
@@ -420,75 +408,54 @@
       function showPopup() {
         promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
         setTimeout(() => {
-             promoContent.classList.remove('scale-95', 'opacity-0');
+          promoContent.classList.remove('scale-95', 'opacity-0');
         }, 50);
       }
       
       function hidePopup() {
         promoContent.classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
-          promoOverlay.classList.add('opacity-0');
-          setTimeout(() => {
-             promoOverlay.classList.add('pointer-events-none');
-          }, 300);
-        }, 200);
+          promoOverlay.classList.add('opacity-0', 'pointer-events-none');
+        }, 300);
       }
 
-      // Mostrar promo (Uso nueva clave para que le vuelva a salir al usuario si ya vio la anterior)
-      if (!sessionStorage.getItem('promoShown_Clean_v1')) {
-          setTimeout(showPopup, 3000); // 3 segundos
-          sessionStorage.setItem('promoShown_Clean_v1', 'true');
+      if (!sessionStorage.getItem('promoShown_v2')) {
+        setTimeout(showPopup, 3000);
+        sessionStorage.setItem('promoShown_v2', 'true');
       }
       
       closePopupBtn.addEventListener('click', hidePopup);
       popupCtaBtn.addEventListener('click', function() {
-          document.querySelector('#formSection').scrollIntoView({ behavior: 'smooth' });
-          const select = document.getElementById('motivo');
-          if(select) select.value = "Blanqueamiento + Limpieza";
-          hidePopup();
+        document.querySelector('#appointmentForm').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('motivo').value = "Blanqueamiento + Limpieza";
+        hidePopup();
       });
-      promoOverlay.addEventListener('click', (e) => { if(e.target === promoOverlay) hidePopup(); });
+      promoOverlay.addEventListener('click', (e) => {
+        if (e.target === promoOverlay) hidePopup();
+      });
 
-
-      // --- SLIDER IMAGENES ---
-      const gallery = document.getElementById('patientGallery');
-      if (gallery) {
-        const slider = document.getElementById('gallerySlider');
-        const prevBtn = gallery.querySelector('.prev');
-        const nextBtn = gallery.querySelector('.next');
-        const slides = slider.querySelectorAll('img');
-        let currentIndex = 0;
-
-        function goToSlide(index) {
-          currentIndex = (index + slides.length) % slides.length;
-          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-        setInterval(() => goToSlide(currentIndex + 1), 5000);
-      }
-
-      // --- TRADUCCIÓN ---
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      // TRANSLATION
       const translateBtn = document.getElementById('translateBtn');
       
       function changeLanguage(lang) {
-          document.documentElement.lang = lang;
-          document.querySelectorAll('[data-i18n]').forEach(el => {
-              const key = el.getAttribute('data-i18n');
-              if(translations[lang]?.[key]) el.innerHTML = translations[lang][key];
-          });
-          document.title = translations[lang]?.titleSchedulePage || document.title;
-          localStorage.setItem('preferredLangDrSantos', lang);
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang]?.[key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+        document.title = translations[lang]?.titleSchedulePage || document.title;
+        localStorage.setItem('preferredLang', lang);
       }
       
       translateBtn.addEventListener('click', function() {
-          const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
-          changeLanguage(newLang);
+        const newLang = (localStorage.getItem('preferredLang') || 'es') === 'es' ? 'en' : 'es';
+        changeLanguage(newLang);
       });
-      changeLanguage(localStorage.getItem('preferredLangDrSantos') || 'es');
+      
+      changeLanguage(localStorage.getItem('preferredLang') || 'es');
     });
   </script>
-
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbf8c2ff02b28e2',t:'MTc3MDc2NzgzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
