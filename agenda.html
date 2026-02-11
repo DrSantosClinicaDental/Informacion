@@ -173,7 +173,7 @@
      <div class="text-center mb-8 md:mb-10">
       <h1 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
       <p class="text-sm md:text-base text-slate-600 max-w-lg mx-auto mb-6" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.</p>
-      <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center"><a href="https://wa.me/?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">WhatsApp</span> </a> <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-6 py-3 rounded-lg text-teal-600 border-2 border-teal-600 font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 transition-colors"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar</span> </a>
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center"><a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">WhatsApp</span> </a> <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-6 py-3 rounded-lg text-teal-600 border-2 border-teal-600 font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 transition-colors"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar</span> </a>
       </div>
      </div><!-- FORM & GALLERY GRID -->
      <div class="grid md:grid-cols-2 gap-6 md:gap-8"><!-- FORM -->
@@ -186,7 +186,7 @@
        <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4"><input type="hidden" name="_subject" value="Nueva Cita - Página Agenda"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
         <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="nameLabel">Nombre</label> <input type="text" name="nombre" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="Tu nombre completo">
         </div>
-        <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="phoneLabel">Teléfono</label> <input type="tel" name="telefono" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="(656) XXX-XXXX">
+        <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="phoneLabel">Tel��fono</label> <input type="tel" name="telefono" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="(656) XXX-XXXX">
         </div>
         <div><label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
          <div class="relative"><select id="motivo" name="motivo" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">⭐ Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
@@ -197,7 +197,7 @@
        </form>
       </div><!-- GALLERY -->
       <div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-slate-100 aspect-video md:aspect-auto md:min-h-96">
-       <div class="gallery-slider" id="gallerySlider"><img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El31.png" alt="Resultado dental 3" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El32.png" alt="Resultado dental 5" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+       <div class="gallery-slider" id="gallerySlider"><img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy"> <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy"> <img src="El31.png" alt="Resultado dental 3" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy"> <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy"> <img src="El32.png" alt="Resultado dental 5" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy"> <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-contain flex-shrink-0 bg-slate-100" loading="lazy">
        </div><button class="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-left text-xs"></i> </button> <button class="gallery-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-right text-xs"></i> </button>
        <div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
         <p class="text-[10px] text-white font-semibold uppercase tracking-wider">Resultados Reales</p>
@@ -232,6 +232,36 @@
      </div>
      <p class="text-center text-sm text-slate-600" data-i18n="mapDescription">Av. Plutarco Elías Calles 315</p>
     </div>
+   </section><!-- FINANCING SECTION -->
+   <section class="py-10 md:py-14 px-4 bg-gradient-to-br from-teal-50 to-cyan-50">
+    <div class="container mx-auto max-w-4xl">
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="financingTitle">Facilidades de Pago</h2>
+     <div class="grid md:grid-cols-2 gap-6"><!-- Implante -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+       <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200"><i class="fas fa-screw text-2xl text-teal-600"></i>
+        <h3 class="text-lg font-bold text-slate-900" data-i18n="financingImplantTitle">Implante Dental</h3>
+       </div>
+       <div class="space-y-3">
+        <div class="flex justify-between items-center"><span class="text-sm text-slate-600" data-i18n="financingInitial">Pago Inicial:</span> <span class="text-lg font-bold text-teal-600">$700 USD</span>
+        </div>
+        <p class="text-xs text-slate-500" data-i18n="financingImplantDesc">Más cuotas mensuales accesibles. Consulta nuestros planes.</p>
+       </div>
+      </div><!-- Corona -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+       <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200"><i class="fas fa-crown text-2xl text-purple-500"></i>
+        <h3 class="text-lg font-bold text-slate-900" data-i18n="financingCrownTitle">Corona + Implante</h3>
+       </div>
+       <div class="space-y-3">
+        <div class="flex justify-between items-center"><span class="text-sm text-slate-600" data-i18n="financingInitial">Pago Inicial:</span> <span class="text-lg font-bold text-teal-600">$700 USD</span>
+        </div>
+        <p class="text-xs text-slate-500" data-i18n="financingCrownDesc">Tratamiento completo en cuotas. Sin intereses disponible.</p>
+       </div>
+      </div>
+     </div>
+     <div class="mt-6 p-4 bg-white rounded-lg border border-slate-200 text-center">
+      <p class="text-xs md:text-sm text-slate-600" data-i18n="financingNote"><span class="font-semibold text-slate-900">Consulta directamente</span> nuestras opciones de financiamiento personalizado</p>
+     </div>
+    </div>
    </section><!-- FAQ SECTION -->
    <section class="py-10 md:py-14 px-4">
     <div class="container mx-auto max-w-4xl">
@@ -254,7 +284,7 @@
       </details>
       <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4"><summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ4">¿Formas de pago?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
        <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA4">
-        Aceptamos efectivo, Visa, Mastercard y contamos con planes de pago flexible.
+        Aceptamos Efectivo, Tarjeta de Crédito, Tarjeta de Débito y contamos con planes de pago flexible para tu comodidad.
        </div>
       </details>
      </div>
@@ -311,6 +341,13 @@
         "service2": "Resinas",
         "service3": "Coronas",
         "service4": "Implantes",
+        "financingTitle": "Facilidades de Pago",
+        "financingImplantTitle": "Implante Dental",
+        "financingCrownTitle": "Corona + Implante",
+        "financingInitial": "Pago Inicial:",
+        "financingImplantDesc": "Más cuotas mensuales accesibles. Consulta nuestros planes.",
+        "financingCrownDesc": "Tratamiento completo en cuotas. Sin intereses disponible.",
+        "financingNote": "<span class='font-semibold text-slate-900'>Consulta directamente</span> nuestras opciones de financiamiento personalizado",
         "faqTitle": "Preguntas Frecuentes",
         "faqQ1": "¿Qué materiales usas?",
         "faqA1": "Usamos implantes de titanio premium y porcelanas certificadas para máxima durabilidad.",
@@ -319,7 +356,7 @@
         "faqQ3": "¿Aceptan seguros de USA?",
         "faqA3": "Sí, te proporcionamos toda la documentación necesaria para que tramites tu reembolso.",
         "faqQ4": "¿Formas de pago?",
-        "faqA4": "Aceptamos efectivo, Visa, Mastercard y contamos con planes de pago flexible.",
+        "faqA4": "Aceptamos Efectivo, Tarjeta de Crédito, Tarjeta de Débito y contamos con planes de pago flexible para tu comodidad.",
         "navHome": "Inicio",
         "navImplants": "Implantes",
         "navVeneers": "Carillas",
@@ -355,6 +392,13 @@
         "service2": "Fillings",
         "service3": "Crowns",
         "service4": "Implants",
+        "financingTitle": "Payment Plans",
+        "financingImplantTitle": "Dental Implant",
+        "financingCrownTitle": "Crown + Implant",
+        "financingInitial": "Down Payment:",
+        "financingImplantDesc": "Plus affordable monthly payments. Check our plans.",
+        "financingCrownDesc": "Complete treatment in installments. Interest-free available.",
+        "financingNote": "<span class='font-semibold text-slate-900'>Contact us directly</span> for personalized financing options",
         "faqTitle": "Frequently Asked Questions",
         "faqQ1": "What materials do you use?",
         "faqA1": "We use premium titanium implants and certified porcelains for maximum durability.",
@@ -363,7 +407,7 @@
         "faqQ3": "Do you accept US insurance?",
         "faqA3": "Yes, we provide all documentation needed for your reimbursement.",
         "faqQ4": "What payment methods?",
-        "faqA4": "We accept cash, Visa, Mastercard, and flexible payment plans.",
+        "faqA4": "We accept Cash, Credit Card, Debit Card, and flexible payment plans for your convenience.",
         "navHome": "Home",
         "navImplants": "Implants",
         "navVeneers": "Veneers",
@@ -457,5 +501,5 @@
       changeLanguage(localStorage.getItem('preferredLang') || 'es');
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbf8c2ff02b28e2',t:'MTc3MDc2NzgzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbf98c652a54746',t:'MTc3MDc2ODM0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
