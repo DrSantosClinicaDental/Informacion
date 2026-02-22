@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -90,8 +91,8 @@
     }
 
     .service-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(13, 148, 136, 0.12);
     }
 
     .btn-primary {
@@ -100,8 +101,13 @@
       touch-action: manipulation;
     }
 
+    .btn-primary:hover {
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      transform: translateY(-1px);
+    }
+
     .btn-primary:active {
-      transform: scale(0.95);
+      transform: scale(0.98);
     }
 
     input, select, textarea {
@@ -118,7 +124,7 @@
     .gallery-slider {
       display: flex;
       height: 100%;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -141,7 +147,7 @@
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
  </head>
  <body class="text-slate-800">
-  <header class="sticky top-0 z-40 bg-white header-nav">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md header-nav border-b border-slate-100">
    <div class="container mx-auto px-4 py-3">
     <div class="flex justify-between items-center">
      <div class="flex-1">
@@ -149,30 +155,35 @@
      </div>
      <nav class="flex-1 overflow-x-auto no-scrollbar -mx-2 px-2">
       <ul class="flex gap-1.5 min-w-max md:justify-center md:mx-auto">
-       <li><a href="index.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navHome">Inicio</a></li>
-       <li><a href="implantes.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navImplants">Implantes</a></li>
-       <li><a href="carillas.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navVeneers">Carillas</a></li>
-       <li><a href="agenda.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-teal-600 border-b-2 border-teal-600" data-i18n="navScheduleEasy">Agenda</a></li>
-       <li><a href="https://drsantosclinicadental.com/blanqueamiento" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors" data-i18n="navWhitening">Blanqueamiento</a></li>
+       <li><a href="index.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navHome">Inicio</a></li>
+       <li><a href="implantes.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navImplants">Implantes</a></li>
+       <li><a href="carillas.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navVeneers">Carillas</a></li>
+       <li><a href="agenda.html" class="px-3 py-1.5 text-xs md:text-sm font-semibold text-teal-700 border-b-2 border-teal-600" data-i18n="navScheduleEasy">Agenda</a></li>
+       <li><a href="https://drsantosclinicadental.com/blanqueamiento" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navWhitening">Blanqueamiento</a></li>
       </ul>
      </nav>
      <div class="flex-1 text-right">
-      <a href="#mapSection" class="text-xs font-medium text-slate-500 hover:text-slate-700 transition-colors inline-flex items-center gap-1"> <i class="fas fa-map-marker-alt text-teal-600"></i> <span data-i18n="clinicLocationShort" class="hidden sm:inline">Cd. Juárez</span> </a>
+      <a href="#mapSection" class="text-xs font-medium text-slate-500 hover:text-teal-700 transition-colors inline-flex items-center gap-1"> <i class="fas fa-map-marker-alt text-teal-600"></i> <span data-i18n="clinicLocationShort" class="hidden sm:inline">Cd. Juárez</span> </a>
      </div>
     </div>
    </div>
   </header>
+  
   <main class="w-full overflow-auto">
-   <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-8 md:pt-12 pb-10 md:pb-16">
-    <div class="container mx-auto px-4 max-w-4xl">
-     <div class="text-center mb-8 md:mb-10">
-      <h1 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
-      <p class="text-sm md:text-base text-slate-600 max-w-lg mx-auto mb-6" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.</p>
-      <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center">
-       <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">WhatsApp</span> </a> <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-6 py-3 rounded-lg text-teal-600 border-2 border-teal-600 font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 transition-colors"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar</span> </a>
+   <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-10 md:pt-16 pb-14 md:pb-20 border-b border-teal-100/50">
+    <div class="container mx-auto px-4 max-w-5xl">
+     <div class="text-center mb-10 md:mb-14">
+      <span class="inline-block py-1 px-3 rounded-full bg-teal-100 text-teal-700 text-xs font-bold tracking-wider uppercase mb-4" data-i18n="heroBadge">Atención Especializada</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
+      <p class="text-base md:text-lg text-slate-600 max-w-xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.</p>
+      <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
+       <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3.5 rounded-xl text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">Mensaje por WhatsApp</span> </a> 
+       <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-8 py-3.5 rounded-xl text-teal-700 border border-teal-200 bg-white shadow-sm font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 hover:border-teal-300 transition-all"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar Ahora</span> </a>
       </div>
-     </div><div class="grid md:grid-cols-2 gap-6 md:gap-8">
-      <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+     </div>
+     
+     <div class="grid lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
+      <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10">
        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
         <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600">
          <i class="far fa-calendar-check text-lg"></i>
@@ -182,148 +193,218 @@
        <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
         <input type="hidden" name="_subject" value="Nueva Cita - Página Agenda"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
         <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="nameLabel">Nombre</label> <input type="text" name="nombre" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="Tu nombre completo">
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="nameLabel">Nombre</label> <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm" required placeholder="Tu nombre completo">
         </div>
         <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="phoneLabel">Teléfono</label> <input type="tel" name="telefono" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" required placeholder="(656) XXX-XXXX">
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="phoneLabel">Teléfono</label> <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm" required placeholder="(656) XXX-XXXX">
         </div>
         <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
          <div class="relative">
-          <select id="motivo" name="motivo" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+          <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
          </div>
         </div>
         <div>
-         <textarea name="mensaje" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
-        </div><button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold text-sm mt-4"> <span data-i18n="submitBtn">Enviar Solicitud</span> </button>
+         <textarea name="mensaje" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm resize-none" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
+        </div><button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-white font-bold text-sm mt-2 shadow-md"> <span data-i18n="submitBtn">Enviar Solicitud</span> </button>
        </form>
-      </div><div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-slate-100 aspect-video md:aspect-auto md:min-h-96">
+      </div>
+      
+      <div class="lg:col-span-3 relative w-full rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-slate-100 aspect-video lg:aspect-auto h-full min-h-[300px]">
        <div class="gallery-slider w-full h-full" id="gallerySlider">
         <img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
         <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
         <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
         <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-       </div><button class="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-left text-xs"></i> </button> <button class="gallery-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-right text-xs"></i> </button>
-       <div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
-        <p class="text-[10px] text-white font-semibold uppercase tracking-wider">Resultados Reales</p>
+       </div>
+       <button class="gallery-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-slate-800 shadow-md transition-all active:scale-90"> <i class="fas fa-chevron-left text-sm"></i> </button> 
+       <button class="gallery-next absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-slate-800 shadow-md transition-all active:scale-90"> <i class="fas fa-chevron-right text-sm"></i> </button>
+       <div class="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-white/10">
+        <p class="text-[11px] text-white font-bold uppercase tracking-widest flex items-center gap-2"><i class="fas fa-camera text-teal-400"></i> Resultados Reales</p>
        </div>
       </div>
      </div>
     </div>
-   </section><section class="py-10 md:py-14 px-4">
-    <div class="container mx-auto max-w-4xl">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="servicesTitle">Nuestros Servicios</h2>
-     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-teeth text-2xl text-teal-600 mb-2"></i>
-       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
+   </section>
+
+   <section class="py-12 md:py-20 px-4 bg-white">
+    <div class="container mx-auto max-w-5xl">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-i18n="servicesTitle">Nuestros Servicios</h2>
+      <p class="text-slate-500" data-i18n="servicesSubtitle">Tratamientos diseñados para devolverte la confianza.</p>
+     </div>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
+       <div class="w-14 h-14 mx-auto bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4"><i class="fas fa-teeth text-2xl"></i></div>
+       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service1">Blanqueamiento</p>
       </div>
-      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-fill-drip text-2xl text-blue-500 mb-2"></i>
-       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
+      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
+       <div class="w-14 h-14 mx-auto bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-fill-drip text-2xl"></i></div>
+       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service2">Resinas</p>
       </div>
-      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-crown text-2xl text-purple-500 mb-2"></i>
-       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
+      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
+       <div class="w-14 h-14 mx-auto bg-purple-100 text-purple-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-crown text-2xl"></i></div>
+       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service3">Coronas</p>
       </div>
-      <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-tooth text-2xl text-indigo-500 mb-2"></i>
-       <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
+      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
+       <div class="w-14 h-14 mx-auto bg-indigo-100 text-indigo-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-tooth text-2xl"></i></div>
+       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service4">Implantes</p>
       </div>
      </div>
     </div>
-   </section><section id="mapSection" class="py-10 md:py-14 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-6" data-i18n="mapTitle">Ubicación</h2>
-     <div class="w-full h-48 md:h-64 rounded-xl overflow-hidden shadow-md border border-slate-200 mb-6">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.. !3d31.. !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v. !5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen loading="lazy"></iframe>
+   </section>
+
+   <section id="mapSection" class="py-12 md:py-20 px-4 bg-slate-50 border-t border-slate-100">
+    <div class="container mx-auto max-w-5xl">
+     <div class="text-center mb-10 md:mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="mapTitle">Visítanos</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto" data-i18n="mapSubtitle">Instalaciones modernas y céntricas pensadas para tu comodidad y fácil acceso.</p>
      </div>
-     <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-xl border border-teal-100">
-      <h3 class="font-bold text-slate-900 mb-3 text-sm md:text-base" data-i18n="mapAddressTitle">📍 Cómo encontrarnos</h3>
-      <div class="space-y-2 text-sm text-slate-700">
-       <p><span class="font-semibold text-teal-700">Dirección:</span> Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH</p>
-       <p><span class="font-semibold text-teal-700">Referencias:</span> Una cuadra después de Av. Vicente Guerrero, cerca del Puente Libre</p>
-       <p><span class="font-semibold text-teal-700">Ubicación céntrica:</span> Estacionamiento disponible en la clínica</p>
+     
+     <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <div class="lg:col-span-1 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-center space-y-8 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-0 opacity-50"></div>
+       
+       <div class="relative z-10">
+        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-4 shadow-sm border border-teal-100">
+         <i class="fas fa-map-marker-alt text-xl"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-xl mb-2" data-i18n="mapAddressTitle">Ubicación Estratégica</h3>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH.</p>
+        <p class="text-xs text-slate-500 mt-2">Una cuadra después de Av. Vicente Guerrero, cerca del Puente Libre.</p>
+       </div>
+
+       <div class="relative z-10">
+        <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mb-4 shadow-sm border border-blue-100">
+         <i class="fas fa-car text-xl"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-xl mb-2" data-i18n="mapParkingTitle">Estacionamiento</h3>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">Contamos con espacios exclusivos para la comodidad y seguridad de nuestros pacientes.</p>
+       </div>
+       
+       <div class="pt-6 border-t border-slate-100 relative z-10 mt-auto">
+        <a href="https://maps.google.com/maps?q=Av.+Plutarco+Elias+Calles+315,+Colegio,+32340,+Cd.+Juarez,+Chih" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-teal-700 transition-colors shadow-md group">
+         <i class="fas fa-location-arrow group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+         <span data-i18n="mapDirectionsBtn">Abrir en Google Maps</span>
+        </a>
+       </div>
+      </div>
+
+      <div class="lg:col-span-2 w-full min-h-[400px] rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white">
+       <iframe 
+         src="https://maps.google.com/maps?q=Av.+Plutarco+Elias+Calles+315,+Colegio,+32340,+Cd.+Juarez,+Chih&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+         class="w-full h-full border-0" 
+         allowfullscreen="" 
+         loading="lazy" 
+         referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
       </div>
      </div>
     </div>
-   </section><section class="py-10 md:py-14 px-4 bg-gradient-to-br from-teal-50 to-cyan-50">
+   </section>
+
+   <section class="py-12 md:py-20 px-4 bg-white border-t border-slate-100">
     <div class="container mx-auto max-w-4xl">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="financingTitle">Facilidades de Pago</h2>
-     <div class="grid md:grid-cols-2 gap-6 mb-8">
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col h-full">
-       <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200">
-        <i class="fas fa-tooth text-2xl text-teal-600"></i>
-        <h3 class="text-lg font-bold text-slate-900" data-i18n="financingImplantOnlyTitle">Implante Dental</h3>
+     <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-i18n="financingTitle">Facilidades de Pago</h2>
+      <p class="text-slate-500" data-i18n="financingSubtitle">Tratamientos accesibles con planes a tu medida.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+       <div class="flex items-center gap-4 mb-5 pb-5 border-b border-slate-200/60">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-teal-600 shadow-sm border border-slate-100"><i class="fas fa-tooth text-xl"></i></div>
+        <h3 class="text-xl font-bold text-slate-900" data-i18n="financingImplantOnlyTitle">Implante Dental</h3>
        </div>
        <div class="space-y-3 flex-grow">
-        <p class="text-sm text-slate-600 font-medium" data-i18n="financingImplantOnlyDesc">Financiado en 4 a 6 meses. Cuotas sin intereses disponibles.</p>
+        <p class="text-slate-600 font-medium" data-i18n="financingImplantOnlyDesc">Opciones de financiamiento de 4 a 6 meses. Cuotas sin intereses disponibles para pacientes calificables.</p>
        </div>
-      </div><div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col h-full">
-       <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200">
-        <i class="fas fa-crown text-2xl text-purple-500"></i>
-        <h3 class="text-lg font-bold text-slate-900" data-i18n="financingCrownTitle">Implante + Corona</h3>
+      </div>
+      <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+       <div class="flex items-center gap-4 mb-5 pb-5 border-b border-slate-200/60">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-500 shadow-sm border border-slate-100"><i class="fas fa-crown text-xl"></i></div>
+        <h3 class="text-xl font-bold text-slate-900" data-i18n="financingCrownTitle">Implante + Corona</h3>
        </div>
        <div class="space-y-3 flex-grow">
-        <p class="text-sm text-slate-600 font-medium" data-i18n="financingCrownDesc">Tratamiento completo. Planes de pago flexibles sin intereses.</p>
+        <p class="text-slate-600 font-medium" data-i18n="financingCrownDesc">Paquete integral. Te ofrecemos planes de pago flexibles y transparentes, sin intereses ocultos.</p>
        </div>
       </div>
      </div>
-     <div class="mt-6 p-5 bg-white rounded-lg border-2 border-teal-200 text-center"><a href="https://wa.me/526147804673?text=Hola,%20me%20interesa%20conocer%20opciones%20de%20financiamiento%20personalizado." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-2.5 rounded-lg text-white font-semibold text-sm inline-flex items-center gap-2"> <i class="fas fa-calendar-check"></i> <span data-i18n="financingCTA">Agenda Cita para Financiamiento Personalizado</span> </a>
+     <div class="p-6 bg-teal-50 rounded-2xl border border-teal-200 text-center shadow-sm">
+      <a href="https://wa.me/526147804673?text=Hola,%20me%20interesa%20conocer%20opciones%20de%20financiamiento%20personalizado." target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3.5 rounded-xl text-white font-semibold text-sm md:text-base inline-flex items-center gap-2"> <i class="fas fa-hand-holding-usd text-lg"></i> <span data-i18n="financingCTA">Cotiza tu Plan de Financiamiento Hoy</span> </a>
      </div>
     </div>
-   </section><section class="py-10 md:py-14 px-4">
-    <div class="container mx-auto max-w-4xl">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="faqTitle">Preguntas Frecuentes</h2>
-     <div class="space-y-2.5">
-      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4">
-       <summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ1">¿Qué materiales usas?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
-       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA1">
-        Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad y naturalidad.
+   </section>
+
+   <section class="py-12 md:py-20 px-4 bg-slate-50 border-t border-slate-100">
+    <div class="container mx-auto max-w-3xl">
+     <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-i18n="faqTitle">Preguntas Frecuentes</h2>
+     </div>
+     <div class="space-y-3">
+      <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
+       <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ1">¿Qué materiales usas?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
+       <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA1">
+        Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad, biocampatibilidad y naturalidad.
        </div>
       </details>
-      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4">
-       <summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ2">¿Cómo es mi primera cita?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
-       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA2">
-        Realizamos un diagnóstico completo con radiografías digitales, fotografías y presentamos un plan de tratamiento transparente ajustado a tu presupuesto.
+      <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
+       <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ2">¿Cómo es mi primera cita?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
+       <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA2">
+        Realizamos un diagnóstico clínico completo con radiografías digitales y fotografías. Te explicamos a detalle tu estado de salud actual y te presentamos un plan de tratamiento transparente ajustado a tus necesidades y presupuesto.
        </div>
       </details>
-      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4">
-       <summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ3">¿Incluyen documentación para seguros?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
-       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA3">
-        Sí, te proporcionamos toda la documentación necesaria si deseas tramitar un reembolso con tu seguro.
+      <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
+       <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ3">¿Incluyen documentación para seguros?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
+       <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA3">
+        Sí, te proporcionamos toda la documentación formal (facturas, radiografías, historial clínico) necesaria si deseas tramitar un reembolso con tu seguro de gastos médicos mayores.
        </div>
       </details>
-      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4">
-       <summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ4">¿Formas de pago?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
-       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA4">
-        Aceptamos Efectivo, Tarjeta de Crédito, Tarjeta de Débito y contamos con planes de financiamiento flexible de 4 a 6 meses sin intereses.
+      <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
+       <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ4">¿Cuáles son las formas de pago?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
+       <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA4">
+        Aceptamos Efectivo, Tarjetas de Crédito, Tarjetas de Débito y Transferencias. Contamos con planes de financiamiento flexible de 4 a 6 meses sin intereses en tratamientos seleccionados.
        </div>
       </details>
-      <details class="faq-item group bg-white rounded-lg shadow-sm border border-slate-100 p-4">
-       <summary class="flex justify-between items-center font-semibold cursor-pointer text-sm md:text-base text-slate-800 select-none"> <span data-i18n="faqQ5">¿Cuánto tarda el tratamiento?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform text-xs"></i> </summary>
-       <div class="text-slate-600 text-xs md:text-sm mt-3 pt-3 border-t border-slate-100" data-i18n="faqA5">
-        El tiempo varía según el tratamiento. Los implantes generalmente requieren 3-6 meses de integración ósea antes de colocar la corona.
+      <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
+       <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ5">¿Cuánto tarda un tratamiento de implantes?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
+       <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA5">
+        El tiempo varía según el caso clínico. La fase quirúrgica es rápida, pero la integración ósea del implante generalmente requiere de 3 a 6 meses de cicatrización natural antes de poder colocar la corona definitiva.
        </div>
       </details>
      </div>
     </div>
    </section>
-  </main><footer class="bg-slate-900 text-slate-300 py-8 px-4 text-center text-xs md:text-sm">
-   <div class="container mx-auto">
-    <p class="text-white font-bold text-base md:text-lg mb-1" data-i18n="clinicNameFooter">Dr. Santos</p>
-    <p class="mb-2 text-slate-400">Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH</p>
-    <p class="text-slate-500">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+  </main>
+  
+  <footer class="bg-slate-900 text-slate-300 py-10 px-4 text-center">
+   <div class="container mx-auto max-w-4xl border-b border-slate-800 pb-8 mb-8">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <div class="w-8 h-8 bg-teal-900 text-teal-400 rounded-lg flex items-center justify-center">
+        <i class="fas fa-tooth text-sm"></i>
+      </div>
+      <p class="text-white font-bold text-xl tracking-wide" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
+    </div>
+    <p class="text-slate-400 text-sm mb-4">Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH.</p>
+    <div class="flex justify-center gap-4">
+      <a href="https://wa.me/526147804673" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+526147804673" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><i class="fas fa-phone"></i></a>
+    </div>
    </div>
-  </footer><button id="translateBtn" class="fixed bottom-6 right-4 z-30 w-12 h-12 rounded-full shadow-lg border border-teal-100 bg-white text-teal-600 flex items-center justify-center hover:bg-teal-50 transition-colors active:scale-90"> <i class="fas fa-globe text-lg"></i> </button> 
+   <p class="text-slate-500 text-xs">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+  </footer>
+  
+  <button id="translateBtn" class="fixed bottom-6 right-6 z-30 w-12 h-12 rounded-full shadow-xl border border-teal-100 bg-white text-teal-600 flex items-center justify-center hover:bg-teal-50 hover:scale-105 transition-all active:scale-95"> 
+    <i class="fas fa-globe text-lg"></i> 
+  </button> 
   
   <script>
     const translations = {
       es: {
+        "heroBadge": "Atención Especializada",
         "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
-        "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.",
-        "btnWhatsapp": "WhatsApp",
-        "btnCall": "Llamar",
+        "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.",
+        "btnWhatsapp": "Mensaje por WhatsApp",
+        "btnCall": "Llamar Ahora",
         "formTitle": "Solicita tu Cita",
         "nameLabel": "Nombre",
         "phoneLabel": "Teléfono",
@@ -336,46 +417,49 @@
         "optionUrgencia": "Tengo Dolor / Urgencia",
         "optionBlanqueamiento": "Blanqueamiento + Limpieza",
         "submitBtn": "Enviar Solicitud",
-        "mapTitle": "Ubicación",
-        "mapAddressTitle": "📍 Cómo encontrarnos",
-        "mapDescription": "Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH",
         "servicesTitle": "Nuestros Servicios",
+        "servicesSubtitle": "Tratamientos diseñados para devolverte la confianza.",
         "service1": "Blanqueamiento",
         "service2": "Resinas",
         "service3": "Coronas",
         "service4": "Implantes",
+        "mapTitle": "Visítanos",
+        "mapSubtitle": "Instalaciones modernas y céntricas pensadas para tu comodidad y fácil acceso.",
+        "mapAddressTitle": "Ubicación Estratégica",
+        "mapParkingTitle": "Estacionamiento",
+        "mapDirectionsBtn": "Abrir en Google Maps",
         "financingTitle": "Facilidades de Pago",
+        "financingSubtitle": "Tratamientos accesibles con planes a tu medida.",
         "financingImplantOnlyTitle": "Implante Dental",
-        "financingImplantOnlyDesc": "Financiado en 4 a 6 meses. Cuotas sin intereses disponibles.",
+        "financingImplantOnlyDesc": "Opciones de financiamiento de 4 a 6 meses. Cuotas sin intereses disponibles para pacientes calificables.",
         "financingCrownTitle": "Implante + Corona",
-        "financingInitial": "Pago Inicial:",
-        "financingCrownDesc": "Tratamiento completo. Planes de pago flexibles sin intereses.",
-        "financingNote": "<span class='font-semibold text-slate-900'>Consulta directamente</span> nuestras opciones de financiamiento personalizado",
-        "financingCTA": "Agenda Cita para Financiamiento Personalizado",
+        "financingCrownDesc": "Paquete integral. Te ofrecemos planes de pago flexibles y transparentes, sin intereses ocultos.",
+        "financingCTA": "Cotiza tu Plan de Financiamiento Hoy",
         "faqTitle": "Preguntas Frecuentes",
         "faqQ1": "¿Qué materiales usas?",
-        "faqA1": "Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad y naturalidad.",
+        "faqA1": "Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad, biocampatibilidad y naturalidad.",
         "faqQ2": "¿Cómo es mi primera cita?",
-        "faqA2": "Realizamos un diagnóstico completo con radiografías digitales, fotografías y presentamos un plan de tratamiento transparente ajustado a tu presupuesto.",
+        "faqA2": "Realizamos un diagnóstico clínico completo con radiografías digitales y fotografías. Te explicamos a detalle tu estado de salud actual y te presentamos un plan de tratamiento transparente ajustado a tus necesidades y presupuesto.",
         "faqQ3": "¿Incluyen documentación para seguros?",
-        "faqA3": "Sí, te proporcionamos toda la documentación necesaria si deseas tramitar un reembolso con tu seguro.",
-        "faqQ4": "¿Formas de pago?",
-        "faqA4": "Aceptamos Efectivo, Tarjeta de Crédito, Tarjeta de Débito y contamos con planes de financiamiento flexible de 4 a 6 meses sin intereses.",
-        "faqQ5": "¿Cuánto tarda el tratamiento?",
-        "faqA5": "El tiempo varía según el tratamiento. Los implantes generalmente requieren 3-6 meses de integración ósea antes de colocar la corona.",
+        "faqA3": "Sí, te proporcionamos toda la documentación formal (facturas, radiografías, historial clínico) necesaria si deseas tramitar un reembolso con tu seguro de gastos médicos mayores.",
+        "faqQ4": "¿Cuáles son las formas de pago?",
+        "faqA4": "Aceptamos Efectivo, Tarjetas de Crédito, Tarjetas de Débito y Transferencias. Contamos con planes de financiamiento flexible de 4 a 6 meses sin intereses en tratamientos seleccionados.",
+        "faqQ5": "¿Cuánto tarda un tratamiento de implantes?",
+        "faqA5": "El tiempo varía según el caso clínico. La fase quirúrgica es rápida, pero la integración ósea del implante generalmente requiere de 3 a 6 meses de cicatrización natural antes de poder colocar la corona definitiva.",
         "navHome": "Inicio",
         "navImplants": "Implantes",
         "navVeneers": "Carillas",
         "navScheduleEasy": "Agenda",
         "navWhitening": "Blanqueamiento",
         "clinicLocationShort": "Cd. Juárez",
-        "clinicNameFooter": "Dr. Santos"
+        "clinicNameFooter": "Dr. Santos Clínica Dental"
       },
       en: {
-        "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
-        "schedulePageSubtitle": "Expert dental care in Ciudad Juárez.",
-        "btnWhatsapp": "WhatsApp",
-        "btnCall": "Call",
+        "heroBadge": "Specialized Care",
+        "schedulePageTitle": "Book Your <span class='text-teal-600'>Evaluation</span>",
+        "schedulePageSubtitle": "Your oral health is our priority. Receive expert care with the best materials in Ciudad Juárez.",
+        "btnWhatsapp": "Message on WhatsApp",
+        "btnCall": "Call Now",
         "formTitle": "Request Appointment",
         "nameLabel": "Name",
         "phoneLabel": "Phone",
@@ -383,45 +467,47 @@
         "selectReason": "Select an option",
         "optionRehabilitacion": "Dental Implants",
         "optionEstetica": "Veneers / Smile Design",
-        "optionOrtodoncia": "Brackets / Ortho",
-        "optionValoracion": "Check-up",
+        "optionOrtodoncia": "Braces / Ortho",
+        "optionValoracion": "General Check-up",
         "optionUrgencia": "Pain / Emergency",
         "optionBlanqueamiento": "Whitening + Cleaning",
         "submitBtn": "Send Request",
-        "mapTitle": "Location",
-        "mapAddressTitle": "📍 Find us",
-        "mapDescription": "Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH",
         "servicesTitle": "Our Services",
+        "servicesSubtitle": "Treatments designed to restore your confidence.",
         "service1": "Whitening",
         "service2": "Fillings",
         "service3": "Crowns",
         "service4": "Implants",
+        "mapTitle": "Visit Us",
+        "mapSubtitle": "Modern and central facilities designed for your comfort and easy access.",
+        "mapAddressTitle": "Strategic Location",
+        "mapParkingTitle": "Exclusive Parking",
+        "mapDirectionsBtn": "Open in Google Maps",
         "financingTitle": "Payment Plans",
+        "financingSubtitle": "Accessible treatments with personalized plans.",
         "financingImplantOnlyTitle": "Dental Implant",
-        "financingImplantOnlyDesc": "Financed in 4 to 6 months. Interest-free payments available.",
+        "financingImplantOnlyDesc": "4 to 6 months financing options. Interest-free payments available for qualified patients.",
         "financingCrownTitle": "Implant + Crown",
-        "financingInitial": "Down Payment:",
-        "financingCrownDesc": "Complete treatment. Flexible payment plans interest-free.",
-        "financingNote": "<span class='font-semibold text-slate-900'>Contact us directly</span> for personalized financing options",
-        "financingCTA": "Schedule Appointment for Personalized Financing",
+        "financingCrownDesc": "Comprehensive package. We offer flexible and transparent payment plans, with no hidden fees.",
+        "financingCTA": "Quote Your Financing Plan Today",
         "faqTitle": "Frequently Asked Questions",
         "faqQ1": "What materials do you use?",
-        "faqA1": "We use premium titanium implants and certified porcelain crowns for maximum durability and natural appearance.",
+        "faqA1": "We use premium titanium implants and certified porcelain crowns for maximum durability, biocompatibility, and natural appearance.",
         "faqQ2": "What's my first visit like?",
-        "faqA2": "We perform a complete diagnosis with digital X-rays, take photos, and present a transparent treatment plan adjusted to your budget.",
+        "faqA2": "We perform a complete clinical diagnosis with digital X-rays and photographs. We explain your current health status in detail and present a transparent treatment plan tailored to your needs and budget.",
         "faqQ3": "Do you provide insurance documentation?",
-        "faqA3": "Yes, we provide all documentation you need if you want to file a claim with your insurance.",
-        "faqQ4": "What payment methods?",
-        "faqA4": "We accept Cash, Credit Card, Debit Card, and offer flexible 4 to 6-month interest-free financing plans.",
-        "faqQ5": "How long does treatment take?",
-        "faqA5": "Time varies by treatment. Implants usually require 3-6 months of bone integration before placing the crown.",
+        "faqA3": "Yes, we provide all formal documentation (invoices, X-rays, medical history) needed if you wish to process a reimbursement with your major medical insurance.",
+        "faqQ4": "What are the payment methods?",
+        "faqA4": "We accept Cash, Credit Cards, Debit Cards, and Bank Transfers. We have flexible financing plans of 4 to 6 months without interest on selected treatments.",
+        "faqQ5": "How long does an implant treatment take?",
+        "faqA5": "Time varies by clinical case. The surgical phase is fast, but the bone integration of the implant generally requires 3 to 6 months of natural healing before the final crown can be placed.",
         "navHome": "Home",
         "navImplants": "Implants",
         "navVeneers": "Veneers",
         "navScheduleEasy": "Book",
         "navWhitening": "Whitening",
         "clinicLocationShort": "Cd. Juarez",
-        "clinicNameFooter": "Dr. Santos"
+        "clinicNameFooter": "Dr. Santos Dental Clinic"
       }
     };
 
@@ -458,7 +544,7 @@
             el.innerHTML = translations[lang][key];
           }
         });
-        document.title = translations[lang]?.titleSchedulePage || document.title;
+        document.title = translations[lang]?.schedulePageTitle ? "Agenda tu Valoración | Dr. Santos Clínica Dental" : document.title;
         localStorage.setItem('preferredLang', lang);
       }
       
