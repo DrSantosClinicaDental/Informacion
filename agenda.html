@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
   <script>
@@ -117,6 +117,7 @@
 
     .gallery-slider {
       display: flex;
+      height: 100%;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -126,15 +127,6 @@
 
     .faq-item details[open] summary i {
       transform: rotate(180deg);
-    }
-
-    .popup-overlay {
-      backdrop-filter: blur(4px);
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .popup-content {
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
     }
 
     @media (max-width: 640px) {
@@ -149,7 +141,6 @@
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
  </head>
  <body class="text-slate-800">
-  <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-white header-nav">
    <div class="container mx-auto px-4 py-3">
     <div class="flex justify-between items-center">
@@ -172,7 +163,6 @@
    </div>
   </header>
   <main class="w-full overflow-auto">
-   <!-- HERO SECTION -->
    <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-8 md:pt-12 pb-10 md:pb-16">
     <div class="container mx-auto px-4 max-w-4xl">
      <div class="text-center mb-8 md:mb-10">
@@ -181,9 +171,7 @@
       <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center">
        <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">WhatsApp</span> </a> <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-6 py-3 rounded-lg text-teal-600 border-2 border-teal-600 font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 transition-colors"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar</span> </a>
       </div>
-     </div><!-- FORM & GALLERY GRID -->
-     <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-      <!-- FORM -->
+     </div><div class="grid md:grid-cols-2 gap-6 md:gap-8">
       <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
         <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600">
@@ -202,17 +190,19 @@
         <div>
          <label class="block text-xs font-semibold text-slate-500 uppercase mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
          <div class="relative">
-          <select id="motivo" name="motivo" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">🎁 Blanqueamiento + Limpieza (Feb)</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+          <select id="motivo" name="motivo" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
          </div>
         </div>
         <div>
          <textarea name="mensaje" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-teal-500 transition-all text-sm" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
         </div><button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold text-sm mt-4"> <span data-i18n="submitBtn">Enviar Solicitud</span> </button>
        </form>
-      </div><!-- GALLERY -->
-      <div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-slate-100 aspect-video md:aspect-auto md:min-h-96">
-       <div class="gallery-slider" id="gallerySlider">
-        <img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El31.png" alt="Resultado dental 3" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El32.png" alt="Resultado dental 5" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+      </div><div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-slate-100 aspect-video md:aspect-auto md:min-h-96">
+       <div class="gallery-slider w-full h-full" id="gallerySlider">
+        <img src="El21.jpg" alt="Resultado dental 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
+        <img src="El2.jpg" alt="Resultado dental 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
+        <img src="El22.jpg" alt="Resultado dental 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
+        <img src="El3.png" alt="Resultado dental 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
        </div><button class="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-left text-xs"></i> </button> <button class="gallery-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-slate-700 transition-all active:scale-90"> <i class="fas fa-chevron-right text-xs"></i> </button>
        <div class="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
         <p class="text-[10px] text-white font-semibold uppercase tracking-wider">Resultados Reales</p>
@@ -220,13 +210,12 @@
       </div>
      </div>
     </div>
-   </section><!-- SERVICES SECTION -->
-   <section class="py-10 md:py-14 px-4">
+   </section><section class="py-10 md:py-14 px-4">
     <div class="container mx-auto max-w-4xl">
      <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="servicesTitle">Nuestros Servicios</h2>
      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
       <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-sparkles text-2xl text-teal-600 mb-2"></i>
+       <i class="fas fa-teeth text-2xl text-teal-600 mb-2"></i>
        <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
       </div>
       <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
@@ -238,13 +227,12 @@
        <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
       </div>
       <div class="service-card bg-white p-4 rounded-xl text-center shadow-sm border border-slate-100">
-       <i class="fas fa-screw text-2xl text-indigo-500 mb-2"></i>
+       <i class="fas fa-tooth text-2xl text-indigo-500 mb-2"></i>
        <p class="text-xs md:text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
       </div>
      </div>
     </div>
-   </section><!-- LOCATION SECTION -->
-   <section id="mapSection" class="py-10 md:py-14 px-4 bg-white">
+   </section><section id="mapSection" class="py-10 md:py-14 px-4 bg-white">
     <div class="container mx-auto max-w-4xl">
      <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-6" data-i18n="mapTitle">Ubicación</h2>
      <div class="w-full h-48 md:h-64 rounded-xl overflow-hidden shadow-md border border-slate-200 mb-6">
@@ -253,48 +241,38 @@
      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-xl border border-teal-100">
       <h3 class="font-bold text-slate-900 mb-3 text-sm md:text-base" data-i18n="mapAddressTitle">📍 Cómo encontrarnos</h3>
       <div class="space-y-2 text-sm text-slate-700">
-       <p><span class="font-semibold text-teal-700">Dirección:</span> Av. Plutarco Elías Calles 315, Progresista</p>
+       <p><span class="font-semibold text-teal-700">Dirección:</span> Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH</p>
        <p><span class="font-semibold text-teal-700">Referencias:</span> Una cuadra después de Av. Vicente Guerrero, cerca del Puente Libre</p>
-       <p><span class="font-semibold text-teal-700">Fácil acceso:</span> Estacionamiento disponible en la clínica</p>
+       <p><span class="font-semibold text-teal-700">Ubicación céntrica:</span> Estacionamiento disponible en la clínica</p>
       </div>
      </div>
     </div>
-   </section><!-- FINANCING SECTION -->
-   <section class="py-10 md:py-14 px-4 bg-gradient-to-br from-teal-50 to-cyan-50">
+   </section><section class="py-10 md:py-14 px-4 bg-gradient-to-br from-teal-50 to-cyan-50">
     <div class="container mx-auto max-w-4xl">
      <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="financingTitle">Facilidades de Pago</h2>
      <div class="grid md:grid-cols-2 gap-6 mb-8">
-      <!-- Implante sin corona -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col h-full">
        <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200">
-        <i class="fas fa-screw text-2xl text-teal-600"></i>
+        <i class="fas fa-tooth text-2xl text-teal-600"></i>
         <h3 class="text-lg font-bold text-slate-900" data-i18n="financingImplantOnlyTitle">Implante Dental</h3>
        </div>
-       <div class="space-y-3">
-        <div class="flex justify-between items-center">
-         <span class="text-sm text-slate-600" data-i18n="financingInitial">Pago Inicial:</span> <span class="text-lg font-bold text-teal-600">$600 USD</span>
-        </div>
-        <p class="text-xs text-slate-500" data-i18n="financingImplantOnlyDesc">Financiado en 4 a 6 meses. Cuotas sin intereses disponibles.</p>
+       <div class="space-y-3 flex-grow">
+        <p class="text-sm text-slate-600 font-medium" data-i18n="financingImplantOnlyDesc">Financiado en 4 a 6 meses. Cuotas sin intereses disponibles.</p>
        </div>
-      </div><!-- Implante + Corona -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+      </div><div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col h-full">
        <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-200">
         <i class="fas fa-crown text-2xl text-purple-500"></i>
         <h3 class="text-lg font-bold text-slate-900" data-i18n="financingCrownTitle">Implante + Corona</h3>
        </div>
-       <div class="space-y-3">
-        <div class="flex justify-between items-center">
-         <span class="text-sm text-slate-600" data-i18n="financingInitial">Pago Inicial:</span> <span class="text-lg font-bold text-teal-600">$700 USD</span>
-        </div>
-        <p class="text-xs text-slate-500" data-i18n="financingCrownDesc">Tratamiento completo. Planes de pago flexibles sin intereses.</p>
+       <div class="space-y-3 flex-grow">
+        <p class="text-sm text-slate-600 font-medium" data-i18n="financingCrownDesc">Tratamiento completo. Planes de pago flexibles sin intereses.</p>
        </div>
       </div>
      </div>
      <div class="mt-6 p-5 bg-white rounded-lg border-2 border-teal-200 text-center"><a href="https://wa.me/526147804673?text=Hola,%20me%20interesa%20conocer%20opciones%20de%20financiamiento%20personalizado." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-2.5 rounded-lg text-white font-semibold text-sm inline-flex items-center gap-2"> <i class="fas fa-calendar-check"></i> <span data-i18n="financingCTA">Agenda Cita para Financiamiento Personalizado</span> </a>
      </div>
     </div>
-   </section><!-- FAQ SECTION -->
-   <section class="py-10 md:py-14 px-4">
+   </section><section class="py-10 md:py-14 px-4">
     <div class="container mx-auto max-w-4xl">
      <h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8" data-i18n="faqTitle">Preguntas Frecuentes</h2>
      <div class="space-y-2.5">
@@ -331,36 +309,14 @@
      </div>
     </div>
    </section>
-  </main><!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-300 py-8 px-4 text-center text-xs md:text-sm">
+  </main><footer class="bg-slate-900 text-slate-300 py-8 px-4 text-center text-xs md:text-sm">
    <div class="container mx-auto">
     <p class="text-white font-bold text-base md:text-lg mb-1" data-i18n="clinicNameFooter">Dr. Santos</p>
-    <p class="mb-2 text-slate-400">Av. Plutarco Elías Calles 315, Progresista, Cd. Juárez</p>
+    <p class="mb-2 text-slate-400">Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH</p>
     <p class="text-slate-500">© <span id="currentYear"></span> Todos los derechos reservados.</p>
    </div>
-  </footer><!-- TRANSLATE BUTTON --> <button id="translateBtn" class="fixed bottom-6 right-4 z-30 w-12 h-12 rounded-full shadow-lg border border-teal-100 bg-white text-teal-600 flex items-center justify-center hover:bg-teal-50 transition-colors active:scale-90"> <i class="fas fa-globe text-lg"></i> </button> <!-- PROMO POPUP (SOLO FEBRERO) -->
-  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none popup-overlay">
-   <div id="promo-popup-content" class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 popup-content">
-    <button id="close-popup" class="absolute top-3 right-3 p-2 text-slate-400 hover:text-slate-600 z-10 transition-colors"> <i class="fas fa-times text-lg"></i> </button>
-    <div class="p-6 md:p-8 text-center">
-     <div class="mx-auto w-12 h-12 bg-red-50 text-red-500 rounded-full flex items-center justify-center mb-4">
-      <i class="fas fa-heart text-xl"></i>
-     </div>
-     <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1" data-i18n="promoTitle">Especial San Valentín</h3>
-     <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">Solo en Febrero</p>
-     <div class="bg-gradient-to-br from-red-50 to-red-100 border border-red-200 rounded-lg p-4 mb-6">
-      <div class="text-slate-700 font-semibold text-sm mb-2" data-i18n="promoText">
-       Limpieza Dental + Blanqueamiento
-      </div>
-      <div class="flex items-baseline justify-center gap-1">
-       <span class="text-2xl md:text-3xl font-bold text-red-600">$2,500</span> <span class="text-xs text-slate-600">MXN</span>
-      </div>
-      <p class="text-xs text-slate-600 mt-2">Promoción exclusiva para este mes</p>
-     </div><button id="popup-cta-btn" class="btn-primary w-full py-3 rounded-lg text-white font-semibold text-sm" data-i18n="promoBtn">Agendar cita</button>
-     <p class="text-xs text-slate-500 mt-3">Válido solo durante febrero</p>
-    </div>
-   </div>
-  </div>
+  </footer><button id="translateBtn" class="fixed bottom-6 right-4 z-30 w-12 h-12 rounded-full shadow-lg border border-teal-100 bg-white text-teal-600 flex items-center justify-center hover:bg-teal-50 transition-colors active:scale-90"> <i class="fas fa-globe text-lg"></i> </button> 
+  
   <script>
     const translations = {
       es: {
@@ -378,11 +334,11 @@
         "optionOrtodoncia": "Brackets / Ortodoncia",
         "optionValoracion": "Valoración General",
         "optionUrgencia": "Tengo Dolor / Urgencia",
-        "optionBlanqueamiento": "🎁 Blanqueamiento + Limpieza (Feb)",
+        "optionBlanqueamiento": "Blanqueamiento + Limpieza",
         "submitBtn": "Enviar Solicitud",
         "mapTitle": "Ubicación",
         "mapAddressTitle": "📍 Cómo encontrarnos",
-        "mapDescription": "Av. Plutarco Elías Calles 315",
+        "mapDescription": "Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH",
         "servicesTitle": "Nuestros Servicios",
         "service1": "Blanqueamiento",
         "service2": "Resinas",
@@ -413,10 +369,7 @@
         "navScheduleEasy": "Agenda",
         "navWhitening": "Blanqueamiento",
         "clinicLocationShort": "Cd. Juárez",
-        "clinicNameFooter": "Dr. Santos",
-        "promoTitle": "Especial San Valentín",
-        "promoText": "Limpieza Dental + Blanqueamiento",
-        "promoBtn": "Agendar cita"
+        "clinicNameFooter": "Dr. Santos"
       },
       en: {
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
@@ -433,11 +386,11 @@
         "optionOrtodoncia": "Brackets / Ortho",
         "optionValoracion": "Check-up",
         "optionUrgencia": "Pain / Emergency",
-        "optionBlanqueamiento": "🎁 Whitening + Cleaning (Feb)",
+        "optionBlanqueamiento": "Whitening + Cleaning",
         "submitBtn": "Send Request",
         "mapTitle": "Location",
         "mapAddressTitle": "📍 Find us",
-        "mapDescription": "Av. Plutarco Elías Calles 315",
+        "mapDescription": "Avenida Plutarco Elias Calles #315, Colegio, 32340, Cd. Juárez, CHIH",
         "servicesTitle": "Our Services",
         "service1": "Whitening",
         "service2": "Fillings",
@@ -468,10 +421,7 @@
         "navScheduleEasy": "Book",
         "navWhitening": "Whitening",
         "clinicLocationShort": "Cd. Juarez",
-        "clinicNameFooter": "Dr. Santos",
-        "promoTitle": "Valentine's Special",
-        "promoText": "Dental Cleaning + Whitening",
-        "promoBtn": "Schedule appointment"
+        "clinicNameFooter": "Dr. Santos"
       }
     };
 
@@ -497,43 +447,6 @@
       // Auto-advance gallery every 6 seconds
       setInterval(() => goToGallerySlide(currentGalleryIndex + 1), 6000);
 
-      // POPUP - SOLO MOSTRAR EN FEBRERO
-      const promoOverlay = document.getElementById('promo-popup-overlay');
-      const promoContent = document.getElementById('promo-popup-content');
-      const closePopupBtn = document.getElementById('close-popup');
-      const popupCtaBtn = document.getElementById('popup-cta-btn');
-      const currentMonth = new Date().getMonth() + 1;
-
-      function showPopup() {
-        promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
-        setTimeout(() => {
-          promoContent.classList.remove('scale-95', 'opacity-0');
-        }, 50);
-      }
-      
-      function hidePopup() {
-        promoContent.classList.add('opacity-0', 'scale-95');
-        setTimeout(() => {
-          promoOverlay.classList.add('opacity-0', 'pointer-events-none');
-        }, 300);
-      }
-
-      // Solo mostrar popup en febrero (mes 2)
-      if (currentMonth === 2 && !sessionStorage.getItem('promoShown_feb')) {
-        setTimeout(showPopup, 3000);
-        sessionStorage.setItem('promoShown_feb', 'true');
-      }
-      
-      closePopupBtn.addEventListener('click', hidePopup);
-      popupCtaBtn.addEventListener('click', function() {
-        document.querySelector('#appointmentForm').scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('motivo').value = "Blanqueamiento + Limpieza";
-        hidePopup();
-      });
-      promoOverlay.addEventListener('click', (e) => {
-        if (e.target === promoOverlay) hidePopup();
-      });
-
       // TRANSLATION
       const translateBtn = document.getElementById('translateBtn');
       
@@ -557,6 +470,5 @@
       changeLanguage(localStorage.getItem('preferredLang') || 'es');
     });
   </script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbf98c652a54746',t:'MTc3MDc2ODM0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ccead7833955607',t:'MTc3MDkyNjQ4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </body>
 </html>
