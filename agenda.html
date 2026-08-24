@@ -21,19 +21,6 @@
       gtag('event', 'conversion', { 'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_' });
       return true;
     }
-
-    function gtag_report_call_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') { window.location = url; }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_',
-          'value': 1.0,
-          'currency': 'MXN',
-          'event_callback': callback
-      });
-      return false;
-    }
     
     function gtag_report_whatsapp_conversion() {
       gtag('event', 'conversion', {
@@ -121,12 +108,6 @@
       box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
     }
 
-    .gallery-slider {
-      display: flex;
-      height: 100%;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     .faq-item summary::-webkit-details-marker {
       display: none;
     }
@@ -177,7 +158,6 @@
       <p class="text-base md:text-lg text-slate-600 max-w-xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.</p>
       <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
        <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3.5 rounded-xl text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">Mensaje por WhatsApp</span> </a> 
-       <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="px-8 py-3.5 rounded-xl text-teal-700 border border-teal-200 bg-white shadow-sm font-semibold flex items-center justify-center gap-2 text-sm md:text-base hover:bg-teal-50 hover:border-teal-300 transition-all"> <i class="fas fa-phone-alt"></i> <span data-i18n="btnCall">Llamar Ahora</span> </a>
       </div>
      </div>
      
@@ -209,17 +189,40 @@
        </form>
       </div>
       
-      <div class="lg:col-span-3 relative w-full rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-slate-100 aspect-video lg:aspect-auto h-full min-h-[300px]">
-       <div class="gallery-slider w-full h-full" id="gallerySlider">
-        <img src="El21.jpg" alt="Instalaciones y resultados 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
-        <img src="El22.jpg" alt="Instalaciones y resultados 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
-        <img src="El42.jpg" alt="Instalaciones y resultados 3" class="w-full h-full object-cover flex-shrink-0" loading="lazy"> 
-        <img src="El43.png" alt="Instalaciones y resultados 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-        <img src="El41.jpg" alt="Instalaciones y resultados 5" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-        <img src="El44.png" alt="Instalaciones y resultados 6" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+      <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 flex flex-col justify-center">
+       <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4" data-i18n="stepsTitle">¿Cómo agendar tu cita?</h3>
+       
+       <div class="space-y-6">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0 shadow-sm border border-teal-100">
+          <i class="fab fa-whatsapp text-xl"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-slate-800 text-lg" data-i18n="step1Title">1. Manda mensaje</h4>
+          <p class="text-sm text-slate-600 mt-1 leading-relaxed" data-i18n="step1Desc">Contáctanos por WhatsApp para contarnos tu caso y elegir un horario.</p>
+         </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0 shadow-sm border border-teal-100">
+          <i class="far fa-hospital text-xl"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-slate-800 text-lg" data-i18n="step2Title">2. Acude a valoración</h4>
+          <p class="text-sm text-slate-600 mt-1 leading-relaxed" data-i18n="step2Desc">Realizamos una revisión clínica y te damos un diagnóstico detallado.</p>
+         </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0 shadow-sm border border-teal-100">
+          <i class="far fa-grin-beam text-xl"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-slate-800 text-lg" data-i18n="step3Title">3. Resultados</h4>
+          <p class="text-sm text-slate-600 mt-1 leading-relaxed" data-i18n="step3Desc">Iniciamos tu tratamiento para devolverte la salud y estética dental.</p>
+         </div>
+        </div>
        </div>
-       <button class="gallery-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-slate-800 shadow-md transition-all active:scale-90"> <i class="fas fa-chevron-left text-sm"></i> </button> 
-       <button class="gallery-next absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-slate-800 shadow-md transition-all active:scale-90"> <i class="fas fa-chevron-right text-sm"></i> </button>
       </div>
      </div>
     </div>
@@ -380,7 +383,7 @@
       <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
        <summary class="flex justify-between items-center font-bold cursor-pointer text-base md:text-lg text-slate-800 select-none"> <span data-i18n="faqQ1">¿Qué materiales usas?</span> <i class="fas fa-chevron-down text-teal-600 transition-transform group-hover:text-teal-700"></i> </summary>
        <div class="text-slate-600 text-sm md:text-base mt-4 pt-4 border-t border-slate-100 leading-relaxed" data-i18n="faqA1">
-        Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad, biocampatibilidad y naturalidad.
+        Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas. En tratamientos restaurativos empleamos marcas de alto rendimiento como Filtek Z350 de 3M y cementos Bisco Duo-Link Universal para asegurar estética y durabilidad. Además, contamos con opciones de resinas más económicas que mantienen excelentes estándares de calidad, adaptándonos a tus necesidades y presupuesto sin comprometer tu salud.
        </div>
       </details>
       <details class="faq-item group bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-200 transition-colors">
@@ -423,7 +426,6 @@
     <p class="text-slate-400 text-sm mb-4">Av. Plutarco Elías Calles 315, Manzanas, 32340 Juárez, Chih.</p>
     <div class="flex justify-center gap-4">
       <a href="https://wa.me/526147804673" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:+526147804673" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><i class="fas fa-phone"></i></a>
     </div>
    </div>
    <p class="text-slate-500 text-xs">© <span id="currentYear"></span> Todos los derechos reservados.</p>
@@ -439,7 +441,6 @@
         "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
         "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.",
         "btnWhatsapp": "Mensaje por WhatsApp",
-        "btnCall": "Llamar Ahora",
         "formTitle": "Solicita tu Cita",
         "nameLabel": "Nombre",
         "phoneLabel": "Teléfono",
@@ -452,6 +453,13 @@
         "optionUrgencia": "Tengo Dolor / Urgencia",
         "optionBlanqueamiento": "Blanqueamiento + Limpieza",
         "submitBtn": "Enviar Solicitud",
+        "stepsTitle": "¿Cómo agendar tu cita?",
+        "step1Title": "1. Manda mensaje",
+        "step1Desc": "Contáctanos por WhatsApp para contarnos tu caso y elegir un horario.",
+        "step2Title": "2. Acude a valoración",
+        "step2Desc": "Realizamos una revisión clínica y te damos un diagnóstico detallado.",
+        "step3Title": "3. Resultados",
+        "step3Desc": "Iniciamos tu tratamiento para devolverte la salud y estética dental.",
         "servicesTitle": "Nuestros Servicios",
         "servicesSubtitle": "Tratamientos diseñados para devolverte la confianza.",
         "service1": "Blanqueamiento",
@@ -466,7 +474,7 @@
         "reviewsSubtitle": "Lo que opinan sobre su atención en Google.",
         "faqTitle": "Preguntas Frecuentes",
         "faqQ1": "¿Qué materiales usas?",
-        "faqA1": "Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas para máxima durabilidad, biocampatibilidad y naturalidad.",
+        "faqA1": "Usamos implantes de titanio de alta calidad y coronas de porcelana certificadas. En tratamientos restaurativos empleamos marcas de alto rendimiento como Filtek Z350 de 3M y cementos Bisco Duo-Link Universal para asegurar estética y durabilidad. Además, contamos con opciones de resinas más económicas que mantienen excelentes estándares de calidad, adaptándonos a tus necesidades y presupuesto sin comprometer tu salud.",
         "faqQ2": "¿Cómo es mi primera cita?",
         "faqA2": "Realizamos un diagnóstico clínico completo con radiografías digitales y fotografías. Te explicamos a detalle tu estado de salud actual y te presentamos un plan de tratamiento transparente ajustado a tus necesidades y presupuesto.",
         "faqQ3": "¿Incluyen documentación para seguros?",
@@ -487,7 +495,6 @@
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Evaluation</span>",
         "schedulePageSubtitle": "Your oral health is our priority. Receive expert care with the best materials in Ciudad Juárez.",
         "btnWhatsapp": "Message on WhatsApp",
-        "btnCall": "Call Now",
         "formTitle": "Request Appointment",
         "nameLabel": "Name",
         "phoneLabel": "Phone",
@@ -500,6 +507,13 @@
         "optionUrgencia": "Pain / Emergency",
         "optionBlanqueamiento": "Whitening + Cleaning",
         "submitBtn": "Send Request",
+        "stepsTitle": "How to book your appointment?",
+        "step1Title": "1. Send a message",
+        "step1Desc": "Contact us via WhatsApp to explain your case and pick a time.",
+        "step2Title": "2. Attend evaluation",
+        "step2Desc": "We perform a clinical check-up and provide a detailed diagnosis.",
+        "step3Title": "3. Results",
+        "step3Desc": "We begin your treatment to restore your dental health and aesthetics.",
         "servicesTitle": "Our Services",
         "servicesSubtitle": "Treatments designed to restore your confidence.",
         "service1": "Whitening",
@@ -514,7 +528,7 @@
         "reviewsSubtitle": "What people are saying about us on Google.",
         "faqTitle": "Frequently Asked Questions",
         "faqQ1": "What materials do you use?",
-        "faqA1": "We use premium titanium implants and certified porcelain crowns for maximum durability, biocompatibility, and natural appearance.",
+        "faqA1": "We use high-quality titanium implants and certified porcelain crowns. For restorative treatments, we use high-performance brands such as 3M Filtek Z350 and Bisco Duo-Link Universal cements to ensure aesthetics and durability. Additionally, we offer more economical resin options that maintain excellent quality standards, adapting to your needs and budget without compromising your health.",
         "faqQ2": "What's my first visit like?",
         "faqA2": "We perform a complete clinical diagnosis with digital X-rays and photographs. We explain your current health status in detail and present a transparent treatment plan tailored to your needs and budget.",
         "faqQ3": "Do you provide insurance documentation?",
@@ -536,24 +550,6 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Set year
       document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // GALLERY
-      const gallerySlider = document.getElementById('gallerySlider');
-      const galleryPrevBtn = document.querySelector('.gallery-prev');
-      const galleryNextBtn = document.querySelector('.gallery-next');
-      const galleryImages = gallerySlider.querySelectorAll('img');
-      let currentGalleryIndex = 0;
-
-      function goToGallerySlide(index) {
-        currentGalleryIndex = (index + galleryImages.length) % galleryImages.length;
-        gallerySlider.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
-      }
-
-      galleryPrevBtn.addEventListener('click', () => goToGallerySlide(currentGalleryIndex - 1));
-      galleryNextBtn.addEventListener('click', () => goToGallerySlide(currentGalleryIndex + 1));
-      
-      // Auto-advance gallery every 6 seconds
-      setInterval(() => goToGallerySlide(currentGalleryIndex + 1), 6000);
 
       // TRANSLATION
       const translateBtn = document.getElementById('translateBtn');
