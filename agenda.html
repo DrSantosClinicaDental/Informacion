@@ -2,7 +2,7 @@
 <html lang="es">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title data-i18n="titleSchedulePage">Agenda tu Valoración | Dr. Santos Clínica Dental</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,20 @@
       return true;
     }
     
-    function gtag_report_whatsapp_conversion() {
+    // Nnuevo snippet para WhatsApp
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
       gtag('event', 'conversion', {
-          'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_',
+          'send_to': 'AW-17076577011/YFJFCIOUo-ccEPPF384_',
           'value': 1.0,
-          'currency': 'MXN'
+          'currency': 'MXN',
+          'event_callback': callback
       });
+      return false;
     }
   </script>
   <style>
@@ -100,6 +108,8 @@
     input, select, textarea {
       font-family: inherit;
       touch-action: manipulation;
+      /* Prevenir zoom en iPhone al enfocar */
+      font-size: 16px !important; 
     }
 
     input:focus, select:focus, textarea:focus {
@@ -134,7 +144,7 @@
      <div class="flex-1">
       <img src="logo.png" alt="Dr. Santos" class="h-9 w-auto object-contain" onerror="this.alt='Dr. Santos'">
      </div>
-     <nav class="flex-1 overflow-x-auto no-scrollbar -mx-2 px-2">
+     <nav class="flex-1 overflow-x-auto no-scrollbar -mx-2 px-2 hidden sm:block">
       <ul class="flex gap-1.5 min-w-max md:justify-center md:mx-auto">
        <li><a href="index.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navHome">Inicio</a></li>
        <li><a href="implantes.html" class="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors" data-i18n="navImplants">Implantes</a></li>
@@ -151,48 +161,19 @@
   </header>
   
   <main class="w-full overflow-auto">
-   <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-10 md:pt-16 pb-14 md:pb-20 border-b border-teal-100/50">
-    <div class="container mx-auto px-4 max-w-5xl">
-     <div class="text-center mb-10 md:mb-14">
-      <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
-      <p class="text-base md:text-lg text-slate-600 max-w-xl mx-auto mb-8" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.</p>
-      <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
-       <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3.5 rounded-xl text-white font-semibold flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btnWhatsapp">Mensaje por WhatsApp</span> </a> 
-      </div>
+   <section class="bg-gradient-to-br from-teal-50 via-white to-teal-50 pt-10 md:pt-14 pb-14 md:pb-20 border-b border-teal-100/50">
+    <div class="container mx-auto px-4 max-w-2xl"> <!-- Reducido max-w-2xl para vista apilada ideal en móvil -->
+     
+     <div class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight" data-i18n="schedulePageTitle">Agenda tu <span class="text-teal-600">Valoración</span></h1>
+      <p class="text-base text-slate-600 mx-auto" data-i18n="schedulePageSubtitle">Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.</p>
      </div>
      
-     <div class="grid lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
-      <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10">
-       <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-        <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600">
-         <i class="far fa-calendar-check text-lg"></i>
-        </div>
-        <h2 class="text-lg md:text-xl font-bold text-slate-900" data-i18n="formTitle">Solicita tu Cita</h2>
-       </div>
-       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
-        <input type="hidden" name="_subject" value="Nueva Cita - Página Agenda"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
-        <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="nameLabel">Nombre</label> <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm" required placeholder="Tu nombre completo">
-        </div>
-        <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="phoneLabel">Teléfono</label> <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm" required placeholder="(656) XXX-XXXX">
-        </div>
-        <div>
-         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
-         <div class="relative">
-          <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
-         </div>
-        </div>
-        <div>
-         <textarea name="mensaje" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all text-sm resize-none" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
-        </div><button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-white font-bold text-sm mt-2 shadow-md"> <span data-i18n="submitBtn">Enviar Solicitud</span> </button>
-       </form>
-      </div>
-      
-      <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 flex flex-col justify-center">
-       <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4" data-i18n="stepsTitle">¿Cómo agendar tu cita?</h3>
+     <!-- PASOS Y BOTÓN WHATSAPP (OPCIÓN PRINCIPAL) -->
+     <div class="bg-white p-6 md:p-8 rounded-3xl shadow-md border border-slate-100 relative z-10 flex flex-col justify-center mb-8">
+       <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4 text-center" data-i18n="stepsTitle">¿Cómo agendar tu cita?</h3>
        
-       <div class="space-y-6">
+       <div class="space-y-6 mb-8">
         <div class="flex items-start gap-4">
          <div class="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0 shadow-sm border border-teal-100">
           <i class="fab fa-whatsapp text-xl"></i>
@@ -223,76 +204,52 @@
          </div>
         </div>
        </div>
-      </div>
-     </div>
-    </div>
-   </section>
 
-   <section class="py-12 md:py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-5xl">
-     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-i18n="servicesTitle">Nuestros Servicios</h2>
-      <p class="text-slate-500" data-i18n="servicesSubtitle">Tratamientos diseñados para devolverte la confianza.</p>
+       <!-- BOTÓN PRINCIPAL -->
+       <a href="https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="return gtag_report_conversion('https://wa.me/526147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración.');" class="btn-primary w-full py-4 rounded-xl text-white font-bold text-base md:text-lg flex items-center justify-center gap-2 shadow-lg"> 
+        <i class="fab fa-whatsapp text-2xl"></i> <span data-i18n="btnWhatsapp">Contactar por WhatsApp</span> 
+       </a>
      </div>
-     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
-       <div class="w-14 h-14 mx-auto bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4"><i class="fas fa-teeth text-2xl"></i></div>
-       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service1">Blanqueamiento</p>
-      </div>
-      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
-       <div class="w-14 h-14 mx-auto bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-fill-drip text-2xl"></i></div>
-       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service2">Resinas</p>
-      </div>
-      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
-       <div class="w-14 h-14 mx-auto bg-purple-100 text-purple-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-crown text-2xl"></i></div>
-       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service3">Coronas</p>
-      </div>
-      <div class="service-card bg-slate-50 p-6 rounded-2xl text-center border border-slate-100">
-       <div class="w-14 h-14 mx-auto bg-indigo-100 text-indigo-500 rounded-full flex items-center justify-center mb-4"><i class="fas fa-tooth text-2xl"></i></div>
-       <p class="text-sm md:text-base font-bold text-slate-800" data-i18n="service4">Implantes</p>
-      </div>
-     </div>
-    </div>
-   </section>
 
-   <section id="mapSection" class="py-12 md:py-20 px-4 bg-slate-50 border-t border-slate-100">
-    <div class="container mx-auto max-w-5xl">
-     <div class="text-center mb-10 md:mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="mapTitle">Visítanos</h2>
-      <p class="text-slate-600 max-w-2xl mx-auto" data-i18n="mapSubtitle">Instalaciones modernas y céntricas pensadas para tu comodidad y fácil acceso.</p>
+     <!-- DIVISOR -->
+     <div class="relative flex items-center py-2 mb-8 opacity-70">
+      <div class="flex-grow border-t border-slate-300"></div>
+      <span class="flex-shrink-0 mx-4 text-slate-500 text-sm font-semibold uppercase tracking-wider" data-i18n="dividerOptionB">O si lo prefieres</span>
+      <div class="flex-grow border-t border-slate-300"></div>
      </div>
-     
-     <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-      <div class="lg:col-span-1 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-center space-y-8 relative overflow-hidden">
-       <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-0 opacity-50"></div>
-       
-       <div class="relative z-10 flex-grow">
-        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-4 shadow-sm border border-teal-100">
-         <i class="fas fa-map-marker-alt text-xl"></i>
+
+     <!-- FORMULARIO (OPCIÓN B) -->
+     <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100 relative z-10">
+       <div class="flex items-center gap-3 mb-2">
+        <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600">
+         <i class="far fa-envelope text-lg"></i>
         </div>
-        <h3 class="font-bold text-slate-900 text-xl mb-2" data-i18n="mapAddressTitle">Ubicación Estratégica</h3>
-        <p class="text-sm text-slate-600 leading-relaxed font-medium">Av. Plutarco Elías Calles 315, Manzanas, 32340 Juárez, Chih.</p>
-        <p class="text-xs text-slate-500 mt-2">Una cuadra después de Av. Vicente Guerrero, cerca del Puente Libre.</p>
+        <h2 class="text-lg md:text-xl font-bold text-slate-900" data-i18n="formTitleOptionB">Opción B: Déjanos tus datos</h2>
        </div>
-
-       <div class="pt-6 border-t border-slate-100 relative z-10 mt-auto">
-        <a href="https://www.google.com/maps/place/Clinica+Dental+en+Cd.+Juárez+-+Dr.+Santos/@31.7342347,-106.4432809,17z/data=!4m15!1m8!3m7!1s0x86e75955ffc6e593:0x56b62fa0030d713e!2sAv.+Plutarco+Elías+Calles+315,+Colegio,+32340+Juárez,+Chih.!3b1!8m2!3d31.7342347!4d-106.440706!16s%2Fg%2F11rp37rcbs!3m5!1s0x86e759b11f46ff77:0x5356aa4df0d03f1c!8m2!3d31.7342347!4d-106.440706!16s%2Fg%2F11wthhkzg7?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-teal-700 transition-colors shadow-md group">
-         <i class="fas fa-location-arrow group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
-         <span data-i18n="mapDirectionsBtn">Abrir en Google Maps</span>
-        </a>
-       </div>
+       <p class="text-sm text-slate-500 mb-6" data-i18n="formDescOptionB">Si no utilizas WhatsApp, llena este formulario y nosotros nos comunicaremos contigo.</p>
+       
+       <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
+        <input type="hidden" name="_subject" value="Nueva Cita - Página Agenda (Opción B)"> <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html"> <input type="hidden" name="_captcha" value="false">
+        <div>
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="nameLabel">Nombre</label> 
+         <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all" required placeholder="Tu nombre completo">
+        </div>
+        <div>
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="phoneLabel">Teléfono</label> 
+         <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all" required placeholder="(656) XXX-XXXX">
+        </div>
+        <div>
+         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2" data-i18n="reasonLabel">Motivo de la cita</label>
+         <div class="relative">
+          <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all appearance-none" required> <option value="" disabled selected data-i18n="selectReason">Selecciona una opción</option> <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">Blanqueamiento + Limpieza</option> <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option> <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option> <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option> <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option> <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option> </select> <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+         </div>
+        </div>
+        <div>
+         <textarea name="mensaje" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all resize-none" rows="2" placeholder="Cuéntanos más (opcional)..."></textarea>
+        </div><button type="submit" class="w-full py-4 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 font-bold text-base transition-colors mt-2"> <span data-i18n="submitBtn">Enviar Datos</span> </button>
+       </form>
       </div>
 
-      <div class="lg:col-span-2 w-full min-h-[400px] rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white">
-       <iframe 
-         src="https://maps.google.com/maps?q=Av.+Plutarco+Elias+Calles+315,+Colegio,+32340,+Cd.+Juarez,+Chih&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-         class="w-full h-full border-0" 
-         allowfullscreen="" 
-         loading="lazy" 
-         referrerpolicy="no-referrer-when-downgrade">
-       </iframe>
-      </div>
-     </div>
     </div>
    </section>
 
@@ -374,6 +331,47 @@
     </div>
    </section>
 
+   <section id="mapSection" class="py-12 md:py-20 px-4 bg-slate-50 border-t border-slate-100">
+    <div class="container mx-auto max-w-5xl">
+     <div class="text-center mb-10 md:mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="mapTitle">Visítanos</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto" data-i18n="mapSubtitle">Instalaciones modernas y céntricas pensadas para tu comodidad y fácil acceso.</p>
+     </div>
+     
+     <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <div class="lg:col-span-1 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-center space-y-8 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-0 opacity-50"></div>
+       
+       <div class="relative z-10 flex-grow">
+        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-4 shadow-sm border border-teal-100">
+         <i class="fas fa-map-marker-alt text-xl"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-xl mb-2" data-i18n="mapAddressTitle">Ubicación Estratégica</h3>
+        <p class="text-sm text-slate-600 leading-relaxed font-medium">Av. Plutarco Elías Calles 315, Manzanas, 32340 Juárez, Chih.</p>
+        <p class="text-xs text-slate-500 mt-2">Una cuadra después de Av. Vicente Guerrero, cerca del Puente Libre.</p>
+       </div>
+
+       <div class="pt-6 border-t border-slate-100 relative z-10 mt-auto">
+        <a href="https://www.google.com/maps/place/Clinica+Dental+en+Cd.+Juárez+-+Dr.+Santos/@31.7342347,-106.4432809,17z/data=!4m15!1m8!3m7!1s0x86e75955ffc6e593:0x56b62fa0030d713e!2sAv.+Plutarco+Elías+Calles+315,+Colegio,+32340+Juárez,+Chih.!3b1!8m2!3d31.7342347!4d-106.440706!16s%2Fg%2F11rp37rcbs!3m5!1s0x86e759b11f46ff77:0x5356aa4df0d03f1c!8m2!3d31.7342347!4d-106.440706!16s%2Fg%2F11wthhkzg7?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-teal-700 transition-colors shadow-md group">
+         <i class="fas fa-location-arrow group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+         <span data-i18n="mapDirectionsBtn">Abrir en Google Maps</span>
+        </a>
+       </div>
+      </div>
+
+      <div class="lg:col-span-2 w-full min-h-[400px] rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white">
+       <iframe 
+         src="https://maps.google.com/maps?q=Av.+Plutarco+Elias+Calles+315,+Colegio,+32340,+Cd.+Juarez,+Chih&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+         class="w-full h-full border-0" 
+         allowfullscreen="" 
+         loading="lazy" 
+         referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
+      </div>
+     </div>
+    </div>
+   </section>
+
    <section class="py-12 md:py-20 px-4 bg-slate-50 border-t border-slate-100">
     <div class="container mx-auto max-w-3xl">
      <div class="text-center mb-10">
@@ -440,8 +438,10 @@
       es: {
         "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
         "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Recibe atención experta con los mejores materiales en Ciudad Juárez.",
-        "btnWhatsapp": "Mensaje por WhatsApp",
-        "formTitle": "Solicita tu Cita",
+        "btnWhatsapp": "Contactar por WhatsApp",
+        "dividerOptionB": "O si lo prefieres",
+        "formTitleOptionB": "Opción B: Déjanos tus datos",
+        "formDescOptionB": "Si no utilizas WhatsApp, llena este formulario y nosotros nos comunicaremos contigo.",
         "nameLabel": "Nombre",
         "phoneLabel": "Teléfono",
         "reasonLabel": "Motivo de la cita",
@@ -452,7 +452,7 @@
         "optionValoracion": "Valoración General",
         "optionUrgencia": "Tengo Dolor / Urgencia",
         "optionBlanqueamiento": "Blanqueamiento + Limpieza",
-        "submitBtn": "Enviar Solicitud",
+        "submitBtn": "Enviar Datos",
         "stepsTitle": "¿Cómo agendar tu cita?",
         "step1Title": "1. Manda mensaje",
         "step1Desc": "Contáctanos por WhatsApp para contarnos tu caso y elegir un horario.",
@@ -460,12 +460,6 @@
         "step2Desc": "Realizamos una revisión clínica y te damos un diagnóstico detallado.",
         "step3Title": "3. Resultados",
         "step3Desc": "Iniciamos tu tratamiento para devolverte la salud y estética dental.",
-        "servicesTitle": "Nuestros Servicios",
-        "servicesSubtitle": "Tratamientos diseñados para devolverte la confianza.",
-        "service1": "Blanqueamiento",
-        "service2": "Resinas",
-        "service3": "Coronas",
-        "service4": "Implantes",
         "mapTitle": "Visítanos",
         "mapSubtitle": "Instalaciones modernas y céntricas pensadas para tu comodidad y fácil acceso.",
         "mapAddressTitle": "Ubicación Estratégica",
@@ -494,8 +488,10 @@
       en: {
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Evaluation</span>",
         "schedulePageSubtitle": "Your oral health is our priority. Receive expert care with the best materials in Ciudad Juárez.",
-        "btnWhatsapp": "Message on WhatsApp",
-        "formTitle": "Request Appointment",
+        "btnWhatsapp": "Contact via WhatsApp",
+        "dividerOptionB": "Or if you prefer",
+        "formTitleOptionB": "Option B: Leave your details",
+        "formDescOptionB": "If you don't use WhatsApp, fill out this form and we will contact you.",
         "nameLabel": "Name",
         "phoneLabel": "Phone",
         "reasonLabel": "Reason for visit",
@@ -506,7 +502,7 @@
         "optionValoracion": "General Check-up",
         "optionUrgencia": "Pain / Emergency",
         "optionBlanqueamiento": "Whitening + Cleaning",
-        "submitBtn": "Send Request",
+        "submitBtn": "Submit Details",
         "stepsTitle": "How to book your appointment?",
         "step1Title": "1. Send a message",
         "step1Desc": "Contact us via WhatsApp to explain your case and pick a time.",
@@ -514,12 +510,6 @@
         "step2Desc": "We perform a clinical check-up and provide a detailed diagnosis.",
         "step3Title": "3. Results",
         "step3Desc": "We begin your treatment to restore your dental health and aesthetics.",
-        "servicesTitle": "Our Services",
-        "servicesSubtitle": "Treatments designed to restore your confidence.",
-        "service1": "Whitening",
-        "service2": "Fillings",
-        "service3": "Crowns",
-        "service4": "Implants",
         "mapTitle": "Visit Us",
         "mapSubtitle": "Modern and central facilities designed for your comfort and easy access.",
         "mapAddressTitle": "Strategic Location",
