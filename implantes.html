@@ -2,21 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title data-i18n="titleImplantsPage">Implantes Dentales | Dr. Santos Clínica Dental</title>
   
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Google Ads Conversion Tracking -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,277 +24,407 @@
       gtag('event', 'conversion', { 'send_to': 'AW-17076577011/ZVOZCNqAqpIbEPPF384_' });
       return true;
     }
+
     function gtag_report_call_conversion(url) {
-      var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
-      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN', 'event_callback': callback });
+      var callback = function () {
+        if (typeof(url) != 'undefined') { window.location = url; }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/qhgRCITKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN',
+          'event_callback': callback
+      });
       return false;
     }
+    
     function gtag_report_whatsapp_conversion() {
-      gtag('event', 'conversion', { 'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_', 'value': 1.0, 'currency': 'MXN' });
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17076577011/k6WcCIfKz5MbEPPF384_',
+          'value': 1.0,
+          'currency': 'MXN'
+      });
     }
   </script>
 
   <style>
-    :root { --color-primario: #2a7f7f; --color-secundario: #3a506b; --acento: #5fb49c; }
-    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #f8fafc; }
-    .gradient-bg { background: linear-gradient(135deg, var(--color-primario), var(--acento)); }
-    .active-tab { color: var(--color-primario) !important; font-weight: 600; border-color: var(--color-primario); }
-    #promo-popup-overlay { transition: opacity 0.4s ease; }
-    #promo-popup-content { transition: transform 0.4s ease, opacity 0.4s ease; border-top: 5px solid; border-image: linear-gradient(to right, #006847, #FFFFFF, #CE1126) 1; }
+    :root {
+      --color-primario: #0d9488;
+      --color-fondo: #f8fafc;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: var(--color-fondo);
+      overscroll-behavior-y: none;
+    }
+    
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+    }
+    
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #promo-popup-overlay { transition: opacity 0.3s ease; }
+    #promo-popup-content { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; }
+    
+    input, select, textarea, button {
+        touch-action: manipulation;
+    }
+    
+    .nav-pill.active {
+        background-color: #0f766e;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.3);
+    }
+    .nav-pill {
+        transition: all 0.2s ease;
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-gray-800">
+<body class="text-slate-800 pb-20"> 
 
-  <!-- Header & Navigation -->
-  <header id="mainHeader" class="bg-white/95 backdrop-blur-md sticky top-0 z-40 transition-all duration-300 shadow-md border-b border-gray-200">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col sm:flex-row justify-between items-center py-3">
-            <img src="logo.png" alt="Dr. Santos Clínica Dental" class="h-16 mb-3 sm:mb-0" onerror="this.alt='Logo Dr. Santos'">
-            <div class="text-center sm:text-right">
-                <p class="text-base font-semibold text-gray-700">
-                    <i class="fas fa-map-marker-alt text-teal-600 mr-1"></i>
-                    <span data-i18n="clinicLocationShort">Av. Plutarco Elías Calles 315, Cd. Juárez</span>
-                </p>
-            </div>
+  <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
+    <div class="container mx-auto px-4 pt-3 pb-2">
+        <div class="flex justify-between items-center mb-3">
+            <img src="logo.png" alt="Dr. Santos" class="h-10 md:h-14 w-auto" onerror="this.alt='Dr. Santos'">
+            <a href="#mapSection" class="text-xs font-medium text-slate-500 flex items-center bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+                <i class="fas fa-map-marker-alt text-teal-600 mr-1.5"></i>
+                <span data-i18n="clinicLocationShort">Cd. Juárez</span>
+            </a>
         </div>
-        <nav class="border-t border-gray-100">
-            <ul class="flex justify-center items-center space-x-1 sm:space-x-4 overflow-x-auto whitespace-nowrap py-2">
-                <li><a href="index.html" data-i18n="navHome" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Inicio</a></li>
-                <li><a href="implantes.html" data-i18n="navImplants" class="px-2 sm:px-3 py-2 text-sm border-b-2 active-tab">Implantes</a></li>
-                <li><a href="carillas.html" data-i18n="navVeneers" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Carillas</a></li>
-                <li><a href="blanqueamiento.html" data-i18n="navWhitening" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Blanqueamiento</a></li>
-                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="px-2 sm:px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 hover:bg-gray-100 rounded-md transition-all duration-200">Agenda</a></li>
+        
+        <nav class="w-full overflow-x-auto no-scrollbar pb-1">
+            <ul class="flex space-x-2 min-w-max px-1">
+                <li><a href="index.html" data-i18n="navHome" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Inicio</a></li>
+                <li><a href="implantes.html" data-i18n="navImplants" class="nav-pill active px-4 py-2 text-sm rounded-full border border-transparent">Implantes</a></li>
+                <li><a href="carillas.html" data-i18n="navVeneers" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Carillas</a></li>
+                <li><a href="agenda.html" data-i18n="navScheduleEasy" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Agenda</a></li>
+                <li><a href="https://drsantosclinicadental.com/blanqueamiento" data-i18n="navWhitening" class="nav-pill px-4 py-2 text-sm text-slate-600 bg-slate-50 rounded-full border border-slate-100">Blanqueamiento</a></li>
             </ul>
         </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-6 py-12 md:py-20">
+  <main class="container mx-auto px-4 md:px-6 pt-8 md:pt-12 max-w-5xl">
     
-    <!-- Hero Section -->
-    <section class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold text-teal-700 mb-4" data-i18n="implantsPageTitle">Implantes Dentales: La Solución Definitiva</h1>
-      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="implantsPageSubtitle">Recupera la función y estética de un diente natural con la solución más avanzada y duradera para la pérdida dental.</p>
+    <section class="text-center mb-10 fade-enter">
+      <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="implantsPageTitle">
+        Implantes Dentales: <span class="text-teal-600">La Solución Definitiva</span>
+      </h1>
+      <p class="text-slate-500 text-sm md:text-lg max-w-xl mx-auto mb-8" data-i18n="implantsPageSubtitle">
+        Recupera la función y estética de un diente natural con la solución más avanzada, personalizada y duradera.
+      </p>
       
-      <!-- Quick Actions -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20más%20información%20sobre%20implantes%20dentales." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+      <div class="flex flex-col gap-3 max-w-sm mx-auto">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20más%20información%20sobre%20implantes%20dentales." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95">
           <i class="fab fa-whatsapp text-2xl"></i>
-          <div>
-            <span data-i18n="btnWhatsapp">Pregunta por WhatsApp</span>
-            <p class="text-xs font-normal opacity-90" data-i18n="whatsappSubtext">Resolvemos tus dudas al instante</p>
-          </div>
+          <span data-i18n="btnWhatsapp">Pregunta por WhatsApp</span>
         </a>
-        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+        <a href="tel:+526147804673" onclick="return gtag_report_call_conversion('tel:+526147804673');" class="w-full bg-slate-800 active:bg-slate-900 text-white font-bold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-center gap-3 transition-transform active:scale-95">
           <i class="fas fa-phone-alt"></i>
           <span data-i18n="btnCall">Llamar para Agendar</span>
         </a>
       </div>
     </section>
 
-    <!-- Content & Illustrations Section -->
-    <section class="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200 mb-16">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Implants Description -->
-            <div>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4" data-i18n="implantsWhatAreTitle">¿Qué son los Implantes Dentales?</h2>
-                <div class="space-y-4 text-base text-gray-600">
-                    <p data-i18n="implantsWhatAreP1">Un implante dental es un poste de titanio biocompatible que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) o un puente.</p>
-                    <p data-i18n="implantsWhatAreP2">Al integrarse con el hueso (osteointegración), el implante proporciona una base estable y fuerte, permitiendo que el nuevo diente se sienta y funcione de manera completamente natural.</p>
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12 fade-enter" style="animation-delay: 0.1s;">
+        <div class="bg-white p-5 md:p-8 rounded-2xl shadow-xl border border-slate-100">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4" data-i18n="implantsWhatAreTitle">¿Qué son los Implantes Dentales?</h2>
+            <div class="space-y-4 text-sm md:text-base text-slate-600">
+                <p data-i18n="implantsWhatAreP1">Un implante dental es un poste de titanio biocompatible de grado médico que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) de manera permanente.</p>
+                <p data-i18n="implantsWhatAreP2">Al integrarse con el hueso (osteointegración), el implante proporciona una base increíblemente estable. Empleamos tecnología de vanguardia para asegurar el éxito clínico y la comodidad en todo momento.</p>
+            </div>
+            
+            <h3 class="font-bold text-slate-800 mt-6 mb-3" data-i18n="materialsTitle">Materiales y Protocolos de Alta Precisión</h3>
+            <div class="space-y-3 text-sm text-slate-600">
+                <div class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-teal-500 mt-1"></i>
+                    <p><strong class="text-slate-700" data-i18n="mat1Title">Planificación Digital 3D:</strong> <span data-i18n="mat1Desc">Utilizamos software avanzado Exocad CAD/CAM y radiovisógrafo Runyes para guiar la colocación con exactitud milimétrica.</span></p>
+                </div>
+                <div class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-teal-500 mt-1"></i>
+                    <p><strong class="text-slate-700" data-i18n="mat2Title">Opciones de Coronas:</strong> <span data-i18n="mat2Desc">Ofrecemos opciones económicas como coronas de metal-porcelana de alta resistencia, hasta alternativas premium como Zirconia fresada para la mayor estética natural.</span></p>
+                </div>
+                <div class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-teal-500 mt-1"></i>
+                    <p><strong class="text-slate-700" data-i18n="mat3Title">Fijación de Excelencia:</strong> <span data-i18n="mat3Desc">Los componentes se cementan empleando resinas y adhesivos líderes a nivel mundial como Bisco Duo-Link Universal y Filtek Z350, fotocurados con lámparas de alta potencia como 3M Elipar DeepCure-L para asegurar durabilidad total.</span></p>
                 </div>
             </div>
+        </div>
 
-            <!-- Illustrations -->
-            <div class="grid grid-cols-2 gap-4">
-                <div class="text-center">
-                    <img src="El11.png" alt="Diagrama de un implante dental mostrando el tornillo, el pilar y la corona." class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.alt='Partes de un implante';">
-                    <p class="text-xs text-gray-500 mt-2" data-i18n="imageDisclaimer">Imagen ilustrativa.</p>
-                </div>
-                <div class="text-center">
-                    <img src="El12.png" alt="Ilustración de cómo un implante dental se integra en el hueso." class="w-full h-auto rounded-lg shadow-lg border border-gray-200" onerror="this.alt='Osteointegración del implante';">
-                     <p class="text-xs text-gray-500 mt-2" data-i18n="imageDisclaimer">Imagen ilustrativa.</p>
-                </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                <img src="El11.png" alt="Diagrama de un implante" class="w-full h-full object-cover" loading="lazy" onerror="this.alt='Partes de un implante';">
+            </div>
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                <img src="El12.png" alt="Osteointegración" class="w-full h-full object-cover" loading="lazy" onerror="this.alt='Osteointegración del implante';">
+            </div>
+        </div>
+    </div>
+
+    <section class="bg-slate-100 py-10 px-5 rounded-3xl mb-12 fade-enter" style="animation-delay: 0.2s;">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-8" data-i18n="procedureTitle">El Proceso: Sencillo, Detallado y Transformador</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-50 flex flex-col items-center">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl font-bold mb-3 shadow-inner">1</div>
+                <h3 class="font-bold text-slate-800 text-sm mb-2" data-i18n="step1Title">Valoración y Plan 3D</h3>
+                <p class="text-xs text-slate-500" data-i18n="step1Desc">Escaneo intraoral, tomografía digital y diseño en Exocad para determinar el diámetro, longitud y posición exacta.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-50 flex flex-col items-center">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl font-bold mb-3 shadow-inner">2</div>
+                <h3 class="font-bold text-slate-800 text-sm mb-2" data-i18n="step2Title">Colocación Quirúrgica</h3>
+                <p class="text-xs text-slate-500" data-i18n="step2Desc">Intervención de mínima invasión donde el titanio se ancla al lecho óseo con protocolos estrictos de esterilización.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-50 flex flex-col items-center">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl font-bold mb-3 shadow-inner">3</div>
+                <h3 class="font-bold text-slate-800 text-sm mb-2" data-i18n="step3Title">Osteointegración</h3>
+                <p class="text-xs text-slate-500" data-i18n="step3Desc">Periodo de cicatrización donde el implante se fusiona sólidamente al hueso, preparando la base para la carga.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-50 flex flex-col items-center">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl font-bold mb-3 shadow-inner">4</div>
+                <h3 class="font-bold text-slate-800 text-sm mb-2" data-i18n="step4Title">Corona Definitiva</h3>
+                <p class="text-xs text-slate-500" data-i18n="step4Desc">Se cementa la restauración final, ajustando oclusión y aplicando barniz de protección para finalizar el tratamiento.</p>
             </div>
         </div>
     </section>
 
-    <!-- Simplified Process Section -->
-    <section class="mb-16">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-i18n="procedureTitle">El Proceso: Sencillo y Transformador</h2>
-        <div class="max-w-4xl mx-auto grid md:grid-cols-4 gap-8 text-center">
-            <div class="flex flex-col items-center">
-                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">1</div>
-                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step1Title">Valoración y Plan 3D</h3>
-                <p class="text-sm text-gray-600" data-i18n="step1Desc">Estudiamos tu caso con tomografía 3D para planificar la colocación exacta del implante.</p>
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12">
+        <section id="formSection" class="bg-white p-5 md:p-8 rounded-2xl shadow-xl border border-slate-100 order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600">
+                    <i class="fas fa-tooth text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800" data-i18n="formTitle">Solicita Valoración de Implantes</h2>
+                    <p class="text-xs text-slate-500" data-i18n="formSubtitle">Un implante es tu mejor inversión. Te contactaremos.</p>
+                </div>
             </div>
-            <div class="flex flex-col items-center">
-                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">2</div>
-                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step2Title">Colocación del Implante</h3>
-                <p class="text-sm text-gray-600" data-i18n="step2Desc">En un procedimiento cómodo y preciso, se inserta el implante de titanio en el hueso.</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">3</div>
-                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step3Title">Cicatrización</h3>
-                <p class="text-sm text-gray-600" data-i18n="step3Desc">Durante unos meses, el implante se fusiona con el hueso (osteointegración), creando una base sólida.</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">4</div>
-                <h3 class="font-semibold text-lg text-gray-700 mb-2" data-i18n="step4Title">Corona Definitiva</h3>
-                <p class="text-sm text-gray-600" data-i18n="step4Desc">Colocamos la corona final, hecha a medida, devolviéndote una sonrisa completa y funcional.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Benefits Section -->
-    <section class="mb-16 bg-gray-100 py-12 rounded-2xl">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-i18n="implantsBenefitsTitle">Ventajas Principales de los Implantes</h2>
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-x-10 gap-y-6">
-        <div class="flex items-start"><i class="fas fa-check-circle text-teal-500 mt-1 mr-4"></i><div><strong class="text-gray-700" data-i18n="b1Title">Funcionalidad Completa:</strong><span class="text-gray-600 block" data-i18n="b1Desc"> Mastica, habla y sonríe con total normalidad y confianza.</span></div></div>
-        <div class="flex items-start"><i class="fas fa-infinity text-teal-500 mt-1 mr-4"></i><div><strong class="text-gray-700" data-i18n="b2Title">Durabilidad a Largo Plazo:</strong><span class="text-gray-600 block" data-i18n="b2Desc"> Con el cuidado adecuado, están diseñados para durar toda la vida.</span></div></div>
-        <div class="flex items-start"><i class="fas fa-bone text-teal-500 mt-1 mr-4"></i><div><strong class="text-gray-700" data-i18n="b3Title">Preservación del Hueso:</strong><span class="text-gray-600 block" data-i18n="b3Desc"> Evitan la pérdida ósea y mantienen la estructura del rostro.</span></div></div>
-        <div class="flex items-start"><i class="fas fa-user-friends text-teal-500 mt-1 mr-4"></i><div><strong class="text-gray-700" data-i18n="b4Title">Protección de Dientes Sanos:</strong><span class="text-gray-600 block" data-i18n="b4Desc"> No es necesario alterar los dientes adyacentes.</span></div></div>
-        <div class="flex items-start"><i class="fas fa-gem text-teal-500 mt-1 mr-4"></i><div><strong class="text-gray-700" data-i18n="b5Title">Estética Inmejorable:</strong><span class="text-gray-600 block" data-i18n="b5Desc"> Las coronas se diseñan a medida para un resultado perfecto.</span></div></div>
-      </div>
-    </section>
 
-    <!-- Form Section -->
-    <section class="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-200">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center" data-i18n="formTitle">Recupera tu Sonrisa por Completo</h2>
-      <p class="text-base text-gray-500 mb-8 text-center" data-i18n="formSubtitle">Un implante es la mejor inversión en tu salud. Agenda una valoración para saber si eres candidato.</p>
-      <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="max-w-xl mx-auto space-y-5">
-          <input type="hidden" name="_subject" value="Nueva solicitud de IMPLANTES - Página Implantes">
-          <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="motivo" value="Implantes y Rehabilitación Oral">
-          
-          <div>
-              <label for="nombre" class="block text-base font-medium text-gray-700 mb-1" data-i18n="nameLabel">Nombre completo</label>
-              <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Tu nombre completo">
-          </div>
-          <div>
-              <label for="telefono" class="block text-base font-medium text-gray-700 mb-1" data-i18n="phoneLabel">Teléfono de Contacto</label>
-              <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-all text-base" required placeholder="Ej. (656) 123-4567">
-          </div>
-          <button type="submit" class="w-full gradient-bg text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 text-lg">
-              <i class="fas fa-paper-plane"></i> <span data-i18n="submitBtn">Agendar mi Valoración</span>
-          </button>
-      </form>
-    </section>
+            <form id="appointmentForm" action="https://formsubmit.co/sebastian.roberto.santos@gmail.com" method="POST" onsubmit="gtag_report_form_conversion();" class="space-y-4">
+                <input type="hidden" name="_subject" value="Nueva solicitud de IMPLANTES">
+                <input type="hidden" name="_next" value="https://drsantosclinicadental.github.io/Informacion/confirmacion.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="motivo" value="Implantes y Rehabilitación Oral">
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1" data-i18n="nameLabel">Nombre</label>
+                    <input type="text" name="nombre" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base" required placeholder="Tu nombre completo">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1" data-i18n="phoneLabel">Teléfono</label>
+                    <input type="tel" name="telefono" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base" required placeholder="(656) ...">
+                </div>
+                
+                <button type="submit" class="w-full gradient-bg text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-98 transition-all flex items-center justify-center gap-2 mt-2">
+                    <span data-i18n="submitBtn">Agendar mi Valoración</span> <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </section>
+        
+        <section class="order-2 lg:order-1 flex flex-col justify-center h-full">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6" data-i18n="implantsBenefitsTitle">Ventajas Principales</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 shrink-0"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <strong class="text-slate-800 text-sm block" data-i18n="b1Title">Funcionalidad Completa</strong>
+                        <span class="text-slate-500 text-xs" data-i18n="b1Desc">Mastica, habla y sonríe con total normalidad y confianza.</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 shrink-0"><i class="fas fa-infinity"></i></div>
+                    <div>
+                        <strong class="text-slate-800 text-sm block" data-i18n="b2Title">Durabilidad a Largo Plazo</strong>
+                        <span class="text-slate-500 text-xs" data-i18n="b2Desc">Con el cuidado adecuado, están diseñados para durar toda la vida.</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 shrink-0"><i class="fas fa-bone"></i></div>
+                    <div>
+                        <strong class="text-slate-800 text-sm block" data-i18n="b3Title">Preservación del Hueso</strong>
+                        <span class="text-slate-500 text-xs" data-i18n="b3Desc">Evitan la reabsorción ósea y mantienen la estructura natural del rostro.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <!-- Map Section -->
-    <section class="py-16 mt-10 bg-gray-100 rounded-2xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
-        <p class="text-base text-center text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="mapDescription">Nuestra clínica está convenientemente ubicada para atenderte.</p>
-        <div class="max-w-4xl mx-auto h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-white">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section id="mapSection" class="py-12">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="mapTitle">Ubicación</h2>
+        <div class="w-full h-64 rounded-xl overflow-hidden shadow-md border border-slate-200">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
         </div>
+        <p class="text-center text-sm text-slate-500 mt-3 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315. (Estacionamiento disponible)</p>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white mt-16">
-      <div class="container mx-auto px-6 py-10 text-center">
-          <p class="font-bold text-lg">Dr. Santos Clínica Dental</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-map-marker-alt text-teal-400"></i> Av. Plutarco Elías Calles 315, Ciudad Juárez</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-clock text-teal-400"></i> Horario: Lun-Vie 9am-6pm | Sáb 9am-5pm</p>
-          <p class="mt-2 text-gray-300"><i class="fas fa-phone text-teal-400"></i> Tel: (614) 780-4673 | <i class="fab fa-whatsapp text-teal-400"></i> WhatsApp: +52 1 614-780-4673</p>
-          <p class="mt-6 text-sm text-gray-400">© <span id="currentYear"></span> Dr. Santos Clínica Dental. Todos los derechos reservados.</p>
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+      <div class="container mx-auto px-6">
+          <p class="text-white font-bold text-lg mb-2" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
+          <p class="mb-4">Av. Plutarco Elías Calles 315</p>
+          <p class="text-xs">© <span id="currentYear"></span> Todos los derechos reservados.</p>
       </div>
   </footer>
 
-  <!-- Language Switcher -->
-  <button id="translateBtn" class="fixed bottom-5 right-5 bg-teal-600 hover:bg-teal-700 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110" title="Change Language">
-      <i class="fas fa-language text-xl"></i>
+  <button id="translateBtn" class="fixed bottom-6 right-4 z-30 bg-white text-teal-700 w-12 h-12 rounded-full shadow-xl border border-teal-50 flex items-center justify-center active:scale-90 transition-transform">
+      <i class="fas fa-globe text-xl"></i>
   </button>
   
-  <!-- Promotional Pop-up -->
-  <div id="promo-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
-    <div id="promo-popup-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative transform scale-95 opacity-0 overflow-hidden">
-      <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"><i class="fas fa-times text-2xl"></i></button>
-      <div class="text-green-600 mb-4"><i class="fas fa-bell fa-3x"></i></div>
-      <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="promoTitle">¡Promoción de Mes Patrio!</h2>
-      <p class="text-gray-600 text-lg mb-6" data-i18n="promoText">Limpieza dental completa a <span class="font-bold text-red-600">$400</span>. <br><b class="text-green-700">¡Incluye valoración y radiografías GRATIS!</b></p>
-      <a href="agenda.html" id="popup-cta-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block" data-i18n="promoBtn">Agendar mi Limpieza</a>
-      <p class="text-xs text-gray-400 mt-3" data-i18n="promoDisclaimer">Válido hasta el 30 de Septiembre, 2025.</p>
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none backdrop-blur-sm">
+    <div id="promo-popup-content" class="w-full max-w-md rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 relative bg-white">
+        
+        <button id="close-popup" class="absolute top-3 right-3 bg-white/80 text-slate-800 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 z-10 backdrop-blur-md shadow-sm border border-slate-200">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <img src="popup.png" alt="Promoción Especial" class="w-full h-auto aspect-square object-cover block">
     </div>
   </div>
+
 
   <script>
     const translations = {
       es: {
-        "titleImplantsPage": "Implantes Dentales | Dr. Santos Clínica Dental", "navHome": "Inicio", "navImplants": "Implantes", "navVeneers": "Carillas", "navWhitening": "Blanqueamiento", "navScheduleEasy": "Agenda", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juárez",
-        "implantsPageTitle": "Implantes Dentales: La Solución Definitiva", "implantsPageSubtitle": "Recupera la función y estética de un diente natural con la solución más avanzada y duradera para la pérdida dental.",
-        "btnWhatsapp": "Pregunta por WhatsApp", "whatsappSubtext": "Resolvemos tus dudas al instante", "btnCall": "Llamar para Agendar",
-        "implantsWhatAreTitle": "¿Qué son los Implantes Dentales?", "implantsWhatAreP1": "Un implante dental es un poste de titanio biocompatible que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) o un puente.", "implantsWhatAreP2": "Al integrarse con el hueso (osteointegración), el implante proporciona una base estable y fuerte, permitiendo que el nuevo diente se sienta y funcione de manera completamente natural.",
-        "imageDisclaimer": "Imagen ilustrativa.",
-        "procedureTitle": "El Proceso: Sencillo y Transformador",
-        "step1Title": "Valoración y Plan 3D", "step1Desc": "Estudiamos tu caso con tomografía 3D para planificar la colocación exacta del implante.",
-        "step2Title": "Colocación del Implante", "step2Desc": "En un procedimiento cómodo y preciso, se inserta el implante de titanio en el hueso.",
-        "step3Title": "Cicatrización", "step3Desc": "Durante unos meses, el implante se fusiona con el hueso (osteointegración), creando una base sólida.",
-        "step4Title": "Corona Definitiva", "step4Desc": "Colocamos la corona final, hecha a medida, devolviéndote una sonrisa completa y funcional.",
-        "implantsBenefitsTitle": "Ventajas Principales de los Implantes",
-        "b1Title": "Funcionalidad Completa:", "b1Desc": " Mastica, habla y sonríe con total normalidad y confianza.",
-        "b2Title": "Durabilidad a Largo Plazo:", "b2Desc": " Con el cuidado adecuado, están diseñados para durar toda la vida.",
-        "b3Title": "Preservación del Hueso:", "b3Desc": " Evitan la pérdida ósea y mantienen la estructura del rostro.",
-        "b4Title": "Protección de Dientes Sanos:", "b4Desc": " No es necesario alterar los dientes adyacentes.",
-        "b5Title": "Estética Inmejorable:", "b5Desc": " Las coronas se diseñan a medida para un resultado perfecto.",
-        "formTitle": "Recupera tu Sonrisa por Completo", "formSubtitle": "Un implante es la mejor inversión en tu salud. Agenda una valoración para saber si eres candidato.",
-        "nameLabel": "Nombre completo", "phoneLabel": "Teléfono de Contacto", "submitBtn": "Agendar mi Valoración",
-        "mapTitle": "Encuéntranos Fácilmente", "mapDescription": "Nuestra clínica está convenientemente ubicada para atenderte.",
-        "promoTitle": "¡Promoción de Mes Patrio!", "promoText": "Limpieza dental completa a <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>¡Incluye valoración y radiografías GRATIS!</b>", "promoBtn": "Agendar mi Limpieza", "promoDisclaimer": "Válido hasta el 30 de Septiembre, 2025."
+        "titleImplantsPage": "Implantes Dentales | Dr. Santos Clínica Dental",
+        "navHome": "Inicio",
+        "navImplants": "Implantes",
+        "navVeneers": "Carillas",
+        "navWhitening": "Blanqueamiento",
+        "navScheduleEasy": "Agenda",
+        "clinicLocationShort": "Cd. Juárez",
+        "implantsPageTitle": "Implantes Dentales: <span class='text-teal-600'>La Solución Definitiva</span>",
+        "implantsPageSubtitle": "Recupera la función y estética de un diente natural con la solución más avanzada, personalizada y duradera.",
+        "btnWhatsapp": "Pregunta por WhatsApp",
+        "btnCall": "Llamar para Agendar",
+        "implantsWhatAreTitle": "¿Qué son los Implantes Dentales?",
+        "implantsWhatAreP1": "Un implante dental es un poste de titanio biocompatible de grado médico que funciona como una raíz dental artificial. Se inserta quirúrgicamente en el hueso maxilar para sostener un diente de reemplazo (corona) de manera permanente.",
+        "implantsWhatAreP2": "Al integrarse con el hueso (osteointegración), el implante proporciona una base increíblemente estable. Empleamos tecnología de vanguardia para asegurar el éxito clínico y la comodidad en todo momento.",
+        "materialsTitle": "Materiales y Protocolos de Alta Precisión",
+        "mat1Title": "Planificación Digital 3D:", "mat1Desc": "Utilizamos software avanzado Exocad CAD/CAM y radiovisógrafo Runyes para guiar la colocación con exactitud milimétrica.",
+        "mat2Title": "Opciones de Coronas:", "mat2Desc": "Ofrecemos opciones económicas como coronas de metal-porcelana de alta resistencia, hasta alternativas premium como Zirconia fresada para la mayor estética natural.",
+        "mat3Title": "Fijación de Excelencia:", "mat3Desc": "Los componentes se cementan empleando resinas y adhesivos líderes a nivel mundial como Bisco Duo-Link Universal y Filtek Z350, fotocurados con lámparas de alta potencia como 3M Elipar DeepCure-L para asegurar durabilidad total.",
+        "procedureTitle": "El Proceso: Sencillo, Detallado y Transformador",
+        "step1Title": "Valoración y Plan 3D", "step1Desc": "Escaneo intraoral, tomografía digital y diseño en Exocad para determinar el diámetro, longitud y posición exacta.",
+        "step2Title": "Colocación Quirúrgica", "step2Desc": "Intervención de mínima invasión donde el titanio se ancla al lecho óseo con protocolos estrictos de esterilización.",
+        "step3Title": "Osteointegración", "step3Desc": "Periodo de cicatrización donde el implante se fusiona sólidamente al hueso, preparando la base para la carga.",
+        "step4Title": "Corona Definitiva", "step4Desc": "Se cementa la restauración final, ajustando oclusión y aplicando barniz de protección para finalizar el tratamiento.",
+        "formTitle": "Solicita Valoración de Implantes",
+        "formSubtitle": "Un implante es tu mejor inversión. Te contactaremos.",
+        "nameLabel": "Nombre",
+        "phoneLabel": "Teléfono",
+        "submitBtn": "Agendar mi Valoración",
+        "implantsBenefitsTitle": "Ventajas Principales",
+        "b1Title": "Funcionalidad Completa", "b1Desc": "Mastica, habla y sonríe con total normalidad y confianza.",
+        "b2Title": "Durabilidad a Largo Plazo", "b2Desc": "Con el cuidado adecuado, están diseñados para durar toda la vida.",
+        "b3Title": "Preservación del Hueso", "b3Desc": "Evitan la reabsorción ósea y mantienen la estructura natural del rostro.",
+        "mapTitle": "Ubicación",
+        "mapDescription": "Av. Plutarco Elías Calles 315. (Estacionamiento disponible)",
+        "clinicNameFooter": "Dr. Santos Clínica Dental"
       },
       en: {
-        "titleImplantsPage": "Dental Implants | Dr. Santos Dental Clinic", "navHome": "Home", "navImplants": "Implants", "navVeneers": "Veneers", "navWhitening": "Whitening", "navScheduleEasy": "Schedule", "clinicLocationShort": "Av. Plutarco Elías Calles 315, Cd. Juarez",
-        "implantsPageTitle": "Dental Implants: The Definitive Solution", "implantsPageSubtitle": "Recover the function and aesthetics of a natural tooth with the most advanced and durable solution for tooth loss.",
-        "btnWhatsapp": "Ask on WhatsApp", "whatsappSubtext": "We answer your questions instantly", "btnCall": "Call to Schedule",
-        "implantsWhatAreTitle": "What Are Dental Implants?", "implantsWhatAreP1": "A dental implant is a biocompatible titanium post that functions as an artificial tooth root. It is surgically placed into the jawbone to support a replacement tooth (crown) or bridge.", "implantsWhatAreP2": "By integrating with the bone (osseointegration), the implant provides a stable and strong foundation, allowing the new tooth to feel and function completely naturally.",
-        "imageDisclaimer": "Illustrative image.",
-        "procedureTitle": "The Process: Simple and Transformative",
-        "step1Title": "3D Scan & Planning", "step1Desc": "We study your case with a 3D CT scan to plan the exact placement of the implant.",
-        "step2Title": "Implant Placement", "step2Desc": "In a comfortable and precise procedure, the titanium implant is placed in the bone.",
-        "step3Title": "Healing", "step3Desc": "For a few months, the implant fuses with the bone (osseointegration), creating a solid base.",
-        "step4Title": "Final Crown", "step4Desc": "We place the final, custom-made crown, giving you back a complete and functional smile.",
-        "implantsBenefitsTitle": "Main Advantages of Implants",
-        "b1Title": "Complete Functionality:", "b1Desc": " Chew, speak, and smile with total normalcy and confidence.",
-        "b2Title": "Long-Term Durability:", "b2Desc": " With proper care, they are designed to last a lifetime.",
-        "b3Title": "Bone Preservation:", "b3Desc": " They prevent bone loss and maintain facial structure.",
-        "b4Title": "Protection of Healthy Teeth:", "b4Desc": " It is not necessary to alter adjacent teeth.",
-        "b5Title": "Unbeatable Aesthetics:", "b5Desc": " The crowns are custom-designed for a perfect result.",
-        "formTitle": "Fully Recover Your Smile", "formSubtitle": "An implant is the best investment in your health. Schedule an assessment to see if you are a candidate.",
-        "nameLabel": "Full Name", "phoneLabel": "Contact Phone", "submitBtn": "Schedule my Assessment",
-        "mapTitle": "Find Us Easily", "mapDescription": "Our clinic is conveniently located to serve you.",
-        "promoTitle": "Patriotic Month Promo!", "promoText": "Complete dental cleaning for <span class='font-bold text-red-600'>$400</span>. <br><b class='text-green-700'>Includes a FREE assessment and X-rays!</b>", "promoBtn": "Schedule my Cleaning", "promoDisclaimer": "Valid until September 30, 2025."
+        "titleImplantsPage": "Dental Implants | Dr. Santos Dental Clinic",
+        "navHome": "Home",
+        "navImplants": "Implants",
+        "navVeneers": "Veneers",
+        "navWhitening": "Whitening",
+        "navScheduleEasy": "Schedule",
+        "clinicLocationShort": "Cd. Juarez",
+        "implantsPageTitle": "Dental Implants: <span class='text-teal-600'>The Definitive Solution</span>",
+        "implantsPageSubtitle": "Recover the function and aesthetics of a natural tooth with the most advanced, personalized, and durable solution.",
+        "btnWhatsapp": "Ask via WhatsApp",
+        "btnCall": "Call to Schedule",
+        "implantsWhatAreTitle": "What Are Dental Implants?",
+        "implantsWhatAreP1": "A dental implant is a medical-grade biocompatible titanium post that functions as an artificial tooth root. It is surgically inserted into the jawbone to permanently hold a replacement tooth (crown).",
+        "implantsWhatAreP2": "By integrating with the bone (osseointegration), the implant provides an incredibly stable foundation. We use cutting-edge technology to ensure clinical success and comfort at all times.",
+        "materialsTitle": "High Precision Materials & Protocols",
+        "mat1Title": "3D Digital Planning:", "mat1Desc": "We use advanced Exocad CAD/CAM software and Runyes radiovisiograph to guide placement with millimeter accuracy.",
+        "mat2Title": "Crown Options:", "mat2Desc": "We offer economical options such as high-strength porcelain-fused-to-metal crowns, as well as premium alternatives like milled Zirconia for the highest natural aesthetics.",
+        "mat3Title": "Excellence in Fixation:", "mat3Desc": "Components are cemented using world-leading resins and adhesives such as Bisco Duo-Link Universal and Filtek Z350, light-cured with high-power lamps like 3M Elipar DeepCure-L to ensure total durability.",
+        "procedureTitle": "The Process: Simple, Detailed and Transformative",
+        "step1Title": "3D Plan & Assessment", "step1Desc": "Intraoral scanning, digital tomography, and Exocad design to determine the exact diameter, length, and position.",
+        "step2Title": "Surgical Placement", "step2Desc": "Minimally invasive intervention where titanium is anchored to the bone bed with strict sterilization protocols.",
+        "step3Title": "Osseointegration", "step3Desc": "Healing period where the implant solidly fuses to the bone, preparing the base for loading.",
+        "step4Title": "Definitive Crown", "step4Desc": "The final restoration is cemented, adjusting occlusion and applying protective varnish to finish the treatment.",
+        "formTitle": "Request Implants Assessment",
+        "formSubtitle": "An implant is your best investment. We will contact you.",
+        "nameLabel": "Name",
+        "phoneLabel": "Phone",
+        "submitBtn": "Schedule my Assessment",
+        "implantsBenefitsTitle": "Main Advantages",
+        "b1Title": "Complete Functionality", "b1Desc": "Chew, speak, and smile with total normalcy and confidence.",
+        "b2Title": "Long-Term Durability", "b2Desc": "With proper care, they are designed to last a lifetime.",
+        "b3Title": "Bone Preservation", "b3Desc": "They prevent bone resorption and maintain the natural structure of the face.",
+        "mapTitle": "Location",
+        "mapDescription": "Av. Plutarco Elías Calles 315. (Parking available)",
+        "clinicNameFooter": "Dr. Santos Dental Clinic"
       }
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-      // --- CÓDIGO PARA POP-UP PROMOCIONAL ---
+      // --- LOGICA POPUP IMAGEN MÓVIL/DESKTOP ---
       const promoOverlay = document.getElementById('promo-popup-overlay');
       const promoContent = document.getElementById('promo-popup-content');
       const closePopupBtn = document.getElementById('close-popup');
-      const popupCtaBtn = document.getElementById('popup-cta-btn');
-      function showPopup() { promoOverlay.classList.remove('opacity-0', 'pointer-events-none'); promoContent.classList.remove('scale-95', 'opacity-0'); }
-      function hidePopup() { promoOverlay.classList.add('opacity-0'); promoContent.classList.add('opacity-0', 'scale-95'); setTimeout(() => { promoOverlay.classList.add('pointer-events-none'); }, 400); }
-      if (!sessionStorage.getItem('promoShown')) { setTimeout(showPopup, 3000); sessionStorage.setItem('promoShown', 'true'); }
-      closePopupBtn.addEventListener('click', hidePopup);
-      popupCtaBtn.addEventListener('click', () => { window.location.href = 'agenda.html'; });
-      promoOverlay.addEventListener('click', function(event) { if (event.target === promoOverlay) { hidePopup(); } });
 
-      // --- CÓDIGO GENERAL Y DE TRADUCCIÓN ---
+      function showPopup() {
+        promoOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+             promoContent.classList.remove('scale-95', 'opacity-0');
+        }, 50);
+      }
+      
+      function hidePopup() {
+        promoContent.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+          promoOverlay.classList.add('opacity-0');
+          setTimeout(() => {
+             promoOverlay.classList.add('pointer-events-none');
+          }, 300);
+        }, 200);
+      }
+
+      // Mostrar promo después de 2.5 seg
+      if (!sessionStorage.getItem('promoImageShown_v1')) {
+          setTimeout(showPopup, 2500);
+          sessionStorage.setItem('promoImageShown_v1', 'true');
+      }
+      
+      closePopupBtn.addEventListener('click', hidePopup);
+      promoOverlay.addEventListener('click', (e) => { if(e.target === promoOverlay) hidePopup(); });
+
+      // --- TRADUCCIÓN ---
       document.getElementById('currentYear').textContent = new Date().getFullYear();
       const translateBtn = document.getElementById('translateBtn');
+      
       function changeLanguage(lang) {
           document.documentElement.lang = lang;
           document.querySelectorAll('[data-i18n]').forEach(el => {
               const key = el.getAttribute('data-i18n');
-              if(translations[lang]?.[key]) { el.innerHTML = translations[lang][key]; }
+              if(translations[lang]?.[key]) el.innerHTML = translations[lang][key];
           });
           document.title = translations[lang]?.titleImplantsPage || document.title;
           localStorage.setItem('preferredLangDrSantos', lang);
       }
+      
       translateBtn.addEventListener('click', function() {
           const newLang = (localStorage.getItem('preferredLangDrSantos') || 'es') === 'es' ? 'en' : 'es';
           changeLanguage(newLang);
