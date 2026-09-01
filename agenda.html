@@ -105,7 +105,8 @@
     }
   </style>
 </head>
-<body class="text-slate-800 pb-20"> <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
+<body class="text-slate-800 pb-20"> 
+  <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
     <div class="container mx-auto px-4 pt-3 pb-2">
         <div class="flex justify-between items-center mb-3">
             <img src="logo.png" alt="Dr. Santos" class="h-10 md:h-14 w-auto" onerror="this.alt='Dr. Santos'">
@@ -148,7 +149,7 @@
 
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         
-        <section id="formSection" class="bg-white p-5 md:p-8 rounded-2xl shadow-xl border border-slate-100 order-1">
+        <section id="formSection" class="bg-white p-5 md:p-8 rounded-2xl shadow-xl border border-slate-100">
             <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
                 <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600">
                     <i class="far fa-calendar-check text-xl"></i>
@@ -195,21 +196,35 @@
                 </button>
             </form>
         </section>
-
-        <div class="order-2 fade-enter" style="animation-delay: 0.2s;">
-             <h3 class="text-center text-slate-400 text-sm font-medium mb-3 uppercase tracking-widest">Resultados Reales</h3>
-             <div class="relative w-full rounded-2xl overflow-hidden shadow-lg aspect-video" id="patientGallery">
-                <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="gallerySlider">
-                    <img src="El21.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El2.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El31.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El22.jpg" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El32.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
-                    <img src="El3.png" class="w-full h-full object-cover flex-shrink-0" loading="lazy">
+        
+        <div class="space-y-8">
+            <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <i class="fas fa-graduation-cap text-teal-600 text-3xl mb-3"></i>
+                <h3 class="font-bold text-slate-800 text-lg mb-2" data-i18n="uacjTitle">Excelencia Académica</h3>
+                <p class="text-slate-600 text-sm" data-i18n="uacjDesc">Todo nuestro personal médico es orgullosamente egresado de la Universidad Autónoma de Ciudad Juárez (UACJ), garantizando atención profesional y ética.</p>
+            </section>
+        
+            <section class="py-8 bg-slate-100 rounded-3xl">
+                <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="servicesTitle">Servicios</h2>
+                <div class="grid grid-cols-2 gap-3 px-4">
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                        <i class="fas fa-magic text-teal-500 text-2xl mb-2"></i>
+                        <p class="text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                        <i class="fas fa-fill-drip text-blue-500 text-2xl mb-2"></i>
+                        <p class="text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                        <i class="fas fa-crown text-purple-500 text-2xl mb-2"></i>
+                        <p class="text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
+                        <i class="fas fa-screw text-indigo-500 text-2xl mb-2"></i>
+                        <p class="text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
+                    </div>
                 </div>
-                <button class="prev absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-left"></i></button>
-                <button class="next absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/20 to-transparent text-white flex items-center justify-center"><i class="fas fa-chevron-right"></i></button>
-            </div>
+            </section>
         </div>
     </div>
     
@@ -219,28 +234,6 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <p class="text-center text-sm text-slate-500 mt-3 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315. (Estacionamiento disponible)</p>
-    </section>
-
-    <section class="py-8 bg-slate-100 rounded-3xl mb-10">
-        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="servicesTitle">Servicios</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 px-4">
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                <i class="fas fa-magic text-teal-500 text-2xl mb-2"></i>
-                <p class="text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                <i class="fas fa-fill-drip text-blue-500 text-2xl mb-2"></i>
-                <p class="text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                <i class="fas fa-crown text-purple-500 text-2xl mb-2"></i>
-                <p class="text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                <i class="fas fa-screw text-indigo-500 text-2xl mb-2"></i>
-                <p class="text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
-            </div>
-        </div>
     </section>
 
     <section class="mb-12">
@@ -291,14 +284,20 @@
       <i class="fas fa-globe text-xl"></i>
   </button>
   
-  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none backdrop-blur-sm">
-    <div id="promo-popup-content" class="w-full max-w-md rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 relative bg-white">
+  <div id="promo-popup-overlay" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none backdrop-blur-sm">
+    <div id="promo-popup-content" class="w-full max-w-sm flex flex-col items-center transform scale-95 opacity-0 relative">
         
-        <button id="close-popup" class="absolute top-3 right-3 bg-white/80 text-slate-800 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 z-10 backdrop-blur-md shadow-sm border border-slate-200">
-            <i class="fas fa-times"></i>
+        <img src="PopUp.png" alt="Promoción Especial" class="w-full h-auto aspect-square object-cover rounded-2xl shadow-2xl mb-4 border-2 border-white">
+        
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20la%20promoción%20de%20limpieza." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95 mb-4 border-2 border-transparent">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span data-i18n="btnPopupWhatsapp">Agendar por WhatsApp</span>
+        </a>
+
+        <button id="close-popup" class="bg-white/10 text-white font-semibold py-3 px-8 rounded-full border border-white/30 backdrop-blur-md active:bg-white/20 transition-colors w-auto flex items-center justify-center gap-2">
+            <span data-i18n="btnClosePopup">Cerrar</span> <i class="fas fa-times"></i>
         </button>
 
-        <img src="PopUp.png" alt="Promoción Especial" class="w-full h-auto aspect-square object-cover block">
     </div>
   </div>
 
@@ -346,11 +345,10 @@
         "faqQ2": "¿Primera cita?",
         "faqQ3": "¿Seguros USA?",
         "faqQ4": "¿Pagos?",
-        
-        // PROMO TEXTS
-        "promoTitle": "Paquete Sonrisa Radiante",
-        "promoText": "Limpieza Dental + Blanqueamiento",
-        "promoBtn": "¡Quiero aprovechar!"
+        "uacjTitle": "Excelencia Académica",
+        "uacjDesc": "Todo nuestro personal médico es orgullosamente egresado de la Universidad Autónoma de Ciudad Juárez (UACJ), garantizando atención profesional y ética.",
+        "btnPopupWhatsapp": "Agendar por WhatsApp",
+        "btnClosePopup": "Cerrar"
       },
       en: {
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
@@ -393,16 +391,15 @@
         "faqQ2": "First visit?",
         "faqQ3": "US Insurance?",
         "faqQ4": "Payments?",
-        
-        // PROMO TEXTS ENGLISH
-        "promoTitle": "Radiant Smile Package",
-        "promoText": "Dental Cleaning + Whitening",
-        "promoBtn": "Get this offer!"
+        "uacjTitle": "Academic Excellence",
+        "uacjDesc": "All our medical staff are proud graduates of the Universidad Autónoma de Ciudad Juárez (UACJ), ensuring professional and ethical care.",
+        "btnPopupWhatsapp": "Book via WhatsApp",
+        "btnClosePopup": "Close"
       }
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-      // --- LOGICA POPUP MÓVIL ---
+      // --- LOGICA POPUP MÓVIL (Rediseñado Minimalista) ---
       const promoOverlay = document.getElementById('promo-popup-overlay');
       const promoContent = document.getElementById('promo-popup-content');
       const closePopupBtn = document.getElementById('close-popup');
@@ -425,32 +422,13 @@
       }
 
       // Mostrar promo después de 2.5 seg
-      if (!sessionStorage.getItem('promoShown2500_v3')) {
+      if (!sessionStorage.getItem('promoShown2500_v4')) {
           setTimeout(showPopup, 2500);
-          sessionStorage.setItem('promoShown2500_v3', 'true');
+          sessionStorage.setItem('promoShown2500_v4', 'true');
       }
       
       closePopupBtn.addEventListener('click', hidePopup);
       promoOverlay.addEventListener('click', (e) => { if(e.target === promoOverlay) hidePopup(); });
-
-
-      // --- SLIDER LOGIC ---
-      const gallery = document.getElementById('patientGallery');
-      if (gallery) {
-        const slider = document.getElementById('gallerySlider');
-        const prevBtn = gallery.querySelector('.prev');
-        const nextBtn = gallery.querySelector('.next');
-        const slides = slider.querySelectorAll('img');
-        let currentIndex = 0;
-
-        function goToSlide(index) {
-          currentIndex = (index + slides.length) % slides.length;
-          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-        setInterval(() => goToSlide(currentIndex + 1), 5000);
-      }
 
       // --- TRADUCCIÓN ---
       document.getElementById('currentYear').textContent = new Date().getFullYear();
