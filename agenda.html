@@ -131,9 +131,10 @@
       <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="schedulePageTitle">
         Agenda tu <span class="text-teal-600">Valoración</span>
       </h1>
-      <p class="text-slate-500 text-sm md:text-lg max-w-xl mx-auto mb-8" data-i18n="schedulePageSubtitle">
-        Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.
+      <p class="text-slate-500 text-sm md:text-lg max-w-xl mx-auto mb-4" data-i18n="schedulePageSubtitle">
+        Nos especializamos en el cuidado y transformación de tu salud dental. Combinamos tecnología avanzada y atención cálida para ofrecerte una experiencia cómoda, segura y resultados de calidad.
       </p>
+      <p class="text-xs text-teal-600 font-bold mb-8 uppercase tracking-widest" data-i18n="onlyAppointment">* Solamente Previa Cita</p>
       
       <div class="flex flex-col gap-3 max-w-sm mx-auto">
         <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95">
@@ -180,12 +181,15 @@
                     <div class="relative">
                         <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white outline-none transition-all text-base appearance-none" required>
                             <option value="" disabled selected data-i18n="selectReason">Selecciona...</option>
-                            <option value="Blanqueamiento + Limpieza" data-i18n="optionBlanqueamiento">⭐ Promo: Blanqueamiento + Limpieza</option>
-                            <option value="Implantes" data-i18n="optionRehabilitacion">Implantes Dentales</option>
-                            <option value="Diseño de Sonrisa" data-i18n="optionEstetica">Carillas / Diseño Sonrisa</option>
-                            <option value="Ortodoncia" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option>
-                            <option value="Valoracion General" data-i18n="optionValoracion">Valoración General</option>
-                            <option value="Dolor" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option>
+                            <option value="Limpiezas dentales" data-i18n="optionLimpiezas">Limpiezas dentales</option>
+                            <option value="Extracciones" data-i18n="optionExtracciones">Extracciones</option>
+                            <option value="Ortodoncia (Brackets)" data-i18n="optionOrtodoncia">Ortodoncia (Brackets)</option>
+                            <option value="Curaciones" data-i18n="optionCuraciones">Curaciones</option>
+                            <option value="Resinas" data-i18n="optionResinas">Resinas</option>
+                            <option value="Blanqueamiento" data-i18n="optionBlanqueamiento">Blanqueamiento</option>
+                            <option value="Implantes" data-i18n="optionImplantes">Implantes</option>
+                            <option value="Diseño de sonrisa" data-i18n="optionSonrisa">Diseño de sonrisa</option>
+                            <option value="Dolor / Urgencia" data-i18n="optionUrgencia">Tengo Dolor / Urgencia</option>
                         </select>
                         <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
                     </div>
@@ -203,42 +207,77 @@
                 <h3 class="font-bold text-slate-800 text-lg mb-2" data-i18n="uacjTitle">Excelencia Académica</h3>
                 <p class="text-slate-600 text-sm" data-i18n="uacjDesc">Todo nuestro personal médico es orgullosamente egresado de la Universidad Autónoma de Ciudad Juárez (UACJ), garantizando atención profesional y ética.</p>
             </section>
-        
-            <section class="py-8 bg-slate-100 rounded-3xl">
-                <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="servicesTitle">Servicios</h2>
-                <div class="grid grid-cols-2 gap-3 px-4">
-                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                        <i class="fas fa-magic text-teal-500 text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold text-slate-700" data-i18n="service1">Blanqueamiento</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                        <i class="fas fa-fill-drip text-blue-500 text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold text-slate-700" data-i18n="service2">Resinas</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                        <i class="fas fa-crown text-purple-500 text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold text-slate-700" data-i18n="service3">Coronas</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-50">
-                        <i class="fas fa-screw text-indigo-500 text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold text-slate-700" data-i18n="service4">Implantes</p>
-                    </div>
+            
+            <section class="bg-slate-50 p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                <p class="text-slate-500 text-sm mb-3 font-medium" data-i18n="followUs">Síguenos en nuestras redes sociales para conocer nuestro trabajo</p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/p/Clinica-Dental-Dr-Santos-61583280543596/" target="_blank" class="w-12 h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-xl shadow-md hover:scale-105 transition-transform">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dr.sebastiansantos" target="_blank" class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center text-xl shadow-md hover:scale-105 transition-transform">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </section>
         </div>
     </div>
+    
+    <section class="py-10 bg-slate-100 rounded-3xl my-12">
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-8" data-i18n="servicesTitle">Nuestros Servicios</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-4xl mx-auto">
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-tooth text-teal-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvLimpieza">Limpiezas dentales</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-teeth text-red-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvExtracciones">Extracciones</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-grin-beam text-blue-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvOrtodoncia">Ortodoncia (Brackets)</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-band-aid text-orange-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvCuraciones">Curaciones</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-fill-drip text-purple-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvResinas">Resinas</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-magic text-yellow-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvBlanqueamiento">Blanqueamiento</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-screwdriver text-slate-600 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvImplantes">Implantes</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-sm border border-slate-50">
+                <i class="fas fa-smile-beam text-pink-500 text-2xl mb-2"></i>
+                <p class="text-sm font-semibold text-slate-700" data-i18n="srvSonrisa">Diseño de sonrisa</p>
+            </div>
+        </div>
+    </section>
     
     <section id="mapSection" class="py-12">
         <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="mapTitle">Ubicación</h2>
         <div class="w-full h-64 rounded-xl overflow-hidden shadow-md border border-slate-200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <p class="text-center text-sm text-slate-500 mt-3 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315. (Estacionamiento disponible)</p>
+        <p class="text-center text-sm text-slate-500 mt-3 px-4" data-i18n="mapDescription">Av. Plutarco Elías Calles 315, Colegio, 32340 Juárez, Chih.</p>
     </section>
 
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="faqTitle">Preguntas</h2>
+        <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="faqTitle">Preguntas y Formas de Pago</h2>
         <div class="space-y-3">
+            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
+                    <span data-i18n="faqQ4">¿Formas de Pago?</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
+                </summary>
+                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA4"></div>
+            </details>
             <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
                 <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
                     <span data-i18n="faqQ1">¿Materiales?</span>
@@ -260,13 +299,6 @@
                 </summary>
                 <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA3"></div>
             </details>
-            <details class="group bg-white rounded-xl shadow-sm border border-slate-100">
-                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-slate-700">
-                    <span data-i18n="faqQ4">¿Pagos?</span>
-                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-teal-500"></i></span>
-                </summary>
-                <div class="text-slate-600 px-4 pb-4 text-sm" data-i18n="faqA4"></div>
-            </details>
         </div>
     </section>
 
@@ -274,7 +306,7 @@
 
   <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
       <div class="container mx-auto px-6">
-          <p class="text-white font-bold text-lg mb-2" data-i18n="clinicNameFooter">Dr. Santos</p>
+          <p class="text-white font-bold text-lg mb-2" data-i18n="clinicNameFooter">Dr. Santos Clínica Dental</p>
           <p class="mb-4">Av. Plutarco Elías Calles 315</p>
           <p class="text-xs">© <span id="currentYear"></span> Todos los derechos reservados.</p>
       </div>
@@ -306,20 +338,40 @@
     const translations = {
       es: {
         "schedulePageTitle": "Agenda tu <span class='text-teal-600'>Valoración</span>",
-        "schedulePageSubtitle": "Tu salud bucal es nuestra prioridad. Atención experta en Ciudad Juárez.",
+        "schedulePageSubtitle": "Nos especializamos en el cuidado y transformación de tu salud dental. Combinamos tecnología avanzada y atención cálida para ofrecerte una experiencia cómoda, segura y resultados de calidad.",
+        "onlyAppointment": "* Solamente Previa Cita",
         "btnWhatsapp": "WhatsApp Directo",
         "btnCall": "Llamar Ahora",
         "formTitle": "Solicitud de Cita",
-        "formSubtitle": "Te confirmaremos por WhatsApp.",
-        "servicesTitle": "Servicios",
-        "service1": "Blanqueamiento",
-        "service2": "Resinas",
-        "service3": "Coronas",
-        "service4": "Implantes",
+        "formSubtitle": "Te confirmaremos por WhatsApp/Llamada.",
+        "servicesTitle": "Nuestros Servicios",
+        
+        // SERVICIOS FLYER
+        "srvLimpieza": "Limpiezas dentales",
+        "srvExtracciones": "Extracciones",
+        "srvOrtodoncia": "Ortodoncia (Brackets)",
+        "srvCuraciones": "Curaciones",
+        "srvResinas": "Resinas",
+        "srvBlanqueamiento": "Blanqueamiento",
+        "srvImplantes": "Implantes",
+        "srvSonrisa": "Diseño de sonrisa",
+        
+        // SELECT FORM
+        "selectReason": "Selecciona...",
+        "optionLimpiezas": "Limpiezas dentales",
+        "optionExtracciones": "Extracciones",
+        "optionOrtodoncia": "Ortodoncia (Brackets)",
+        "optionCuraciones": "Curaciones",
+        "optionResinas": "Resinas",
+        "optionBlanqueamiento": "Blanqueamiento",
+        "optionImplantes": "Implantes",
+        "optionSonrisa": "Diseño de sonrisa",
+        "optionUrgencia": "Tengo Dolor / Urgencia",
+        
         "faqA1": "Usamos implantes de titanio premium y porcelanas certificadas para máxima duración.",
         "faqA2": "Diagnóstico completo, fotos digitales y plan de tratamiento transparente.",
         "faqA3": "Te damos la documentación para tu reembolso en EE. UU.",
-        "faqA4": "Efectivo, Visa, Mastercard y planes de pago.",
+        "faqA4": "Efectivo, Débito/Crédito, y Transferencia. Pregunta por nuestra flexibilidad de pagos.",
         "titleSchedulePage": "Agenda tu Valoración | Dr. Santos",
         "navHome": "Inicio",
         "navImplants": "Implantes",
@@ -330,42 +382,57 @@
         "nameLabel": "Nombre",
         "phoneLabel": "Teléfono",
         "reasonLabel": "Motivo",
-        "selectReason": "Selecciona...",
-        "optionRehabilitacion": "Implantes Dentales",
-        "optionEstetica": "Carillas / Diseño Sonrisa",
-        "optionOrtodoncia": "Brackets / Ortodoncia",
-        "optionValoracion": "Valoración General",
-        "optionUrgencia": "Tengo Dolor / Urgencia",
-        "optionBlanqueamiento": "⭐ Promo: Blanqueamiento + Limpieza",
         "submitBtn": "Enviar Solicitud",
         "mapTitle": "Ubicación",
-        "mapDescription": "Av. Plutarco Elías Calles 315. (Estacionamiento disponible)",
-        "faqTitle": "Preguntas",
+        "mapDescription": "Av. Plutarco Elías Calles 315, Colegio, 32340 Juárez, Chih.",
+        "faqTitle": "Preguntas y Formas de Pago",
         "faqQ1": "¿Materiales?",
         "faqQ2": "¿Primera cita?",
         "faqQ3": "¿Seguros USA?",
-        "faqQ4": "¿Pagos?",
+        "faqQ4": "¿Formas de Pago?",
         "uacjTitle": "Excelencia Académica",
         "uacjDesc": "Todo nuestro personal médico es orgullosamente egresado de la Universidad Autónoma de Ciudad Juárez (UACJ), garantizando atención profesional y ética.",
+        "followUs": "Síguenos en nuestras redes sociales para conocer nuestro trabajo",
         "btnPopupWhatsapp": "Agendar por WhatsApp",
-        "btnClosePopup": "Cerrar"
+        "btnClosePopup": "Cerrar",
+        "clinicNameFooter": "Dr. Santos Clínica Dental"
       },
       en: {
         "schedulePageTitle": "Book Your <span class='text-teal-600'>Check-up</span>",
-        "schedulePageSubtitle": "Expert dental care in Ciudad Juárez. Your smile is our priority.",
+        "schedulePageSubtitle": "We specialize in the care and transformation of your dental health. We combine advanced technology and warm care to offer you a comfortable, safe experience and quality results.",
+        "onlyAppointment": "* By Appointment Only",
         "btnWhatsapp": "WhatsApp Us",
         "btnCall": "Call Now",
         "formTitle": "Appointment Request",
-        "formSubtitle": "We will confirm via WhatsApp.",
-        "servicesTitle": "Services",
-        "service1": "Whitening",
-        "service2": "Fillings",
-        "service3": "Crowns",
-        "service4": "Implants",
+        "formSubtitle": "We will confirm via WhatsApp/Call.",
+        "servicesTitle": "Our Services",
+        
+        // SERVICIOS FLYER
+        "srvLimpieza": "Dental Cleanings",
+        "srvExtracciones": "Extractions",
+        "srvOrtodoncia": "Orthodontics (Braces)",
+        "srvCuraciones": "Healings",
+        "srvResinas": "Fillings",
+        "srvBlanqueamiento": "Whitening",
+        "srvImplantes": "Implants",
+        "srvSonrisa": "Smile Design",
+        
+        // SELECT FORM
+        "selectReason": "Select...",
+        "optionLimpiezas": "Dental Cleanings",
+        "optionExtracciones": "Extractions",
+        "optionOrtodoncia": "Orthodontics (Braces)",
+        "optionCuraciones": "Healings",
+        "optionResinas": "Fillings",
+        "optionBlanqueamiento": "Whitening",
+        "optionImplantes": "Implants",
+        "optionSonrisa": "Smile Design",
+        "optionUrgencia": "Pain / Emergency",
+        
         "faqA1": "We use premium titanium implants and certified porcelains for maximum durability.",
         "faqA2": "Complete diagnosis, digital photos, and a transparent treatment plan.",
         "faqA3": "We provide documentation for your US insurance reimbursement.",
-        "faqA4": "Cash, Visa, Mastercard, and payment plans.",
+        "faqA4": "Cash, Debit/Credit, and Bank Transfer. Ask about our flexible payment options.",
         "titleSchedulePage": "Book Now | Dr. Santos",
         "navHome": "Home",
         "navImplants": "Implants",
@@ -376,25 +443,20 @@
         "nameLabel": "Name",
         "phoneLabel": "Phone",
         "reasonLabel": "Reason",
-        "selectReason": "Select...",
-        "optionRehabilitacion": "Dental Implants",
-        "optionEstetica": "Veneers / Smile Design",
-        "optionOrtodoncia": "Brackets / Ortho",
-        "optionValoracion": "Check-up",
-        "optionUrgencia": "Pain / Emergency",
-        "optionBlanqueamiento": "⭐ Promo: Whitening + Cleaning",
         "submitBtn": "Send Request",
         "mapTitle": "Location",
-        "mapDescription": "Av. Plutarco Elías Calles 315. (Parking available)",
-        "faqTitle": "Questions",
+        "mapDescription": "Av. Plutarco Elías Calles 315, Colegio, 32340 Juárez, Chih.",
+        "faqTitle": "Questions & Payment Methods",
         "faqQ1": "Materials?",
         "faqQ2": "First visit?",
         "faqQ3": "US Insurance?",
-        "faqQ4": "Payments?",
+        "faqQ4": "Payment Methods?",
         "uacjTitle": "Academic Excellence",
         "uacjDesc": "All our medical staff are proud graduates of the Universidad Autónoma de Ciudad Juárez (UACJ), ensuring professional and ethical care.",
+        "followUs": "Follow us on our social networks to see our work",
         "btnPopupWhatsapp": "Book via WhatsApp",
-        "btnClosePopup": "Close"
+        "btnClosePopup": "Close",
+        "clinicNameFooter": "Dr. Santos Dental Clinic"
       }
     };
 
@@ -422,9 +484,9 @@
       }
 
       // Mostrar promo después de 2.5 seg
-      if (!sessionStorage.getItem('promoShown2500_v4')) {
+      if (!sessionStorage.getItem('promoShown2500_v5')) {
           setTimeout(showPopup, 2500);
-          sessionStorage.setItem('promoShown2500_v4', 'true');
+          sessionStorage.setItem('promoShown2500_v5', 'true');
       }
       
       closePopupBtn.addEventListener('click', hidePopup);
