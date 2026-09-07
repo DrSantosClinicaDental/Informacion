@@ -3,21 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- SEO y Relevancia para Google Ads -->
-  <meta name="description" content="Dentista en Ciudad Juárez especializado en implantes dentales. Agenda tu valoración en nuestra clínica dental cerca de ti.">
-  <title data-i18n="titleHomePage">Implantes Dentales en Cd. Juárez | Dr. Santos Clínica Dental</title>
+  <title data-i18n="titleHomePage">Inicio | Dr. Santos Clínica Dental</title>
   
-  <!-- Preconnect para acelerar fuentes -->
+  <!-- Tailwind CSS para carga rápida y diseño responsivo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Carga asíncrona de FontAwesome para mejorar PageSpeed -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Etiquetas de Google Ads (Intactas para mantener medición) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17076577011"></script>
@@ -55,6 +49,7 @@
   </script>
 
   <style>
+    /* VARIABLES Y COMPORTAMIENTO MÓVIL OPTIMIZADO */
     :root {
       --color-primario: #0d9488;
       --color-fondo: #f8fafc;
@@ -63,13 +58,17 @@
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       background-color: var(--color-fondo);
-      overscroll-behavior-y: none;
+      overscroll-behavior-y: none; /* Previene rebotes extraños en móviles */
     }
+    
+    /* Scroll limpio */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
     .gradient-bg {
       background: linear-gradient(135deg, #0d9488, #14b8a6);
     }
+    
     .fade-enter {
       opacity: 0;
       transform: translateY(10px);
@@ -78,10 +77,13 @@
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    /* Previene zoom al enfocar inputs en iOS */
     input, select, textarea, button {
         touch-action: manipulation;
         font-size: 16px !important; 
     }
+    
     .nav-pill.active {
         background-color: #0f766e;
         color: white;
@@ -96,8 +98,7 @@
   <header id="mainHeader" class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100">
     <div class="container mx-auto px-4 pt-3 pb-2">
         <div class="flex justify-between items-center mb-3">
-            <!-- Atributo fetchpriority para LCP -->
-            <img src="logo.png" alt="Dr. Santos Dentista en Cd. Juárez" fetchpriority="high" class="h-10 md:h-14 w-auto" onerror="this.alt='Dr. Santos'">
+            <img src="logo.png" alt="Dr. Santos" class="h-10 md:h-14 w-auto" onerror="this.alt='Dr. Santos'">
             <a href="#mapSection" class="text-xs font-medium text-slate-500 flex items-center bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
                 <i class="fas fa-map-marker-alt text-teal-600 mr-1.5"></i>
                 <span data-i18n="clinicLocationShort">Cd. Juárez</span>
@@ -115,16 +116,17 @@
 
   <main class="container mx-auto px-4 md:px-6 pt-8 md:pt-10 max-w-5xl">
     
+    <!-- HEADER Y LLAMADO A LA ACCIÓN PRINCIPAL (Sin distracciones) -->
     <section class="text-center mb-8 fade-enter">
       <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="homePageTitle">
-        Especialistas en <span class="text-teal-600">Implantes Dentales</span>
+        Tu mejor sonrisa <span class="text-teal-600">comienza aquí</span>
       </h1>
       <p class="text-slate-600 text-sm md:text-base max-w-lg mx-auto mb-5" data-i18n="homePageSubtitle">
-        Clínica dental en Ciudad Juárez. Recupera tu sonrisa con implantes seguros y atención de alta calidad cerca de ti.
+        Atención dental de alta calidad en Ciudad Juárez. Cómoda, segura y enfocada en tus necesidades.
       </p>
       
       <div class="flex flex-col gap-3 max-w-sm mx-auto">
-        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración%20para%20implantes." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95">
+        <a href="https://wa.me/5216147804673?text=Hola,%20quisiera%20agendar%20una%20cita%20de%20valoración." onclick="gtag_report_whatsapp_conversion();" target="_blank" class="w-full bg-[#25D366] active:bg-[#1ebc57] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-transform active:scale-95">
           <i class="fab fa-whatsapp text-2xl"></i>
           <span data-i18n="btnWhatsapp">Agendar por WhatsApp</span>
         </a>
@@ -135,11 +137,86 @@
       </div>
     </section>
 
-    <!-- Imagen optimizada a SVG y alt tag con palabras clave -->
+    <!-- Imagen Promocional Estática -->
     <section class="mb-10 flex justify-center fade-enter">
-        <img src="PopUp.svg" alt="Promoción Implantes Dentales en Ciudad Juárez" class="w-full max-w-md aspect-square object-cover rounded-2xl shadow-lg border border-slate-100">
+        <img src="PopUp.png" alt="Promoción Especial" class="w-full max-w-md aspect-square object-cover rounded-2xl shadow-lg border border-slate-100">
     </section>
 
+    <!-- BARRA DE SERVICIOS (Estilo basado en la imagen) -->
+    <section class="mb-14 max-w-5xl mx-auto fade-enter">
+        <!-- Encabezado con línea -->
+        <div class="relative flex items-center justify-center mb-8">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t-[1.5px] border-[#003355]"></div>
+            </div>
+            <div class="relative bg-[#003355] text-white font-bold text-sm md:text-lg px-6 md:px-8 py-2 md:py-2.5 rounded-lg uppercase tracking-wider">
+                <span data-i18n="servicesTitleHeader">Nuestros Servicios</span>
+            </div>
+        </div>
+
+        <!-- Grid de Servicios (4 columnas en móvil, 8 en desktop) -->
+        <div class="grid grid-cols-4 lg:grid-cols-8 gap-y-8">
+            <!-- 1. Limpiezas dentales -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-tooth text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvLimpieza">Limpiezas dentales</p>
+            </div>
+            <!-- 2. Extracciones -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-teeth text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvExtracciones">Extracciones</p>
+            </div>
+            <!-- 3. Ortodoncia -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-teeth-open text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvOrtodoncia">Ortodoncia<br>(Brackets)</p>
+            </div>
+            <!-- 4. Curaciones -->
+            <!-- En móvil no lleva borde derecho para no cortar la cuadrícula, en escritorio sí -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r-0 lg:border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-band-aid text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvCuraciones">Curaciones</p>
+            </div>
+            <!-- 5. Resinas -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-fill-drip text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvResinas">Resinas</p>
+            </div>
+            <!-- 6. Blanqueamiento -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-magic text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvBlanqueamiento">Blanqueamiento</p>
+            </div>
+            <!-- 7. Implantes -->
+            <div class="flex flex-col items-center justify-start text-center px-1 border-r border-[#003355]/20">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-tooth text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvImplantes">Implantes</p>
+            </div>
+            <!-- 8. Diseño de sonrisa -->
+            <div class="flex flex-col items-center justify-start text-center px-1">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border-[1.5px] border-[#003355] flex items-center justify-center mb-2 text-[#003355]">
+                    <i class="fas fa-smile-beam text-lg md:text-2xl"></i>
+                </div>
+                <p class="text-[10px] md:text-xs font-semibold text-[#003355] leading-tight" data-i18n="srvSonrisa">Diseño de sonrisa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DIRECTO Y CONFIANZA -->
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12">
         
         <section id="formSection" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-100">
@@ -148,8 +225,8 @@
                     <i class="far fa-calendar-check text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="text-lg font-bold text-slate-800" data-i18n="formTitle">Agenda tu valoración</h2>
-                    <p class="text-xs text-slate-500" data-i18n="formSubtitle">Déjanos tus datos y te contactaremos rápido.</p>
+                    <h2 class="text-lg font-bold text-slate-800" data-i18n="formTitle">Déjanos tus datos</h2>
+                    <p class="text-xs text-slate-500" data-i18n="formSubtitle">Nos pondremos en contacto contigo rápido.</p>
                 </div>
             </div>
 
@@ -170,11 +247,13 @@
                     <div class="relative">
                         <select id="motivo" name="motivo" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition-all text-base appearance-none text-slate-600" required>
                             <option value="" disabled selected data-i18n="selectReason">¿En qué te podemos ayudar?</option>
-                            <option value="Implantes" data-i18n="optionImplantes">Implantes Dentales</option>
                             <option value="Limpiezas dentales" data-i18n="optionLimpiezas">Limpieza dental</option>
                             <option value="Dolor / Urgencia" data-i18n="optionUrgencia">Tengo dolor (Urgencia)</option>
                             <option value="Extracciones" data-i18n="optionExtracciones">Extracción</option>
+                            <option value="Ortodoncia (Brackets)" data-i18n="optionOrtodoncia">Brackets / Ortodoncia</option>
                             <option value="Resinas" data-i18n="optionResinas">Resinas / Empastes</option>
+                            <option value="Blanqueamiento" data-i18n="optionBlanqueamiento">Blanqueamiento</option>
+                            <option value="Implantes" data-i18n="optionImplantes">Implantes</option>
                             <option value="Revisión General">Revisión General</option>
                         </select>
                         <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
@@ -212,6 +291,7 @@
         </div>
     </div>
     
+    <!-- PREGUNTAS FRECUENTES SIMPLIFICADAS -->
     <section class="mb-12 max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold text-center text-slate-800 mb-6" data-i18n="faqTitle">Preguntas Frecuentes</h2>
         <div class="space-y-3">
@@ -239,8 +319,9 @@
         </div>
     </section>
 
+    <!-- MAPA -->
     <section id="mapSection" class="py-6">
-        <h2 class="text-xl font-bold text-center text-slate-800 mb-4" data-i18n="mapTitle">Dentista cerca de mi ubicación</h2>
+        <h2 class="text-xl font-bold text-center text-slate-800 mb-4" data-i18n="mapTitle">Encuéntranos Fácilmente</h2>
         <div class="w-full h-56 rounded-xl overflow-hidden shadow-sm border border-slate-200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.830349896716!2d-106.4524458848439!3d31.7479812812957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75ea01931086b%3A0x63344a5382346618!2sAv.%20Plutarco%20El%C3%ADas%20Calles%20315%2C%20Progresista%2C%2032330%20Cd%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1693000000000!5m2!1ses-419!2smx" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -261,22 +342,33 @@
   </button>
 
   <script>
-    // Objeto de traducciones ajustado exclusivamente a las palabras clave que generan clics e impresiones
     const translations = {
       es: {
-        "titleHomePage": "Implantes Dentales en Cd. Juárez | Dr. Santos Clínica Dental",
-        "homePageTitle": "Especialistas en <span class='text-teal-600'>Implantes Dentales</span>",
-        "homePageSubtitle": "Clínica dental en Ciudad Juárez. Recupera tu sonrisa con implantes seguros y atención de alta calidad cerca de ti.",
+        "homePageTitle": "Tu mejor sonrisa <span class='text-teal-600'>comienza aquí</span>",
+        "homePageSubtitle": "Atención dental de alta calidad en Ciudad Juárez. Cómoda, segura y enfocada en tus necesidades.",
         "btnWhatsapp": "Agendar por WhatsApp",
         "btnCall": "Llamar a la Clínica",
-        "formTitle": "Agenda tu valoración",
-        "formSubtitle": "Déjanos tus datos y te contactaremos rápido.",
+        
+        "servicesTitleHeader": "NUESTROS SERVICIOS",
+        "srvLimpieza": "Limpiezas dentales",
+        "srvExtracciones": "Extracciones",
+        "srvOrtodoncia": "Ortodoncia<br>(Brackets)",
+        "srvCuraciones": "Curaciones",
+        "srvResinas": "Resinas",
+        "srvBlanqueamiento": "Blanqueamiento",
+        "srvImplantes": "Implantes",
+        "srvSonrisa": "Diseño de sonrisa",
+        
+        "formTitle": "Déjanos tus datos",
+        "formSubtitle": "Nos pondremos en contacto contigo rápido.",
         "selectReason": "¿En qué te podemos ayudar?",
         "optionLimpiezas": "Limpieza dental",
         "optionUrgencia": "Tengo dolor (Urgencia)",
         "optionExtracciones": "Extracción",
+        "optionOrtodoncia": "Brackets / Ortodoncia",
         "optionResinas": "Resinas / Empastes",
-        "optionImplantes": "Implantes Dentales",
+        "optionBlanqueamiento": "Blanqueamiento",
+        "optionImplantes": "Implantes",
         "submitBtn": "Enviar Solicitud",
         "uacjTitle": "Atención Profesional",
         "uacjDesc": "Médicos egresados de la UACJ. Te explicamos cada paso de tu tratamiento con total transparencia y honestidad para tu tranquilidad.",
@@ -285,10 +377,10 @@
         "faqQ4": "¿Qué formas de pago aceptan?",
         "faqA4": "Aceptamos Efectivo, Tarjetas y Transferencias bancarias. También facilitamos papelería para seguros de USA.",
         "faqQ1": "¿Tienen opciones para mi presupuesto?",
-        "faqA1": "Sí, utilizamos materiales modernos y seguros. Contamos con diferentes opciones de tratamiento para que elijas la que mejor se adapte a tu bolsillo sin sacrificar calidad.",
+        "faqA1": "Sí, utilizamos materiales modernos y seguros. Contamos con diferentes opciones de tratamiento para que elijas la que mejor se adapte a tu bolsillo sin sacrificar calidad ni estética.",
         "faqQ2": "¿Qué incluye mi primera visita?",
         "faqA2": "Una revisión completa para entender tu caso. Te daremos un diagnóstico claro y un plan de tratamiento honesto, explicando los costos desde el primer día.",
-        "mapTitle": "Dentista cerca de mi ubicación",
+        "mapTitle": "Encuéntranos Fácilmente",
         "mapDescription": "Av. Plutarco Elías Calles 315, Progresista, Cd Juárez, Chih.",
         "navHome": "Inicio",
         "navImplants": "Implantes",
@@ -296,19 +388,31 @@
         "clinicNameFooter": "Dr. Santos Clínica Dental"
       },
       en: {
-        "titleHomePage": "Dental Implants in Cd. Juarez | Dr. Santos Dental Clinic",
-        "homePageTitle": "Specialists in <span class='text-teal-600'>Dental Implants</span>",
-        "homePageSubtitle": "Dental clinic in Ciudad Juarez. Recover your smile with safe implants and high-quality care near you.",
+        "homePageTitle": "Your best smile <span class='text-teal-600'>starts here</span>",
+        "homePageSubtitle": "High-quality dental care in Ciudad Juarez. Comfortable, safe, and focused on your needs.",
         "btnWhatsapp": "Book via WhatsApp",
         "btnCall": "Call Clinic",
-        "formTitle": "Schedule your assessment",
-        "formSubtitle": "Leave your details and we will contact you quickly.",
+        
+        "servicesTitleHeader": "OUR SERVICES",
+        "srvLimpieza": "Dental Cleanings",
+        "srvExtracciones": "Extractions",
+        "srvOrtodoncia": "Orthodontics<br>(Braces)",
+        "srvCuraciones": "Healings",
+        "srvResinas": "Fillings",
+        "srvBlanqueamiento": "Whitening",
+        "srvImplantes": "Implants",
+        "srvSonrisa": "Smile Design",
+        
+        "formTitle": "Leave your details",
+        "formSubtitle": "We will get back to you quickly.",
         "selectReason": "How can we help you?",
         "optionLimpiezas": "Dental Cleaning",
         "optionUrgencia": "I have pain (Emergency)",
         "optionExtracciones": "Extraction",
+        "optionOrtodoncia": "Braces / Orthodontics",
         "optionResinas": "Fillings",
-        "optionImplantes": "Dental Implants",
+        "optionBlanqueamiento": "Whitening",
+        "optionImplantes": "Implants",
         "submitBtn": "Send Request",
         "uacjTitle": "Professional Care",
         "uacjDesc": "We explain every step of your treatment with total transparency and honesty for your peace of mind.",
@@ -320,7 +424,7 @@
         "faqA1": "Yes, we use modern and safe materials. We have different treatment options so you can choose what best fits your budget without sacrificing quality.",
         "faqQ2": "What does my first visit include?",
         "faqA2": "A complete check-up to understand your case. We will give you a clear diagnosis and an honest treatment plan, explaining costs from day one.",
-        "mapTitle": "Dentist near my location",
+        "mapTitle": "Find Us Easily",
         "mapDescription": "Av. Plutarco Elías Calles 315, Progresista, Cd Juarez, Chih.",
         "navHome": "Home",
         "navImplants": "Implants",
